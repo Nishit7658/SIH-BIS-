@@ -1,0 +1,31 @@
+/* Indic & Multilingual Font Stacks for BIS Smart Digital Expert */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-space-grotesk: 'Space Grotesk', var(--font-inter), sans-serif;
+  --font-noto-devanagari: 'Noto Sans Devanagari', var(--font-inter), sans-serif;
+  --font-noto-tamil: 'Noto Sans Tamil', var(--font-inter), sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Script specific adjustments */
+[lang="hi"], [lang="mr"], .font-devanagari {
+  font-family: var(--font-noto-devanagari);
+  line-height: 1.75 !important;
+  letter-spacing: 0.01em;
+}
+
+[lang="ta"], .font-tamil {
+  font-family: var(--font-noto-tamil);
+  line-height: 1.8 !important;
+  letter-spacing: 0.015em;
+}
+
+.font-display {
+  font-family: var(--font-space-grotesk);
+}
+
+.font-body {
+  font-family: var(--font-inter);
+}

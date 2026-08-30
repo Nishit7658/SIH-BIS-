@@ -1,0 +1,33 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing & Eval outputs
+/coverage
+
+# Next.js build output
+/.next/
+/out/
+
+# Production
+/build
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment variables
+.env*.local
+.env
+
+# System & IDE files
+.DS_Store
+*.pem
+.vscode
+.idea
+
+# Antigravity artifacts / logs
+.system_generated

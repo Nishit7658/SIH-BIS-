@@ -1,0 +1,152 @@
+[
+  {
+    "id": "EVAL-001",
+    "standard": "IS 1293:2019",
+    "title": "Plugs and Socket-Outlets of Rated Voltage up to and including 250 Volts",
+    "question": "What is the maximum rated current and voltage covered under IS 1293:2019?",
+    "expected_answer_contains": ["250 V", "16 A", "plugs and socket-outlets"],
+    "expected_citations": ["IS 1293:2019 Clause 1.1", "IS 1293:2019 Clause 5.1"],
+    "category": "Scope & Ratings",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-002",
+    "standard": "IS 1293:2019",
+    "title": "Plugs and Socket-Outlets",
+    "question": "Are 2-pin plugs without earthing contact allowed for rating 16A under IS 1293:2019?",
+    "expected_answer_contains": ["not permitted", "earthing contact mandatory", "6A only for non-earthed"],
+    "expected_citations": ["IS 1293:2019 Clause 6.1", "IS 1293:2019 Clause 9.1"],
+    "category": "Classification & Safety",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-003",
+    "standard": "IS 302-1:2008",
+    "title": "Safety of Household and Similar Electrical Appliances",
+    "question": "What is the leakage current limit for Class I portable appliances during normal operation in IS 302-1?",
+    "expected_answer_contains": ["0.75 mA", "leakage current"],
+    "expected_citations": ["IS 302-1 Clause 13.2", "IS 302-1 Clause 16.2"],
+    "category": "Electrical Safety Tests",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-004",
+    "standard": "IS 694:2010",
+    "title": "PVC Insulated Cables for Working Voltages up to and including 1100 V",
+    "question": "What is the maximum conductor operating temperature for general purpose PVC insulated cables under IS 694?",
+    "expected_answer_contains": ["70°C", "70 degrees Celsius"],
+    "expected_citations": ["IS 694:2010 Table 1", "IS 694:2010 Clause 4.2"],
+    "category": "Conductor Properties",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-005",
+    "standard": "IS 14534:1998",
+    "title": "Guidelines for Recovery and Recycling of Plastics Waste",
+    "question": "What symbol and numbering code is designated for Polyethylene Terephthalate (PET) recycling under IS 14534?",
+    "expected_answer_contains": ["Code 1", "PET", "PETE", "triangle with arrows"],
+    "expected_citations": ["IS 14534:1998 Table 1", "IS 14534:1998 Clause 5.1"],
+    "category": "Plastics Identification",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-006",
+    "standard": "IS 16046 (Part 1):2018",
+    "title": "Secondary Cells and Batteries Containing Alkaline or Other Non-Acid Electrolytes (Nickel Systems)",
+    "question": "Which scheme does IS 16046 fall under for mandatory certification: ISI Mark (Scheme I) or Compulsory Registration Scheme (CRS)?",
+    "expected_answer_contains": ["Compulsory Registration Scheme", "CRS", "MeitY QCO"],
+    "expected_citations": ["CRO Order 2012 / MeitY", "IS 16046 (Part 1):2018 Clause 1"],
+    "category": "Certification Schemes",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-007",
+    "standard": "IS 15652:2006",
+    "title": "Insulating Mats for Electrical Purposes",
+    "question": "What are the thickness requirements and voltage ratings for Class A insulating mats under IS 15652?",
+    "expected_answer_contains": ["2.0 mm", "3.3 kV working voltage", "test voltage 30 kV"],
+    "expected_citations": ["IS 15652:2006 Table 1", "IS 15652:2006 Clause 6.2"],
+    "category": "Insulating Standards",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-008",
+    "standard": "Out-of-Scope / General Law",
+    "title": "Abstain Test - Vehicle Traffic Fine",
+    "question": "What is the penalty under Section 194D of the Motor Vehicles Act for riding without a helmet?",
+    "expected_answer_contains": [],
+    "expected_citations": [],
+    "category": "Abstention Verification",
+    "must_abstain": true
+  },
+  {
+    "id": "EVAL-009",
+    "standard": "Out-of-Scope / Medical Prescription",
+    "title": "Abstain Test - Drug Dosage",
+    "question": "What is the dosage of Paracetamol 500mg for a child weighing 20kg?",
+    "expected_answer_contains": [],
+    "expected_citations": [],
+    "category": "Abstention Verification",
+    "must_abstain": true
+  },
+  {
+    "id": "EVAL-010",
+    "standard": "IS 269:2015",
+    "title": "Ordinary Portland Cement Specification",
+    "question": "What is the minimum 28-day compressive strength for 53 Grade Ordinary Portland Cement under IS 269:2015?",
+    "expected_answer_contains": ["53 MPa", "53 N/mm²"],
+    "expected_citations": ["IS 269:2015 Table 2", "IS 269:2015 Clause 6.1"],
+    "category": "Civil & Construction",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-011",
+    "standard": "IS 4984:2016",
+    "title": "High Density Polyethylene (HDPE) Pipes for Water Supply",
+    "question": "What hydrostatic test pressure is specified for PE 100 pipes at 20°C for 100 hours in IS 4984?",
+    "expected_answer_contains": ["12.4 MPa", "hydrostatic strength"],
+    "expected_citations": ["IS 4984:2016 Table 4", "IS 4984:2016 Clause 8.1"],
+    "category": "Piping & Water Supply",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-012",
+    "standard": "IS 13252 (Part 1):2010",
+    "title": "Information Technology Equipment - Safety",
+    "question": "What is the requirement for creepage distances and clearances for SELV circuits in IS 13252 (Part 1)?",
+    "expected_answer_contains": ["SELV", "Clause 2.10", "clearance distance"],
+    "expected_citations": ["IS 13252 (Part 1):2010 Clause 2.10", "IS 13252 (Part 1):2010 Table 2N"],
+    "category": "Electronics & IT Safety",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-013",
+    "standard": "IS 1060 (Part 1):1966",
+    "title": "Methods of Sampling and Test for Paper and Allied Products",
+    "question": "What standard atmosphere is prescribed for conditioning paper test specimens under IS 1060 (Part 1)?",
+    "expected_answer_contains": ["27 ± 2°C", "65 ± 5 percent relative humidity"],
+    "expected_citations": ["IS 1060 (Part 1):1966 Clause 4.1"],
+    "category": "Paper Testing",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-014",
+    "standard": "IS 15885 (Part 2/Sec 13):2012",
+    "title": "Lamp Controlgear - Electronic Controlgear for LED Modules",
+    "question": "What is the insulation resistance requirement between live parts and the body in IS 15885?",
+    "expected_answer_contains": ["not less than 2 MΩ", "500 V d.c."],
+    "expected_citations": ["IS 15885 (Part 2/Sec 13):2012 Clause 11"],
+    "category": "Lighting & LED Drivers",
+    "must_abstain": false
+  },
+  {
+    "id": "EVAL-015",
+    "standard": "IS 9873 (Part 1):2019",
+    "title": "Safety Aspects Related to Mechanical and Physical Properties of Toys",
+    "question": "What is the small parts cylinder dimension used for choking hazard tests for toys meant for children under 36 months?",
+    "expected_answer_contains": ["31.7 mm diameter", "57.1 mm length", "Clause 5.1"],
+    "expected_citations": ["IS 9873 (Part 1):2019 Clause 5.1", "IS 9873 (Part 1):2019 Figure 1"],
+    "category": "Toy Safety QCO",
+    "must_abstain": false
+  }
+]
