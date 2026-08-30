@@ -1,20 +1,51 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useApp } from "@/context/AppContext";
 import { ShieldCheck, Lock, Check, Eye, Trash2, X } from "lucide-react";
 
 export function DpdpConsentModal() {
   const { dpdpConsentAccepted, acceptDpdpConsent, t, dataRetentionDays, setDataRetentionDays } = useApp();
   const [showPreferences, setShowPreferences] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-  if (dpdpConsentAccepted) return null;
+  useEffect(() => {
+    if (!dpdpConsentAccepted) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [dpdpConsentAccepted]);
+
+  const handleDismiss = () => {
+    setIsVisible(false);
+    acceptDpdpConsent();
+  };
+
+  if (!isVisible || dpdpConsentAccepted) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-      <div className="bg-white rounded-2xl shadow-2xl border border-bis-border max-w-xl w-full p-6 text-bis-text-primary">
-        <div className="flex items-center gap-3 mb-3">
-          <div className="w-10 h-10 rounded-xl bg-bis-blue-soft text-bis-blue flex items-center justify-center font-bold">
+    <div
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-150"
+      onClick={handleDismiss}
+    >
+      <div
+        className="bg-white rounded-2xl shadow-2xl border border-bis-border max-w-xl w-full p-6 text-bis-text-primary relative z-10 animate-in zoom-in-95 duration-150"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Top Close Button */}
+        <button
+          type="button"
+          onClick={handleDismiss}
+          className="absolute top-4 right-4 p-1.5 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+          title="Close"
+          aria-label="Close modal"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <div className="flex items-center gap-3 mb-3 pr-8">
+          <div className="w-10 h-10 rounded-xl bg-bis-blue-soft text-bis-blue flex items-center justify-center font-bold shrink-0">
             <ShieldCheck className="w-6 h-6" />
           </div>
           <div>
@@ -28,7 +59,7 @@ export function DpdpConsentModal() {
           We respect your privacy: no commercial tracking, no selling of business specs, and zero long-term storage of proprietary drawings without explicit consent.
         </p>
 
-        {showPreferences ? (
+        {showPreferences && (
           <div className="bg-bis-canvas p-4 rounded-xl border border-bis-border mb-4 text-xs space-y-3">
             <div className="flex items-center justify-between">
               <div>
@@ -49,10 +80,11 @@ export function DpdpConsentModal() {
               <Lock className="w-4 h-4" /> Anonymized & Isolated Sandboxed Processing
             </div>
           </div>
-        ) : null}
+        )}
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
           <button
+            type="button"
             onClick={() => setShowPreferences(!showPreferences)}
             className="text-xs text-bis-blue font-semibold hover:underline flex items-center gap-1"
           >
@@ -60,11 +92,12 @@ export function DpdpConsentModal() {
           </button>
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
-              onClick={acceptDpdpConsent}
-              className="w-full sm:w-auto px-5 py-2.5 bg-bis-navy hover:bg-bis-navy-light text-white text-sm font-semibold rounded-xl shadow-sm transition-all flex items-center justify-center gap-2"
+              type="button"
+              onClick={handleDismiss}
+              className="w-full sm:w-auto px-6 py-3 bg-bis-navy hover:bg-bis-navy-light active:scale-95 text-white text-sm font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <Check className="w-4 h-4 text-bis-saffron" />
-              {t.dpdpAccept}
+              <span>{t.dpdpAccept}</span>
             </button>
           </div>
         </div>
