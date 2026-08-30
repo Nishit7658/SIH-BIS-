@@ -9,6 +9,13 @@ Built for the Smart India Hackathon (SIH).
 ## Table of Contents
 
 - [Overview](#overview)
+- [System Architecture and Visual Workflow](#system-architecture-and-visual-workflow)
+- [User Interface Previews](#user-interface-previews)
+  - [1. Digital Expert Chatbot Interface](#1-digital-expert-chatbot-interface)
+  - [2. Product Compliance and Gap Analysis Wizard](#2-product-compliance-and-gap-analysis-wizard)
+  - [3. ISI Mark and License Verification Portal](#3-isi-mark-and-license-verification-portal)
+  - [4. Deep Clause Reader and Amendment Diff Viewer](#4-deep-clause-reader-and-amendment-diff-viewer)
+  - [5. Operations and Impact Metrics Dashboard](#5-operations-and-impact-metrics-dashboard)
 - [How the System Works](#how-the-system-works)
   - [1. Two-Tier RAG and Strict Clause Grounding](#1-two-tier-rag-and-strict-clause-grounding)
   - [2. Regulatory Guardrails and Abstention Engine](#2-regulatory-guardrails-and-abstention-engine)
@@ -37,6 +44,162 @@ Built for the Smart India Hackathon (SIH).
 The **BIS Smart Digital Expert** is an intelligent technical compliance assistant engineered to simplify Bureau of Indian Standards (BIS) regulations, mandatory Quality Control Orders (QCOs), and conformity assessment schemes for manufacturers, testing laboratories, MSMEs, and consumers.
 
 The platform eliminates regulatory ambiguity by providing exact clause-level citations, automated prototype gap analysis, license authenticity verification, and side-by-side standard comparisons across domestic and international specifications.
+
+---
+
+## System Architecture and Visual Workflow
+
+```mermaid
+graph TD
+    User([Manufacturer / Lab / Consumer]) --> ClientUI[Next.js 14 Frontend Interface]
+    
+    subgraph Frontend_Experience [User Interface Layer]
+        ClientUI --> ChatUI[Digital Expert Chat]
+        ClientUI --> ExplorerUI[Standards Catalog & Deep Clause Reader]
+        ClientUI --> ComplianceUI[Pre-Audit Compliance Wizard]
+        ClientUI --> VerifyUI[ISI License & QR Verification]
+        ClientUI --> OpsUI[Content Ops & Metrics Dashboard]
+    end
+
+    subgraph Intelligence_Layer [RAG Engine & Guardrails]
+        ChatUI --> Guardrail[Anti-Prompt Injection & Red-Team Filter]
+        Guardrail --> QCache{Exact & Semantic Cache Hit?}
+        QCache -- Yes (58%) --> FastReturn[Instant <15ms Response (Zero Token Cost)]
+        QCache -- No (42%) --> HybridSearch[Hybrid BM25 & Semantic Search]
+        HybridSearch --> Grounding[Clause Citation & Grounding Synthesizer]
+        HybridSearch --> AbstainCheck{Grounded in BIS Catalog?}
+        AbstainCheck -- No --> AbstainFlow[Strict Abstention & SME Helpdesk Escalation]
+    end
+
+    subgraph Knowledge_Repository [Standards & Governance Store]
+        HybridSearch --> BISData[(Structured BIS Standards & Gazette Diffs)]
+        VerifyUI --> LicenseDB[(CM/L & CRS Verification Database)]
+        ClientUI --> DPDP[(DPDP 2023 Consent & Local Retention Controller)]
+    end
+```
+
+---
+
+## User Interface Previews
+
+### 1. Digital Expert Chatbot Interface
+Interactive conversation interface with confidence grounding indicators, speech synthesis, audio readout, and direct BIS clause citations.
+
+```
++-----------------------------------------------------------------------------------+
+|  BIS Smart Digital Expert                  [ Grounding Confidence: 98% ]  [ Listen ]|
++-----------------------------------------------------------------------------------+
+|                                                                                   |
+|  User: What is the maximum voltage and rating covered under IS 1293:2019?         |
+|                                                                                   |
+|  Assistant:                                                                       |
+|  According to IS 1293:2019 (Plugs and Socket-Outlets), under Clause 1.1           |
+|  (Scope & Ratings) and Clause 5.1 (Standard Ratings):                            |
+|                                                                                   |
+|  > "Applies to plugs and fixed or portable socket-outlets for a.c. only, with a   |
+|     rated voltage not exceeding 250 V and rated current up to 16 A."              |
+|                                                                                   |
+|  Regulatory Note: Mandatory under Electrical Accessories QCO Order 2020.          |
+|  Scheme: Scheme I (ISI Mark).                                                     |
+|                                                                                   |
+|  Verified BIS Citations:                                                          |
+|  [ IS 1293:2019 Clause 1.1 ]   [ IS 1293:2019 Clause 5.1 ]                        |
+|                                                                                   |
++-----------------------------------------------------------------------------------+
+|  [ Speak Question (Mic) ]  Ask about clauses, testing rules, or ISI mark... [Send]|
++-----------------------------------------------------------------------------------+
+```
+
+---
+
+### 2. Product Compliance and Gap Analysis Wizard
+Interactive parameter evaluator mapping prototype specifications against mandatory test requirements with exportable audit reports.
+
+```
++-----------------------------------------------------------------------------------+
+|  Product Conformity & Clause Checklist                                            |
+|  Pre-Audit Gap Analysis Wizard                                                    |
++------------------------------------------+----------------------------------------+
+|  1. Product Profile                      |  Gap-Analysis Assessment               |
+|  Target Standard: IS 1293:2019           |  Product: 16A 3-Pin Smart Socket       |
+|  Product: 16A 3-Pin Smart Socket         |  Readiness Score: 100% [ COMPLIANT ]   |
+|                                          |                                        |
+|  2. Laboratory Test Verification         |  Clause Breakdown:                     |
+|  - Earthing Contact (Clause 6.1)         |  [PASS] Clause 6.1: Solid earth pin    |
+|    (*) Verified Compliant  ( ) Fail      |  [PASS] Clause 28.1: Glow wire 850 C   |
+|  - Glow Wire 850 C (Clause 28.1)         |  [PASS] Clause 19.1: Temp rise <= 45K  |
+|    (*) Verified Compliant  ( ) Fail      |  [PASS] Clause 9.1: Gauge test passed  |
+|  - Temp Rise <= 45K (Clause 19.1)        |  [PASS] Amendment 1: Shutter shield    |
+|    (*) Verified Compliant  ( ) Fail      |                                        |
+|                                          |  [ Save to Hub ]  [ Print / PDF Export]|
++------------------------------------------+----------------------------------------+
+```
+
+---
+
+### 3. ISI Mark and License Verification Portal
+Real-time authenticity registry validating manufacturer CM/L numbers, factory locations, validity windows, and counterfeit status.
+
+```
++-----------------------------------------------------------------------------------+
+|  BIS License & Certificate Verification                                           |
+|  [ Enter CM/L Number: CM/L-8400012345 ]   [ Scan QR Code ]   [ Verify License ]   |
++-----------------------------------------------------------------------------------+
+|                                                                                   |
+|  License Details:                                                                 |
+|  CM/L-8400012345                     STATUS: [ ACTIVE ] (Valid to: 2027-01-14)   |
+|                                                                                   |
+|  Brand: Anchor by Panasonic                                                       |
+|  Product: 16A 3-Pin Shuttered Socket-Outlet with Switch                           |
+|  Governing Standard: IS 1293:2019 (Scheme I - ISI Mark)                           |
+|  Manufacturing Facility: Plot 42, GIDC Industrial Estate, Daman, India            |
+|                                                                                   |
++-----------------------------------------------------------------------------------+
+```
+
+---
+
+### 4. Deep Clause Reader and Amendment Diff Viewer
+Clause-level navigation tree, standardized test callouts, embedded dimensional tables, and gazetted amendment change tracking.
+
+```
++-----------------------------------------------------------------------------------+
+|  IS 1293:2019 — Plugs and Socket-Outlets up to 250V / 16A                         |
+|  [ Tabs: Clauses & Tables (7) ]   [ Amendments & Diffs (2) ]   [ Scope & Summary ]|
++-----------------------------------------------------------------------------------+
+|                                                                                   |
+|  [-] Clause 9.1: Dimensions and Gauge Verification           [ Mandatory Check ]  |
+|      Plug pins must pass standard GO/NOT GO gauge checks under 50 N force.        |
+|                                                                                   |
+|      Standard Sheet Dimensional Table:                                            |
+|      +---------------+---------------------------+------------------+             |
+|      | Rating        | Pin Configuration         | Pin Pitch (mm)   |             |
+|      +---------------+---------------------------+------------------+             |
+|      | 6 A / 250 V   | 3-Pin Round (Earth, L, N) | 19.05 +- 0.15    |             |
+|      | 16 A / 250 V  | 3-Pin Round (Earth, L, N) | 28.58 +- 0.20    |             |
+|      +---------------+---------------------------+------------------+             |
+|                                                                                   |
+|  [+] Amendment No. 1 (Gazetted: 2021-06-15) — Automatic Safety Shutters           |
+|                                                                                   |
++-----------------------------------------------------------------------------------+
+```
+
+---
+
+### 5. Operations and Impact Metrics Dashboard
+Operational center for monitoring query deflection, ungrounded query triage queues, and two-tier inference cost optimization.
+
+```
++-----------------------------------------------------------------------------------+
+|  National Impact & Telemetry Dashboard                                            |
++--------------------------+--------------------------+-----------------------------+
+|  Total Queries Served    |  Grounding Resolution    |  Call-Center Deflection     |
+|  148,290                 |  96.4% (Zero Hallucinate)|  42.8% Query Reduction      |
++--------------------------+--------------------------+-----------------------------+
+|  Manufacturer Time Saved |  Query Cache Hit Rate    |  Average Inference Cost     |
+|  18,400+ Hours           |  58.1% (Sub-15ms Speed)  |  < Rs 0.04 per inquiry      |
++--------------------------+--------------------------+-----------------------------+
+```
 
 ---
 
