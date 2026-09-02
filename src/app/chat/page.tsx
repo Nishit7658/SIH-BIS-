@@ -252,6 +252,13 @@ function ChatContent() {
                       </span>
                     )}
                     <button
+                      onClick={() => window.print()}
+                      className="p-1 rounded hover:bg-slate-100 text-bis-text-secondary"
+                      title="Download / Print full chat response as PDF"
+                    >
+                      <FileText className="w-3.5 h-3.5 text-bis-navy" />
+                    </button>
+                    <button
                       onClick={() => speakText(msg.text)}
                       className="p-1 rounded hover:bg-slate-100 text-bis-text-secondary"
                       title={t.audioReadout}

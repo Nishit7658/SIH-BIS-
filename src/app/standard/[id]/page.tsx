@@ -100,6 +100,14 @@ export default function StandardDetailPage() {
               </>
             )}
           </button>
+          <button
+            onClick={() => window.print()}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-bis-navy hover:bg-bis-navy-light text-white text-xs font-bold shadow-xs transition-all"
+            title="Download / Print full standard dossier as PDF"
+          >
+            <FileText className="w-4 h-4 text-bis-saffron" />
+            <span>Download / Print Dossier</span>
+          </button>
           <Link
             href={`/chat?q=${encodeURIComponent(`Explain key clauses of ${standard.code}`)}`}
             className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-bis-saffron hover:bg-bis-saffron-dark text-white text-xs font-bold shadow-xs"
