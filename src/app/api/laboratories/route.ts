@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getLaboratories } from "@/lib/laboratories-data";
 
+export const dynamic = "force-dynamic";
+
 // Endpoint: GET /api/laboratories (Handbook Part 5.3 & Part 15.6)
 export async function GET(req: NextRequest) {
   try {

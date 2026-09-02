@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSchemes, getSchemeById } from "@/lib/schemes-data";
 
+export const dynamic = "force-dynamic";
+
 // Endpoint: GET /api/schemes (Handbook Part 5.3 & Part 15.4)
 export async function GET(req: NextRequest) {
   try {

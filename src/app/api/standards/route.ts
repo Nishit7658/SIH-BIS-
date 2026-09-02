@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { STANDARDS_DATABASE } from "@/lib/standards-data";
 
+export const dynamic = "force-dynamic";
+
 // Endpoint: GET /api/standards (Handbook Part 5.3)
 export async function GET(req: NextRequest) {
   try {
