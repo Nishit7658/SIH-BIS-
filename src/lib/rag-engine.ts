@@ -227,6 +227,29 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
       });
     }
 
+    // Call live Gemini to expand and format the master guide
+    const systemPrompt = `You are the official Senior Technical Standards Consultant at the Bureau of Indian Standards (BIS).
+Provide a comprehensive, exhaustive, and structured master engineering and compliance guide for starting this manufacturing business.
+Use the provided BIS factsheet to write a detailed, practical guide covering:
+1. Statutory Regulatory Status & Applicable Standards (Primary & Raw Materials)
+2. Raw Material Sourcing & Inward Quality Verification Tolerances
+3. Complete Manufacturing Line Machinery & Stage-by-Stage Flow
+4. Mandatory In-House QC Laboratory Setup (BIS Scheme of Testing & Inspection - STI) with Calibration Mandates
+5. Marking, Embossing & Legal Metrology Rules
+6. Step-by-Step 70-Day BIS Certification Roadmap on Manakonline (Form V)
+Ensure every section is thoroughly explained with concrete numbers, machine specifications, and testing tolerances.`;
+
+    const externalLlmResponse = await callExternalLlm({
+      systemPrompt,
+      context: answer,
+      userQuery: rawQuery,
+      temperature: 0.2
+    });
+
+    if (externalLlmResponse) {
+      answer = `${externalLlmResponse}\n\n> **Official BIS Verification**: Verify current standards and portal guidelines on the [e-BIS Standards Portal](${OFFICIAL_BIS_PORTAL_BASE}).`;
+    }
+
     const citations: Citation[] = rec.primaryStandards.flatMap(std => 
       std.clauses.slice(0, 2).map(c => ({
         standardCode: std.code,

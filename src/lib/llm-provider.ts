@@ -25,14 +25,14 @@ export async function callExternalLlm(options: LlmGenerationOptions): Promise<st
             role: "user",
             parts: [
               {
-                text: `${options.systemPrompt}\n\n=== RETRIEVED BIS CONTEXT ===\n${options.context}\n\n=== USER QUESTION ===\n${options.userQuery}`
+                text: `${options.systemPrompt}\n\n=== AUTHORITATIVE RETRIEVED BIS EVIDENCE & FACT SHEET ===\n${options.context}\n\n=== USER QUESTION / INQUIRY ===\n${options.userQuery}\n\n=== INSTRUCTION ===\nProvide an in-depth, comprehensive, well-structured response based on the above evidence. Include all relevant technical numbers, machine names, test tolerances, standards codes, and step-by-step procedures.`
               }
             ]
           }
         ],
         generationConfig: {
           temperature: temp,
-          maxOutputTokens: 1500
+          maxOutputTokens: 4000
         }
       };
 
