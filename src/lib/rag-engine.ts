@@ -1,4 +1,5 @@
 import { STANDARDS_DATABASE, Standard, Clause } from "./standards-data";
+import { recommendStandardsForBusiness, BusinessRecommendationResult } from "./recommender";
 
 export interface Citation {
   standardCode: string;
@@ -13,77 +14,34 @@ export interface RagResult {
   query: string;
   answer: string;
   citations: Citation[];
-  confidence: number; // 0.0 to 1.0
+  confidence: number;
   isAbstained: boolean;
   abstainReason?: string;
   cached: boolean;
   costTier: "cached" | "fast_tier" | "deep_reasoning";
   latencyMs: number;
   relevantStandards: Standard[];
+  businessRecommendation?: BusinessRecommendationResult;
 }
 
-// In-Memory Query Cache for repeated questions
 interface CacheEntry {
   result: RagResult;
   timestamp: number;
 }
 const queryCache = new Map<string, CacheEntry>();
-const CACHE_TTL_MS = 1000 * 60 * 60 * 24; // 24 hours
+const CACHE_TTL_MS = 1000 * 60 * 60 * 24;
 
-// Pre-compiled high-frequency FAQ Cache entries
-const FREQUENT_QUERIES: Record<string, { answer: string; citations: Citation[]; confidence: number; standardId: string }> = {
-  "is isi mark mandatory for plugs": {
-    answer: "Yes, under the Electrical Accessories (Quality Control) Order 2020 issued by DPIIT, compliance with **IS 1293:2019** and obtaining the **ISI Mark (Scheme I)** is legally mandatory for all plugs and socket-outlets manufactured, imported, or sold in India.",
-    citations: [
-      {
-        standardCode: "IS 1293:2019",
-        standardTitle: "Plugs and Socket-Outlets",
-        clauseNumber: "Clause 1.1",
-        clauseTitle: "Scope & Ratings",
-        snippet: "Applies to plugs and fixed or portable socket-outlets for a.c. only, with a rated voltage not exceeding 250 V and rated current up to 16 A.",
-        standardId: "is-1293-2019"
-      }
-    ],
-    confidence: 0.98,
-    standardId: "is-1293-2019"
-  },
-  "what is the leakage current limit in is 302": {
-    answer: "Under **IS 302-1:2008 Clause 13.2**, the maximum allowable leakage current at operating temperature is **0.75 mA** for Class I portable appliances and **0.25 mA** for Class 0 and Class II appliances.",
-    citations: [
-      {
-        standardCode: "IS 302-1:2008",
-        standardTitle: "Safety of Household Electrical Appliances",
-        clauseNumber: "Clause 13.2",
-        clauseTitle: "Leakage Current and Electric Strength",
-        snippet: "Class I portable appliances: 0.75 mA; Class 0, Class II appliances: 0.25 mA.",
-        standardId: "is-302-1-2008"
-      }
-    ],
-    confidence: 0.99,
-    standardId: "is-302-1-2008"
-  },
-  "is lithium battery under isi mark or crs": {
-    answer: "Portable lithium cells and batteries fall under the **Compulsory Registration Scheme (CRS)** of BIS pursuant to the MeitY Electronics and IT Goods (Requirement for Compulsory Registration) Order, under standard **IS 16046 (Part 2):2018 / IEC 62133-2**. It requires self-declaration of conformity with BIS registration number rather than standard Scheme I ISI mark stamping.",
-    citations: [
-      {
-        standardCode: "IS 16046 (Part 2):2018",
-        standardTitle: "Secondary Cells and Batteries (Lithium)",
-        clauseNumber: "Clause 1",
-        clauseTitle: "Scope & Registration Scheme",
-        snippet: "Mandatory under MeitY Compulsory Registration Scheme (CRS) for electronic goods.",
-        standardId: "is-16046-2018"
-      }
-    ],
-    confidence: 0.97,
-    standardId: "is-16046-2018"
-  }
-};
-
-// Out-of-scope non-standards keywords trigger strict abstention
 const OUT_OF_SCOPE_TRIGGERS = [
   "traffic fine", "motor vehicle act", "prescription", "paracetamol", "dosage",
   "stock market", "weather tomorrow", "recipe", "ipl match", "movie review",
   "income tax slab", "driving license rto", "passport renewal"
+];
+
+// Business intent keywords
+const BUSINESS_QUERY_TRIGGERS = [
+  "i manufacture", "i make", "i produce", "i am starting", "which standards do i need",
+  "which standard is required", "what standards do i require", "starting a factory",
+  "manufacturing unit", "packaging unit", "requirements to manufacture", "standards for my business"
 ];
 
 export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
@@ -120,24 +78,68 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
     }
   }
 
-  // 3. Check High-Frequency Pre-compiled FAQ Cache
-  for (const [key, val] of Object.entries(FREQUENT_QUERIES)) {
-    if (normalizedQuery.includes(key) || key.includes(normalizedQuery)) {
-      const std = STANDARDS_DATABASE.find(s => s.id === val.standardId);
-      const result: RagResult = {
-        query: rawQuery,
-        answer: val.answer,
-        citations: val.citations,
-        confidence: val.confidence,
-        isAbstained: false,
-        cached: true,
-        costTier: "cached",
-        latencyMs: Date.now() - startTime,
-        relevantStandards: std ? [std] : []
-      };
-      queryCache.set(normalizedQuery, { result, timestamp: Date.now() });
-      return result;
+  // 3. Check for Business Standards Requirement Recommender Intent
+  const isBusinessQuery = BUSINESS_QUERY_TRIGGERS.some(t => normalizedQuery.includes(t)) ||
+    (normalizedQuery.includes("manufactur") && normalizedQuery.length > 10) ||
+    (normalizedQuery.includes("packag") && normalizedQuery.length > 10);
+
+  if (isBusinessQuery) {
+    const rec = recommendStandardsForBusiness(rawQuery);
+    
+    let answer = `### Mandatory & Supporting Standards for: **${rec.matchedDomain}**\n\n`;
+    answer += `**Statutory Regulatory Status**: ${rec.mandatoryQcoNotice}\n`;
+    answer += `**Certification Scheme**: **${rec.scheme}**\n\n`;
+    
+    answer += `#### 1. Primary Mandatory Standards (Legally Required):\n`;
+    rec.primaryStandards.forEach(std => {
+      answer += `- **${std.code}**: ${std.title}\n  *Summary*: ${std.summary}\n`;
+    });
+
+    if (rec.supportingStandards.length > 0) {
+      answer += `\n#### 2. Supporting Raw Material & Testing Standards:\n`;
+      rec.supportingStandards.slice(0, 4).forEach(std => {
+        answer += `- **${std.code}**: ${std.title}\n`;
+      });
     }
+
+    if (rec.keyMandatoryTests.length > 0) {
+      answer += `\n#### 3. Key Laboratory Tests Required for Certification:\n`;
+      rec.keyMandatoryTests.slice(0, 3).forEach(test => {
+        answer += `- **${test.testTitle}** (${test.standardCode} ${test.clauseNumber}): ${test.requirement}\n`;
+      });
+    }
+
+    answer += `\n#### 4. Compliance Action Plan:\n`;
+    rec.complianceChecklist.slice(0, 3).forEach(item => {
+      answer += `- ${item}\n`;
+    });
+
+    const citations: Citation[] = rec.primaryStandards.flatMap(std => 
+      std.clauses.slice(0, 2).map(c => ({
+        standardCode: std.code,
+        standardTitle: std.title,
+        clauseNumber: c.number,
+        clauseTitle: c.title,
+        snippet: c.content,
+        standardId: std.id
+      }))
+    );
+
+    const result: RagResult = {
+      query: rawQuery,
+      answer,
+      citations,
+      confidence: 0.98,
+      isAbstained: false,
+      cached: false,
+      costTier: "deep_reasoning",
+      latencyMs: Date.now() - startTime,
+      relevantStandards: [...rec.primaryStandards, ...rec.supportingStandards],
+      businessRecommendation: rec
+    };
+
+    queryCache.set(normalizedQuery, { result, timestamp: Date.now() });
+    return result;
   }
 
   // 4. Hybrid Clause & Standard Search Scoring
@@ -149,7 +151,7 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
   if (searchTerms.length === 0) {
     return {
       query: rawQuery,
-      answer: "Please provide a more specific question regarding an Indian Standard (IS number), product category, test requirement, or ISI mark compliance rule.",
+      answer: "Please provide a specific query regarding an Indian Standard (IS code), product category (e.g. corrugated boxes, PVC pipes, LED lamps), or testing clause.",
       citations: [],
       confidence: 0.2,
       isAbstained: true,
@@ -172,7 +174,7 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
 
   for (const std of STANDARDS_DATABASE) {
     let stdScore = 0;
-    const stdText = `${std.code} ${std.title} ${std.keywords.join(" ")} ${std.summary} ${std.scope}`.toLowerCase();
+    const stdText = `${std.code} ${std.title} ${std.businessTypes.join(" ")} ${std.keywords.join(" ")} ${std.summary} ${std.scope}`.toLowerCase();
     
     searchTerms.forEach(term => {
       if (stdText.includes(term)) stdScore += 3;
@@ -186,7 +188,6 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
       searchTerms.forEach(term => {
         if (clauseText.includes(term)) {
           clauseScore += 5;
-          // Capture snippet around match
           const idx = clauseText.indexOf(term);
           const start = Math.max(0, idx - 40);
           const end = Math.min(clause.content.length, idx + term.length + 40);
@@ -196,7 +197,7 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
 
       if (clause.mandatory) clauseScore += 1;
 
-      if (clauseScore > 4) {
+      if (clauseScore > 3) {
         scoredClauses.push({
           standard: std,
           clause,
@@ -210,10 +211,10 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
   scoredClauses.sort((a, b) => b.score - a.score);
 
   // 5. Confidence Threshold & Abstention Check
-  if (scoredClauses.length === 0 || scoredClauses[0].score < 5) {
+  if (scoredClauses.length === 0 || scoredClauses[0].score < 4) {
     return {
       query: rawQuery,
-      answer: `No matching Bureau of Indian Standards (BIS) clauses or QCO mandates found for "${rawQuery}". You can log an inquiry with the BIS SME Helpdesk or check the official Manakonline repository.`,
+      answer: `No matching Bureau of Indian Standards (BIS) clauses or QCO mandates found for "${rawQuery}". You can log an inquiry with the BIS Technical Helpdesk or check the official Manakonline repository.`,
       citations: [],
       confidence: 0.15,
       isAbstained: true,
@@ -226,7 +227,7 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
   }
 
   // 6. Synthesize Grounded Answer with Strict Citations
-  const topMatches = scoredClauses.slice(0, 3);
+  const topMatches = scoredClauses.slice(0, 4);
   const primaryMatch = topMatches[0];
   const citations: Citation[] = topMatches.map(m => ({
     standardCode: m.standard.code,
@@ -238,19 +239,18 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
   }));
 
   const uniqueStandards = Array.from(new Set(topMatches.map(m => m.standard)));
-  const confidence = Math.min(0.99, 0.70 + (primaryMatch.score * 0.03));
+  const confidence = Math.min(0.99, 0.75 + (primaryMatch.score * 0.02));
 
-  // Synthesize structured compliance response
-  let answer = `According to **${primaryMatch.standard.code}** (${primaryMatch.standard.title}), `;
+  let answer = `According to **${primaryMatch.standard.code}** (*${primaryMatch.standard.title}*), `;
   answer += `under **${primaryMatch.clause.number} (${primaryMatch.clause.title})**:\n\n`;
   answer += `> "${primaryMatch.clause.content}"\n\n`;
 
   if (primaryMatch.clause.testRequirement) {
-    answer += `**Testing Requirement**: ${primaryMatch.clause.testRequirement}\n\n`;
+    answer += `**Mandatory Testing Specification**: ${primaryMatch.clause.testRequirement}\n\n`;
   }
 
   if (primaryMatch.standard.isMandatory) {
-    answer += `*Regulatory Note*: Compliance is mandatory under **${primaryMatch.standard.qcoReference || "BIS Quality Control Order"}**. Certification scheme: **${primaryMatch.standard.scheme}**.`;
+    answer += `*Regulatory Mandate*: Compliance is mandatory under **${primaryMatch.standard.qcoReference || "BIS Quality Control Order"}**. Certification scheme: **${primaryMatch.standard.scheme}**.`;
   }
 
   const result: RagResult = {
@@ -265,8 +265,6 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
     relevantStandards: uniqueStandards
   };
 
-  // Cache successful grounded result
   queryCache.set(normalizedQuery, { result, timestamp: Date.now() });
-
   return result;
 }

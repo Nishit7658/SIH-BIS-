@@ -21,8 +21,8 @@ import {
   BookOpen,
   Volume2,
   Lock,
-  Flame,
-  HelpCircle
+  Factory,
+  CheckCircle2
 } from "lucide-react";
 
 export default function HomePage() {
@@ -37,24 +37,23 @@ export default function HomePage() {
   };
 
   const categories = [
-    { name: "Electrical & Power", icon: Zap, count: "IS 1293, IS 302, IS 694", color: "bg-amber-50 text-amber-700 border-amber-200" },
-    { name: "Electronics & IT (CRS)", icon: Cpu, count: "IS 16046, IS 13252", color: "bg-blue-50 text-blue-700 border-blue-200" },
-    { name: "Civil & Construction", icon: Layers, count: "IS 269, IS 4984", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
-    { name: "Chemicals & Plastics", icon: FlaskConical, count: "IS 14534, IS 15652", color: "bg-purple-50 text-purple-700 border-purple-200" },
-    { name: "Consumer & Toys", icon: Package, count: "IS 9873 (Part 1)", color: "bg-rose-50 text-rose-700 border-rose-200" },
+    { name: "Packaging & Paper", icon: Package, count: "IS 2771, IS 1060, IS 10146, IS 14534", color: "bg-amber-50 text-amber-800 border-amber-200" },
+    { name: "Electrical & Power", icon: Zap, count: "IS 1293, IS 302, IS 694, IS 3854", color: "bg-blue-50 text-blue-700 border-blue-200" },
+    { name: "Electronics & IT (CRS)", icon: Cpu, count: "IS 16046, IS 13252, IS 16221", color: "bg-purple-50 text-purple-700 border-purple-200" },
+    { name: "Civil & Construction", icon: Layers, count: "IS 1786, IS 269, IS 2062, IS 456", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
+    { name: "Chemicals & Pipes", icon: FlaskConical, count: "IS 4984, IS 4985, IS 15778", color: "bg-cyan-50 text-cyan-700 border-cyan-200" },
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-bis-navy via-bis-navy-light to-bis-navy-dark text-white py-16 sm:py-24">
-        {/* Subtle decorative grid */}
         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-bis-saffron/20 border border-bis-saffron/40 text-bis-saffron-light text-xs font-bold uppercase tracking-wider animate-in fade-in slide-in-from-top-3">
             <Sparkles className="w-3.5 h-3.5 text-bis-saffron" />
-            Empowering Make In India & Consumer Safety
+            Verified Active Standards for Indian Manufacturing & Packaging
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black font-display tracking-tight leading-tight max-w-3xl mx-auto">
@@ -73,31 +72,33 @@ export default function HomePage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={t.searchPlaceholder}
+                placeholder="What do you manufacture? (e.g. corrugated boxes, electrical plugs, PVC pipes)..."
                 className="w-full px-4 py-3 text-bis-text-primary text-sm sm:text-base focus:outline-none placeholder:text-slate-400 bg-transparent font-medium"
               />
               <button
                 type="submit"
                 className="px-5 py-3 bg-bis-saffron hover:bg-bis-saffron-dark text-white font-bold rounded-xl text-sm transition-all shadow-md flex items-center gap-1.5 shrink-0"
               >
-                <span>Ask AI</span>
+                <span>Find Standards</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </form>
 
-          {/* Quick FAQ Chips */}
+          {/* Quick Business Recommender Chips */}
           <div className="flex flex-wrap items-center justify-center gap-2 pt-3 text-xs text-slate-300">
-            <span className="text-slate-400 font-semibold">Popular Queries:</span>
+            <span className="text-slate-400 font-semibold">Popular Business Domains:</span>
             {[
-              "IS 1293 Plug Earthing",
-              "IS 302 Leakage Current",
-              "Lithium Battery CRS Order",
-              "Plastic Recycling Codes (IS 14534)"
+              "Corrugated Box Packaging",
+              "Food Contact Plastic Pouches",
+              "Electrical Plugs (IS 1293)",
+              "LED Lighting & Drivers",
+              "PVC & HDPE Water Pipes",
+              "TMT Steel Rebars"
             ].map((chip) => (
               <Link
                 key={chip}
-                href={`/chat?q=${encodeURIComponent(chip)}`}
+                href={`/explore?category=All`}
                 className="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 border border-white/10 transition-all text-[11px]"
               >
                 {chip}
@@ -107,7 +108,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Low-Literacy / Visual Icon Quick Jump (when enabled or on mobile) */}
+      {/* Low-Literacy / Visual Icon Quick Jump */}
       {lowLiteracyMode && (
         <section className="bg-amber-50 border-b border-amber-200 py-4 px-4">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -138,7 +139,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-bold text-bis-navy text-sm mb-1">Clause-Grounded AI</h3>
               <p className="text-xs text-bis-text-secondary leading-relaxed">
-                Zero hallucinations. Every answer directly references specific IS clauses, sub-clauses, and tables.
+                Zero hallucinations. Every answer directly references specific IS clauses, sub-clauses, and test tables.
               </p>
             </div>
 
@@ -184,7 +185,7 @@ export default function HomePage() {
               <p className="text-xs text-bis-text-secondary">Explore mandatory QCOs by technical domain</p>
             </div>
             <Link href="/explore" className="text-xs font-semibold text-bis-blue hover:underline flex items-center gap-1">
-              View All Standards →
+              View All {STANDARDS_DATABASE.length} Standards →
             </Link>
           </div>
 
@@ -215,12 +216,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Standards List */}
+      {/* Featured Active Standards List */}
       <section className="py-12 bg-white border-t border-bis-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-xl font-bold text-bis-navy font-display">{t.recentStandards}</h2>
+              <h2 className="text-xl font-bold text-bis-navy font-display">Featured Quality Control Orders (QCOs)</h2>
               <p className="text-xs text-bis-text-secondary">Direct access to critical Indian Standards & testing parameters</p>
             </div>
           </div>
@@ -252,7 +253,7 @@ export default function HomePage() {
 
                 <div className="pt-3 border-t border-bis-border/60 flex items-center justify-between">
                   <span className="text-[11px] text-bis-text-muted font-medium">
-                    {std.clauses.length} Clauses • {std.amendments.length} Amendments
+                    {std.clauses.length} Clauses • {std.department}
                   </span>
                   <Link
                     href={`/standard/${std.id}`}
