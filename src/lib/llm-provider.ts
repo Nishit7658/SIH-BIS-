@@ -18,7 +18,7 @@ export async function callExternalLlm(options: LlmGenerationOptions): Promise<st
   // 1. If Gemini API Key exists (from any Google Cloud / AI Studio project)
   if (geminiKey) {
     try {
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiKey}`;
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${geminiKey}`;
       const payload = {
         contents: [
           {
