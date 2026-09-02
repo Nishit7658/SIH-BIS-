@@ -751,7 +751,7 @@ export interface Standard {{
   summary: string;
   scope: string;
   clauses: Clause[];
-  factoryBlueprint?: FactoryBlueprint;
+  factoryBlueprint?: FactoryBlueprint | null;
   amendments: Amendment[];
   keywords: string[];
 }}
