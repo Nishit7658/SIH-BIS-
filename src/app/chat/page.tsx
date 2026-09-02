@@ -277,9 +277,20 @@ function ChatContent() {
               {/* Verified Citations List */}
               {msg.citations && msg.citations.length > 0 && (
                 <div className="mt-4 pt-3 border-t border-bis-border space-y-2">
-                  <p className="text-xs font-bold text-bis-navy flex items-center gap-1">
-                    <FileText className="w-3.5 h-3.5 text-bis-blue" />
-                    {t.citations} ({msg.citations.length})
+                  <p className="text-xs font-bold text-bis-navy flex items-center justify-between">
+                    <span className="flex items-center gap-1">
+                      <FileText className="w-3.5 h-3.5 text-bis-blue" />
+                      {t.citations} ({msg.citations.length})
+                    </span>
+                    <a
+                      href="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/knowyourstandards/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] font-semibold text-bis-blue hover:underline flex items-center gap-1"
+                    >
+                      <span>Official e-BIS Portal</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {msg.citations.map((cite, idx) => (
@@ -293,6 +304,50 @@ function ChatContent() {
                         <ChevronRight className="w-3 h-3 text-bis-blue ml-1" />
                       </button>
                     ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Feedback Rating Widget (Handbook Part 5.3 & Part 20) */}
+              {msg.sender === "bot" && (
+                <div className="mt-3 pt-2 flex items-center justify-between text-[11px] text-slate-400 border-t border-bis-border/50">
+                  <span>Was this citation helpful?</span>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      onClick={async () => {
+                        await fetch("/api/feedback", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            query: msg.text.substring(0, 100),
+                            answerSnippet: msg.text.substring(0, 200),
+                            rating: "helpful"
+                          })
+                        });
+                        alert("Thank you! Feedback recorded for evaluation harness.");
+                      }}
+                      className="px-2 py-0.5 rounded bg-slate-50 hover:bg-emerald-50 text-slate-600 hover:text-emerald-700 border border-slate-200 transition-colors font-medium"
+                    >
+                      👍 Helpful
+                    </button>
+                    <button
+                      onClick={async () => {
+                        await fetch("/api/feedback", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            query: msg.text.substring(0, 100),
+                            answerSnippet: msg.text.substring(0, 200),
+                            rating: "flag_inaccuracy",
+                            comments: "Flagged by user in chat interface"
+                          })
+                        });
+                        alert("Flagged for content ops review. Thank you!");
+                      }}
+                      className="px-2 py-0.5 rounded bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-700 border border-slate-200 transition-colors font-medium"
+                    >
+                      👎 Flag Inaccuracy
+                    </button>
                   </div>
                 </div>
               )}

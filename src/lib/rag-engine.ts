@@ -1,5 +1,7 @@
 import { STANDARDS_DATABASE, Standard, Clause } from "./standards-data";
 import { recommendStandardsForBusiness, BusinessRecommendationResult } from "./recommender";
+import { getLaboratories, BisLaboratory } from "./laboratories-data";
+import { getSchemes, getSchemeById, BisScheme } from "./schemes-data";
 
 export interface Citation {
   standardCode: string;
@@ -8,6 +10,7 @@ export interface Citation {
   clauseTitle: string;
   snippet: string;
   standardId: string;
+  officialBisUrl: string;
 }
 
 export interface RagResult {
@@ -22,6 +25,8 @@ export interface RagResult {
   latencyMs: number;
   relevantStandards: Standard[];
   businessRecommendation?: BusinessRecommendationResult;
+  matchedLaboratories?: BisLaboratory[];
+  matchedScheme?: BisScheme;
 }
 
 interface CacheEntry {
@@ -44,11 +49,13 @@ const BUSINESS_QUERY_TRIGGERS = [
   "manufacturing unit", "packaging unit", "requirements to manufacture", "standards for my business"
 ];
 
+const OFFICIAL_BIS_PORTAL_BASE = "https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/knowyourstandards/";
+
 export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
   const startTime = Date.now();
   const normalizedQuery = rawQuery.trim().toLowerCase();
 
-  // 1. Check Out-of-Scope / Strict Abstention Guardrail
+  // 1. Check Out-of-Scope / Strict Abstention Guardrail (Handbook Part 14)
   const isOutOfScope = OUT_OF_SCOPE_TRIGGERS.some(trigger => normalizedQuery.includes(trigger));
   if (isOutOfScope) {
     return {
@@ -78,10 +85,86 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
     }
   }
 
-  // 3. Check for Business Standards Requirement Recommender Intent
+  // 3. Check for Testing Laboratory Inquiries (Handbook Part 15.6)
+  if (normalizedQuery.includes("lab") || normalizedQuery.includes("testing center") || normalizedQuery.includes("where to test") || normalizedQuery.includes("test house")) {
+    const labs = getLaboratories({ product: rawQuery, standard: rawQuery });
+    if (labs.length > 0) {
+      let answer = `### BIS-Recognized Testing Laboratories (LRS Scheme)\n\n`;
+      answer += `Found **${labs.length}** BIS-recognized testing laboratory(ies) accredited under the Laboratory Recognition Scheme:\n\n`;
+      labs.slice(0, 4).forEach((lab, idx) => {
+        answer += `#### ${idx + 1}. ${lab.name} (${lab.type})\n`;
+        answer += `- **Location**: ${lab.city}, ${lab.state}\n`;
+        answer += `- **Address**: ${lab.address}\n`;
+        answer += `- **NABL Accreditation No**: \`${lab.nablAccreditationNo}\`\n`;
+        answer += `- **Contact**: 📞 ${lab.contactPhone} | ✉️ ${lab.contactEmail}\n`;
+        answer += `- **Recognized Standards**: ${lab.recognizedStandards.slice(0, 4).join(", ")}\n\n`;
+      });
+      answer += `> Official Verification: You can cross-verify accredited laboratory scope on the [e-BIS LRS Portal](https://www.services.bis.gov.in/php/BIS_2.0/lrs/).`;
+
+      const result: RagResult = {
+        query: rawQuery,
+        answer,
+        citations: [],
+        confidence: 0.96,
+        isAbstained: false,
+        cached: false,
+        costTier: "fast_tier",
+        latencyMs: Date.now() - startTime,
+        relevantStandards: [],
+        matchedLaboratories: labs
+      };
+      queryCache.set(normalizedQuery, { result, timestamp: Date.now() });
+      return result;
+    }
+  }
+
+  // 4. Check for Certification Scheme Inquiries (Handbook Part 15.4)
+  if (normalizedQuery.includes("scheme") || normalizedQuery.includes("crs") || normalizedQuery.includes("fmcs") || normalizedQuery.includes("hallmarking") || normalizedQuery.includes("isi mark")) {
+    const allSchemes = getSchemes();
+    const matched = allSchemes.find(s => 
+      normalizedQuery.includes(s.schemeCode.toLowerCase()) || 
+      normalizedQuery.includes(s.name.toLowerCase()) ||
+      (normalizedQuery.includes("crs") && s.schemeCode === "CRS") ||
+      (normalizedQuery.includes("fmcs") && s.schemeCode === "FMCS") ||
+      (normalizedQuery.includes("gold") && s.schemeCode === "Hallmarking") ||
+      (normalizedQuery.includes("hallmark") && s.schemeCode === "Hallmarking")
+    );
+
+    if (matched) {
+      let answer = `### BIS ${matched.fullName}\n\n`;
+      answer += `**Governing Regulation**: ${matched.governingRegulation}\n`;
+      answer += `**Statutory Mark Issued**: **${matched.markIssued}**\n`;
+      answer += `**Target Audience**: ${matched.targetAudience}\n`;
+      answer += `**Estimated Timeline**: ${matched.estimatedTimelineDays}\n`;
+      answer += `**Fee Structure**: ${matched.feeStructureSummary}\n\n`;
+      answer += `#### Step-by-Step Certification Process:\n`;
+      matched.keySteps.forEach(st => {
+        answer += `- ${st}\n`;
+      });
+      answer += `\n**Official Portal Link**: [${matched.applicationPortal}](${matched.portalUrl})`;
+
+      const result: RagResult = {
+        query: rawQuery,
+        answer,
+        citations: [],
+        confidence: 0.98,
+        isAbstained: false,
+        cached: false,
+        costTier: "fast_tier",
+        latencyMs: Date.now() - startTime,
+        relevantStandards: [],
+        matchedScheme: matched
+      };
+      queryCache.set(normalizedQuery, { result, timestamp: Date.now() });
+      return result;
+    }
+  }
+
+  // 5. Check for Business Standards Requirement Recommender Intent
   const isBusinessQuery = BUSINESS_QUERY_TRIGGERS.some(t => normalizedQuery.includes(t)) ||
     (normalizedQuery.includes("manufactur") && normalizedQuery.length > 10) ||
-    (normalizedQuery.includes("packag") && normalizedQuery.length > 10);
+    (normalizedQuery.includes("packag") && normalizedQuery.length > 10) ||
+    (normalizedQuery.includes("factory") && normalizedQuery.length > 10);
 
   if (isBusinessQuery) {
     const rec = recommendStandardsForBusiness(rawQuery);
@@ -92,19 +175,19 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
     
     answer += `#### 1. Primary Mandatory Standards (Legally Required):\n`;
     rec.primaryStandards.forEach(std => {
-      answer += `- **${std.code}**: ${std.title}\n  *Summary*: ${std.summary}\n`;
+      answer += `- **${std.code}**: ${std.title}\n  *Summary*: ${std.summary}\n  *Official BIS Portal*: [Verify ${std.code} on e-BIS](${OFFICIAL_BIS_PORTAL_BASE})\n`;
     });
 
     if (rec.supportingStandards.length > 0) {
       answer += `\n#### 2. Supporting Raw Material & Testing Standards:\n`;
       rec.supportingStandards.slice(0, 4).forEach(std => {
-        answer += `- **${std.code}**: ${std.title}\n`;
+        answer += `- **${std.code}**: ${std.title} ([e-BIS Portal](${OFFICIAL_BIS_PORTAL_BASE}))\n`;
       });
     }
 
     if (rec.keyMandatoryTests.length > 0) {
       answer += `\n#### 3. Key Laboratory Tests Required for Certification:\n`;
-      rec.keyMandatoryTests.slice(0, 3).forEach(test => {
+      rec.keyMandatoryTests.slice(0, 4).forEach(test => {
         answer += `- **${test.testTitle}** (${test.standardCode} ${test.clauseNumber}): ${test.requirement}\n`;
       });
     }
@@ -150,7 +233,8 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
         clauseNumber: c.number,
         clauseTitle: c.title,
         snippet: c.content,
-        standardId: std.id
+        standardId: std.id,
+        officialBisUrl: OFFICIAL_BIS_PORTAL_BASE
       }))
     );
 
@@ -171,7 +255,7 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
     return result;
   }
 
-  // 4. Hybrid Clause & Standard Search Scoring
+  // 6. Hybrid Clause & Standard Search Scoring (Handbook Part 10 & 11)
   const searchTerms = normalizedQuery
     .replace(/[^\w\s]/g, " ")
     .split(/\s+/)
@@ -180,7 +264,7 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
   if (searchTerms.length === 0) {
     return {
       query: rawQuery,
-      answer: "Please provide a specific query regarding an Indian Standard (IS code), product category (e.g. corrugated boxes, PVC pipes, LED lamps), or testing clause.",
+      answer: "Please provide a specific query regarding an Indian Standard (IS code), product category (e.g. corrugated boxes, PVC pipes, stainless steel bottles), or testing clause.",
       citations: [],
       confidence: 0.2,
       isAbstained: true,
@@ -239,11 +323,11 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
 
   scoredClauses.sort((a, b) => b.score - a.score);
 
-  // 5. Confidence Threshold & Abstention Check
+  // 7. Confidence Threshold & Strict Honest Refusal (Handbook Part 14.2)
   if (scoredClauses.length === 0 || scoredClauses[0].score < 4) {
     return {
       query: rawQuery,
-      answer: `No matching Bureau of Indian Standards (BIS) clauses or QCO mandates found for "${rawQuery}". You can log an inquiry with the BIS Technical Helpdesk or check the official Manakonline repository.`,
+      answer: `I could not find sufficient authoritative BIS information or mandatory QCO clauses for "${rawQuery}". Please clarify the exact product type, model, or applicable IS standard. You can also search the official [BIS Manakonline Portal](https://www.manakonline.in).`,
       citations: [],
       confidence: 0.15,
       isAbstained: true,
@@ -255,7 +339,7 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
     };
   }
 
-  // 6. Synthesize Grounded Answer with Strict Citations
+  // 8. Synthesize Grounded Answer with Official Citations (Handbook Part 14)
   const topMatches = scoredClauses.slice(0, 4);
   const primaryMatch = topMatches[0];
   const citations: Citation[] = topMatches.map(m => ({
@@ -264,7 +348,8 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
     clauseNumber: m.clause.number,
     clauseTitle: m.clause.title,
     snippet: m.clause.content,
-    standardId: m.standard.id
+    standardId: m.standard.id,
+    officialBisUrl: OFFICIAL_BIS_PORTAL_BASE
   }));
 
   const uniqueStandards = Array.from(new Set(topMatches.map(m => m.standard)));
@@ -279,8 +364,10 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
   }
 
   if (primaryMatch.standard.isMandatory) {
-    answer += `*Regulatory Mandate*: Compliance is mandatory under **${primaryMatch.standard.qcoReference || "BIS Quality Control Order"}**. Certification scheme: **${primaryMatch.standard.scheme}**.`;
+    answer += `*Regulatory Mandate*: Compliance is mandatory under **${primaryMatch.standard.qcoReference || "BIS Quality Control Order"}**. Certification scheme: **${primaryMatch.standard.scheme}**.\n\n`;
   }
+
+  answer += `> **Official BIS Reference**: You can verify the official document listing on the [BIS Standards Portal](${OFFICIAL_BIS_PORTAL_BASE}).`;
 
   const result: RagResult = {
     query: rawQuery,
