@@ -17,40 +17,44 @@ export async function callExternalLlm(options: LlmGenerationOptions): Promise<st
 
   // 1. If Gemini API Key exists (from any Google Cloud / AI Studio project)
   if (geminiKey) {
-    try {
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${geminiKey}`;
-      const payload = {
-        contents: [
-          {
-            role: "user",
-            parts: [
-              {
-                text: `${options.systemPrompt}\n\n=== AUTHORITATIVE RETRIEVED BIS EVIDENCE & FACT SHEET ===\n${options.context}\n\n=== USER QUESTION / INQUIRY ===\n${options.userQuery}\n\n=== INSTRUCTION ===\nProvide an in-depth, comprehensive, well-structured response based on the above evidence. Include all relevant technical numbers, machine names, test tolerances, standards codes, and step-by-step procedures.`
-              }
-            ]
+    const geminiModels = ["gemini-2.5-flash", "gemini-flash-latest", "gemini-2.5-pro", "gemini-pro-latest"];
+    for (const modelName of geminiModels) {
+      try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${geminiKey}`;
+        const payload = {
+          contents: [
+            {
+              role: "user",
+              parts: [
+                {
+                  text: `${options.systemPrompt}\n\n=== AUTHORITATIVE RETRIEVED BIS EVIDENCE & FACT SHEET ===\n${options.context}\n\n=== USER QUESTION / INQUIRY ===\n${options.userQuery}\n\n=== INSTRUCTION ===\nProvide an in-depth, comprehensive, well-structured response based on the above evidence. Include all relevant technical numbers, machine names, test tolerances, standards codes, and step-by-step procedures.`
+                }
+              ]
+            }
+          ],
+          generationConfig: {
+            temperature: temp,
+            maxOutputTokens: 4000
           }
-        ],
-        generationConfig: {
-          temperature: temp,
-          maxOutputTokens: 4000
+        };
+
+        const res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) return text.trim();
+        } else {
+          const errText = await res.text();
+          console.warn(`Gemini (${modelName}) returned non-200, trying fallback:`, errText);
         }
-      };
-
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-
-      if (res.ok) {
-        const data = await res.json();
-        const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (text) return text.trim();
-      } else {
-        console.warn("Gemini API call returned non-200:", await res.text());
+      } catch (err) {
+        console.error(`Gemini (${modelName}) call failed:`, err);
       }
-    } catch (err) {
-      console.error("Gemini API call failed:", err);
     }
   }
 
