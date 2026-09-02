@@ -14,7 +14,7 @@ export interface BusinessRecommendationResult {
     requirement: string;
   }[];
   complianceChecklist: string[];
-  blueprint?: FactoryBlueprint;
+  blueprint?: FactoryBlueprint | null;
 }
 
 // Business domain keywords to standard IDs mapping
