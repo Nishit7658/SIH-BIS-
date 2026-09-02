@@ -2,6 +2,7 @@ import { STANDARDS_DATABASE, Standard, Clause } from "./standards-data";
 import { recommendStandardsForBusiness, BusinessRecommendationResult } from "./recommender";
 import { getLaboratories, BisLaboratory } from "./laboratories-data";
 import { getSchemes, getSchemeById, BisScheme } from "./schemes-data";
+import { callExternalLlm } from "./llm-provider";
 
 export interface Citation {
   standardCode: string;
@@ -355,19 +356,44 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
   const uniqueStandards = Array.from(new Set(topMatches.map(m => m.standard)));
   const confidence = Math.min(0.99, 0.75 + (primaryMatch.score * 0.02));
 
-  let answer = `According to **${primaryMatch.standard.code}** (*${primaryMatch.standard.title}*), `;
-  answer += `under **${primaryMatch.clause.number} (${primaryMatch.clause.title})**:\n\n`;
-  answer += `> "${primaryMatch.clause.content}"\n\n`;
+  // Prepare retrieved BIS context for LLM
+  const contextBlock = topMatches.map((m, idx) => 
+    `[${idx + 1}] Standard: ${m.standard.code} (${m.standard.title})\nClause: ${m.clause.number} - ${m.clause.title}\nContent: "${m.clause.content}"\n${m.clause.testRequirement ? `Test Requirement: ${m.clause.testRequirement}` : ""}\nScheme: ${m.standard.scheme}\nQCO: ${m.standard.qcoReference || "Voluntary"}`
+  ).join("\n\n");
 
-  if (primaryMatch.clause.testRequirement) {
-    answer += `**Mandatory Testing Specification**: ${primaryMatch.clause.testRequirement}\n\n`;
+  const systemPrompt = `You are the official BIS (Bureau of Indian Standards) Conversational Assistant.
+RULES:
+1. Answer ONLY using the information provided in the CONTEXT section. Never invent a standard number or clause.
+2. Whenever you state a requirement, cite the standard number and clause.
+3. Keep answers clear, factual, and strictly grounded.`;
+
+  // Attempt external LLM generation (Gemini, OpenAI, or Groq if user provided key from other project)
+  const externalLlmResponse = await callExternalLlm({
+    systemPrompt,
+    context: contextBlock,
+    userQuery: rawQuery,
+    temperature: 0.2
+  });
+
+  let answer = "";
+  if (externalLlmResponse) {
+    answer = `${externalLlmResponse}\n\n> **Official BIS Reference**: You can verify the official document listing on the [BIS Standards Portal](${OFFICIAL_BIS_PORTAL_BASE}).`;
+  } else {
+    // Local deterministic grounded generator (runs with 0 external API keys)
+    answer = `According to **${primaryMatch.standard.code}** (*${primaryMatch.standard.title}*), `;
+    answer += `under **${primaryMatch.clause.number} (${primaryMatch.clause.title})**:\n\n`;
+    answer += `> "${primaryMatch.clause.content}"\n\n`;
+
+    if (primaryMatch.clause.testRequirement) {
+      answer += `**Mandatory Testing Specification**: ${primaryMatch.clause.testRequirement}\n\n`;
+    }
+
+    if (primaryMatch.standard.isMandatory) {
+      answer += `*Regulatory Mandate*: Compliance is mandatory under **${primaryMatch.standard.qcoReference || "BIS Quality Control Order"}**. Certification scheme: **${primaryMatch.standard.scheme}**.\n\n`;
+    }
+
+    answer += `> **Official BIS Reference**: You can verify the official document listing on the [BIS Standards Portal](${OFFICIAL_BIS_PORTAL_BASE}).`;
   }
-
-  if (primaryMatch.standard.isMandatory) {
-    answer += `*Regulatory Mandate*: Compliance is mandatory under **${primaryMatch.standard.qcoReference || "BIS Quality Control Order"}**. Certification scheme: **${primaryMatch.standard.scheme}**.\n\n`;
-  }
-
-  answer += `> **Official BIS Reference**: You can verify the official document listing on the [BIS Standards Portal](${OFFICIAL_BIS_PORTAL_BASE}).`;
 
   const result: RagResult = {
     query: rawQuery,
@@ -376,7 +402,7 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
     confidence,
     isAbstained: false,
     cached: false,
-    costTier: primaryMatch.score > 15 ? "fast_tier" : "deep_reasoning",
+    costTier: externalLlmResponse ? "deep_reasoning" : (primaryMatch.score > 15 ? "fast_tier" : "deep_reasoning"),
     latencyMs: Date.now() - startTime,
     relevantStandards: uniqueStandards
   };

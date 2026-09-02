@@ -1,0 +1,123 @@
+// LLM Provider Module: Supports Gemini, OpenAI, Groq, or Local Fallback
+// You can reuse ANY existing API key from your other projects!
+
+export interface LlmGenerationOptions {
+  systemPrompt: string;
+  context: string;
+  userQuery: string;
+  temperature?: number;
+}
+
+export async function callExternalLlm(options: LlmGenerationOptions): Promise<string | null> {
+  const geminiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+  const openAiKey = process.env.OPENAI_API_KEY;
+  const groqKey = process.env.GROQ_API_KEY;
+
+  const temp = options.temperature ?? 0.2; // Low temperature for factual compliance
+
+  // 1. If Gemini API Key exists (from any Google Cloud / AI Studio project)
+  if (geminiKey) {
+    try {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiKey}`;
+      const payload = {
+        contents: [
+          {
+            role: "user",
+            parts: [
+              {
+                text: `${options.systemPrompt}\n\n=== RETRIEVED BIS CONTEXT ===\n${options.context}\n\n=== USER QUESTION ===\n${options.userQuery}`
+              }
+            ]
+          }
+        ],
+        generationConfig: {
+          temperature: temp,
+          maxOutputTokens: 1500
+        }
+      };
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (text) return text.trim();
+      } else {
+        console.warn("Gemini API call returned non-200:", await res.text());
+      }
+    } catch (err) {
+      console.error("Gemini API call failed:", err);
+    }
+  }
+
+  // 2. If OpenAI Key exists (from any OpenAI project)
+  if (openAiKey) {
+    try {
+      const url = "https://api.openai.com/v1/chat/completions";
+      const payload = {
+        model: "gpt-4o-mini",
+        messages: [
+          { role: "system", content: `${options.systemPrompt}\n\n=== RETRIEVED BIS CONTEXT ===\n${options.context}` },
+          { role: "user", content: options.userQuery }
+        ],
+        temperature: temp
+      };
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${openAiKey}`
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        const text = data.choices?.[0]?.message?.content;
+        if (text) return text.trim();
+      }
+    } catch (err) {
+      console.error("OpenAI API call failed:", err);
+    }
+  }
+
+  // 3. If Groq Key exists
+  if (groqKey) {
+    try {
+      const url = "https://api.groq.com/openai/v1/chat/completions";
+      const payload = {
+        model: "llama-3.3-70b-versatile",
+        messages: [
+          { role: "system", content: `${options.systemPrompt}\n\n=== RETRIEVED BIS CONTEXT ===\n${options.context}` },
+          { role: "user", content: options.userQuery }
+        ],
+        temperature: temp
+      };
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${groqKey}`
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        const text = data.choices?.[0]?.message?.content;
+        if (text) return text.trim();
+      }
+    } catch (err) {
+      console.error("Groq API call failed:", err);
+    }
+  }
+
+  // If no external API key is set, returns null so the local deterministic synthesizer is used
+  return null;
+}
