@@ -732,36 +732,197 @@ export const STANDARDS_DATABASE: Standard[] = [
     ],
     "clauses": [
       {
+        "id": "is17526-c1",
+        "number": "Clause 1",
+        "title": "Scope & Product Applicability",
+        "content": "This standard prescribes the requirements, construction, thermal insulation performance, and methods of sampling and test for stainless steel double-walled vacuum flasks and insulated containers of capacity up to 10 litres intended for domestic, institutional, and outdoor conveyance of potable liquids.",
+        "mandatory": true
+      },
+      {
+        "id": "is17526-c2",
+        "number": "Clause 2",
+        "title": "Normative References",
+        "content": "The standards listed (IS 6911 for stainless steel sheets, IS 9845 for plastic migration testing, IS 10910 for polypropylene contact, IS 4905 for random sampling) contain provisions which constitute essential requirements of this standard.",
+        "mandatory": true
+      },
+      {
+        "id": "is17526-c3",
+        "number": "Clause 3",
+        "title": "Terminology & Constructional Design",
+        "content": "A double-walled insulated container comprises an inner fluid vessel and an outer protective shell separated by an evacuated interstitial space with high vacuum (< 10^-4 mbar) sealed by brazing or welding. An effective closure device with food-grade elastomer seal prevents fluid leakage.",
+        "mandatory": true
+      },
+      {
+        "id": "is17526-c4",
+        "number": "Clause 4",
+        "title": "Nominal Capacity & Tolerances (Table 1)",
+        "content": "The actual liquid capacity when filled to within 12 mm from the top of the neck shall not deviate from the marked nominal capacity by more than +/- 5% for capacities up to 1000 ml (+/- 3% for above 1000 ml). Minimum thickness of inner wall shall be 0.40 mm.",
+        "mandatory": true,
+        "tableData": {
+          "headers": [
+            "Nominal Capacity (ml)",
+            "Min Wall Thickness (mm)",
+            "Tolerance on Volume",
+            "Max Outer Diameter (mm)"
+          ],
+          "rows": [
+            [
+              "350 ml",
+              "0.40 mm",
+              "\u00b1 5.0%",
+              "72 mm"
+            ],
+            [
+              "500 ml",
+              "0.40 mm",
+              "\u00b1 5.0%",
+              "76 mm"
+            ],
+            [
+              "750 ml",
+              "0.40 mm",
+              "\u00b1 5.0%",
+              "82 mm"
+            ],
+            [
+              "1000 ml",
+              "0.45 mm",
+              "\u00b1 5.0%",
+              "88 mm"
+            ],
+            [
+              "1500 ml",
+              "0.50 mm",
+              "\u00b1 3.0%",
+              "105 mm"
+            ]
+          ]
+        }
+      },
+      {
         "id": "is17526-c5",
         "number": "Clause 5.1",
-        "title": "Material Quality (Food Grade SS 304 / SS 316)",
-        "content": "The inner container in direct contact with beverages shall be manufactured from austenitic stainless steel Grade 304 (X04Cr19Ni9) or Grade 316 conforming to IS 6911.",
+        "title": "Material Chemical Composition (Table 2)",
+        "content": "The inner vessel in direct contact with beverages shall be manufactured from austenitic stainless steel Grade 304 (X04Cr19Ni9) or Grade 316 conforming to IS 6911. Scrap or radioactive steel is strictly prohibited.",
         "mandatory": true,
-        "testRequirement": "XRF chemical composition analysis for nickel (min 8.0%) and chromium (min 17.5%)."
+        "testRequirement": "XRF or OES chemical analysis for Nickel (min 8.0%) and Chromium (min 17.5%).",
+        "tableData": {
+          "headers": [
+            "Element",
+            "Grade 304 Requirement (%)",
+            "Grade 316 Requirement (%)",
+            "Test Method"
+          ],
+          "rows": [
+            [
+              "Chromium (Cr)",
+              "17.50% - 19.50%",
+              "16.00% - 18.00%",
+              "XRF / OES Spectrometry"
+            ],
+            [
+              "Nickel (Ni)",
+              "8.00% - 10.50%",
+              "10.00% - 14.00%",
+              "XRF / OES Spectrometry"
+            ],
+            [
+              "Carbon (C)",
+              "\u2264 0.07% max",
+              "\u2264 0.07% max",
+              "Combustion Analyzer"
+            ],
+            [
+              "Manganese (Mn)",
+              "\u2264 2.00% max",
+              "\u2264 2.00% max",
+              "Spectrometry"
+            ],
+            [
+              "Molybdenum (Mo)",
+              "Not required",
+              "2.00% - 3.00%",
+              "Spectrometry"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "is17526-c6",
+        "number": "Clause 6",
+        "title": "Surface Finish, Welds & Acid Passivation",
+        "content": "Internal surfaces of the inner container shall be smoothly finished, electropolished, and free from cracks, burrs, oxide scales, or deep weld pits. All inner seams shall be passivated with nitric/citric acid bath to ensure no rust or heavy metal leaches into potable liquids.",
+        "mandatory": true
       },
       {
         "id": "is17526-c7",
         "number": "Clause 7.2",
-        "title": "Thermal Insulation Retention Test",
-        "content": "When filled with boiling water at 95\u00b0C and sealed in 20\u00b0C ambient room, water temperature shall remain >= 60\u00b0C after 6 hours (and >= 45\u00b0C after 24 hours).",
+        "title": "Thermal Insulation Retention Performance (Table 3)",
+        "content": "When filled with boiling potable water at 95\u00b0C and sealed in an ambient environment maintained at 20\u00b0C +/- 2\u00b0C, the water temperature inside the container shall remain >= 60\u00b0C after 6 hours (and >= 45\u00b0C after 24 hours). For cold retention, water filled at 4\u00b0C shall remain <= 10\u00b0C after 6 hours.",
         "mandatory": true,
-        "testRequirement": "Calibrated thermocouple datalogger temperature retention test."
+        "testRequirement": "Calibrated multi-channel thermocouple datalogger test per Section 7.",
+        "tableData": {
+          "headers": [
+            "Container Type",
+            "Initial Temp (\u00b0C)",
+            "Ambient Temp (\u00b0C)",
+            "Min Temp after 6h (\u00b0C)",
+            "Min Temp after 24h (\u00b0C)"
+          ],
+          "rows": [
+            [
+              "Double-Walled Vacuum (\u2264 500 ml)",
+              "95\u00b0C \u00b1 1\u00b0C",
+              "20\u00b0C \u00b1 2\u00b0C",
+              "\u2265 58\u00b0C",
+              "\u2265 42\u00b0C"
+            ],
+            [
+              "Double-Walled Vacuum (750 - 1000 ml)",
+              "95\u00b0C \u00b1 1\u00b0C",
+              "20\u00b0C \u00b1 2\u00b0C",
+              "\u2265 62\u00b0C",
+              "\u2265 48\u00b0C"
+            ],
+            [
+              "Double-Walled Vacuum (> 1000 ml)",
+              "95\u00b0C \u00b1 1\u00b0C",
+              "20\u00b0C \u00b1 2\u00b0C",
+              "\u2265 66\u00b0C",
+              "\u2265 52\u00b0C"
+            ]
+          ]
+        }
       },
       {
         "id": "is17526-c8",
         "number": "Clause 8.1",
-        "title": "Leakage and Seal Integrity Test",
-        "content": "Bottle filled with hot water at 80\u00b0C and inverted upside-down for 10 minutes shall show zero droplets or moisture seepage through gasket closure.",
+        "title": "Gasket Sealing & Inversion Hydrostatic Leak Test",
+        "content": "The bottle closure gasket shall be made of food-grade silicone conforming to IS 9845. When filled to nominal capacity with hot water at 80\u00b0C and inverted upside-down for 10 continuous minutes, the closure shall show ZERO droplets, moisture seepage, or pressure loss.",
         "mandatory": true,
-        "testRequirement": "Inversion hydrostatic seal test at 80\u00b0C."
+        "testRequirement": "Inversion hydrostatic seal test at 80\u00b0C under 1000 lux inspection."
       },
       {
         "id": "is17526-c9",
         "number": "Clause 9.3",
-        "title": "Drop Impact and Handle Attachment Test",
-        "content": "Filled bottle dropped from 1.0 m height onto concrete floor shall show no cracking, leakage, or loss of vacuum insulation.",
+        "title": "Mechanical Drop Impact & Handle Attachment Test",
+        "content": "The container filled to nominal capacity with water at room temperature shall be dropped freely from a height of 1.0 m onto a rigid flat concrete anvil. After impact, there shall be no fracture, leakage, or loss of vacuum insulation. Handles shall withstand 20 kg static tensile pull for 5 minutes.",
         "mandatory": true,
-        "testRequirement": "Impact drop tester onto concrete base."
+        "testRequirement": "Guided 1.0-metre drop tester and tensile handle pull rig."
+      },
+      {
+        "id": "is17526-c10",
+        "number": "Clause 10",
+        "title": "Sampling, Batch Criteria & Scheme of Testing (STI)",
+        "content": "Sampling shall be carried out in accordance with IS 4905. For daily factory batch testing under the BIS STI, routine tests (visual, capacity, leak test, thermal check) shall be conducted on 1 in every 500 units produced. Routine records must be preserved for 3 years.",
+        "mandatory": true
+      },
+      {
+        "id": "is17526-c11",
+        "number": "Clause 11",
+        "title": "Mandatory Marking, Laser Embossing & Labelling",
+        "content": "Each container shall be permanently laser-engraved or embossed with: (a) BIS Standard Mark (ISI Logo) with License Number CM/L-XXXXXXXXXX, (b) Nominal capacity in ml, (c) Food Grade SS 304 mark, (d) Manufacturer name/trademark, (e) Month and Year of manufacture, and (f) Batch/Lot code.",
+        "mandatory": true
       }
     ],
     "factoryBlueprint": {
