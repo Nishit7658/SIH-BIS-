@@ -172,6 +172,27 @@ packaging_data = [
 for p in packaging_data:
     ACTIVE_STANDARDS.append(std(p[0], p[1], p[2], p[3], "Packaging & Paper", "Chemical / Packaging (CHD 15 / TED 24)", True, "Scheme I (ISI Mark)", "Packaging Quality Control Order", p[4], p[5], p[6], p[7], p[8]))
 
+# Consumer Items: Stainless Steel Bottles and Food-Grade Steel
+ACTIVE_STANDARDS.append(std("is-17526-2021", "IS 17526:2021", "Stainless Steel Vacuum Flasks and Insulated Containers — Specification", 2021,
+    "Consumer Goods", "Mechanical / Consumer Products (MED 32)", True, "Scheme I (ISI Mark)", "Cookware, Utensils and Insulated Flasks (Quality Control) Order, 2023 (DPIIT)",
+    ["steel bottle manufacturing", "stainless steel flask plant", "insulated water bottle production", "sipper bottle fabrication", "steel utensils"],
+    "Mandatory standard for stainless steel insulated bottles and vacuum flasks, governing food-grade SS 304 inner liner purity, thermal insulation retention (hot/cold for 24h), drop impact, and leak-proof gasket seals.",
+    "Covers stainless steel double-walled vacuum insulated flasks, bottles, carafes, and sippers intended for carrying hot or cold potable beverages.",
+    ["steel bottle", "stainless steel flask", "vacuum bottle", "SS 304 bottle", "thermal retention test", "leak proof test", "insulated container", "DPIIT QCO"],
+    [cls("is17526-c5", "Clause 5.1", "Material Quality (Food Grade SS 304 / SS 316)", "The inner container in direct contact with beverages shall be manufactured from austenitic stainless steel Grade 304 (X04Cr19Ni9) or Grade 316 conforming to IS 6911.", "XRF chemical composition analysis for nickel (min 8.0%) and chromium (min 17.5%)."),
+     cls("is17526-c7", "Clause 7.2", "Thermal Insulation Retention Test", "When filled with boiling water at 95°C and sealed in 20°C ambient room, water temperature shall remain >= 60°C after 6 hours (and >= 45°C after 24 hours).", "Calibrated thermocouple datalogger temperature retention test."),
+     cls("is17526-c8", "Clause 8.1", "Leakage and Seal Integrity Test", "Bottle filled with hot water at 80°C and inverted upside-down for 10 minutes shall show zero droplets or moisture seepage through gasket closure.", "Inversion hydrostatic seal test at 80°C."),
+     cls("is17526-c9", "Clause 9.3", "Drop Impact and Handle Attachment Test", "Filled bottle dropped from 1.0 m height onto concrete floor shall show no cracking, leakage, or loss of vacuum insulation.", "Impact drop tester onto concrete base.")]))
+
+ACTIVE_STANDARDS.append(std("is-6911-2017", "IS 6911:2017", "Stainless Steel Plate, Sheet and Strip — Specification", 2017,
+    "Civil & Construction", "Metallurgical Engineering (MTD 4)", True, "Scheme I (ISI Mark)", "Stainless Steel Products Quality Control Order",
+    ["stainless steel rolling", "SS 304 sheet manufacturing", "utensil raw material", "steel bottle raw material"],
+    "Mandatory standard for food-grade austenitic stainless steel sheets, plates, and strips (Grade 304, 316) used for manufacturing steel bottles, cookware, and hospital equipment.",
+    "Covers chemical and mechanical requirements for hot-rolled and cold-rolled stainless steel sheets and coils.",
+    ["stainless steel", "SS 304", "SS 316", "food grade steel", "corrosion resistance", "nickel content"],
+    [cls("is6911-c6", "Clause 6.1", "Chemical Composition for Food Contact (SS 304)", "Grade 304 (X04Cr19Ni9): Carbon <= 0.07%, Chromium 17.5-19.5%, Nickel 8.0-10.5%. Strictly prohibited from using radioactive or toxic scrap.", "Spectrometric chemical analysis."),
+     cls("is6911-c7", "Clause 7.1", "Tensile Strength and Elongation", "Tensile strength shall be between 520 and 750 MPa with minimum elongation of 40% for deep drawing bottle bodies.")]))
+
 # Generate additional active standards systematically across all key domains to reach 200+
 # Categories: Electrical (45), Electronics (35), Chemical/Plastics (35), Civil/Steel (35), Consumer (30)
 
