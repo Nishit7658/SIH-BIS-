@@ -33,7 +33,7 @@ export default function StandardDetailPage() {
   const { savedStandards, toggleSaveStandard } = useApp();
 
   const [clauseSearch, setClauseSearch] = useState("");
-  const [activeTab, setActiveTab] = useState<"clauses" | "amendments" | "scope">("clauses");
+  const [activeTab, setActiveTab] = useState<"clauses" | "blueprint" | "amendments" | "scope">("clauses");
   const [expandedClauses, setExpandedClauses] = useState<Record<string, boolean>>({});
 
   if (!standard) {
@@ -109,7 +109,7 @@ export default function StandardDetailPage() {
             <span>Download / Print Dossier</span>
           </button>
           <Link
-            href={`/chat?q=${encodeURIComponent(`Explain key clauses of ${standard.code}`)}`}
+            href={`/chat?q=${encodeURIComponent(`Explain factory setup, machinery and key testing requirements for ${standard.code}`)}`}
             className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-bis-saffron hover:bg-bis-saffron-dark text-white text-xs font-bold shadow-xs"
           >
             <MessageSquare className="w-4 h-4" />
@@ -158,30 +158,42 @@ export default function StandardDetailPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-bis-border text-sm font-bold gap-6">
+      <div className="flex border-b border-bis-border text-sm font-bold gap-4 sm:gap-6 overflow-x-auto pb-0.5">
         <button
           onClick={() => setActiveTab("clauses")}
-          className={`pb-3 flex items-center gap-1.5 transition-colors border-b-2 ${
+          className={`pb-3 flex items-center gap-1.5 transition-colors border-b-2 whitespace-nowrap ${
             activeTab === "clauses"
               ? "border-bis-saffron text-bis-navy"
               : "border-transparent text-bis-text-secondary hover:text-bis-navy"
           }`}
         >
-          <Layers className="w-4 h-4" /> Clauses & Tables ({standard.clauses.length})
+          <Layers className="w-4 h-4" /> Clauses & Testing Tables ({standard.clauses.length})
         </button>
+
+        <button
+          onClick={() => setActiveTab("blueprint")}
+          className={`pb-3 flex items-center gap-1.5 transition-colors border-b-2 whitespace-nowrap ${
+            activeTab === "blueprint"
+              ? "border-bis-saffron text-bis-navy"
+              : "border-transparent text-bis-text-secondary hover:text-bis-navy"
+          }`}
+        >
+          <Sparkles className="w-4 h-4 text-bis-saffron" /> Factory & Business Setup Guide
+        </button>
+
         <button
           onClick={() => setActiveTab("amendments")}
-          className={`pb-3 flex items-center gap-1.5 transition-colors border-b-2 ${
+          className={`pb-3 flex items-center gap-1.5 transition-colors border-b-2 whitespace-nowrap ${
             activeTab === "amendments"
               ? "border-bis-saffron text-bis-navy"
               : "border-transparent text-bis-text-secondary hover:text-bis-navy"
           }`}
         >
-          <GitBranch className="w-4 h-4" /> Amendments & Diffs ({standard.amendments.length})
+          <GitBranch className="w-4 h-4" /> Amendments ({standard.amendments.length})
         </button>
         <button
           onClick={() => setActiveTab("scope")}
-          className={`pb-3 flex items-center gap-1.5 transition-colors border-b-2 ${
+          className={`pb-3 flex items-center gap-1.5 transition-colors border-b-2 whitespace-nowrap ${
             activeTab === "scope"
               ? "border-bis-saffron text-bis-navy"
               : "border-transparent text-bis-text-secondary hover:text-bis-navy"
@@ -273,6 +285,139 @@ export default function StandardDetailPage() {
               );
             })}
           </div>
+        </div>
+      )}
+
+      {/* Tab: Factory & Business Setup Blueprint */}
+      {activeTab === "blueprint" && (
+        <div className="space-y-8">
+          {standard.factoryBlueprint ? (
+            <>
+              {/* Section 1: Raw Materials */}
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-bis-border shadow-xs space-y-4">
+                <div className="flex items-center gap-2.5 text-bis-navy font-bold font-display text-lg">
+                  <div className="w-8 h-8 rounded-xl bg-blue-100 text-bis-blue flex items-center justify-center text-sm font-black">
+                    1
+                  </div>
+                  <h3>Raw Material Sourcing & Inward Testing Specifications</h3>
+                </div>
+                <p className="text-xs text-bis-text-secondary leading-relaxed">
+                  Before putting raw materials into production, each batch must be verified against applicable Indian Standards:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                  {standard.factoryBlueprint.rawMaterials.map((rm, idx) => (
+                    <div key={idx} className="p-4 rounded-2xl bg-bis-canvas border border-bis-border space-y-2">
+                      <h4 className="font-bold text-xs text-bis-navy">{rm.material}</h4>
+                      <p className="text-[11px] text-bis-blue font-semibold">{rm.specification}</p>
+                      <div className="pt-1 text-[11px] text-bis-text-secondary border-t border-bis-border/60">
+                        <strong>Inward Check:</strong> {rm.inwardTest}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Section 2: Manufacturing Machinery */}
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-bis-border shadow-xs space-y-4">
+                <div className="flex items-center gap-2.5 text-bis-navy font-bold font-display text-lg">
+                  <div className="w-8 h-8 rounded-xl bg-amber-100 text-bis-saffron flex items-center justify-center text-sm font-black">
+                    2
+                  </div>
+                  <h3>Manufacturing Machinery & Production Line Flow</h3>
+                </div>
+                <div className="space-y-3 pt-2">
+                  {standard.factoryBlueprint.manufacturingMachinery.map((m, idx) => (
+                    <div key={idx} className="p-4 rounded-2xl bg-bis-canvas border border-bis-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="space-y-1">
+                        <span className="text-[10px] font-bold text-bis-saffron uppercase tracking-wider">{m.stage}</span>
+                        <h4 className="font-bold text-xs text-bis-navy">{m.machine}</h4>
+                        <p className="text-[11px] text-bis-text-secondary">{m.purpose}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Section 3: In-House QC Lab Setup */}
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-bis-border shadow-xs space-y-4">
+                <div className="flex items-center gap-2.5 text-bis-navy font-bold font-display text-lg">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm font-black">
+                    3
+                  </div>
+                  <h3>Mandatory In-House Quality Control & Testing Laboratory</h3>
+                </div>
+                <p className="text-xs text-bis-text-secondary leading-relaxed">
+                  Under the BIS Scheme of Testing and Inspection (STI), the factory <strong>MUST have these testing instruments in-house</strong> with valid calibration:
+                </p>
+                <div className="space-y-3 pt-2">
+                  {standard.factoryBlueprint.inHouseLaboratoryEquipment.map((lab, idx) => (
+                    <div key={idx} className="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="space-y-1">
+                        <h4 className="font-bold text-xs text-emerald-950">{lab.equipmentName}</h4>
+                        <p className="text-[11px] text-emerald-800 font-semibold">{lab.clauseTested}</p>
+                      </div>
+                      <span className="text-[10px] font-bold bg-white px-2.5 py-1 rounded-lg border border-emerald-300 text-emerald-800 shrink-0">
+                        {lab.calibrationRequirement}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Section 4: Marking & Labelling */}
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-bis-border shadow-xs space-y-4">
+                <div className="flex items-center gap-2.5 text-bis-navy font-bold font-display text-lg">
+                  <div className="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-sm font-black">
+                    4
+                  </div>
+                  <h3>Mandatory Embossing, Marking & Packaging Rules</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                  {standard.factoryBlueprint.markingAndLabeling.map((mk, idx) => (
+                    <div key={idx} className="p-4 rounded-2xl bg-purple-50/40 border border-purple-200/70 space-y-1.5">
+                      <h4 className="font-bold text-xs text-purple-950">{mk.item}</h4>
+                      <p className="text-[11px] text-purple-900 leading-relaxed">{mk.requirement}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Section 5: BIS Licensing Roadmap */}
+              <div className="bg-gradient-to-br from-bis-navy via-bis-navy-light to-bis-navy text-white p-6 sm:p-8 rounded-3xl shadow-sm space-y-6">
+                <div>
+                  <span className="text-xs font-bold text-bis-saffron uppercase tracking-wider">Statutory Procedure</span>
+                  <h3 className="text-xl font-bold font-display mt-0.5">
+                    Step-by-Step BIS Certification Roadmap (Manakonline / Form V)
+                  </h3>
+                </div>
+                <div className="space-y-4">
+                  {standard.factoryBlueprint.bisLicensingRoadmap.map((st) => (
+                    <div key={st.step} className="p-4 rounded-2xl bg-white/10 border border-white/15 flex items-start gap-4">
+                      <div className="w-7 h-7 rounded-full bg-bis-saffron text-white flex items-center justify-center font-bold text-xs shrink-0">
+                        {st.step}
+                      </div>
+                      <div className="space-y-1 flex-1">
+                        <div className="flex items-center justify-between">
+                          <h4 className="font-bold text-xs text-white">{st.title}</h4>
+                          <span className="text-[10px] font-bold text-bis-saffron-light bg-white/10 px-2 py-0.5 rounded">
+                            {st.estimatedDays}
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-300 leading-relaxed">{st.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className="p-8 text-center text-sm text-bis-text-secondary bg-white rounded-3xl border border-bis-border space-y-2">
+              <p className="font-bold text-bis-navy">Factory Blueprint in Progress</p>
+              <p className="text-xs text-slate-500">
+                The general testing clauses for {standard.code} are available in the Clauses tab. You can also ask the AI Chatbot for custom machinery & testing quotes.
+              </p>
+            </div>
+          )}
         </div>
       )}
 

@@ -1,4 +1,4 @@
-import { STANDARDS_DATABASE, Standard, Clause } from "./standards-data";
+import { STANDARDS_DATABASE, Standard, Clause, FactoryBlueprint } from "./standards-data";
 
 export interface BusinessRecommendationResult {
   query: string;
@@ -14,6 +14,7 @@ export interface BusinessRecommendationResult {
     requirement: string;
   }[];
   complianceChecklist: string[];
+  blueprint?: FactoryBlueprint;
 }
 
 // Business domain keywords to standard IDs mapping
@@ -187,6 +188,7 @@ export function recommendStandardsForBusiness(query: string): BusinessRecommenda
     mandatoryQcoNotice: bestMatch.qcoNotice,
     scheme: bestMatch.scheme,
     keyMandatoryTests,
-    complianceChecklist
+    complianceChecklist,
+    blueprint: primaryStandards[0]?.factoryBlueprint
   };
 }

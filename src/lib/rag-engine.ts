@@ -109,10 +109,39 @@ export async function executeRagQuery(rawQuery: string): Promise<RagResult> {
       });
     }
 
-    answer += `\n#### 4. Compliance Action Plan:\n`;
-    rec.complianceChecklist.slice(0, 3).forEach(item => {
-      answer += `- ${item}\n`;
-    });
+    if (rec.blueprint) {
+      answer += `\n---\n### 🏭 Complete Factory & Business Setup Blueprint\n\n`;
+
+      answer += `#### 1. Raw Material Sourcing & Inward Testing Specifications:\n`;
+      rec.blueprint.rawMaterials.forEach(rm => {
+        answer += `- **${rm.material}**: ${rm.specification} (*Inward Check*: ${rm.inwardTest})\n`;
+      });
+
+      answer += `\n#### 2. Manufacturing Machinery & Production Stages:\n`;
+      rec.blueprint.manufacturingMachinery.forEach(m => {
+        answer += `- **${m.stage}**: ${m.machine} — *${m.purpose}*\n`;
+      });
+
+      answer += `\n#### 3. Mandatory In-House QC Testing Laboratory Setup (BIS STI):\n`;
+      rec.blueprint.inHouseLaboratoryEquipment.forEach(lab => {
+        answer += `- **${lab.equipmentName}**: Tests *${lab.clauseTested}* (${lab.calibrationRequirement})\n`;
+      });
+
+      answer += `\n#### 4. Mandatory Marking, Laser Engraving & Labelling:\n`;
+      rec.blueprint.markingAndLabeling.forEach(mk => {
+        answer += `- **${mk.item}**: ${mk.requirement}\n`;
+      });
+
+      answer += `\n#### 5. Step-by-Step BIS Certification Roadmap (Manakonline / Form V):\n`;
+      rec.blueprint.bisLicensingRoadmap.forEach(st => {
+        answer += `- **Step ${st.step} (${st.estimatedDays})**: **${st.title}** — ${st.description}\n`;
+      });
+    } else {
+      answer += `\n#### 4. Compliance Action Plan:\n`;
+      rec.complianceChecklist.slice(0, 3).forEach(item => {
+        answer += `- ${item}\n`;
+      });
+    }
 
     const citations: Citation[] = rec.primaryStandards.flatMap(std => 
       std.clauses.slice(0, 2).map(c => ({

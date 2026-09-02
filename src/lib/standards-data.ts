@@ -23,6 +23,34 @@ export interface Amendment {
   newText: string;
 }
 
+export interface FactoryBlueprint {
+  rawMaterials: {
+    material: string;
+    specification: string;
+    inwardTest: string;
+  }[];
+  manufacturingMachinery: {
+    stage: string;
+    machine: string;
+    purpose: string;
+  }[];
+  inHouseLaboratoryEquipment: {
+    equipmentName: string;
+    clauseTested: string;
+    calibrationRequirement: string;
+  }[];
+  markingAndLabeling: {
+    item: string;
+    requirement: string;
+  }[];
+  bisLicensingRoadmap: {
+    step: number;
+    title: string;
+    description: string;
+    estimatedDays: string;
+  }[];
+}
+
 export interface Standard {
   id: string;
   code: string;
@@ -39,6 +67,7 @@ export interface Standard {
   summary: string;
   scope: string;
   clauses: Clause[];
+  factoryBlueprint?: FactoryBlueprint;
   amendments: Amendment[];
   keywords: string[];
 }
@@ -90,6 +119,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "testRequirement": "Mullen bursting test and ECT per IS 7063."
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -127,6 +157,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -171,6 +202,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -206,6 +238,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -254,6 +287,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -292,6 +326,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "testRequirement": "Global migration test per IS 9845."
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -329,6 +364,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -365,6 +401,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -401,6 +438,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -437,6 +475,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -472,6 +511,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -508,6 +548,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -543,6 +584,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -580,6 +622,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -617,6 +660,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -653,6 +697,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -719,6 +764,148 @@ export const STANDARDS_DATABASE: Standard[] = [
         "testRequirement": "Impact drop tester onto concrete base."
       }
     ],
+    "factoryBlueprint": {
+      "rawMaterials": [
+        {
+          "material": "Austenitic Stainless Steel Coils / Sheets (Grade 304 / X04Cr19Ni9)",
+          "specification": "IS 6911:2017 Grade 304 (Chromium 17.5-19.5%, Nickel 8.0-10.5%, Carbon <= 0.07%)",
+          "inwardTest": "Mill Test Certificate (MTC) verification + in-house XRF Spectrometry test on arrival."
+        },
+        {
+          "material": "Outer Casing Steel Sheet (Grade 201 or 304)",
+          "specification": "IS 6911:2017 with deep drawing quality",
+          "inwardTest": "Thickness check (0.4mm to 0.6mm) and Erichsen cupping ductility test."
+        },
+        {
+          "material": "Food-Grade Silicone Sealing Gaskets",
+          "specification": "IS 9845:1998 & FSSAI food contact compliance (BPA free, heat resistant to 120\u00b0C)",
+          "inwardTest": "Overall migration test into 3% acetic acid and purified water simulants."
+        },
+        {
+          "material": "Polypropylene (PP) Threaded Caps & Lids",
+          "specification": "IS 10910:1984 (Virgin Food Contact Polymer)",
+          "inwardTest": "Hexane extractable test and drop impact test."
+        },
+        {
+          "material": "Vacuum Getter & Copper Brazing Rings",
+          "specification": "High purity barium/zirconium getter material for vacuum retention",
+          "inwardTest": "Degassing and brazing purity test."
+        }
+      ],
+      "manufacturingMachinery": [
+        {
+          "stage": "1. Deep Drawing & Hydroforming",
+          "machine": "150-200 Ton Hydraulic Deep Drawing Press with 3-Stage Dies",
+          "purpose": "Cold draw circular stainless steel blanks into seamless inner and outer cylinder bodies."
+        },
+        {
+          "stage": "2. Necking, Trimming & Thread Rolling",
+          "machine": "CNC Neck Forming & Rotary Threading Machine",
+          "purpose": "Roll precise screw threads onto inner bottle mouth for airtight cap fitting."
+        },
+        {
+          "stage": "3. Shell Assembly & TIG Welding",
+          "machine": "Automated Circumferential TIG / Laser Welding Lathe",
+          "purpose": "Weld inner bottle neck to outer shell and weld bottom vacuum plug."
+        },
+        {
+          "stage": "4. Vacuum Annealing & Evacuation",
+          "machine": "High-Vacuum Industrial Furnace (< 10^-4 mbar) with Diffusion Pumps",
+          "purpose": "Evacuate air between double walls at 450\u00b0C to create permanent thermal vacuum barrier."
+        },
+        {
+          "stage": "5. Surface Passivation & Cleaning",
+          "machine": "Ultrasonic Multi-Stage Acid Passivation & Cleaning Line",
+          "purpose": "Electropolish interior to remove welding oxides and ensure 100% rust-proof food contact."
+        },
+        {
+          "stage": "6. Coating, Printing & Laser Marking",
+          "machine": "Electrostatic Powder Coating Line & Fiber Laser Marking Machine",
+          "purpose": "Apply durable exterior paint and laser-engrave the mandatory BIS ISI Mark & CM/L license number."
+        }
+      ],
+      "inHouseLaboratoryEquipment": [
+        {
+          "equipmentName": "Calibrated Multi-Channel Temperature Datalogger with Thermocouples",
+          "clauseTested": "Clause 7.2 (Thermal Insulation Retention Test)",
+          "calibrationRequirement": "Calibrated annually against NABL standard with +/- 0.5\u00b0C accuracy."
+        },
+        {
+          "equipmentName": "Hydrostatic Inversion Seal Testing Rig with 80\u00b0C Water Bath",
+          "clauseTested": "Clause 8.1 (Leakage and Gasket Seal Integrity)",
+          "calibrationRequirement": "Timer calibrated to +/- 1 sec; digital thermometer for 80\u00b0C bath."
+        },
+        {
+          "equipmentName": "Guided 1.0-Metre Drop Impact Tester onto Rigid Concrete Anvil",
+          "clauseTested": "Clause 9.3 (Drop Impact and Structural Integrity)",
+          "calibrationRequirement": "Height gauge verification with release trigger mechanism."
+        },
+        {
+          "equipmentName": "XRF Handheld Alloy Analyzer or Spectrometer (or NABL Lab MoU)",
+          "clauseTested": "Clause 5.1 (SS 304 Nickel & Chromium Chemical Composition)",
+          "calibrationRequirement": "Calibrated with certified reference materials (CRM) for stainless steel."
+        },
+        {
+          "equipmentName": "Digital Vernier Caliper, Micrometers & 1000ml Volumetric Flasks",
+          "clauseTested": "Clause 4 (Nominal Capacity & Wall Thickness)",
+          "calibrationRequirement": "Calibrated annually per ISO/IEC 17025."
+        }
+      ],
+      "markingAndLabeling": [
+        {
+          "item": "BIS Standard Mark (ISI Logo)",
+          "requirement": "Must be permanently laser-engraved or embossed on the bottom or side with license number CM/L-XXXXXXXXXX and 'IS 17526'."
+        },
+        {
+          "item": "Nominal Liquid Capacity",
+          "requirement": "Clearly marked in millilitres or litres (e.g. '750 ml' or '1000 ml')."
+        },
+        {
+          "item": "Material Grade Indication",
+          "requirement": "Must state 'Food Grade Stainless Steel 304 Inner Liner' on body or retail packaging."
+        },
+        {
+          "item": "Manufacturer Identity & Batch",
+          "requirement": "Brand Name / Manufacturer Name, Factory Address, Month & Year of Manufacture, Batch/Lot No."
+        },
+        {
+          "item": "Legal Metrology Compliance",
+          "requirement": "MRP, Net Quantity (1 Unit), Country of Origin (Made in India), Customer Care Helpline & Email."
+        }
+      ],
+      "bisLicensingRoadmap": [
+        {
+          "step": 1,
+          "title": "Factory & In-House Testing Laboratory Setup",
+          "description": "Establish the complete manufacturing line and procure all mandatory testing instruments listed in the BIS Scheme of Testing and Inspection (STI).",
+          "estimatedDays": "Day 1 - 20"
+        },
+        {
+          "step": 2,
+          "title": "Online Application Submission on Manakonline",
+          "description": "Register on manakonline.in under Product Certification Scheme I (Form V). Upload factory layout, machinery list, test equipment calibration certificates, and raw material MTCs.",
+          "estimatedDays": "Day 21 - 25"
+        },
+        {
+          "step": 3,
+          "title": "BIS Technical Officer Factory Inspection",
+          "description": "A BIS auditing officer visits your plant, verifies manufacturing controls, inspects laboratory calibration, and witnesses in-house testing (thermal retention, drop, leak test).",
+          "estimatedDays": "Day 26 - 40"
+        },
+        {
+          "step": 4,
+          "title": "Sample Drawing & Independent NABL Testing",
+          "description": "BIS officer draws random production samples, seals them with official BIS security tags, and dispatches them to a BIS Central Laboratory or recognized NABL lab for complete type testing.",
+          "estimatedDays": "Day 41 - 60"
+        },
+        {
+          "step": 5,
+          "title": "Grant of Certification (CM/L License)",
+          "description": "Upon passing laboratory test report verification, BIS issues the official CM/L license number and approves printing the ISI Mark on your bottles.",
+          "estimatedDays": "Day 61 - 70"
+        }
+      ]
+    },
     "amendments": []
   },
   {
@@ -765,6 +952,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -819,6 +1007,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -858,6 +1047,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -894,6 +1084,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -930,6 +1121,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -964,6 +1156,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1010,6 +1203,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1045,6 +1239,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1081,6 +1276,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1117,6 +1313,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1154,6 +1351,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1190,6 +1388,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1227,6 +1426,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1263,6 +1463,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1299,6 +1500,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1335,6 +1537,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1371,6 +1574,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1407,6 +1611,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1452,6 +1657,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1487,6 +1693,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1526,6 +1733,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1563,6 +1771,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1599,6 +1808,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1636,6 +1846,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1673,6 +1884,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1718,6 +1930,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1756,6 +1969,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1791,6 +2005,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1829,6 +2044,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1865,6 +2081,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1902,6 +2119,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1939,6 +2157,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -1975,6 +2194,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -2011,6 +2231,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -2046,6 +2267,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -2082,6 +2304,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -2117,6 +2340,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -2155,6 +2379,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -2191,6 +2416,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -2236,6 +2462,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -2274,6 +2501,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -2310,6 +2538,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   },
   {
@@ -2346,6 +2575,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "mandatory": true
       }
     ],
+    "factoryBlueprint": null,
     "amendments": []
   }
 ];
