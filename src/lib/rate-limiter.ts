@@ -13,12 +13,12 @@ if (typeof setInterval !== "undefined") {
   setInterval(() => {
     const now = Date.now();
     const windowStart = now - 60 * 1000;
-    for (const [ip, record] of ipRequestMap.entries()) {
+    ipRequestMap.forEach((record, ip) => {
       record.timestamps = record.timestamps.filter(ts => ts > windowStart);
       if (record.timestamps.length === 0) {
         ipRequestMap.delete(ip);
       }
-    }
+    });
   }, CLEANUP_INTERVAL_MS);
 }
 
