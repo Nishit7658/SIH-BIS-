@@ -1,10 +1,34 @@
 import { NextRequest, NextResponse } from "next/server";
 import { executeRagQuery } from "@/lib/rag-engine";
 import { evaluatePromptGuardrail } from "@/lib/guardrails";
+import { checkRateLimit } from "@/lib/rate-limiter";
 
-// Endpoint: POST /api/ask (Main RAG endpoint per Handbook Part 5.3)
+export const dynamic = "force-dynamic";
+
+// Endpoint: POST /api/ask (Main RAG endpoint per Handbook Part 5.3 & Part 19 Security)
 export async function POST(req: NextRequest) {
   try {
+    // 1. IP Rate Limiting Check (Handbook Part 19)
+    const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "127.0.0.1";
+    const rateLimit = checkRateLimit(ip, 60, 60);
+
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        {
+          error: "Too Many Requests. Rate limit exceeded. Please wait before asking more questions.",
+          resetSeconds: rateLimit.resetSeconds
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": rateLimit.resetSeconds.toString(),
+            "X-RateLimit-Limit": rateLimit.limit.toString(),
+            "X-RateLimit-Remaining": rateLimit.remaining.toString()
+          }
+        }
+      );
+    }
+
     const body = await req.json();
     const query = body.question || body.query;
     const language = body.language || "en";
@@ -16,7 +40,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 1. Prompt Injection & Guardrail Defense (Handbook Part 19)
+    // 2. Prompt Injection & Guardrail Defense (Handbook Part 19)
     const guardResult = evaluatePromptGuardrail(query);
     if (!guardResult.passed) {
       return NextResponse.json({
@@ -35,7 +59,7 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    // 2. Execute RAG Retrieval & Answer Generation (Handbook Part 11)
+    // 3. Execute RAG Retrieval & Answer Generation (Handbook Part 11)
     const ragResult = await executeRagQuery(guardResult.sanitizedInput);
 
     // Format response matching Handbook Part 5.3 JSON contract
@@ -60,7 +84,13 @@ export async function POST(req: NextRequest) {
       latencyMs: ragResult.latencyMs,
       relevantStandards: ragResult.relevantStandards,
       businessRecommendation: ragResult.businessRecommendation
-    }, { status: 200 });
+    }, {
+      status: 200,
+      headers: {
+        "X-RateLimit-Limit": rateLimit.limit.toString(),
+        "X-RateLimit-Remaining": rateLimit.remaining.toString()
+      }
+    });
 
   } catch (error: any) {
     console.error("API /ask Error:", error);
