@@ -59,7 +59,6 @@ export function Navbar() {
   const languages: { code: SupportedLanguage; label: string; flag: string }[] = [
     { code: "en", label: "English", flag: "EN" },
     { code: "hi", label: "हिंदी", flag: "HI" },
-    { code: "gu", label: "ગુજરાતી", flag: "GU" },
     { code: "mr", label: "मराठी", flag: "MR" },
     { code: "ta", label: "தமிழ்", flag: "TA" }
   ];
