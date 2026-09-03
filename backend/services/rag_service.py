@@ -49,8 +49,8 @@ async def call_gemini_llm(prompt: str) -> Optional[str]:
         return None
 
     models = [
-        "gemini-3.6-flash",
-        "gemini-flash-latest"
+        "gemini-flash-lite-latest",
+        "gemini-pro-latest"
     ]
 
     payload = {
@@ -59,7 +59,7 @@ async def call_gemini_llm(prompt: str) -> Optional[str]:
     }
 
     try:
-        async with httpx.AsyncClient(timeout=5.0) as client:
+        async with httpx.AsyncClient(timeout=4.0) as client:
             for model in models:
                 url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
                 try:
@@ -77,11 +77,37 @@ async def call_gemini_llm(prompt: str) -> Optional[str]:
         pass
     return None
 
+GREETING_TRIGGERS = ["hello", "hi", "hey", "namaste", "good morning", "good afternoon", "good evening", "help"]
+
 class RagService:
     @staticmethod
     async def execute_rag_query(raw_query: str) -> Dict[str, Any]:
         start_time = time.time()
         normalized = raw_query.strip().lower()
+
+        # 0. Polite Greeting Handler
+        if normalized in GREETING_TRIGGERS or any(normalized.startswith(g + " ") for g in GREETING_TRIGGERS):
+            latency = int((time.time() - start_time) * 1000)
+            return {
+                "query": raw_query,
+                "answer": (
+                    "### Namaste! Welcome to the BIS Smart Digital Expert\n\n"
+                    "I am your authoritative technical intelligence assistant for the **Bureau of Indian Standards (BIS)**.\n\n"
+                    "How may I assist your regulatory inquiry today? You can ask about:\n"
+                    "- **Indian Standards (IS)** (e.g., *IS 1293 for plugs*, *IS 17526 for vacuum flasks*, *IS 694 for cables*)\n"
+                    "- **Mandatory Quality Control Orders (QCOs)** & statutory enforcement dates\n"
+                    "- **Conformity Schemes** (Scheme I ISI Mark vs Scheme II CRS)\n"
+                    "- **Factory Testing Setup** (Raw materials, manufacturing stages, and STI testing laboratory equipment)\n"
+                    "- **License Verification** (CM/L 10-digit registration numbers)"
+                ),
+                "citations": [],
+                "confidence": 1.0,
+                "isAbstained": False,
+                "cached": False,
+                "costTier": "fast_tier",
+                "latencyMs": latency,
+                "relevantStandards": []
+            }
 
         # 1. Out-of-Scope Trigger Check (Strict Abstention per Rule 20)
         if any(t in normalized for t in OUT_OF_SCOPE_TRIGGERS):
@@ -105,34 +131,41 @@ class RagService:
                 "relevantStandards": []
             }
 
-        # 2. Candidate Retrieval across 60 standards and 400+ clauses
-        query_tokens = [t for t in normalized.split() if len(t) > 2]
-        scored_clauses = []
-        matched_stds = set()
+        # 2. Tokenize search terms
+        search_terms = [t for t in re.sub(r"[^\w\s]", " ", normalized).split() if len(t) > 2]
+        if not search_terms:
+            search_terms = [t for t in normalized.split() if len(t) > 1]
 
+        scored_clauses = []
         for std in STANDARDS_DB:
             std_code = std.get("code", "").lower()
-            std_title = std.get("title", "").lower()
-            code_matched = (std_code in normalized) or (normalized in std_code)
+            std_text = f"{std_code} {std.get('title', '')} {' '.join(std.get('businessTypes', []))} {' '.join(std.get('keywords', []))} {std.get('summary', '')}".lower()
+            std_score = 0
+
+            # Check for exact code match or term match
+            for term in search_terms:
+                if term in std_code:
+                    std_score += 60
+                elif term in std_text:
+                    std_score += 12
 
             for clause in std.get("clauses", []):
+                cl_num = clause.get("number", "").lower()
                 cl_title = clause.get("title", "").lower()
                 cl_content = clause.get("content", "").lower()
-                cl_num = clause.get("number", "").lower()
+                cl_text = f"{cl_num} {cl_title} {cl_content}".replace("-", " ")
 
-                score = 0
-                if code_matched:
-                    score += 50
-                if cl_num in normalized:
-                    score += 40
-                if any(t in cl_title for t in query_tokens):
-                    score += 25
-                if any(t in cl_content for t in query_tokens):
-                    score += 15
+                cl_score = std_score
+                for term in search_terms:
+                    if term in cl_num:
+                        cl_score += 40
+                    if term in cl_title:
+                        cl_score += 25
+                    if term in cl_text:
+                        cl_score += 15
 
-                if score > 0:
-                    scored_clauses.append((score, std, clause))
-                    matched_stds.add(std["id"])
+                if cl_score > 0:
+                    scored_clauses.append((cl_score, std, clause))
 
         scored_clauses.sort(key=lambda x: x[0], reverse=True)
         top_clauses = scored_clauses[:4]

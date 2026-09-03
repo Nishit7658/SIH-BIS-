@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 from backend.config import STANDARDS_JSON_PATH, STORE_JSON_PATH
 
-_lock = threading.Lock()
+_lock = threading.RLock()
 
 def _load_standards() -> List[Dict[str, Any]]:
     if STANDARDS_JSON_PATH.exists():
@@ -42,21 +42,23 @@ _DEFAULT_STORE: Dict[str, Any] = {
     ]
 }
 
+def _load_store_unlocked() -> Dict[str, Any]:
+    if STORE_JSON_PATH.exists():
+        try:
+            with open(STORE_JSON_PATH, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                for k, v in _DEFAULT_STORE.items():
+                    if k not in data:
+                        data[k] = v
+                return data
+        except Exception:
+            return dict(_DEFAULT_STORE)
+    save_store(_DEFAULT_STORE)
+    return dict(_DEFAULT_STORE)
+
 def load_store() -> Dict[str, Any]:
     with _lock:
-        if STORE_JSON_PATH.exists():
-            try:
-                with open(STORE_JSON_PATH, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                    # ensure all keys exist
-                    for k, v in _DEFAULT_STORE.items():
-                        if k not in data:
-                            data[k] = v
-                    return data
-            except Exception:
-                return dict(_DEFAULT_STORE)
-        save_store(_DEFAULT_STORE)
-        return dict(_DEFAULT_STORE)
+        return _load_store_unlocked()
 
 def save_store(data: Dict[str, Any]) -> None:
     STORE_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -67,7 +69,7 @@ def save_store(data: Dict[str, Any]) -> None:
 
 def update_store(callback) -> Dict[str, Any]:
     with _lock:
-        store = load_store()
+        store = _load_store_unlocked()
         result = callback(store)
         save_store(store)
         return result or store
