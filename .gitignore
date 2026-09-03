@@ -31,3 +31,6 @@ yarn-error.log*
 
 # Antigravity artifacts / logs
 .system_generated
+
+# Local data store & uploads
+/.data/

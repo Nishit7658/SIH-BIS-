@@ -1,76 +1,71 @@
 import { NextRequest, NextResponse } from "next/server";
-import { executeRagQuery } from "@/lib/rag-engine";
-import { evaluatePromptGuardrail } from "@/lib/guardrails";
+import { validateChatInput } from "@/server/validation/schemas";
+import { ChatService } from "@/server/services/chat.service";
 import { checkRateLimit } from "@/lib/rate-limiter";
+import { extractAuthToken } from "@/server/auth/middleware";
+import { verifyJwt } from "@/server/auth/jwt";
+import { apiError } from "@/server/utils/response";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   try {
-    // 1. IP Rate Limiting Check
+    // 1. Sliding-window IP Rate Limiting
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "127.0.0.1";
-    const rateLimit = checkRateLimit(ip, 60, 60);
+    const rateLimit = checkRateLimit(`chat:${ip}`, 60, 60);
 
     if (!rateLimit.allowed) {
       return NextResponse.json(
         {
-          error: "Too Many Requests. Rate limit exceeded. Please wait before querying again.",
-          resetSeconds: rateLimit.resetSeconds
+          success: false,
+          error: {
+            code: "RATE_LIMITED",
+            message: "Too Many Requests. Rate limit exceeded. Please wait before querying again.",
+            details: { resetSeconds: rateLimit.resetSeconds },
+          },
         },
         {
           status: 429,
           headers: {
             "Retry-After": rateLimit.resetSeconds.toString(),
             "X-RateLimit-Limit": rateLimit.limit.toString(),
-            "X-RateLimit-Remaining": rateLimit.remaining.toString()
-          }
+            "X-RateLimit-Remaining": rateLimit.remaining.toString(),
+          },
         }
       );
     }
 
     const body = await req.json();
-    const { query } = body;
+    const { query, sessionId } = validateChatInput(body);
 
-    if (!query || typeof query !== "string") {
-      return NextResponse.json(
-        { error: "A valid query string is required." },
-        { status: 400 }
-      );
+    // Optional user authentication
+    let userId: string | undefined = undefined;
+    const token = extractAuthToken(req);
+    if (token) {
+      const payload = verifyJwt(token);
+      if (payload) userId = payload.userId;
     }
 
-    // 2. Guardrail / Red-Team Check
-    const guardResult = evaluatePromptGuardrail(query);
-    if (!guardResult.passed) {
-      return NextResponse.json({
-        query,
-        answer: `⚠️ **Security & Regulatory Guardrail Interception**: ${guardResult.blockedReason}`,
-        citations: [],
-        confidence: 0.0,
-        isAbstained: true,
-        abstainReason: "ADVERSARIAL_INPUT_DETECTED",
-        cached: false,
-        costTier: "cached",
-        latencyMs: 12,
-        relevantStandards: [],
-        isAdversarial: true,
-      });
-    }
-
-    // 3. Execute RAG Retrieval
-    const ragResult = await executeRagQuery(guardResult.sanitizedInput);
-
-    return NextResponse.json(ragResult, {
-      status: 200,
-      headers: {
-        "X-RateLimit-Limit": rateLimit.limit.toString(),
-        "X-RateLimit-Remaining": rateLimit.remaining.toString()
-      }
+    // 2. Delegate to ChatService
+    const { session, response } = await ChatService.processMessage({
+      query,
+      sessionId,
+      userId,
     });
-  } catch (error: any) {
-    console.error("Chat API Error:", error);
+
+    // 3. Return backward-compatible response envelope
     return NextResponse.json(
-      { error: "Internal processing error while querying standards repository." },
-      { status: 500 }
+      {
+        success: true,
+        sessionId: session.id,
+        ...response,
+      },
+      { status: 200 }
     );
+  } catch (error: any) {
+    if (error.statusCode) {
+      return apiError(error.code, error.message, error.statusCode);
+    }
+    return apiError("SERVER_ERROR", "Chat consultation failed due to an unexpected error.", 500);
   }
 }

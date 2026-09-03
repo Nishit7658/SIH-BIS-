@@ -1,27 +1,22 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { StandardsService } from "@/server/services/standards.service";
 import { apiSuccess, apiError } from "@/server/utils/response";
 
 export const dynamic = "force-dynamic";
 
-// Endpoint: GET /api/standards/:id
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
     const { id } = params;
-    const standard = StandardsService.getStandardById(id);
+    const blueprint = StandardsService.getBlueprint(id);
 
-    return NextResponse.json({
-      success: true,
-      ...standard,
-      officialBisPortalUrl: "https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/knowyourstandards/",
-    }, { status: 200 });
+    return apiSuccess(blueprint);
   } catch (error: any) {
     if (error.statusCode) {
       return apiError(error.code, error.message, error.statusCode);
     }
-    return apiError("SERVER_ERROR", "Failed to retrieve standard details.", 500);
+    return apiError("SERVER_ERROR", "Failed to retrieve factory setup blueprint.", 500);
   }
 }

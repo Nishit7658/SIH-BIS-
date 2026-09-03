@@ -28,6 +28,7 @@ export interface RagResult {
   businessRecommendation?: BusinessRecommendationResult;
   matchedLaboratories?: BisLaboratory[];
   matchedScheme?: BisScheme;
+  isAdversarial?: boolean;
 }
 
 interface CacheEntry {
