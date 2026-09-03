@@ -7,6 +7,7 @@ export interface Clause {
   title: string;
   content: string;
   testRequirement?: string;
+  testMethod?: string;
   mandatory: boolean;
   tableData?: {
     headers: string[];
@@ -58,16 +59,21 @@ export interface Standard {
   year: number;
   category: "Electrical" | "Electronics & IT" | "Chemical & Plastics" | "Civil & Construction" | "Consumer Goods" | "Packaging & Paper";
   department: string;
+  division: string;
   status: "Active";
   isMandatory: boolean;
+  mandatory: boolean;
   scheme: "Scheme I (ISI Mark)" | "Compulsory Registration Scheme (CRS)" | "Scheme II (Self-Declaration)";
+  certificationScheme: string;
   qcoReference?: string;
+  qcoOrder?: string;
   gazetteDate?: string;
   businessTypes: string[];
   summary: string;
   scope: string;
   clauses: Clause[];
   factoryBlueprint?: FactoryBlueprint | null;
+  blueprint?: FactoryBlueprint | null;
   amendments: Amendment[];
   keywords: string[];
 }
@@ -80,10 +86,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2020,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "corrugated box manufacturing",
       "packaging",
@@ -108,7 +118,8 @@ export const STANDARDS_DATABASE: Standard[] = [
         "title": "Board Construction and Fluting",
         "content": "Boxes shall be manufactured from A, B, C, or E flute corrugated fibreboard with uniform adhesive bond.",
         "mandatory": true,
-        "testRequirement": "Pin adhesion test >= 40 N/100mm flute length per IS 4006."
+        "testRequirement": "Pin adhesion test >= 40 N/100mm flute length per IS 4006.",
+        "testMethod": "Pin adhesion test >= 40 N/100mm flute length per IS 4006."
       },
       {
         "id": "is2771-c6",
@@ -116,10 +127,12 @@ export const STANDARDS_DATABASE: Standard[] = [
         "title": "Bursting Strength and Edge Crush Test (ECT)",
         "content": "Single wall board bursting strength shall be not less than 700 kPa to 1800 kPa. Minimum ECT shall be 3.5 kN/m.",
         "mandatory": true,
-        "testRequirement": "Mullen bursting test and ECT per IS 7063."
+        "testRequirement": "Mullen bursting test and ECT per IS 7063.",
+        "testMethod": "Mullen bursting test and ECT per IS 7063."
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -129,10 +142,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2020,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "heavy duty packaging",
       "export box manufacturing",
@@ -158,6 +175,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -167,10 +185,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1966,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "paper mills",
       "packaging labs",
@@ -203,6 +225,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -212,10 +235,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1960,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "paper manufacturing",
       "kraft liner mills",
@@ -239,6 +266,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -248,10 +276,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1998,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "plastic recycling",
       "bottle manufacturing",
@@ -288,6 +320,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -297,10 +330,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1982,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "food packaging",
       "plastic pouch manufacturing",
@@ -323,10 +360,12 @@ export const STANDARDS_DATABASE: Standard[] = [
         "title": "Overall Migration Limit",
         "content": "Overall migration of polymer constituents shall not exceed 60 mg/kg or 10 mg/dm\u00b2 of food contact surface area.",
         "mandatory": true,
-        "testRequirement": "Global migration test per IS 9845."
+        "testRequirement": "Global migration test per IS 9845.",
+        "testMethod": "Global migration test per IS 9845."
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -336,10 +375,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1998,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "food container manufacturing",
       "beverage bottling",
@@ -365,6 +408,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -374,10 +418,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1990,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "kraft paper mills",
       "sack manufacturing",
@@ -402,6 +450,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -411,10 +460,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2020,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "printing ink manufacturing",
       "flexible packaging printers",
@@ -439,6 +492,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -448,10 +502,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1999,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "disposable cups manufacturing",
       "polystyrene packaging",
@@ -476,6 +534,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -485,10 +544,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1982,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "blister packaging manufacturing",
       "cling film production",
@@ -512,6 +575,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -521,10 +585,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1984,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "PP container manufacturing",
       "microwave containers",
@@ -549,6 +617,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -558,10 +627,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1987,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "PET bottle preform manufacturing",
       "water bottle blowing",
@@ -585,6 +658,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -594,10 +668,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2017,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "woven sack manufacturing",
       "cement bag plant",
@@ -623,6 +701,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -632,10 +711,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1997,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "BOPP film manufacturing",
       "flexible packaging",
@@ -661,6 +744,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -670,10 +754,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1997,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
+    "division": "Chemical / Packaging (CHD 15 / TED 24)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Packaging Quality Control Order",
+    "qcoOrder": "Packaging Quality Control Order",
     "businessTypes": [
       "aluminium foil converting",
       "pharma blister strip foil",
@@ -698,6 +786,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -707,10 +796,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2021,
     "category": "Consumer Goods",
     "department": "Mechanical / Consumer Products (MED 32)",
+    "division": "Mechanical / Consumer Products (MED 32)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Cookware, Utensils and Insulated Flasks (Quality Control) Order, 2023 (DPIIT)",
+    "qcoOrder": "Cookware, Utensils and Insulated Flasks (Quality Control) Order, 2023 (DPIIT)",
     "businessTypes": [
       "steel bottle manufacturing",
       "stainless steel flask plant",
@@ -806,6 +899,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "content": "The inner vessel in direct contact with beverages shall be manufactured from austenitic stainless steel Grade 304 (X04Cr19Ni9) or Grade 316 conforming to IS 6911. Scrap or radioactive steel is strictly prohibited.",
         "mandatory": true,
         "testRequirement": "XRF or OES chemical analysis for Nickel (min 8.0%) and Chromium (min 17.5%).",
+        "testMethod": "XRF or OES chemical analysis for Nickel (min 8.0%) and Chromium (min 17.5%).",
         "tableData": {
           "headers": [
             "Element",
@@ -861,6 +955,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "content": "When filled with boiling potable water at 95\u00b0C and sealed in an ambient environment maintained at 20\u00b0C +/- 2\u00b0C, the water temperature inside the container shall remain >= 60\u00b0C after 6 hours (and >= 45\u00b0C after 24 hours). For cold retention, water filled at 4\u00b0C shall remain <= 10\u00b0C after 6 hours.",
         "mandatory": true,
         "testRequirement": "Calibrated multi-channel thermocouple datalogger test per Section 7.",
+        "testMethod": "Calibrated multi-channel thermocouple datalogger test per Section 7.",
         "tableData": {
           "headers": [
             "Container Type",
@@ -900,7 +995,8 @@ export const STANDARDS_DATABASE: Standard[] = [
         "title": "Gasket Sealing & Inversion Hydrostatic Leak Test",
         "content": "The bottle closure gasket shall be made of food-grade silicone conforming to IS 9845. When filled to nominal capacity with hot water at 80\u00b0C and inverted upside-down for 10 continuous minutes, the closure shall show ZERO droplets, moisture seepage, or pressure loss.",
         "mandatory": true,
-        "testRequirement": "Inversion hydrostatic seal test at 80\u00b0C under 1000 lux inspection."
+        "testRequirement": "Inversion hydrostatic seal test at 80\u00b0C under 1000 lux inspection.",
+        "testMethod": "Inversion hydrostatic seal test at 80\u00b0C under 1000 lux inspection."
       },
       {
         "id": "is17526-c9",
@@ -908,7 +1004,8 @@ export const STANDARDS_DATABASE: Standard[] = [
         "title": "Mechanical Drop Impact & Handle Attachment Test",
         "content": "The container filled to nominal capacity with water at room temperature shall be dropped freely from a height of 1.0 m onto a rigid flat concrete anvil. After impact, there shall be no fracture, leakage, or loss of vacuum insulation. Handles shall withstand 20 kg static tensile pull for 5 minutes.",
         "mandatory": true,
-        "testRequirement": "Guided 1.0-metre drop tester and tensile handle pull rig."
+        "testRequirement": "Guided 1.0-metre drop tester and tensile handle pull rig.",
+        "testMethod": "Guided 1.0-metre drop tester and tensile handle pull rig."
       },
       {
         "id": "is17526-c10",
@@ -1067,6 +1164,148 @@ export const STANDARDS_DATABASE: Standard[] = [
         }
       ]
     },
+    "blueprint": {
+      "rawMaterials": [
+        {
+          "material": "Austenitic Stainless Steel Coils / Sheets (Grade 304 / X04Cr19Ni9)",
+          "specification": "IS 6911:2017 Grade 304 (Chromium 17.5-19.5%, Nickel 8.0-10.5%, Carbon <= 0.07%)",
+          "inwardTest": "Mill Test Certificate (MTC) verification + in-house XRF Spectrometry test on arrival."
+        },
+        {
+          "material": "Outer Casing Steel Sheet (Grade 201 or 304)",
+          "specification": "IS 6911:2017 with deep drawing quality",
+          "inwardTest": "Thickness check (0.4mm to 0.6mm) and Erichsen cupping ductility test."
+        },
+        {
+          "material": "Food-Grade Silicone Sealing Gaskets",
+          "specification": "IS 9845:1998 & FSSAI food contact compliance (BPA free, heat resistant to 120\u00b0C)",
+          "inwardTest": "Overall migration test into 3% acetic acid and purified water simulants."
+        },
+        {
+          "material": "Polypropylene (PP) Threaded Caps & Lids",
+          "specification": "IS 10910:1984 (Virgin Food Contact Polymer)",
+          "inwardTest": "Hexane extractable test and drop impact test."
+        },
+        {
+          "material": "Vacuum Getter & Copper Brazing Rings",
+          "specification": "High purity barium/zirconium getter material for vacuum retention",
+          "inwardTest": "Degassing and brazing purity test."
+        }
+      ],
+      "manufacturingMachinery": [
+        {
+          "stage": "1. Deep Drawing & Hydroforming",
+          "machine": "150-200 Ton Hydraulic Deep Drawing Press with 3-Stage Dies",
+          "purpose": "Cold draw circular stainless steel blanks into seamless inner and outer cylinder bodies."
+        },
+        {
+          "stage": "2. Necking, Trimming & Thread Rolling",
+          "machine": "CNC Neck Forming & Rotary Threading Machine",
+          "purpose": "Roll precise screw threads onto inner bottle mouth for airtight cap fitting."
+        },
+        {
+          "stage": "3. Shell Assembly & TIG Welding",
+          "machine": "Automated Circumferential TIG / Laser Welding Lathe",
+          "purpose": "Weld inner bottle neck to outer shell and weld bottom vacuum plug."
+        },
+        {
+          "stage": "4. Vacuum Annealing & Evacuation",
+          "machine": "High-Vacuum Industrial Furnace (< 10^-4 mbar) with Diffusion Pumps",
+          "purpose": "Evacuate air between double walls at 450\u00b0C to create permanent thermal vacuum barrier."
+        },
+        {
+          "stage": "5. Surface Passivation & Cleaning",
+          "machine": "Ultrasonic Multi-Stage Acid Passivation & Cleaning Line",
+          "purpose": "Electropolish interior to remove welding oxides and ensure 100% rust-proof food contact."
+        },
+        {
+          "stage": "6. Coating, Printing & Laser Marking",
+          "machine": "Electrostatic Powder Coating Line & Fiber Laser Marking Machine",
+          "purpose": "Apply durable exterior paint and laser-engrave the mandatory BIS ISI Mark & CM/L license number."
+        }
+      ],
+      "inHouseLaboratoryEquipment": [
+        {
+          "equipmentName": "Calibrated Multi-Channel Temperature Datalogger with Thermocouples",
+          "clauseTested": "Clause 7.2 (Thermal Insulation Retention Test)",
+          "calibrationRequirement": "Calibrated annually against NABL standard with +/- 0.5\u00b0C accuracy."
+        },
+        {
+          "equipmentName": "Hydrostatic Inversion Seal Testing Rig with 80\u00b0C Water Bath",
+          "clauseTested": "Clause 8.1 (Leakage and Gasket Seal Integrity)",
+          "calibrationRequirement": "Timer calibrated to +/- 1 sec; digital thermometer for 80\u00b0C bath."
+        },
+        {
+          "equipmentName": "Guided 1.0-Metre Drop Impact Tester onto Rigid Concrete Anvil",
+          "clauseTested": "Clause 9.3 (Drop Impact and Structural Integrity)",
+          "calibrationRequirement": "Height gauge verification with release trigger mechanism."
+        },
+        {
+          "equipmentName": "XRF Handheld Alloy Analyzer or Spectrometer (or NABL Lab MoU)",
+          "clauseTested": "Clause 5.1 (SS 304 Nickel & Chromium Chemical Composition)",
+          "calibrationRequirement": "Calibrated with certified reference materials (CRM) for stainless steel."
+        },
+        {
+          "equipmentName": "Digital Vernier Caliper, Micrometers & 1000ml Volumetric Flasks",
+          "clauseTested": "Clause 4 (Nominal Capacity & Wall Thickness)",
+          "calibrationRequirement": "Calibrated annually per ISO/IEC 17025."
+        }
+      ],
+      "markingAndLabeling": [
+        {
+          "item": "BIS Standard Mark (ISI Logo)",
+          "requirement": "Must be permanently laser-engraved or embossed on the bottom or side with license number CM/L-XXXXXXXXXX and 'IS 17526'."
+        },
+        {
+          "item": "Nominal Liquid Capacity",
+          "requirement": "Clearly marked in millilitres or litres (e.g. '750 ml' or '1000 ml')."
+        },
+        {
+          "item": "Material Grade Indication",
+          "requirement": "Must state 'Food Grade Stainless Steel 304 Inner Liner' on body or retail packaging."
+        },
+        {
+          "item": "Manufacturer Identity & Batch",
+          "requirement": "Brand Name / Manufacturer Name, Factory Address, Month & Year of Manufacture, Batch/Lot No."
+        },
+        {
+          "item": "Legal Metrology Compliance",
+          "requirement": "MRP, Net Quantity (1 Unit), Country of Origin (Made in India), Customer Care Helpline & Email."
+        }
+      ],
+      "bisLicensingRoadmap": [
+        {
+          "step": 1,
+          "title": "Factory & In-House Testing Laboratory Setup",
+          "description": "Establish the complete manufacturing line and procure all mandatory testing instruments listed in the BIS Scheme of Testing and Inspection (STI).",
+          "estimatedDays": "Day 1 - 20"
+        },
+        {
+          "step": 2,
+          "title": "Online Application Submission on Manakonline",
+          "description": "Register on manakonline.in under Product Certification Scheme I (Form V). Upload factory layout, machinery list, test equipment calibration certificates, and raw material MTCs.",
+          "estimatedDays": "Day 21 - 25"
+        },
+        {
+          "step": 3,
+          "title": "BIS Technical Officer Factory Inspection",
+          "description": "A BIS auditing officer visits your plant, verifies manufacturing controls, inspects laboratory calibration, and witnesses in-house testing (thermal retention, drop, leak test).",
+          "estimatedDays": "Day 26 - 40"
+        },
+        {
+          "step": 4,
+          "title": "Sample Drawing & Independent NABL Testing",
+          "description": "BIS officer draws random production samples, seals them with official BIS security tags, and dispatches them to a BIS Central Laboratory or recognized NABL lab for complete type testing.",
+          "estimatedDays": "Day 41 - 60"
+        },
+        {
+          "step": 5,
+          "title": "Grant of Certification (CM/L License)",
+          "description": "Upon passing laboratory test report verification, BIS issues the official CM/L license number and approves printing the ISI Mark on your bottles.",
+          "estimatedDays": "Day 61 - 70"
+        }
+      ]
+    },
     "amendments": []
   },
   {
@@ -1076,10 +1315,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2017,
     "category": "Civil & Construction",
     "department": "Metallurgical Engineering (MTD 4)",
+    "division": "Metallurgical Engineering (MTD 4)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Stainless Steel Products Quality Control Order",
+    "qcoOrder": "Stainless Steel Products Quality Control Order",
     "businessTypes": [
       "stainless steel rolling",
       "SS 304 sheet manufacturing",
@@ -1103,7 +1346,8 @@ export const STANDARDS_DATABASE: Standard[] = [
         "title": "Chemical Composition for Food Contact (SS 304)",
         "content": "Grade 304 (X04Cr19Ni9): Carbon <= 0.07%, Chromium 17.5-19.5%, Nickel 8.0-10.5%. Strictly prohibited from using radioactive or toxic scrap.",
         "mandatory": true,
-        "testRequirement": "Spectrometric chemical analysis."
+        "testRequirement": "Spectrometric chemical analysis.",
+        "testMethod": "Spectrometric chemical analysis."
       },
       {
         "id": "is6911-c7",
@@ -1114,6 +1358,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1123,10 +1368,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2019,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "plug manufacturing",
       "socket outlet production",
@@ -1169,6 +1418,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1178,10 +1428,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2008,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "home appliance manufacturing",
       "mixer grinders",
@@ -1209,6 +1463,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1218,10 +1473,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2007,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "electric iron manufacturing",
       "dry iron assembly",
@@ -1246,6 +1505,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1255,10 +1515,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2018,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "geyser manufacturing",
       "storage water heater production",
@@ -1283,6 +1547,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1292,10 +1557,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2008,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "immersion rod manufacturing",
       "portable heating elements"
@@ -1318,6 +1587,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1327,10 +1597,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2010,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "cable manufacturing",
       "wire extrusion plant",
@@ -1365,6 +1639,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1374,10 +1649,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1988,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "XLPE cable manufacturing",
       "armoured power cables",
@@ -1401,6 +1680,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1410,10 +1690,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2013,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "copper wire drawing",
       "aluminium wire drawing",
@@ -1438,6 +1722,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1447,10 +1732,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1997,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "switch manufacturing",
       "modular switch assembly",
@@ -1475,6 +1764,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1484,10 +1774,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2019,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "ceiling fan manufacturing",
       "BLDC fan assembly",
@@ -1513,6 +1807,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1522,10 +1817,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2012,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "LED bulb manufacturing",
       "lighting fixture assembly",
@@ -1550,6 +1849,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1559,10 +1859,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2012,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "LED driver manufacturing",
       "SMPS production",
@@ -1588,6 +1892,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1597,10 +1902,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2014,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "transformer manufacturing",
       "distribution transformer plants",
@@ -1625,6 +1934,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1634,10 +1944,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 1996,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "MCB manufacturing",
       "miniature circuit breaker plant",
@@ -1662,6 +1976,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1671,10 +1986,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2016,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "RCCB manufacturing",
       "residual current breaker plant",
@@ -1699,6 +2018,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1708,10 +2028,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2012,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "luminaire manufacturing",
       "LED batten light plant",
@@ -1736,6 +2060,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1745,10 +2070,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2012,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
+    "division": "Electrotechnical (ETD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Electrical Quality Control Orders",
+    "qcoOrder": "Electrical Quality Control Orders",
     "businessTypes": [
       "street light manufacturing",
       "LED highway lights plant",
@@ -1773,6 +2102,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1782,10 +2112,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2018,
     "category": "Electronics & IT",
     "department": "Electronics / LITD / ETD",
+    "division": "Electronics / LITD / ETD",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
     "qcoReference": "MeitY Compulsory Registration Orders",
+    "qcoOrder": "MeitY Compulsory Registration Orders",
     "businessTypes": [
       "lithium battery manufacturing",
       "battery pack assembly",
@@ -1819,6 +2153,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1828,10 +2163,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2018,
     "category": "Electronics & IT",
     "department": "Electronics / LITD / ETD",
+    "division": "Electronics / LITD / ETD",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
     "qcoReference": "MeitY Compulsory Registration Orders",
+    "qcoOrder": "MeitY Compulsory Registration Orders",
     "businessTypes": [
       "NiMH battery manufacturing",
       "nickel cadmium pack assembly",
@@ -1855,6 +2194,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1864,10 +2204,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2010,
     "category": "Electronics & IT",
     "department": "Electronics / LITD / ETD",
+    "division": "Electronics / LITD / ETD",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
     "qcoReference": "MeitY Compulsory Registration Orders",
+    "qcoOrder": "MeitY Compulsory Registration Orders",
     "businessTypes": [
       "laptop manufacturing",
       "desktop assembly",
@@ -1895,6 +2239,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1904,10 +2249,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2017,
     "category": "Electronics & IT",
     "department": "Electronics / LITD / ETD",
+    "division": "Electronics / LITD / ETD",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
     "qcoReference": "MeitY Compulsory Registration Orders",
+    "qcoOrder": "MeitY Compulsory Registration Orders",
     "businessTypes": [
       "smart TV manufacturing",
       "audio amplifier assembly",
@@ -1933,6 +2282,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1942,10 +2292,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2015,
     "category": "Electronics & IT",
     "department": "Electronics / LITD / ETD",
+    "division": "Electronics / LITD / ETD",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
     "qcoReference": "MeitY Compulsory Registration Orders",
+    "qcoOrder": "MeitY Compulsory Registration Orders",
     "businessTypes": [
       "solar inverter manufacturing",
       "grid tie inverter production",
@@ -1970,6 +2324,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -1979,10 +2334,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2010,
     "category": "Electronics & IT",
     "department": "Electronics / LITD / ETD",
+    "division": "Electronics / LITD / ETD",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
     "qcoReference": "MeitY Compulsory Registration Orders",
+    "qcoOrder": "MeitY Compulsory Registration Orders",
     "businessTypes": [
       "solar panel manufacturing",
       "solar module assembly plant",
@@ -2008,6 +2367,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2017,10 +2377,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2015,
     "category": "Electronics & IT",
     "department": "Electronics / LITD / ETD",
+    "division": "Electronics / LITD / ETD",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
     "qcoReference": "MeitY Compulsory Registration Orders",
+    "qcoOrder": "MeitY Compulsory Registration Orders",
     "businessTypes": [
       "smart meter manufacturing",
       "energy meter production",
@@ -2046,6 +2410,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2055,10 +2420,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2020,
     "category": "Civil & Construction",
     "department": "Civil Engineering / Metallurgical",
+    "division": "Civil Engineering / Metallurgical",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Steel & Cement Quality Control Orders",
+    "qcoOrder": "Steel & Cement Quality Control Orders",
     "businessTypes": [
       "TMT steel rebar rolling mills",
       "reinforcement steel manufacturing",
@@ -2092,6 +2461,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2101,10 +2471,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2015,
     "category": "Civil & Construction",
     "department": "Civil Engineering / Metallurgical",
+    "division": "Civil Engineering / Metallurgical",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Steel & Cement Quality Control Orders",
+    "qcoOrder": "Steel & Cement Quality Control Orders",
     "businessTypes": [
       "cement plant",
       "clinker grinding units",
@@ -2131,6 +2505,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2140,10 +2515,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2015,
     "category": "Civil & Construction",
     "department": "Civil Engineering / Metallurgical",
+    "division": "Civil Engineering / Metallurgical",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Steel & Cement Quality Control Orders",
+    "qcoOrder": "Steel & Cement Quality Control Orders",
     "businessTypes": [
       "PPC cement manufacturing",
       "flyash cement grinding"
@@ -2167,6 +2546,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2176,10 +2556,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2011,
     "category": "Civil & Construction",
     "department": "Civil Engineering / Metallurgical",
+    "division": "Civil Engineering / Metallurgical",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Steel & Cement Quality Control Orders",
+    "qcoOrder": "Steel & Cement Quality Control Orders",
     "businessTypes": [
       "structural steel rolling",
       "I-beams",
@@ -2206,6 +2590,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2215,10 +2600,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2000,
     "category": "Civil & Construction",
     "department": "Civil Engineering / Metallurgical",
+    "division": "Civil Engineering / Metallurgical",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Steel & Cement Quality Control Orders",
+    "qcoOrder": "Steel & Cement Quality Control Orders",
     "businessTypes": [
       "ductile iron pipe foundry",
       "DI pipe manufacturing",
@@ -2243,6 +2632,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2252,10 +2642,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2000,
     "category": "Civil & Construction",
     "department": "Civil Engineering / Metallurgical",
+    "division": "Civil Engineering / Metallurgical",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Steel & Cement Quality Control Orders",
+    "qcoOrder": "Steel & Cement Quality Control Orders",
     "businessTypes": [
       "structural engineering",
       "ready mix concrete plants",
@@ -2281,6 +2675,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2290,10 +2685,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2016,
     "category": "Chemical & Plastics",
     "department": "Chemical / Plastics Piping (CED 50 / CHD)",
+    "division": "Chemical / Plastics Piping (CED 50 / CHD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Chemicals and Pipes Quality Control Orders",
+    "qcoOrder": "Chemicals and Pipes Quality Control Orders",
     "businessTypes": [
       "HDPE pipe extrusion",
       "water supply piping",
@@ -2319,6 +2718,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2328,10 +2728,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2021,
     "category": "Chemical & Plastics",
     "department": "Chemical / Plastics Piping (CED 50 / CHD)",
+    "division": "Chemical / Plastics Piping (CED 50 / CHD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Chemicals and Pipes Quality Control Orders",
+    "qcoOrder": "Chemicals and Pipes Quality Control Orders",
     "businessTypes": [
       "UPVC pipe manufacturing",
       "plumbing pipe plant",
@@ -2356,6 +2760,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2365,10 +2770,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2007,
     "category": "Chemical & Plastics",
     "department": "Chemical / Plastics Piping (CED 50 / CHD)",
+    "division": "Chemical / Plastics Piping (CED 50 / CHD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Chemicals and Pipes Quality Control Orders",
+    "qcoOrder": "Chemicals and Pipes Quality Control Orders",
     "businessTypes": [
       "CPVC pipe manufacturing",
       "hot water plumbing pipes",
@@ -2393,6 +2802,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2402,10 +2812,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2013,
     "category": "Chemical & Plastics",
     "department": "Chemical / Plastics Piping (CED 50 / CHD)",
+    "division": "Chemical / Plastics Piping (CED 50 / CHD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Chemicals and Pipes Quality Control Orders",
+    "qcoOrder": "Chemicals and Pipes Quality Control Orders",
     "businessTypes": [
       "SWR pipe manufacturing",
       "drainage pipe extrusion",
@@ -2429,6 +2843,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2438,10 +2853,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2004,
     "category": "Chemical & Plastics",
     "department": "Chemical / Plastics Piping (CED 50 / CHD)",
+    "division": "Chemical / Plastics Piping (CED 50 / CHD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Chemicals and Pipes Quality Control Orders",
+    "qcoOrder": "Chemicals and Pipes Quality Control Orders",
     "businessTypes": [
       "paint manufacturing",
       "acrylic emulsion plant",
@@ -2466,6 +2885,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2475,10 +2895,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2019,
     "category": "Chemical & Plastics",
     "department": "Chemical / Plastics Piping (CED 50 / CHD)",
+    "division": "Chemical / Plastics Piping (CED 50 / CHD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Chemicals and Pipes Quality Control Orders",
+    "qcoOrder": "Chemicals and Pipes Quality Control Orders",
     "businessTypes": [
       "tile adhesive manufacturing",
       "dry mix mortar plant",
@@ -2502,6 +2926,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2511,10 +2936,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2019,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
+    "division": "Textiles / Chemical / Food (TXD / CHD / FAD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Consumer Safety Quality Control Orders",
+    "qcoOrder": "Consumer Safety Quality Control Orders",
     "businessTypes": [
       "toy manufacturing",
       "plastic toy production",
@@ -2541,6 +2970,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2550,10 +2980,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2020,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
+    "division": "Textiles / Chemical / Food (TXD / CHD / FAD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Consumer Safety Quality Control Orders",
+    "qcoOrder": "Consumer Safety Quality Control Orders",
     "businessTypes": [
       "toy painting",
       "plastic toy moulding",
@@ -2578,6 +3012,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2587,10 +3022,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2016,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
+    "division": "Textiles / Chemical / Food (TXD / CHD / FAD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Consumer Safety Quality Control Orders",
+    "qcoOrder": "Consumer Safety Quality Control Orders",
     "businessTypes": [
       "packaged water bottling plant",
       "RO water packaging",
@@ -2624,6 +3063,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2633,10 +3073,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2023,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
+    "division": "Textiles / Chemical / Food (TXD / CHD / FAD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Consumer Safety Quality Control Orders",
+    "qcoOrder": "Consumer Safety Quality Control Orders",
     "businessTypes": [
       "footwear manufacturing",
       "shoe factory",
@@ -2663,6 +3107,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2672,10 +3117,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2006,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
+    "division": "Textiles / Chemical / Food (TXD / CHD / FAD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Consumer Safety Quality Control Orders",
+    "qcoOrder": "Consumer Safety Quality Control Orders",
     "businessTypes": [
       "rubber mat manufacturing",
       "elastomeric sheet plant",
@@ -2700,6 +3149,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   },
   {
@@ -2709,10 +3159,14 @@ export const STANDARDS_DATABASE: Standard[] = [
     "year": 2015,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
+    "division": "Textiles / Chemical / Food (TXD / CHD / FAD)",
     "status": "Active",
     "isMandatory": true,
+    "mandatory": true,
     "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
     "qcoReference": "Consumer Safety Quality Control Orders",
+    "qcoOrder": "Consumer Safety Quality Control Orders",
     "businessTypes": [
       "helmet manufacturing",
       "two wheeler helmet plant",
@@ -2737,6 +3191,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       }
     ],
     "factoryBlueprint": null,
+    "blueprint": null,
     "amendments": []
   }
 ];

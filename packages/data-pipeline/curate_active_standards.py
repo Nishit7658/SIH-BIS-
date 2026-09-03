@@ -21,16 +21,21 @@ def std(id, code, title, year, category, dept, mandatory, scheme, qco, business_
         "year": year,
         "category": category,
         "department": dept,
+        "division": dept,
         "status": "Active",
         "isMandatory": mandatory,
+        "mandatory": mandatory,
         "scheme": scheme,
+        "certificationScheme": scheme,
         "qcoReference": qco,
+        "qcoOrder": qco,
         "businessTypes": business_types,
         "summary": summary,
         "scope": scope,
         "keywords": keywords,
         "clauses": clauses,
         "factoryBlueprint": blueprint,
+        "blueprint": blueprint,
         "amendments": []
     }
 
@@ -44,6 +49,7 @@ def cls(cid, num, title, content, test_req=None, mandatory=True, table_data=None
     }
     if test_req:
         c["testRequirement"] = test_req
+        c["testMethod"] = test_req
     if table_data:
         c["tableData"] = table_data
     return c
@@ -700,6 +706,7 @@ export interface Clause {{
   title: string;
   content: string;
   testRequirement?: string;
+  testMethod?: string;
   mandatory: boolean;
   tableData?: {{
     headers: string[];
@@ -751,16 +758,21 @@ export interface Standard {{
   year: number;
   category: "Electrical" | "Electronics & IT" | "Chemical & Plastics" | "Civil & Construction" | "Consumer Goods" | "Packaging & Paper";
   department: string;
+  division: string;
   status: "Active";
   isMandatory: boolean;
+  mandatory: boolean;
   scheme: "Scheme I (ISI Mark)" | "Compulsory Registration Scheme (CRS)" | "Scheme II (Self-Declaration)";
+  certificationScheme: string;
   qcoReference?: string;
+  qcoOrder?: string;
   gazetteDate?: string;
   businessTypes: string[];
   summary: string;
   scope: string;
   clauses: Clause[];
   factoryBlueprint?: FactoryBlueprint | null;
+  blueprint?: FactoryBlueprint | null;
   amendments: Amendment[];
   keywords: string[];
 }}

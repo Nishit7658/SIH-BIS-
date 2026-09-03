@@ -9,13 +9,18 @@ export interface BisScheme {
   targetAudience: string;
   regulatoryNature: "Mandatory for QCO products / Voluntary for others" | "Compulsory Statutory Registration" | "Mandatory for Precious Metals" | "Voluntary Green Seal" | "Voluntary System Certification";
   markIssued: "Standard Mark (ISI Mark)" | "CRS Standard Mark" | "BIS Hallmark (Purity in Karats/Fineness)" | "ECO Mark (Earthen Pot Logo)" | "Management System Certificate";
+  markType?: string;
   governingRegulation: string;
   applicationPortal: string;
   portalUrl: string;
   estimatedTimelineDays: string;
+  auditTimeline?: string;
   feeStructureSummary: string;
+  feeStructure?: string;
   keySteps: string[];
+  steps?: string[];
   applicableProductCategories: string[];
+  description?: string;
 }
 
 export const BIS_SCHEMES_DATABASE: BisScheme[] = [

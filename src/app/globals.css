@@ -2,40 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "../../design-system/indic-fonts.css";
-
 @layer base {
   body {
-    @apply bg-bis-canvas text-bis-text-primary font-sans antialiased;
+    @apply bg-gov-paper text-gov-text font-sans antialiased text-sm;
+    color: #0f172a;
+    background-color: #f8fafc;
+  }
+
+  h1, h2, h3 {
+    @apply tracking-tight font-bold text-gov-navy;
   }
 }
 
-/* Custom scrollbars */
+/* Precision Hairline Table Styling */
+.table-dense th {
+  @apply px-3 py-2 text-left text-xs font-bold text-gov-slate uppercase tracking-wider bg-gov-muted border-b border-gov-border;
+}
+
+.table-dense td {
+  @apply px-3 py-2 text-xs text-gov-text border-b border-gov-border;
+}
+
+.table-dense tr:hover {
+  @apply bg-slate-50/80;
+}
+
+/* Document & Clause Prose */
+.prose-bis {
+  line-height: 1.65;
+  color: #1e293b;
+}
+
+.prose-bis h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0a192f;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.prose-bis h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.prose-bis p {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.prose-bis table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.8125rem;
+}
+
+.prose-bis th {
+  background-color: #f1f5f9;
+  font-weight: 700;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+}
+
+.prose-bis td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e2e8f0;
+}
+
+.prose-bis blockquote {
+  border-left: 3px solid #b45309;
+  background-color: #fffbeb;
+  padding: 0.5rem 0.75rem;
+  margin: 0.75rem 0;
+  font-size: 0.8125rem;
+  color: #78350f;
+}
+
+/* Custom Clean Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
-  border-radius: 9999px;
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
 
-/* Animation utilities */
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 15px -3px rgba(232, 93, 4, 0.4);
+/* Print Styles for Technical Dossiers */
+@media print {
+  header, footer, nav, .no-print {
+    display: none !important;
   }
-  50% {
-    box-shadow: 0 0 25px 2px rgba(232, 93, 4, 0.7);
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
   }
-}
-
-.glow-saffron-pulse {
-  animation: pulseGlow 2.5s infinite;
 }

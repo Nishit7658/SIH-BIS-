@@ -2,90 +2,91 @@
 
 import React from "react";
 import Link from "next/link";
-import { useApp } from "@/context/AppContext";
-import { ShieldCheck, ExternalLink, Scale, FileText, CheckCircle2, Heart } from "lucide-react";
+import { ExternalLink, Scale, ShieldAlert, Building2 } from "lucide-react";
 
 export function Footer() {
-  const { t } = useApp();
-
   return (
-    <footer className="bg-bis-navy text-slate-300 pt-12 pb-8 border-t border-bis-navy-light text-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-bis-navy-light/60">
-          {/* Col 1: Identity & Disclaimer */}
+    <footer className="bg-gov-navy text-slate-300 border-t border-slate-800 text-xs">
+      {/* 1. Official Directory & Gazette Links */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+          {/* Col 1: Statutory Authority */}
           <div className="md:col-span-2 space-y-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center font-bold text-bis-saffron text-sm border border-white/10">
-                IS
-              </div>
-              <span className="font-display font-bold text-white text-base">
-                BIS Smart Digital Expert
-              </span>
+            <div className="flex items-center gap-2 text-white font-bold font-serif text-sm">
+              <span className="w-5 h-5 bg-gov-saffron text-white rounded-sm flex items-center justify-center font-mono text-xs">IS</span>
+              <span>Bureau of Indian Standards (BIS)</span>
             </div>
-            <p className="text-slate-400 leading-relaxed max-w-lg">
-              An intelligent, pre-compliance and standards research platform designed to simplify Indian Standards (IS), Quality Control Orders (QCOs), and conformity schemes for manufacturers, testing labs, and consumers.
+            <p className="text-slate-400 text-xs leading-relaxed max-w-lg">
+              The National Standards Body of India, established under the Bureau of Indian Standards Act, 2016 for the harmonious development of standardisation, marking, and quality certification of goods.
             </p>
-            <div className="p-3 rounded-xl bg-bis-navy-dark/80 border border-bis-navy-light text-[11px] text-amber-200/90 leading-relaxed flex items-start gap-2">
-              <Scale className="w-4 h-4 text-bis-saffron shrink-0 mt-0.5" />
-              <span>
-                <strong>Statutory Notice:</strong> This platform is an AI guidance companion. The Bureau of Indian Standards (BIS) is the statutory national standards body under the BIS Act, 2016. Always verify final legal specifications at <em>manakonline.in</em>.
-              </span>
+            <div className="p-3 bg-slate-900 border border-slate-800 rounded text-[11px] text-slate-300 space-y-1">
+              <p className="font-semibold text-amber-300 flex items-center gap-1.5">
+                <Scale className="w-3.5 h-3.5" /> Statutory Gazette Notice:
+              </p>
+              <p className="text-slate-400 leading-normal">
+                This platform is an AI-assisted technical research and pre-compliance guidance system. For formal conformity certification, licensing, or legal disputes, consult the official e-BIS gazette portal at <em>services.bis.gov.in</em> and <em>manakonline.in</em>.
+              </p>
             </div>
           </div>
 
           {/* Col 2: Official Portals */}
-          <div>
-            <h4 className="font-bold text-white uppercase tracking-wider mb-3 text-xs">Official Statutory Portals</h4>
-            <ul className="space-y-2 text-slate-400">
+          <div className="space-y-2">
+            <h4 className="font-bold text-white uppercase tracking-wider text-[11px] border-b border-slate-800 pb-1">
+              Statutory Web Portals
+            </h4>
+            <ul className="space-y-1.5 text-slate-400">
               <li>
-                <a href="https://www.bis.gov.in" target="_blank" rel="noreferrer" className="hover:text-bis-saffron flex items-center gap-1.5 transition-colors">
-                  <ExternalLink className="w-3 h-3" /> BIS Official Portal (bis.gov.in)
+                <a href="https://www.bis.gov.in" target="_blank" rel="noreferrer" className="hover:text-white flex items-center gap-1">
+                  <ExternalLink className="w-3 h-3 text-slate-500" /> BIS Official Portal (bis.gov.in)
                 </a>
               </li>
               <li>
-                <a href="https://www.manakonline.in" target="_blank" rel="noreferrer" className="hover:text-bis-saffron flex items-center gap-1.5 transition-colors">
-                  <ExternalLink className="w-3 h-3" /> Manakonline e-BIS Portal
+                <a href="https://www.manakonline.in" target="_blank" rel="noreferrer" className="hover:text-white flex items-center gap-1">
+                  <ExternalLink className="w-3 h-3 text-slate-500" /> Manakonline (e-BIS Form V)
                 </a>
               </li>
               <li>
-                <a href="https://dpiit.gov.in" target="_blank" rel="noreferrer" className="hover:text-bis-saffron flex items-center gap-1.5 transition-colors">
-                  <ExternalLink className="w-3 h-3" /> DPIIT Quality Control Orders
+                <a href="https://dpiit.gov.in" target="_blank" rel="noreferrer" className="hover:text-white flex items-center gap-1">
+                  <ExternalLink className="w-3 h-3 text-slate-500" /> DPIIT Quality Control Orders
                 </a>
               </li>
               <li>
-                <a href="https://www.meity.gov.in" target="_blank" rel="noreferrer" className="hover:text-bis-saffron flex items-center gap-1.5 transition-colors">
-                  <ExternalLink className="w-3 h-3" /> MeitY CRS Registration Orders
+                <a href="https://www.meity.gov.in" target="_blank" rel="noreferrer" className="hover:text-white flex items-center gap-1">
+                  <ExternalLink className="w-3 h-3 text-slate-500" /> MeitY Compulsory Registration
+                </a>
+              </li>
+              <li>
+                <a href="https://nabl-india.org" target="_blank" rel="noreferrer" className="hover:text-white flex items-center gap-1">
+                  <ExternalLink className="w-3 h-3 text-slate-500" /> NABL Accredited Testing Labs
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: DPDP & Data Governance */}
-          <div>
-            <h4 className="font-bold text-white uppercase tracking-wider mb-3 text-xs">Governance & DPDP</h4>
-            <div className="space-y-2.5 text-slate-400">
-              <div className="flex items-center gap-1.5 text-emerald-400 font-semibold">
-                <ShieldCheck className="w-4 h-4" /> DPDP Act 2023 Compliant
-              </div>
-              <p className="text-[11px] leading-relaxed">
-                Zero long-term retention of user product drawings. Telemetry is anonymized strictly for knowledge base improvement.
-              </p>
-              <div className="pt-1">
-                <Link href="/saved" className="text-bis-saffron hover:underline font-semibold text-xs">
-                  Manage Local Data & Preferences →
-                </Link>
-              </div>
+          {/* Col 3: Central & Regional Test Houses */}
+          <div className="space-y-2">
+            <h4 className="font-bold text-white uppercase tracking-wider text-[11px] border-b border-slate-800 pb-1">
+              Central Test Laboratories
+            </h4>
+            <div className="text-slate-400 space-y-1 text-[11px]">
+              <p><strong>Central Laboratory:</strong> Sahibabad, Ghaziabad (UP)</p>
+              <p><strong>Western Regional Lab:</strong> Andheri East, Mumbai</p>
+              <p><strong>Southern Regional Lab:</strong> CIT Campus, Taramani, Chennai</p>
+              <p><strong>Eastern Regional Lab:</strong> Salt Lake, Kolkata</p>
+              <p><strong>Northern Regional Lab:</strong> Mohali, Punjab</p>
             </div>
           </div>
         </div>
 
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-400 text-[11px] gap-3">
-          <p>© 2026 BIS Smart Digital Expert. Built for Smart India Hackathon (SIH).</p>
+        {/* 2. Sub-Footer Bar */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
+          <p>© {new Date().getFullYear()} Bureau of Indian Standards Intelligence Assistant. Powered by Grounded RAG & Technical Standards Repository.</p>
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Standards Database: Sync Active
-            </span>
-            <span>Version 1.2.0 (Reconciled Design System)</span>
+            <Link href="/saved" className="hover:text-slate-300">DPDP Data Retention</Link>
+            <span>•</span>
+            <Link href="/admin/ops" className="hover:text-slate-300">Content Operations</Link>
+            <span>•</span>
+            <Link href="/admin/metrics" className="hover:text-slate-300">Impact Telemetry</Link>
           </div>
         </div>
       </div>

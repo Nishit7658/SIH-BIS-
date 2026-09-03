@@ -7,12 +7,17 @@ import { Standard } from "@/lib/standards-data";
 export interface SavedReport {
   id: string;
   productName: string;
+  title?: string;
   category: string;
   standardCode: string;
+  standard?: string;
   score: number;
   status: "Compliant" | "Action Required" | "Non-Compliant";
   createdAt: string;
+  date?: string;
   details: string;
+  passedChecks?: number;
+  totalChecks?: number;
 }
 
 interface AppContextType {

@@ -5,13 +5,17 @@ export interface BisLaboratory {
   id: string;
   name: string;
   type: "Central Laboratory" | "Regional Laboratory" | "Branch Laboratory" | "NABL Recognized Independent Lab";
+  region?: string;
   city: string;
   state: string;
   address: string;
   contactEmail: string;
+  email?: string;
   contactPhone: string;
+  phone?: string;
   recognizedStandards: string[];
   productCategories: string[];
+  capabilities?: string[];
   nablAccreditationNo: string;
 }
 

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useApp } from "@/context/AppContext";
-import { ShieldCheck, Lock, Check, Eye, Trash2, X } from "lucide-react";
+import { ShieldCheck, Lock, Check, X } from "lucide-react";
 
 export function DpdpConsentModal() {
   const { dpdpConsentAccepted, acceptDpdpConsent, t, dataRetentionDays, setDataRetentionDays } = useApp();
@@ -26,80 +26,75 @@ export function DpdpConsentModal() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-150"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-slate-900/60 p-4"
       onClick={handleDismiss}
     >
       <div
-        className="bg-white rounded-2xl shadow-2xl border border-bis-border max-w-xl w-full p-6 text-bis-text-primary relative z-10 animate-in zoom-in-95 duration-150"
+        className="bg-white rounded border border-gov-border max-w-lg w-full p-5 text-gov-text relative z-10 shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Top Close Button */}
         <button
           type="button"
           onClick={handleDismiss}
-          className="absolute top-4 right-4 p-1.5 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+          className="absolute top-3 right-3 p-1 rounded text-slate-400 hover:text-gov-navy"
           title="Close"
           aria-label="Close modal"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
-        <div className="flex items-center gap-3 mb-3 pr-8">
-          <div className="w-10 h-10 rounded-xl bg-bis-blue-soft text-bis-blue flex items-center justify-center font-bold shrink-0">
-            <ShieldCheck className="w-6 h-6" />
+        <div className="flex items-center gap-2.5 mb-2.5 pr-6">
+          <div className="w-8 h-8 rounded bg-gov-paper border border-gov-border text-gov-navy flex items-center justify-center font-bold shrink-0">
+            <ShieldCheck className="w-4 h-4 text-gov-saffron" />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-bis-navy">{t.dpdpConsentTitle}</h3>
-            <p className="text-xs text-bis-text-secondary">India DPDP Act (2023) Compliance & Privacy Protection</p>
+            <h3 className="text-sm font-bold text-gov-navy font-serif">
+              Digital Personal Data Protection (DPDP Act, 2023) Notice
+            </h3>
+            <p className="text-[11px] text-gov-slate">Statutory Data Privacy & Confidentiality Guarantee</p>
           </div>
         </div>
 
-        <p className="text-sm text-bis-text-secondary mb-4 leading-relaxed">
-          Welcome to the <strong>BIS Smart Digital Expert</strong>. We process your queries strictly to provide technical standard citations and pre-compliance insights.
-          We respect your privacy: no commercial tracking, no selling of business specs, and zero long-term storage of proprietary drawings without explicit consent.
+        <p className="text-xs text-gov-slate mb-3 leading-relaxed">
+          The <strong>BIS Smart Digital Expert</strong> processes queries strictly to retrieve technical standard citations and compliance guidelines. We maintain zero commercial tracking, zero ad tracking, and zero long-term retention of business specifications without your explicit consent.
         </p>
 
         {showPreferences && (
-          <div className="bg-bis-canvas p-4 rounded-xl border border-bis-border mb-4 text-xs space-y-3">
+          <div className="bg-gov-paper p-3 rounded border border-gov-border mb-3 text-xs space-y-2">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-semibold text-bis-navy">Session Data Retention</p>
-                <p className="text-bis-text-secondary">Choose how long local queries and compliance drafts persist in your browser.</p>
+                <p className="font-semibold text-gov-navy">Local Cache Retention:</p>
+                <p className="text-[11px] text-gov-slate">Select duration for storing offline query history.</p>
               </div>
               <select
                 value={dataRetentionDays}
                 onChange={(e) => setDataRetentionDays(Number(e.target.value))}
-                className="border border-bis-border rounded-lg px-2 py-1 bg-white font-medium text-bis-navy"
+                className="border border-gov-border rounded px-2 py-1 bg-white font-semibold text-gov-navy text-xs"
               >
                 <option value={0}>Zero Retention (Purge on exit)</option>
                 <option value={7}>7 Days</option>
                 <option value={30}>30 Days (Default)</option>
               </select>
             </div>
-            <div className="flex items-center gap-2 text-emerald-700 font-medium">
-              <Lock className="w-4 h-4" /> Anonymized & Isolated Sandboxed Processing
-            </div>
           </div>
         )}
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+        <div className="flex items-center justify-between gap-3 pt-2 border-t border-gov-border">
           <button
             type="button"
             onClick={() => setShowPreferences(!showPreferences)}
-            className="text-xs text-bis-blue font-semibold hover:underline flex items-center gap-1"
+            className="text-xs text-gov-slate hover:text-gov-navy underline"
           >
-            {showPreferences ? "Hide Preferences" : "Customize Data Preferences"}
+            {showPreferences ? "Hide Settings" : "Configure Retention"}
           </button>
-          <div className="flex items-center gap-2 w-full sm:w-auto">
-            <button
-              type="button"
-              onClick={handleDismiss}
-              className="w-full sm:w-auto px-6 py-3 bg-bis-navy hover:bg-bis-navy-light active:scale-95 text-white text-sm font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <Check className="w-4 h-4 text-bis-saffron" />
-              <span>{t.dpdpAccept}</span>
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={handleDismiss}
+            className="px-4 py-1.5 bg-gov-navy hover:bg-gov-navy-light text-white text-xs font-bold rounded flex items-center gap-1.5"
+          >
+            <Check className="w-3.5 h-3.5 text-amber-400" />
+            <span>Acknowledge & Continue</span>
+          </button>
         </div>
       </div>
     </div>
@@ -107,11 +102,5 @@ export function DpdpConsentModal() {
 }
 
 export function StatutoryDisclaimerBar() {
-  const { t } = useApp();
-  return (
-    <div className="bg-bis-navy-dark text-slate-300 text-xs py-1.5 px-4 text-center border-b border-bis-navy flex items-center justify-center gap-2">
-      <span className="inline-block w-2 h-2 rounded-full bg-bis-saffron animate-pulse" />
-      <span>{t.statutoryDisclaimer}</span>
-    </div>
-  );
+  return null; // Integrated into the official top header of Navbar.tsx
 }

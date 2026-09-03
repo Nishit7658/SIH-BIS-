@@ -1,31 +1,28 @@
 "use client";
 
 import React, { useState } from "react";
-import { useApp } from "@/context/AppContext";
+import Link from "next/link";
 import { LicenseRecord } from "@/lib/verify-data";
 import {
   ShieldCheck,
   Search,
-  QrCode,
   CheckCircle2,
-  AlertTriangle,
+  AlertCircle,
   XCircle,
   Building2,
   Calendar,
   Award,
   ExternalLink,
-  Camera,
-  Sparkles
+  Printer,
+  FileText
 } from "lucide-react";
 
 export default function VerifyPage() {
-  const { t } = useApp();
   const [cmlInput, setCmlInput] = useState("CM/L-8400012345");
   const [record, setRecord] = useState<LicenseRecord | null>(null);
   const [searched, setSearched] = useState(false);
   const [loading, setLoading] = useState(false);
   const [notFoundMsg, setNotFoundMsg] = useState<string | null>(null);
-  const [qrScanning, setQrScanning] = useState(false);
 
   const handleVerify = async (cmlToQuery?: string) => {
     const target = cmlToQuery || cmlInput;
@@ -43,93 +40,80 @@ export default function VerifyPage() {
       } else {
         const data = await res.json();
         setRecord(null);
-        setNotFoundMsg(data.message || "License record not found.");
+        setNotFoundMsg(data.message || "License record not found in registry.");
       }
     } catch (e) {
       setRecord(null);
-      setNotFoundMsg("Error querying verification registry.");
+      setNotFoundMsg("Error communicating with verification registry.");
     } finally {
       setLoading(false);
     }
   };
 
   const sampleLicenses = [
-    { cml: "CM/L-8400012345", label: "Anchor (IS 1293) — ACTIVE" },
-    { cml: "CM/L-9123456789", label: "Havells (IS 694) — ACTIVE" },
-    { cml: "CM/L-3344556677", label: "Ganesh Heater — EXPIRED" },
-    { cml: "CM/L-5566778899", label: "Speedy Plugs — SUSPENDED" },
-    { cml: "R-41001234", label: "Samsung Battery — CRS ACTIVE" }
+    { cml: "CM/L-8400012345", label: "Anchor Electricals (IS 1293) — ACTIVE" },
+    { cml: "CM/L-9123456789", label: "Havells India (IS 694) — ACTIVE" },
+    { cml: "CM/L-3344556677", label: "Ganesh Heaters (IS 302) — EXPIRED" },
+    { cml: "CM/L-5566778899", label: "Speedy Plugs — SUSPENDED" }
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-      {/* Header */}
-      <div className="bg-white rounded-3xl border border-bis-border p-6 sm:p-8 shadow-xs space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider border border-emerald-200">
-          <ShieldCheck className="w-3.5 h-3.5" />
-          ISI Mark & CRS Authenticity Registry
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+      {/* 1. Header Banner */}
+      <div className="bg-white border border-gov-border rounded p-6 space-y-3 shadow-subtle">
+        <div className="flex items-center gap-2">
+          <span className="font-mono text-xs font-bold bg-gov-navy text-white px-2 py-0.5 rounded-sm">
+            STATUTORY REGISTRY
+          </span>
+          <h1 className="text-xl font-bold text-gov-navy font-serif">
+            BIS License & Standard Mark (ISI) Authenticity Verification
+          </h1>
         </div>
-        <h1 className="text-2xl sm:text-4xl font-black text-bis-navy font-display">
-          BIS License & Certificate Verification
-        </h1>
-        <p className="text-bis-text-secondary text-sm leading-relaxed max-w-3xl">
-          Validate the authenticity of ISI Mark CM/L numbers and Compulsory Registration Scheme (CRS) licenses before purchasing, distribution, or lab testing.
+        <p className="text-xs text-gov-slate leading-relaxed max-w-3xl">
+          Direct inquiry into the Bureau of Indian Standards Certificate of Manufacturing License (CM/L) and Compulsory Registration Scheme (CRS) database to verify validity, scope, and manufacturing premises.
         </p>
       </div>
 
-      {/* Verification Search Bar */}
-      <div className="bg-white p-6 rounded-2xl border border-bis-border shadow-xs space-y-4">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleVerify();
-          }}
-          className="flex flex-col sm:flex-row items-center gap-3"
-        >
-          <div className="relative flex-1 w-full">
-            <Search className="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+      {/* 2. Verification Form */}
+      <div className="bg-white border border-gov-border rounded p-6 space-y-4 shadow-subtle">
+        <form onSubmit={(e) => { e.preventDefault(); handleVerify(); }} className="space-y-3">
+          <label className="block text-xs font-bold text-gov-navy uppercase tracking-wide">
+            Enter 10-Digit CM/L License Number or CRS Registration:
+          </label>
+
+          <div className="flex rounded border border-gov-border overflow-hidden focus-within:border-gov-navy max-w-2xl">
+            <div className="px-3.5 flex items-center bg-gov-paper text-gov-slate border-r border-gov-border font-mono text-xs">
+              REGISTRY
+            </div>
             <input
               type="text"
               value={cmlInput}
               onChange={(e) => setCmlInput(e.target.value)}
-              placeholder="Enter CM/L Number (e.g. CM/L-8400012345) or CRS Registration Number..."
-              className="w-full pl-11 pr-4 py-3 bg-bis-canvas border border-bis-border rounded-xl text-sm font-semibold text-bis-navy focus:outline-none focus:ring-2 focus:ring-bis-blue/30"
+              placeholder="e.g. CM/L-8400012345 or R-41000000"
+              className="w-full px-3 py-2 text-xs sm:text-sm font-mono text-gov-navy focus:outline-none"
             />
-          </div>
-
-          <div className="flex items-center gap-2 w-full sm:w-auto">
-            <button
-              type="button"
-              onClick={() => setQrScanning(!qrScanning)}
-              className="px-4 py-3 bg-bis-canvas hover:bg-slate-200 text-bis-navy border border-bis-border rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors shrink-0"
-              title="Simulate QR Code Scan"
-            >
-              <QrCode className="w-4 h-4 text-bis-blue" />
-              <span>Scan QR</span>
-            </button>
-
             <button
               type="submit"
               disabled={loading || !cmlInput.trim()}
-              className="px-6 py-3 bg-bis-navy hover:bg-bis-navy-light disabled:bg-slate-300 text-white font-bold rounded-xl text-xs transition-all shadow-xs flex items-center justify-center gap-1.5 flex-1 sm:flex-initial"
+              className="px-5 py-2 bg-gov-navy hover:bg-gov-navy-light text-white font-bold text-xs transition-colors shrink-0 disabled:opacity-50 flex items-center gap-1.5"
             >
-              <ShieldCheck className="w-4 h-4 text-bis-saffron" />
-              <span>Verify License</span>
+              <Search className="w-3.5 h-3.5 text-amber-400" />
+              <span>{loading ? "Checking..." : "Verify License"}</span>
             </button>
           </div>
         </form>
 
-        {/* Quick Sample Clickers */}
-        <div className="flex flex-wrap items-center gap-2 pt-2 text-xs">
-          <span className="text-slate-400 font-semibold">Test Sample Licenses:</span>
+        <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-gov-border text-xs text-gov-slate">
+          <span className="font-semibold text-gov-navy">Sample Verification Codes:</span>
           {sampleLicenses.map((s) => (
             <button
               key={s.cml}
+              type="button"
               onClick={() => {
                 setCmlInput(s.cml);
                 handleVerify(s.cml);
               }}
-              className="px-2.5 py-1 rounded-lg bg-bis-canvas hover:bg-slate-200 text-slate-700 border border-bis-border text-[11px] font-mono transition-colors"
+              className="text-[11px] font-mono px-2 py-1 rounded bg-gov-paper hover:bg-slate-200 border border-gov-border text-gov-navy"
             >
               {s.label}
             </button>
@@ -137,49 +121,19 @@ export default function VerifyPage() {
         </div>
       </div>
 
-      {/* QR Scanner Simulation Card */}
-      {qrScanning && (
-        <div className="bg-bis-navy text-white p-6 rounded-2xl border border-bis-navy-light space-y-3 animate-in fade-in">
-          <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold flex items-center gap-2">
-              <Camera className="w-4 h-4 text-bis-saffron" />
-              Digital Camera / QR Code Reader Active
-            </h3>
-            <button onClick={() => setQrScanning(false)} className="text-xs text-slate-400 hover:text-white">
-              Close Camera
-            </button>
-          </div>
-          <p className="text-xs text-slate-300">
-            Align the ISI Mark QR code printed on the product packaging within the target frame.
-          </p>
-          <div className="h-32 border-2 border-dashed border-bis-saffron/60 rounded-xl flex items-center justify-center bg-black/30">
-            <button
-              onClick={() => {
-                setCmlInput("CM/L-8400012345");
-                setQrScanning(false);
-                handleVerify("CM/L-8400012345");
-              }}
-              className="px-4 py-2 bg-bis-saffron hover:bg-bis-saffron-dark text-white rounded-lg text-xs font-bold shadow-md"
-            >
-              Simulate Successful QR Detect (Anchor 16A Socket)
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Verification Result Card */}
+      {/* 3. Verification Result Card */}
       {searched && (
-        <div>
+        <div className="space-y-4">
           {record ? (
-            <div className="bg-white rounded-3xl border border-bis-border p-6 sm:p-8 shadow-sm space-y-6 animate-in fade-in">
-              <div className="flex flex-wrap items-start justify-between gap-4 border-b border-bis-border pb-6">
+            <div className="bg-white border border-gov-border rounded p-6 space-y-4 shadow-subtle">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gov-border pb-4">
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-mono font-bold text-sm text-bis-blue bg-bis-blue-soft px-3 py-1 rounded-lg">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-sm font-bold text-gov-navy">
                       {record.cmlNumber}
                     </span>
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider ${
+                      className={`px-2 py-0.5 text-xs font-bold rounded ${
                         record.status === "ACTIVE"
                           ? "bg-emerald-100 text-emerald-800 border border-emerald-300"
                           : record.status === "EXPIRED"
@@ -187,84 +141,80 @@ export default function VerifyPage() {
                           : "bg-red-100 text-red-800 border border-red-300"
                       }`}
                     >
-                      ● {record.status}
+                      STATUS: {record.status}
                     </span>
                   </div>
-                  <h2 className="text-2xl font-bold text-bis-navy font-display mt-2">{record.brand}</h2>
-                  <p className="text-xs text-bis-text-secondary">{record.productName}</p>
+                  <h3 className="text-base font-bold text-gov-navy font-serif mt-1">
+                    {record.applicantName}
+                  </h3>
+                  {record.brand && (
+                    <span className="text-xs text-gov-slate">Brand: {record.brand}</span>
+                  )}
                 </div>
 
-                <div className="p-3 bg-bis-canvas rounded-2xl border border-bis-border text-center">
-                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Governing Standard</span>
-                  <p className="font-mono font-bold text-base text-bis-navy mt-0.5">{record.standardCode}</p>
+                <button
+                  onClick={() => window.print()}
+                  className="px-3 py-1.5 bg-gov-paper hover:bg-slate-200 border border-gov-border rounded text-xs font-bold text-gov-navy flex items-center gap-1.5 self-start"
+                >
+                  <Printer className="w-3.5 h-3.5 text-gov-slate" />
+                  <span>Print Verification Certificate</span>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div className="space-y-2 p-3.5 bg-gov-paper border border-gov-border rounded">
+                  <div>
+                    <strong className="text-gov-slate text-[10px] uppercase block">Conforming Indian Standard:</strong>
+                    <span className="font-mono font-bold text-gov-navy">{record.standardCode}</span>
+                  </div>
+                  <div>
+                    <strong className="text-gov-slate text-[10px] uppercase block">Product Scope:</strong>
+                    <span className="text-gov-navy">{record.productName}</span>
+                  </div>
+                  <div>
+                    <strong className="text-gov-slate text-[10px] uppercase block">Applicable Conformity Scheme:</strong>
+                    <span className="font-semibold text-gov-navy">{record.scheme}</span>
+                  </div>
+                </div>
+
+                <div className="space-y-2 p-3.5 bg-gov-paper border border-gov-border rounded">
+                  <div>
+                    <strong className="text-gov-slate text-[10px] uppercase block">Registered Factory Premises:</strong>
+                    <span className="text-gov-navy">{record.factoryAddress}</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 pt-2 border-t border-gov-border">
+                    <div>
+                      <strong className="text-gov-slate text-[10px] uppercase block">Date Granted:</strong>
+                      <span className="font-mono font-semibold">{record.issueDate}</span>
+                    </div>
+                    <div>
+                      <strong className="text-gov-slate text-[10px] uppercase block">Valid Upto:</strong>
+                      <span className="font-mono font-semibold">{record.validUpto}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Status Specific Banners */}
-              {record.status === "EXPIRED" && (
-                <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex items-center gap-3">
-                  <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />
-                  <span>
-                    <strong>Caution:</strong> This BIS certification expired on <strong>{record.validUpto}</strong>. Products manufactured after this date are not legally authorized to bear the ISI Mark.
-                  </span>
-                </div>
-              )}
-
-              {record.status === "SUSPENDED" && (
-                <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-xs text-red-900 flex items-center gap-3">
-                  <XCircle className="w-5 h-5 text-red-600 shrink-0" />
-                  <span>
-                    <strong>Enforcement Action:</strong> This license has been <strong>SUSPENDED</strong> by the Bureau of Indian Standards due to factory surveillance non-conformity. Immediate stop-sale applies.
-                  </span>
-                </div>
-              )}
-
-              {/* Grid Details */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div className="p-4 bg-bis-canvas rounded-xl border border-bis-border space-y-1">
-                  <span className="text-slate-500 font-medium flex items-center gap-1.5">
-                    <Building2 className="w-3.5 h-3.5 text-bis-blue" />
-                    Licensee / Manufacturer
-                  </span>
-                  <p className="font-bold text-bis-navy text-sm">{record.applicantName}</p>
-                </div>
-
-                <div className="p-4 bg-bis-canvas rounded-xl border border-bis-border space-y-1">
-                  <span className="text-slate-500 font-medium flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-bis-blue" />
-                    Validity Window
-                  </span>
-                  <p className="font-bold text-bis-navy text-sm">
-                    {record.issueDate} to {record.validUpto}
-                  </p>
-                </div>
-
-                <div className="sm:col-span-2 p-4 bg-bis-canvas rounded-xl border border-bis-border space-y-1">
-                  <span className="text-slate-500 font-medium">Licensed Manufacturing Facility Location</span>
-                  <p className="font-bold text-bis-navy text-xs">{record.factoryAddress}</p>
-                </div>
+              <div className="p-3 bg-slate-50 border border-gov-border rounded text-[11px] text-gov-slate flex items-center justify-between">
+                <span>Verification recorded under Bureau of Indian Standards e-Registry.</span>
+                <a
+                  href="https://www.services.bis.gov.in"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-blue-700 hover:underline font-semibold flex items-center gap-1"
+                >
+                  <span>Verify on Official BIS Portal</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
             </div>
           ) : (
-            <div className="bg-red-50 border border-red-200 rounded-3xl p-8 text-center space-y-3">
-              <div className="w-12 h-12 rounded-full bg-red-100 text-red-700 flex items-center justify-center mx-auto">
-                <XCircle className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold text-red-900">Unregistered / Counterfeit Risk</h3>
-              <p className="text-xs text-red-800 max-w-lg mx-auto leading-relaxed">
-                {notFoundMsg}
+            <div className="bg-red-50 border border-red-200 rounded p-6 text-center space-y-2 text-xs">
+              <XCircle className="w-8 h-8 text-red-600 mx-auto" />
+              <h3 className="font-bold text-red-900 text-sm">License Number Not Found</h3>
+              <p className="text-red-700 max-w-md mx-auto">
+                {notFoundMsg || "No active, expired, or suspended CM/L license record matches the entered identifier."}
               </p>
-              <div className="pt-2">
-                <a
-                  href="https://www.manakonline.in"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-red-700 text-white rounded-xl text-xs font-bold"
-                >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  Search National e-BIS Database
-                </a>
-              </div>
             </div>
           )}
         </div>

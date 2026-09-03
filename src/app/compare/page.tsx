@@ -7,10 +7,9 @@ import {
   GitCompare,
   ArrowRight,
   CheckCircle2,
-  ShieldCheck,
-  Zap,
-  Layers,
-  Sparkles
+  AlertCircle,
+  ExternalLink,
+  Printer
 } from "lucide-react";
 
 export default function ComparePage() {
@@ -21,131 +20,169 @@ export default function ComparePage() {
   const stdB = STANDARDS_DATABASE.find((s) => s.id === stdBId) || STANDARDS_DATABASE[1];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-      {/* Header */}
-      <div className="bg-white rounded-3xl border border-bis-border p-6 sm:p-8 shadow-xs space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-700 text-xs font-bold uppercase tracking-wider border border-purple-200">
-          <GitCompare className="w-3.5 h-3.5" />
-          Technical Standards Comparator
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+      {/* 1. Header */}
+      <div className="bg-white border border-gov-border rounded p-6 space-y-3 shadow-subtle">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gov-border pb-3">
+          <div>
+            <span className="font-mono text-xs font-bold bg-gov-navy text-white px-2 py-0.5 rounded-sm">
+              TECHNICAL COMPARATOR
+            </span>
+            <h1 className="text-xl font-bold text-gov-navy font-serif mt-1">
+              Side-by-Side Standards Specification Comparison
+            </h1>
+          </div>
+          <button
+            onClick={() => window.print()}
+            className="px-3 py-1.5 bg-gov-paper hover:bg-slate-200 border border-gov-border rounded text-xs font-bold text-gov-navy flex items-center gap-1.5 self-start no-print"
+          >
+            <Printer className="w-3.5 h-3.5 text-gov-slate" />
+            <span>Print Comparison</span>
+          </button>
         </div>
-        <h1 className="text-2xl sm:text-4xl font-black text-bis-navy font-display">
-          Side-by-Side Standards Comparison
-        </h1>
-        <p className="text-bis-text-secondary text-sm leading-relaxed max-w-3xl">
-          Evaluate technical requirements, certification schemes, quality control mandates, and test methods across different Bureau of Indian Standards specifications.
+        <p className="text-xs text-gov-slate leading-relaxed">
+          Evaluate technical scope, mandatory testing clauses, conformity schemes, and regulatory Quality Control Orders across Indian Standards.
         </p>
       </div>
 
-      {/* Selectors */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="p-5 bg-white rounded-2xl border border-bis-border shadow-xs space-y-2">
-          <label className="block text-xs font-bold text-bis-navy">Select Standard 1</label>
+      {/* 2. Selectors */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="p-4 bg-white rounded border border-gov-border space-y-2 shadow-subtle">
+          <label className="block text-xs font-bold text-gov-navy uppercase tracking-wide">
+            Select Baseline Standard (A):
+          </label>
           <select
             value={stdAId}
             onChange={(e) => setStdAId(e.target.value)}
-            className="w-full px-3 py-2 bg-bis-canvas border border-bis-border rounded-xl text-xs font-bold text-bis-navy focus:outline-none focus:ring-2 focus:ring-bis-blue/30"
+            className="w-full px-3 py-2 bg-gov-paper border border-gov-border rounded text-xs font-bold text-gov-navy focus:outline-none"
           >
             {STANDARDS_DATABASE.map((s) => (
               <option key={s.id} value={s.id}>
-                {s.code} — {s.title.substring(0, 50)}...
+                {s.code} — {s.title.substring(0, 60)}...
               </option>
             ))}
           </select>
         </div>
 
-        <div className="p-5 bg-white rounded-2xl border border-bis-border shadow-xs space-y-2">
-          <label className="block text-xs font-bold text-bis-navy">Select Standard 2</label>
+        <div className="p-4 bg-white rounded border border-gov-border space-y-2 shadow-subtle">
+          <label className="block text-xs font-bold text-gov-navy uppercase tracking-wide">
+            Select Comparison Standard (B):
+          </label>
           <select
             value={stdBId}
             onChange={(e) => setStdBId(e.target.value)}
-            className="w-full px-3 py-2 bg-bis-canvas border border-bis-border rounded-xl text-xs font-bold text-bis-navy focus:outline-none focus:ring-2 focus:ring-bis-blue/30"
+            className="w-full px-3 py-2 bg-gov-paper border border-gov-border rounded text-xs font-bold text-gov-navy focus:outline-none"
           >
             {STANDARDS_DATABASE.map((s) => (
               <option key={s.id} value={s.id}>
-                {s.code} — {s.title.substring(0, 50)}...
+                {s.code} — {s.title.substring(0, 60)}...
               </option>
             ))}
           </select>
         </div>
       </div>
 
-      {/* Comparison Grid */}
-      <div className="bg-white rounded-3xl border border-bis-border overflow-hidden shadow-xs">
-        <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-bis-border">
-          {/* Col 1 */}
-          <div className="p-6 sm:p-8 space-y-6">
-            <div>
-              <span className="px-3 py-1 rounded-lg bg-bis-blue-soft text-bis-blue font-mono font-bold text-xs">
-                {stdA.code}
-              </span>
-              <h2 className="text-xl font-bold text-bis-navy font-display mt-2">{stdA.title}</h2>
-              <p className="text-xs text-bis-text-secondary mt-1">{stdA.summary}</p>
-            </div>
-
-            <div className="space-y-4 text-xs">
-              <div className="p-3 bg-bis-canvas rounded-xl border border-bis-border">
-                <span className="text-slate-500 font-medium">Conformity Assessment Scheme</span>
-                <p className="font-bold text-bis-navy mt-0.5">{stdA.scheme}</p>
-              </div>
-
-              <div className="p-3 bg-bis-canvas rounded-xl border border-bis-border">
-                <span className="text-slate-500 font-medium">Quality Control Order (QCO)</span>
-                <p className="font-bold text-bis-navy mt-0.5">{stdA.qcoReference || "Voluntary Standard"}</p>
-              </div>
-
-              <div className="p-3 bg-bis-canvas rounded-xl border border-bis-border">
-                <span className="text-slate-500 font-medium">Total Clauses & Active Amendments</span>
-                <p className="font-bold text-bis-navy mt-0.5">{stdA.clauses.length} Clauses • {stdA.amendments.length} Amendments</p>
-              </div>
-
-              <div className="pt-2">
+      {/* 3. Side-by-Side Comparison Table */}
+      <div className="border border-gov-border rounded overflow-hidden bg-white shadow-subtle">
+        <table className="w-full text-left table-dense">
+          <thead>
+            <tr>
+              <th className="w-48 bg-gov-muted">Specification Parameter</th>
+              <th className="w-1/2 font-mono text-gov-navy">{stdA.code}</th>
+              <th className="w-1/2 font-mono text-gov-navy">{stdB.code}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="font-bold text-gov-slate">Full Title</td>
+              <td className="font-semibold text-gov-navy">{stdA.title}</td>
+              <td className="font-semibold text-gov-navy">{stdB.title}</td>
+            </tr>
+            <tr>
+              <td className="font-bold text-gov-slate">Division Council</td>
+              <td>{stdA.division}</td>
+              <td>{stdB.division}</td>
+            </tr>
+            <tr>
+              <td className="font-bold text-gov-slate">Reaffirmation Year</td>
+              <td className="font-mono">{stdA.year}</td>
+              <td className="font-mono">{stdB.year}</td>
+            </tr>
+            <tr>
+              <td className="font-bold text-gov-slate">Conformity Scheme</td>
+              <td className="font-semibold">{stdA.certificationScheme}</td>
+              <td className="font-semibold">{stdB.certificationScheme}</td>
+            </tr>
+            <tr>
+              <td className="font-bold text-gov-slate">Regulatory QCO Mandate</td>
+              <td>
+                {stdA.mandatory ? (
+                  <span className="font-bold text-amber-800 bg-amber-50 border border-amber-300 px-1.5 py-0.5 rounded text-[10px]">
+                    Mandatory ({stdA.qcoOrder || "Statutory QCO"})
+                  </span>
+                ) : (
+                  <span className="text-slate-500 text-xs">Voluntary</span>
+                )}
+              </td>
+              <td>
+                {stdB.mandatory ? (
+                  <span className="font-bold text-amber-800 bg-amber-50 border border-amber-300 px-1.5 py-0.5 rounded text-[10px]">
+                    Mandatory ({stdB.qcoOrder || "Statutory QCO"})
+                  </span>
+                ) : (
+                  <span className="text-slate-500 text-xs">Voluntary</span>
+                )}
+              </td>
+            </tr>
+            <tr>
+              <td className="font-bold text-gov-slate">Technical Scope</td>
+              <td className="text-gov-text leading-relaxed">{stdA.scope}</td>
+              <td className="text-gov-text leading-relaxed">{stdB.scope}</td>
+            </tr>
+            <tr>
+              <td className="font-bold text-gov-slate">Clauses In Repos</td>
+              <td>
+                <div className="space-y-1">
+                  {stdA.clauses.map(c => (
+                    <div key={c.id} className="text-[11px]">
+                      <strong className="font-mono text-gov-saffron">{c.number}</strong>: {c.title}
+                    </div>
+                  ))}
+                </div>
+              </td>
+              <td>
+                <div className="space-y-1">
+                  {stdB.clauses.map(c => (
+                    <div key={c.id} className="text-[11px]">
+                      <strong className="font-mono text-gov-saffron">{c.number}</strong>: {c.title}
+                    </div>
+                  ))}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td className="font-bold text-gov-slate">Direct Inspection</td>
+              <td>
                 <Link
                   href={`/standard/${stdA.id}`}
-                  className="text-xs font-bold text-bis-blue hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-blue-700 hover:underline flex items-center gap-1"
                 >
-                  Inspect {stdA.code} Full Clauses →
+                  <span>Open {stdA.code} Specification</span>
+                  <ArrowRight className="w-3 h-3" />
                 </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Col 2 */}
-          <div className="p-6 sm:p-8 space-y-6 bg-bis-canvas/30">
-            <div>
-              <span className="px-3 py-1 rounded-lg bg-bis-blue-soft text-bis-blue font-mono font-bold text-xs">
-                {stdB.code}
-              </span>
-              <h2 className="text-xl font-bold text-bis-navy font-display mt-2">{stdB.title}</h2>
-              <p className="text-xs text-bis-text-secondary mt-1">{stdB.summary}</p>
-            </div>
-
-            <div className="space-y-4 text-xs">
-              <div className="p-3 bg-white rounded-xl border border-bis-border">
-                <span className="text-slate-500 font-medium">Conformity Assessment Scheme</span>
-                <p className="font-bold text-bis-navy mt-0.5">{stdB.scheme}</p>
-              </div>
-
-              <div className="p-3 bg-white rounded-xl border border-bis-border">
-                <span className="text-slate-500 font-medium">Quality Control Order (QCO)</span>
-                <p className="font-bold text-bis-navy mt-0.5">{stdB.qcoReference || "Voluntary Standard"}</p>
-              </div>
-
-              <div className="p-3 bg-white rounded-xl border border-bis-border">
-                <span className="text-slate-500 font-medium">Total Clauses & Active Amendments</span>
-                <p className="font-bold text-bis-navy mt-0.5">{stdB.clauses.length} Clauses • {stdB.amendments.length} Amendments</p>
-              </div>
-
-              <div className="pt-2">
+              </td>
+              <td>
                 <Link
                   href={`/standard/${stdB.id}`}
-                  className="text-xs font-bold text-bis-blue hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-blue-700 hover:underline flex items-center gap-1"
                 >
-                  Inspect {stdB.code} Full Clauses →
+                  <span>Open {stdB.code} Specification</span>
+                  <ArrowRight className="w-3 h-3" />
                 </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

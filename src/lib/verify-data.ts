@@ -1,13 +1,19 @@
 export interface LicenseRecord {
   cmlNumber: string;
   applicantName: string;
+  licenseeName?: string;
   brand: string;
   standardCode: string;
+  standardTitle?: string;
   productName: string;
+  productDescription?: string;
   factoryAddress: string;
   status: "ACTIVE" | "EXPIRED" | "SUSPENDED" | "CANCELLED";
   issueDate: string;
+  validFrom?: string;
   validUpto: string;
+  validUntil?: string;
+  branchOffice?: string;
   scheme: "Scheme I (ISI Mark)" | "Scheme II" | "Compulsory Registration (CRS)";
   qrPayload?: string;
 }

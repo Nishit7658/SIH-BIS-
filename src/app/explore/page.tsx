@@ -4,34 +4,24 @@ import React, { useState, useMemo, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { STANDARDS_DATABASE, Standard } from "@/lib/standards-data";
-import { BIS_LABORATORIES_DATABASE, BisLaboratory, getLaboratories } from "@/lib/laboratories-data";
+import { BIS_LABORATORIES_DATABASE, BisLaboratory } from "@/lib/laboratories-data";
 import { BIS_SCHEMES_DATABASE, BisScheme } from "@/lib/schemes-data";
-import { recommendStandardsForBusiness, BusinessRecommendationResult } from "@/lib/recommender";
 import { useApp } from "@/context/AppContext";
 import {
   Search,
+  BookOpen,
+  FlaskConical,
+  ShieldCheck,
   Filter,
   Bookmark,
   BookmarkCheck,
-  CheckCircle2,
-  FileText,
-  GitBranch,
-  ArrowRight,
-  ShieldCheck,
-  Sparkles,
-  Layers,
-  Factory,
-  Package,
-  Zap,
-  Building2,
-  Check,
-  FlaskConical,
   ExternalLink,
+  AlertCircle,
+  Building2,
   MapPin,
-  Phone,
   Mail,
-  Award,
-  Clock
+  Phone,
+  ArrowRight
 } from "lucide-react";
 
 function ExploreContent() {
@@ -39,521 +29,377 @@ function ExploreContent() {
   const initialCategory = searchParams.get("category") || "All";
   const { savedStandards, toggleSaveStandard } = useApp();
 
-  const [activeView, setActiveView] = useState<"standards" | "laboratories" | "schemes">("standards");
+  const [activeTab, setActiveTab] = useState<"standards" | "laboratories" | "schemes">("standards");
 
-  // Standards state
+  // Standards filter state
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const [onlyMandatory, setOnlyMandatory] = useState(false);
 
-  // Labs state
+  // Labs filter state
   const [labSearch, setLabSearch] = useState("");
 
-  // Business Recommender state
-  const [businessQuery, setBusinessQuery] = useState("");
-  const [recommendation, setRecommendation] = useState<BusinessRecommendationResult | null>(null);
-
-  const categories = ["All", "Packaging & Paper", "Electrical", "Electronics & IT", "Civil & Construction", "Chemical & Plastics", "Consumer Goods"];
+  const categories = [
+    "All",
+    "Packaging & Paper",
+    "Consumer Goods",
+    "Electrical & Electronics",
+    "Civil & Construction",
+    "Chemicals & Plastics"
+  ];
 
   const filteredStandards = useMemo(() => {
     return STANDARDS_DATABASE.filter((std) => {
-      const matchCategory = selectedCategory === "All" || std.category.toLowerCase().includes(selectedCategory.toLowerCase());
-      const matchMandatory = !onlyMandatory || std.isMandatory;
-      const matchText =
-        !search.trim() ||
+      const matchCategory =
+        selectedCategory === "All" ||
+        std.category.toLowerCase().includes(selectedCategory.toLowerCase()) ||
+        std.division.toLowerCase().includes(selectedCategory.toLowerCase());
+
+      const matchSearch =
+        search.trim() === "" ||
         std.code.toLowerCase().includes(search.toLowerCase()) ||
         std.title.toLowerCase().includes(search.toLowerCase()) ||
-        std.businessTypes.some((b) => b.toLowerCase().includes(search.toLowerCase())) ||
-        std.keywords.some((k) => k.toLowerCase().includes(search.toLowerCase())) ||
-        std.summary.toLowerCase().includes(search.toLowerCase());
+        std.keywords.some((k) => k.toLowerCase().includes(search.toLowerCase()));
 
-      return matchCategory && matchMandatory && matchText;
+      const matchMandatory = !onlyMandatory || std.mandatory;
+
+      return matchCategory && matchSearch && matchMandatory;
     });
   }, [search, selectedCategory, onlyMandatory]);
 
   const filteredLabs = useMemo(() => {
-    if (!labSearch.trim()) return BIS_LABORATORIES_DATABASE;
-    const q = labSearch.toLowerCase().trim();
-    return BIS_LABORATORIES_DATABASE.filter(lab => 
-      lab.name.toLowerCase().includes(q) ||
-      lab.city.toLowerCase().includes(q) ||
-      lab.state.toLowerCase().includes(q) ||
-      lab.recognizedStandards.some(s => s.toLowerCase().includes(q)) ||
-      lab.productCategories.some(p => p.toLowerCase().includes(q))
-    );
+    return BIS_LABORATORIES_DATABASE.filter((lab) => {
+      if (!labSearch.trim()) return true;
+      const q = labSearch.toLowerCase();
+      return (
+        lab.name.toLowerCase().includes(q) ||
+        lab.city.toLowerCase().includes(q) ||
+        (lab.region || lab.type).toLowerCase().includes(q) ||
+        lab.nablAccreditationNo.toLowerCase().includes(q) ||
+        (lab.capabilities || lab.productCategories).some((c) => c.toLowerCase().includes(q))
+      );
+    });
   }, [labSearch]);
 
-  const handleGetRecommendation = (queryToUse?: string) => {
-    const q = queryToUse || businessQuery;
-    if (!q.trim()) return;
-    const result = recommendStandardsForBusiness(q.trim());
-    setRecommendation(result);
-  };
-
-  const businessPresets = [
-    { label: "Stainless Steel Bottles", query: "I manufacture stainless steel water bottles and flasks" },
-    { label: "Corrugated Box Packaging", query: "I manufacture corrugated boxes and cartons" },
-    { label: "Food Packaging Plastics", query: "I manufacture plastic pouches and containers for food" },
-    { label: "Electrical Plugs & Switches", query: "I make electrical plugs, sockets and modular switches" },
-    { label: "PVC & HDPE Water Pipes", query: "I manufacture HDPE and UPVC pipes for water supply" },
-    { label: "LED Lighting & Drivers", query: "I assemble LED bulbs and power supply drivers" },
-    { label: "TMT Steel & Cement", query: "I produce TMT steel rebars and construction cement" },
-    { label: "Toys & Baby Products", query: "I manufacture plastic toys and baby products" },
-  ];
-
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-      {/* Header Banner */}
-      <div className="bg-gradient-to-r from-bis-navy via-bis-navy-light to-bis-navy text-white p-8 rounded-3xl shadow-sm relative overflow-hidden">
-        <div className="max-w-3xl relative z-10 space-y-3">
-          <span className="px-3 py-1 rounded-full bg-bis-saffron/20 text-bis-saffron-light text-xs font-bold uppercase tracking-wider border border-bis-saffron/30 inline-block">
-            Verified Indian Standards Repository ({STANDARDS_DATABASE.length} Active Codes)
-          </span>
-          <h1 className="text-2xl sm:text-4xl font-black font-display tracking-tight">
-            Standards, Testing Labs & Certification Schemes
-          </h1>
-          <p className="text-slate-300 text-sm leading-relaxed">
-            Instant, clause-grounded guidance on BIS Quality Control Orders (QCOs), accredited testing laboratories (LRS), and conformity schemes (ISI Mark, CRS, Hallmarking).
-          </p>
-        </div>
-      </div>
-
-      {/* Primary Section Switcher */}
-      <div className="flex border-b border-bis-border text-sm font-bold gap-2 sm:gap-6 overflow-x-auto pb-0.5">
-        <button
-          onClick={() => setActiveView("standards")}
-          className={`pb-3 flex items-center gap-2 transition-colors border-b-2 whitespace-nowrap ${
-            activeView === "standards"
-              ? "border-bis-saffron text-bis-navy"
-              : "border-transparent text-bis-text-secondary hover:text-bis-navy"
-          }`}
-        >
-          <Layers className="w-4 h-4" /> Standards Catalog & QCOs ({STANDARDS_DATABASE.length})
-        </button>
-
-        <button
-          onClick={() => setActiveView("laboratories")}
-          className={`pb-3 flex items-center gap-2 transition-colors border-b-2 whitespace-nowrap ${
-            activeView === "laboratories"
-              ? "border-bis-saffron text-bis-navy"
-              : "border-transparent text-bis-text-secondary hover:text-bis-navy"
-          }`}
-        >
-          <FlaskConical className="w-4 h-4 text-bis-blue" /> Recognized Testing Labs (LRS) ({BIS_LABORATORIES_DATABASE.length})
-        </button>
-
-        <button
-          onClick={() => setActiveView("schemes")}
-          className={`pb-3 flex items-center gap-2 transition-colors border-b-2 whitespace-nowrap ${
-            activeView === "schemes"
-              ? "border-bis-saffron text-bis-navy"
-              : "border-transparent text-bis-text-secondary hover:text-bis-navy"
-          }`}
-        >
-          <Award className="w-4 h-4 text-bis-saffron" /> Certification Schemes ({BIS_SCHEMES_DATABASE.length})
-        </button>
-      </div>
-
-      {/* VIEW 1: STANDARDS CATALOG */}
-      {activeView === "standards" && (
-        <div className="space-y-8">
-          {/* Business Standards Recommender Section */}
-          <div className="bg-gradient-to-br from-amber-500/10 via-white to-blue-500/10 border-2 border-bis-saffron/30 rounded-3xl p-6 sm:p-8 shadow-xs space-y-5">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-bis-saffron text-white flex items-center justify-center font-bold shadow-sm">
-                <Factory className="w-5 h-5" />
-              </div>
-              <div>
-                <h2 className="text-lg font-bold text-bis-navy font-display">
-                  Business Standards Recommender: Which Standards Do You Require?
-                </h2>
-                <p className="text-xs text-bis-text-secondary">
-                  Tell us what product or packaging you manufacture to receive the statutory Indian Standards, factory machinery list, and QC lab testing setup.
-                </p>
-              </div>
-            </div>
-
-            {/* Input bar */}
-            <div className="flex flex-col sm:flex-row items-center gap-3">
-              <div className="relative flex-1 w-full">
-                <input
-                  type="text"
-                  value={businessQuery}
-                  onChange={(e) => setBusinessQuery(e.target.value)}
-                  placeholder="e.g. I manufacture stainless steel water bottles, or I make corrugated boxes..."
-                  className="w-full px-4 py-3 bg-white border border-bis-border rounded-xl text-sm font-semibold text-bis-navy focus:outline-none focus:ring-2 focus:ring-bis-saffron/40 shadow-xs"
-                />
-              </div>
-              <button
-                onClick={() => handleGetRecommendation()}
-                className="w-full sm:w-auto px-6 py-3 bg-bis-navy hover:bg-bis-navy-light text-white text-xs font-bold rounded-xl shadow-sm transition-all flex items-center justify-center gap-2 shrink-0"
-              >
-                <Sparkles className="w-4 h-4 text-bis-saffron" />
-                <span>Find Required Standards</span>
-              </button>
-            </div>
-
-            {/* Quick Presets */}
-            <div className="flex flex-wrap items-center gap-2 pt-1 text-xs">
-              <span className="text-slate-500 font-semibold">Quick Presets:</span>
-              {businessPresets.map((bp) => (
-                <button
-                  key={bp.label}
-                  onClick={() => {
-                    setBusinessQuery(bp.query);
-                    handleGetRecommendation(bp.query);
-                  }}
-                  className="px-2.5 py-1 rounded-lg bg-white hover:bg-bis-canvas border border-bis-border text-bis-navy text-[11px] font-medium transition-all shadow-xs"
-                >
-                  {bp.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Recommendation Result Box */}
-            {recommendation && (
-              <div className="mt-4 p-6 bg-white rounded-2xl border border-bis-saffron/40 shadow-sm space-y-6 animate-in fade-in">
-                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-bis-border pb-4">
-                  <div>
-                    <span className="text-xs font-bold text-bis-saffron uppercase tracking-wider">
-                      Recommended Industry Domain
-                    </span>
-                    <h3 className="text-xl font-bold text-bis-navy font-display mt-0.5">
-                      {recommendation.matchedDomain}
-                    </h3>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-[10px] text-slate-400 font-bold uppercase">Statutory Scheme</span>
-                    <p className="font-bold text-sm text-bis-blue">{recommendation.scheme}</p>
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 leading-relaxed font-medium">
-                  <strong>Statutory Mandate:</strong> {recommendation.mandatoryQcoNotice}
-                </div>
-
-                {/* Primary & Supporting Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Primary Standards */}
-                  <div className="space-y-3">
-                    <h4 className="text-xs font-bold text-bis-navy uppercase tracking-wider flex items-center gap-1.5">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      Primary Mandatory Standards (Required for Certification)
-                    </h4>
-                    <div className="space-y-2">
-                      {recommendation.primaryStandards.map((std) => (
-                        <div key={std.id} className="p-3.5 rounded-xl bg-bis-canvas border border-bis-border space-y-1">
-                          <div className="flex items-center justify-between">
-                            <span className="font-mono font-bold text-xs text-bis-blue bg-bis-blue-soft px-2 py-0.5 rounded">
-                              {std.code}
-                            </span>
-                            <Link
-                              href={`/standard/${std.id}`}
-                              className="text-xs font-bold text-bis-blue hover:underline flex items-center gap-1"
-                            >
-                              View Blueprint & Clauses →
-                            </Link>
-                          </div>
-                          <p className="font-bold text-xs text-bis-navy">{std.title}</p>
-                          <p className="text-[11px] text-bis-text-secondary line-clamp-2">{std.summary}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Supporting Standards & Key Tests */}
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <h4 className="text-xs font-bold text-bis-navy uppercase tracking-wider flex items-center gap-1.5">
-                        <Layers className="w-4 h-4 text-bis-blue" />
-                        Supporting Raw Material & Test Standards
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {recommendation.supportingStandards.map((std) => (
-                          <Link
-                            key={std.id}
-                            href={`/standard/${std.id}`}
-                            className="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-bis-blue-soft border border-bis-border text-xs text-bis-navy font-semibold transition-colors flex items-center gap-1"
-                          >
-                            <span className="font-mono text-bis-blue">{std.code}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="space-y-2 pt-2 border-t border-bis-border">
-                      <h4 className="text-xs font-bold text-bis-navy uppercase tracking-wider">
-                        Mandatory Laboratory Tests for Approval
-                      </h4>
-                      <div className="space-y-1.5 text-xs text-bis-text-secondary">
-                        {recommendation.keyMandatoryTests.slice(0, 3).map((test, idx) => (
-                          <div key={idx} className="flex items-start gap-2">
-                            <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                            <span>
-                              <strong>{test.testTitle}</strong> ({test.standardCode}): {test.requirement}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-2 flex items-center justify-end gap-3">
-                  <Link
-                    href={`/compliance`}
-                    className="px-4 py-2 bg-bis-navy text-white text-xs font-bold rounded-xl shadow-xs"
-                  >
-                    Launch Compliance Checklist Wizard →
-                  </Link>
-                </div>
-              </div>
-            )}
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+      {/* 1. Header with Tab Switcher */}
+      <div className="bg-white border border-gov-border rounded p-5 space-y-4 shadow-subtle">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-gov-border pb-4">
+          <div>
+            <span className="font-mono text-xs font-bold text-gov-saffron uppercase tracking-wide">
+              BIS STATUTORY TECHNICAL REGISTRY
+            </span>
+            <h1 className="text-xl sm:text-2xl font-black text-gov-navy font-serif mt-0.5">
+              Standards, Testing Laboratories & Certification Schemes
+            </h1>
+            <p className="text-xs text-gov-slate mt-1">
+              Official reference database of active Indian Standards, recognized LRS test houses, and conformity schemes.
+            </p>
           </div>
 
-          {/* Filter and Search Bar */}
-          <div className="bg-white p-4 rounded-2xl border border-bis-border shadow-xs space-y-4">
-            <div className="flex flex-col sm:flex-row items-center gap-3">
-              <div className="relative flex-1 w-full">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <div className="flex items-center border border-gov-border rounded overflow-hidden bg-gov-paper text-xs font-bold shrink-0">
+            <button
+              onClick={() => setActiveTab("standards")}
+              className={`px-3.5 py-2 transition-colors ${
+                activeTab === "standards" ? "bg-gov-navy text-white" : "text-gov-slate hover:text-gov-navy"
+              }`}
+            >
+              Standards ({STANDARDS_DATABASE.length})
+            </button>
+            <button
+              onClick={() => setActiveTab("laboratories")}
+              className={`px-3.5 py-2 border-l border-gov-border transition-colors ${
+                activeTab === "laboratories" ? "bg-gov-navy text-white" : "text-gov-slate hover:text-gov-navy"
+              }`}
+            >
+              Recognized Labs ({BIS_LABORATORIES_DATABASE.length})
+            </button>
+            <button
+              onClick={() => setActiveTab("schemes")}
+              className={`px-3.5 py-2 border-l border-gov-border transition-colors ${
+                activeTab === "schemes" ? "bg-gov-navy text-white" : "text-gov-slate hover:text-gov-navy"
+              }`}
+            >
+              Schemes ({BIS_SCHEMES_DATABASE.length})
+            </button>
+          </div>
+        </div>
+
+        {/* 2. Standards View Filter Bar */}
+        {activeTab === "standards" && (
+          <div className="space-y-3">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <div className="relative flex-1">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
                 <input
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search across 200+ standards by IS code, title, product name, or business type..."
-                  className="w-full pl-10 pr-4 py-2.5 bg-bis-canvas border border-bis-border rounded-xl text-sm text-bis-text-primary focus:outline-none focus:ring-2 focus:ring-bis-blue/30"
+                  placeholder="Filter by IS number, title, or keywords (e.g., IS 17526, corrugated box, PVC, plugs)..."
+                  className="w-full pl-9 pr-3 py-2 text-xs border border-gov-border rounded bg-white text-gov-text focus:outline-none focus:border-gov-navy font-medium"
                 />
               </div>
 
-              <label className="flex items-center gap-2 text-xs font-bold text-bis-navy cursor-pointer select-none bg-bis-canvas px-4 py-2.5 rounded-xl border border-bis-border whitespace-nowrap">
-                <input
-                  type="checkbox"
-                  checked={onlyMandatory}
-                  onChange={(e) => setOnlyMandatory(e.target.checked)}
-                  className="rounded text-bis-saffron focus:ring-bis-saffron"
-                />
-                <span>Mandatory QCOs Only</span>
-              </label>
-            </div>
-
-            {/* Category Pills */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs font-semibold">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-xl transition-all whitespace-nowrap ${
-                    selectedCategory === cat
-                      ? "bg-bis-navy text-white shadow-xs"
-                      : "bg-bis-canvas text-bis-text-secondary hover:bg-slate-200 border border-bis-border"
-                  }`}
+              <div className="flex items-center gap-2 shrink-0">
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="text-xs px-2.5 py-2 border border-gov-border rounded bg-white font-semibold text-gov-navy focus:outline-none"
                 >
-                  {cat}
-                </button>
-              ))}
+                  {categories.map((cat) => (
+                    <option key={cat} value={cat}>
+                      {cat}
+                    </option>
+                  ))}
+                </select>
+
+                <label className="flex items-center gap-1.5 text-xs text-gov-text font-semibold cursor-pointer select-none bg-gov-paper px-2.5 py-2 rounded border border-gov-border">
+                  <input
+                    type="checkbox"
+                    checked={onlyMandatory}
+                    onChange={(e) => setOnlyMandatory(e.target.checked)}
+                    className="rounded text-gov-saffron focus:ring-0"
+                  />
+                  <span>Mandatory QCO Only</span>
+                </label>
+              </div>
             </div>
           </div>
+        )}
 
-          {/* Results Count */}
-          <div className="flex items-center justify-between text-xs text-bis-text-secondary px-1">
-            <span>Showing <strong>{filteredStandards.length}</strong> active standard(s)</span>
-            <span>Catalog Status: 100% Valid & Active</span>
+        {/* 3. Laboratories View Filter Bar */}
+        {activeTab === "laboratories" && (
+          <div className="relative max-w-xl">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+            <input
+              type="text"
+              value={labSearch}
+              onChange={(e) => setLabSearch(e.target.value)}
+              placeholder="Search labs by name, city, state, or testing capabilities (e.g. thermal, drop, XRF, plastic)..."
+              className="w-full pl-9 pr-3 py-2 text-xs border border-gov-border rounded bg-white text-gov-text focus:outline-none focus:border-gov-navy font-medium"
+            />
           </div>
+        )}
+      </div>
 
-          {/* Standards List Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredStandards.map((std) => {
-              const isSaved = savedStandards.includes(std.id);
-              return (
-                <div
-                  key={std.id}
-                  className="bg-white rounded-2xl border border-bis-border hover:border-bis-blue p-6 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-start justify-between gap-2 mb-3">
-                      <span className="px-3 py-1 rounded-lg bg-bis-blue-soft text-bis-blue font-mono font-bold text-xs">
+      {/* VIEW 1: STANDARDS TECHNICAL DATA TABLE */}
+      {activeTab === "standards" && (
+        <div className="border border-gov-border rounded overflow-hidden bg-white shadow-subtle">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left table-dense">
+              <thead>
+                <tr>
+                  <th className="w-36">IS Number</th>
+                  <th className="w-40">Division</th>
+                  <th>Standard Title & Technical Scope</th>
+                  <th className="w-32">Scheme</th>
+                  <th className="w-40">Mandate Status</th>
+                  <th className="w-20 text-center">Save</th>
+                  <th className="w-24 text-right">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredStandards.map((std) => {
+                  const isSaved = savedStandards.includes(std.id);
+                  return (
+                    <tr key={std.id}>
+                      <td className="font-mono font-bold text-gov-navy whitespace-nowrap">
                         {std.code}
-                      </span>
-                      <div className="flex items-center gap-1.5">
-                        {std.isMandatory && (
-                          <span className="px-2 py-0.5 rounded-md bg-red-50 text-red-700 text-[10px] font-bold border border-red-200">
-                            Mandatory
+                        <span className="block text-[10px] text-gov-slate font-sans font-normal">
+                          Reaffirmed: {std.year}
+                        </span>
+                      </td>
+                      <td className="text-gov-slate text-[11px]">
+                        {std.division}
+                      </td>
+                      <td>
+                        <Link
+                          href={`/standard/${std.id}`}
+                          className="font-bold text-gov-navy hover:text-blue-700 hover:underline block"
+                        >
+                          {std.title}
+                        </Link>
+                        <p className="text-[11px] text-gov-slate line-clamp-2 mt-0.5">
+                          {std.scope}
+                        </p>
+                      </td>
+                      <td className="text-[11px] font-semibold text-gov-slate whitespace-nowrap">
+                        {std.certificationScheme}
+                      </td>
+                      <td>
+                        {std.mandatory ? (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-amber-800 bg-amber-50 border border-amber-300 px-2 py-0.5 rounded-sm">
+                            <AlertCircle className="w-3 h-3 text-gov-saffron shrink-0" />
+                            <span>Mandatory QCO</span>
+                          </span>
+                        ) : (
+                          <span className="text-[10px] text-slate-500">
+                            Voluntary Standard
                           </span>
                         )}
+                      </td>
+                      <td className="text-center">
                         <button
                           onClick={() => toggleSaveStandard(std.id)}
-                          className="p-1 rounded text-slate-400 hover:text-bis-saffron transition-colors"
-                          title={isSaved ? "Remove from bookmarks" : "Bookmark standard"}
+                          className={`p-1.5 rounded transition-colors ${
+                            isSaved ? "text-amber-600 bg-amber-50" : "text-slate-400 hover:text-gov-navy"
+                          }`}
+                          title={isSaved ? "Remove Bookmark" : "Save Standard"}
                         >
-                          {isSaved ? (
-                            <BookmarkCheck className="w-4 h-4 text-bis-saffron fill-bis-saffron" />
-                          ) : (
-                            <Bookmark className="w-4 h-4" />
-                          )}
+                          {isSaved ? <BookmarkCheck className="w-4 h-4" /> : <Bookmark className="w-4 h-4" />}
                         </button>
-                      </div>
-                    </div>
+                      </td>
+                      <td className="text-right whitespace-nowrap">
+                        <Link
+                          href={`/standard/${std.id}`}
+                          className="text-xs font-bold text-gov-navy hover:underline"
+                        >
+                          Clauses →
+                        </Link>
+                      </td>
+                    </tr>
+                  );
+                })}
 
-                    <h3 className="font-bold text-bis-navy text-base line-clamp-2 mb-2 leading-snug">
-                      {std.title}
-                    </h3>
+                {filteredStandards.length === 0 && (
+                  <tr>
+                    <td colSpan={7} className="text-center py-12 text-gov-slate text-xs">
+                      No standards found matching your filter criteria.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
 
-                    <p className="text-xs text-bis-text-secondary line-clamp-3 leading-relaxed mb-4">
-                      {std.summary}
-                    </p>
-
-                    <div className="space-y-1.5 py-3 border-t border-b border-bis-border/60 text-[11px] text-bis-text-secondary">
-                      <div className="flex items-center justify-between">
-                        <span className="text-slate-500">Scheme:</span>
-                        <span className="font-semibold text-bis-navy">{std.scheme}</span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-slate-500">Department:</span>
-                        <span className="font-medium text-slate-700">{std.department}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 flex items-center justify-between mt-2">
-                    <a
-                      href="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/knowyourstandards/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[11px] text-bis-blue font-semibold hover:underline flex items-center gap-1"
-                      title="Inspect official BIS portal listing"
-                    >
-                      <span>Official e-BIS</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                    <Link
-                      href={`/standard/${std.id}`}
-                      className="px-3.5 py-1.5 bg-bis-navy hover:bg-bis-navy-light text-white text-xs font-bold rounded-xl shadow-xs flex items-center gap-1.5 transition-all"
-                    >
-                      <span>Inspect</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-bis-saffron" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="px-4 py-2.5 bg-gov-paper border-t border-gov-border text-xs text-gov-slate flex items-center justify-between">
+            <span>Showing {filteredStandards.length} verified standards.</span>
+            <a
+              href="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/knowyourstandards/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-bold text-gov-navy hover:underline flex items-center gap-1"
+            >
+              <span>Search Official e-BIS Portal</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </div>
         </div>
       )}
 
-      {/* VIEW 2: TESTING LABORATORIES (LRS) */}
-      {activeView === "laboratories" && (
-        <div className="space-y-6">
-          <div className="bg-white p-4 rounded-2xl border border-bis-border shadow-xs">
-            <div className="relative">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                value={labSearch}
-                onChange={(e) => setLabSearch(e.target.value)}
-                placeholder="Search recognized test laboratories by city (e.g. Ahmedabad, Mumbai), standard (e.g. IS 17526), or name..."
-                className="w-full pl-10 pr-4 py-2.5 bg-bis-canvas border border-bis-border rounded-xl text-sm text-bis-text-primary focus:outline-none focus:ring-2 focus:ring-bis-blue/30"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* VIEW 2: RECOGNIZED TESTING LABORATORIES (LRS) */}
+      {activeTab === "laboratories" && (
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {filteredLabs.map((lab) => (
-              <div key={lab.id} className="bg-white p-6 rounded-2xl border border-bis-border shadow-xs space-y-4 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-start justify-between gap-2">
-                    <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-bis-blue text-[10px] font-bold border border-blue-200">
-                      {lab.type}
+              <div
+                key={lab.id}
+                className="bg-white border border-gov-border rounded p-4 space-y-3 shadow-subtle"
+              >
+                <div className="flex items-start justify-between gap-2 border-b border-gov-border pb-2.5">
+                  <div>
+                    <span className="text-[10px] font-bold text-gov-navy bg-gov-paper px-1.5 py-0.5 rounded border border-gov-border">
+                      {lab.region || lab.type}
                     </span>
-                    <span className="text-[11px] font-mono text-slate-500 font-semibold">
-                      NABL: {lab.nablAccreditationNo}
-                    </span>
+                    <h3 className="font-bold text-sm text-gov-navy font-serif mt-1">
+                      {lab.name}
+                    </h3>
                   </div>
-                  <h3 className="font-bold text-bis-navy text-base font-display">{lab.name}</h3>
-                  <p className="text-xs text-slate-600 flex items-start gap-1.5">
-                    <MapPin className="w-4 h-4 text-bis-saffron shrink-0 mt-0.5" />
-                    <span>{lab.address}</span>
+                  <span className="font-mono text-xs font-bold text-gov-saffron whitespace-nowrap">
+                    {lab.nablAccreditationNo}
+                  </span>
+                </div>
+
+                <div className="space-y-1.5 text-xs text-gov-slate">
+                  <p className="flex items-center gap-1.5 text-gov-text">
+                    <MapPin className="w-3.5 h-3.5 text-gov-slate shrink-0" />
+                    <span>{lab.address}, {lab.city}, {lab.state}</span>
+                  </p>
+                  <p className="flex items-center gap-1.5">
+                    <Phone className="w-3.5 h-3.5 text-gov-slate shrink-0" />
+                    <span>{lab.phone || lab.contactPhone}</span>
+                  </p>
+                  <p className="flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5 text-gov-slate shrink-0" />
+                    <span>{lab.email || lab.contactEmail}</span>
                   </p>
                 </div>
 
-                <div className="space-y-2 pt-3 border-t border-bis-border text-xs text-bis-text-secondary">
-                  <div>
-                    <span className="text-slate-400 font-bold uppercase text-[10px]">Recognized Standards:</span>
-                    <div className="flex flex-wrap gap-1.5 mt-1">
-                      {lab.recognizedStandards.map(s => (
-                        <span key={s} className="px-2 py-0.5 bg-slate-100 rounded text-[11px] font-mono font-medium text-bis-navy">
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="pt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-700">
-                    <span className="flex items-center gap-1 font-semibold">
-                      <Phone className="w-3.5 h-3.5 text-slate-400" /> {lab.contactPhone}
-                    </span>
-                    <span className="flex items-center gap-1 font-semibold">
-                      <Mail className="w-3.5 h-3.5 text-slate-400" /> {lab.contactEmail}
-                    </span>
+                <div className="pt-2 border-t border-gov-border">
+                  <strong className="text-[10px] font-bold text-gov-slate uppercase tracking-wide block mb-1">
+                    Accredited Testing Scope:
+                  </strong>
+                  <div className="flex flex-wrap gap-1">
+                    {(lab.capabilities || lab.productCategories).map((cap, i) => (
+                      <span
+                        key={i}
+                        className="text-[10px] bg-gov-paper text-gov-navy px-2 py-0.5 rounded border border-gov-border"
+                      >
+                        {cap}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {filteredLabs.length === 0 && (
+            <div className="bg-white border border-gov-border rounded p-8 text-center text-xs text-gov-slate">
+              No testing laboratories match your query.
+            </div>
+          )}
         </div>
       )}
 
-      {/* VIEW 3: CERTIFICATION SCHEMES */}
-      {activeView === "schemes" && (
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {BIS_SCHEMES_DATABASE.map((sch) => (
-              <div key={sch.id} className="bg-white p-6 rounded-3xl border border-bis-border shadow-xs space-y-4 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="px-3 py-1 rounded-lg bg-bis-blue-soft text-bis-blue font-mono font-bold text-xs">
-                      {sch.schemeCode}
+      {/* VIEW 3: CERTIFICATION SCHEMES MATRIX */}
+      {activeTab === "schemes" && (
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {BIS_SCHEMES_DATABASE.map((scheme) => (
+              <div
+                key={scheme.id}
+                className="bg-white border border-gov-border rounded p-5 space-y-4 shadow-subtle"
+              >
+                <div className="flex items-start justify-between border-b border-gov-border pb-2.5">
+                  <div>
+                    <span className="font-mono font-bold text-xs text-gov-saffron uppercase">
+                      {scheme.schemeCode || scheme.id}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-bold border border-emerald-200">
-                      {sch.markIssued}
-                    </span>
+                    <h3 className="font-bold text-base text-gov-navy font-serif mt-0.5">
+                      {scheme.name}
+                    </h3>
                   </div>
-                  <h3 className="font-bold text-bis-navy text-lg font-display">{sch.name}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">{sch.governingRegulation}</p>
+                  <span className="px-2 py-0.5 text-xs font-bold bg-gov-navy text-white rounded">
+                    {scheme.markIssued}
+                  </span>
                 </div>
 
-                <div className="space-y-3 pt-3 border-t border-bis-border text-xs">
-                  <div className="p-3 bg-bis-canvas rounded-xl space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-500 font-medium">Timeline:</span>
-                      <span className="font-bold text-bis-navy">{sch.estimatedTimelineDays}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-500 font-medium">Target:</span>
-                      <span className="font-semibold text-slate-700">{sch.targetAudience}</span>
-                    </div>
-                  </div>
+                <p className="text-xs text-gov-slate leading-relaxed">
+                  {scheme.fullName} — {scheme.regulatoryNature}. Governing: {scheme.governingRegulation}.
+                </p>
 
-                  <div className="space-y-1">
-                    <span className="text-[10px] font-bold uppercase text-slate-400">Key Process Steps:</span>
-                    <div className="space-y-1 text-[11px] text-bis-text-secondary">
-                      {sch.keySteps.slice(0, 3).map((st, i) => (
-                        <p key={i} className="line-clamp-1">{st}</p>
-                      ))}
-                    </div>
+                <div className="grid grid-cols-2 gap-3 text-xs bg-gov-paper p-3 rounded border border-gov-border">
+                  <div>
+                    <strong className="text-gov-slate text-[10px] uppercase block">Audit Timeline:</strong>
+                    <span className="font-semibold text-gov-navy">{scheme.estimatedTimelineDays}</span>
                   </div>
+                  <div>
+                    <strong className="text-gov-slate text-[10px] uppercase block">Fee Structure:</strong>
+                    <span className="font-semibold text-gov-navy">{scheme.feeStructureSummary}</span>
+                  </div>
+                </div>
 
-                  <div className="pt-2 flex items-center justify-between">
-                    <span className="text-[11px] text-slate-500 font-semibold">{sch.applicationPortal}</span>
-                    <a
-                      href={sch.portalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3.5 py-1.5 bg-bis-navy hover:bg-bis-navy-light text-white text-xs font-bold rounded-xl shadow-xs flex items-center gap-1.5 transition-all"
-                    >
-                      <span>Apply on Portal</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-bis-saffron" />
-                    </a>
-                  </div>
+                <div className="space-y-1.5">
+                  <strong className="text-xs font-bold text-gov-navy block">
+                    Licensing Roadmap:
+                  </strong>
+                  <ol className="space-y-1 text-xs text-gov-slate list-decimal pl-4">
+                    {scheme.keySteps.map((st, i) => (
+                      <li key={i}>{st}</li>
+                    ))}
+                  </ol>
                 </div>
               </div>
             ))}
@@ -566,7 +412,7 @@ function ExploreContent() {
 
 export default function ExplorePage() {
   return (
-    <Suspense fallback={<div className="p-12 text-center text-bis-navy font-bold">Loading Standards Catalog...</div>}>
+    <Suspense fallback={<div className="p-8 text-center text-xs text-gov-slate font-mono">Loading Technical Registry...</div>}>
       <ExploreContent />
     </Suspense>
   );
