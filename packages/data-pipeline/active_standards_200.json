@@ -5806,5 +5806,2697 @@
     "factoryBlueprint": null,
     "blueprint": null,
     "amendments": []
+  },
+  {
+    "id": "is-732-2019",
+    "code": "IS 732:2019",
+    "title": "Code of Practice for Electrical Wiring Installations",
+    "year": 2019,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 20",
+    "division": "Electrotechnical / ETD 20",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "National Electrical Code",
+    "qcoOrder": "National Electrical Code",
+    "businessTypes": [
+      "electrical contractors",
+      "building wiring engineers",
+      "switchboard panel builders"
+    ],
+    "summary": "National safety code for building electrical installations, wire sizing, conduit routing, and circuit breaker protection.",
+    "scope": "Covers design, erection, testing, and commissioning of electrical wiring up to 1000 V AC.",
+    "keywords": [
+      "electrical wiring",
+      "cable sizing",
+      "conduit wiring",
+      "circuit breaker",
+      "insulation resistance 1Mohm"
+    ],
+    "clauses": [
+      {
+        "id": "is732-c5",
+        "number": "Clause 5.1",
+        "title": "Insulation Resistance Verification",
+        "content": "Insulation resistance between conductors and earth shall be measured at 500V DC and exceed 1.0 Megaohm.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-3043-2018",
+    "code": "IS 3043:2018",
+    "title": "Code of Practice for Earthing — Specification",
+    "year": 2018,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 20",
+    "division": "Electrotechnical / ETD 20",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "National Electrical Code",
+    "qcoOrder": "National Electrical Code",
+    "businessTypes": [
+      "earthing electrode manufacturers",
+      "substation engineers",
+      "industrial lightning protection"
+    ],
+    "summary": "Mandatory engineering code for system earthing, equipment grounding, earth pit resistance, and copper/GI plate electrodes.",
+    "scope": "Covers calculation of earth fault currents, touch and step potentials, and chemical earthing compounds.",
+    "keywords": [
+      "earthing",
+      "earth pit",
+      "grounding electrode",
+      "earth resistance <= 1 ohm",
+      "touch potential",
+      "step potential"
+    ],
+    "clauses": [
+      {
+        "id": "is3043-c7",
+        "number": "Clause 7.2",
+        "title": "Earth Electrode Resistance Limits",
+        "content": "Earth resistance of electrical substation grid <= 1.0 Ohm; commercial building system earth <= 2.0 Ohm.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-2026-1-2011",
+    "code": "IS 2026 (Part 1):2011",
+    "title": "Power Transformers — Part 1: General Requirements",
+    "year": 2011,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 16",
+    "division": "Electrotechnical / ETD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Transformers Quality Control Order",
+    "qcoOrder": "Transformers Quality Control Order",
+    "businessTypes": [
+      "power transformer plants",
+      "electrical grid manufacturing",
+      "substation transformers"
+    ],
+    "summary": "Mandatory standard for ratings, winding taps, connection symbols, and general tolerances for power transformers.",
+    "scope": "Applies to three-phase and single-phase power transformers of all power ratings.",
+    "keywords": [
+      "power transformer",
+      "vector group Dyn11",
+      "no load loss",
+      "load loss",
+      "impedance voltage"
+    ],
+    "clauses": [
+      {
+        "id": "is2026-1-c6",
+        "number": "Clause 6.1",
+        "title": "Losses and Impedance Tolerances",
+        "content": "No-load loss tolerance +15%; total loss tolerance +10%; component impedance within ±10% of declared rating.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-2026-2-2010",
+    "code": "IS 2026 (Part 2):2010",
+    "title": "Power Transformers — Part 2: Temperature Rise",
+    "year": 2010,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 16",
+    "division": "Electrotechnical / ETD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Transformers Quality Control Order",
+    "qcoOrder": "Transformers Quality Control Order",
+    "businessTypes": [
+      "transformer testing labs",
+      "cooling system manufacturers"
+    ],
+    "summary": "Mandatory limits on oil temperature rise (50°C/55°C) and winding temperature rise (55°C/60°C) above 50°C ambient.",
+    "scope": "Prescribes heat run test and cooling methods: ONAN, ONAF, OFAF, ODAF.",
+    "keywords": [
+      "temperature rise test",
+      "heat run test",
+      "oil temperature 50C",
+      "winding rise 55C",
+      "ONAN cooling"
+    ],
+    "clauses": [
+      {
+        "id": "is2026-2-c4",
+        "number": "Clause 4.1",
+        "title": "Maximum Permissible Temperature Rise",
+        "content": "Top oil temperature rise shall not exceed 50°C; average winding temperature rise by resistance method <= 55°C.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-2026-3-2009",
+    "code": "IS 2026 (Part 3):2009",
+    "title": "Power Transformers — Part 3: Insulation Levels and Dielectric Tests",
+    "year": 2009,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 16",
+    "division": "Electrotechnical / ETD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Transformers Quality Control Order",
+    "qcoOrder": "Transformers Quality Control Order",
+    "businessTypes": [
+      "high voltage test bays",
+      "transformer manufacturing plants"
+    ],
+    "summary": "Prescribes Lightning Impulse (BIL) tests, switching impulse, and power frequency separate source withstand voltage tests.",
+    "scope": "Covers insulation coordination and dielectric withstand criteria for high voltage power transformers.",
+    "keywords": [
+      "dielectric test",
+      "lightning impulse test BIL",
+      "power frequency withstand",
+      "partial discharge test"
+    ],
+    "clauses": [
+      {
+        "id": "is2026-3-c7",
+        "number": "Clause 7.3",
+        "title": "Lightning Impulse Full Wave Test",
+        "content": "Windings subjected to 1.2/50 microsecond full lightning impulse wave without breakdown or wave deformation.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-2026-5-2011",
+    "code": "IS 2026 (Part 5):2011",
+    "title": "Power Transformers — Part 5: Ability to Withstand Short Circuit",
+    "year": 2011,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 16",
+    "division": "Electrotechnical / ETD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Transformers Quality Control Order",
+    "qcoOrder": "Transformers Quality Control Order",
+    "businessTypes": [
+      "CPRI high power testing labs",
+      "grid transformer design engineers"
+    ],
+    "summary": "Mandatory requirements for thermal and dynamic electrodynamic stress withstand during external short circuits.",
+    "scope": "Covers short circuit duration (2.0 seconds) and peak dynamic electromagnetic forces.",
+    "keywords": [
+      "short circuit withstand",
+      "dynamic force withstand",
+      "thermal short circuit 2s",
+      "CPRI test"
+    ],
+    "clauses": [
+      {
+        "id": "is2026-5-c4",
+        "number": "Clause 4.1",
+        "title": "Dynamic Short Circuit Proof Test",
+        "content": "Transformer shall withstand 9 full asymmetrical short-circuit current impulses without structural winding displacement.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-11171-1985",
+    "code": "IS 11171:1985",
+    "title": "Dry-Type Power Transformers — Specification",
+    "year": 1985,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 16",
+    "division": "Electrotechnical / ETD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Transformers Quality Control Order",
+    "qcoOrder": "Transformers Quality Control Order",
+    "businessTypes": [
+      "cast resin transformer factories",
+      "indoor substation builders",
+      "metro rail power supply"
+    ],
+    "summary": "Mandatory standard for cast resin and vacuum pressure impregnated (VPI) dry-type fire-safe indoor transformers.",
+    "scope": "Covers Class F and Class H insulation, environmental class, and fire behavior test.",
+    "keywords": [
+      "dry type transformer",
+      "cast resin",
+      "VPI transformer",
+      "Class F insulation",
+      "fire safe transformer"
+    ],
+    "clauses": [
+      {
+        "id": "is11171-c7",
+        "number": "Clause 7.1",
+        "title": "Insulation Class & Temperature Rise",
+        "content": "Class F winding temperature rise <= 90°C; Class H temperature rise <= 115°C above 40°C ambient.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-2099-1986",
+    "code": "IS 2099:1986",
+    "title": "Bushings for Alternating Voltages Above 1000 V — Specification",
+    "year": 1986,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 19",
+    "division": "Electrotechnical / ETD 19",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Electrical Bushings Standards",
+    "qcoOrder": "Electrical Bushings Standards",
+    "businessTypes": [
+      "high voltage bushing manufacturers",
+      "porcelain and RIP bushing plants"
+    ],
+    "summary": "Specifies electrical and mechanical requirements for outdoor oil-impregnated paper (OIP) and resin-impregnated paper (RIP) bushings.",
+    "scope": "Covers creeping distance, power factor (tan delta), and cantilever mechanical load.",
+    "keywords": [
+      "HV bushing",
+      "OIP bushing",
+      "RIP bushing",
+      "tan delta <= 0.005",
+      "cantilever load"
+    ],
+    "clauses": [
+      {
+        "id": "is2099-c8",
+        "number": "Clause 8.1",
+        "title": "Dielectric Dissipation Factor (Tan Delta)",
+        "content": "Dielectric dissipation factor tan delta at ambient temperature shall not exceed 0.005 (0.5%) at rated voltage.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-2544-1973",
+    "code": "IS 2544:1973",
+    "title": "Porcelain Post Insulators for Systems with Nominal Voltages Greater Than 1000 V",
+    "year": 1973,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 6",
+    "division": "Electrotechnical / ETD 6",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Insulators Quality Control Order",
+    "qcoOrder": "Insulators Quality Control Order",
+    "businessTypes": [
+      "substation insulator factories",
+      "porcelain ceramic units"
+    ],
+    "summary": "Mandatory standard for solid core post insulators used in high voltage outdoor substations (11 kV to 400 kV).",
+    "scope": "Specifies mechanical bending strength, torsion withstand, puncture test, and artificial pollution test.",
+    "keywords": [
+      "post insulator",
+      "substation insulator",
+      "bending strength",
+      "porcelain post",
+      "creepage distance"
+    ],
+    "clauses": [
+      {
+        "id": "is2544-c7",
+        "number": "Clause 7.1",
+        "title": "Cantilever Failing Load Test",
+        "content": "Insulator shall withstand specified mechanical cantilever failing load (up to 12 kN) without fracture of porcelain or cement.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-731-1971",
+    "code": "IS 731:1971",
+    "title": "Porcelain Insulators for Overhead Power Lines with a Nominal Voltage Greater Than 1000 V",
+    "year": 1971,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 6",
+    "division": "Electrotechnical / ETD 6",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Insulators Quality Control Order",
+    "qcoOrder": "Insulators Quality Control Order",
+    "businessTypes": [
+      "transmission line insulator factories",
+      "disc insulator plants"
+    ],
+    "summary": "Mandatory standard for disc suspension and pin insulators used on overhead electric transmission and distribution towers.",
+    "scope": "Covers electromechanical failing load (70 kN to 210 kN), impulse puncture withstand, and thermal shock cycles.",
+    "keywords": [
+      "disc insulator",
+      "suspension insulator",
+      "electromechanical failing load 70kN",
+      "puncture test",
+      "thermal shock"
+    ],
+    "clauses": [
+      {
+        "id": "is731-c8",
+        "number": "Clause 8.2",
+        "title": "Electromechanical Failing Load Test",
+        "content": "Insulators subjected simultaneously to mechanical tensile load and 75% power frequency voltage without mechanical or electrical failure.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13703-1-1993",
+    "code": "IS 13703 (Part 1):1993",
+    "title": "Low-Voltage Fuses — Part 1: General Requirements (HRC Fuses)",
+    "year": 1993,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 39",
+    "division": "Electrotechnical / ETD 39",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Low Voltage Switchgear Standards",
+    "qcoOrder": "Low Voltage Switchgear Standards",
+    "businessTypes": [
+      "HRC fuse manufacturers",
+      "electrical fuse link plants"
+    ],
+    "summary": "Mandatory standard for High Rupturing Capacity (HRC) low-voltage cartridge fuses up to 1000 V AC and 100 kA breaking capacity.",
+    "scope": "Covers time-current characteristics, cut-off current, and Joule integral (I²t) energy let-through.",
+    "keywords": [
+      "HRC fuse",
+      "cartridge fuse",
+      "breaking capacity 100kA",
+      "I2t let through",
+      "fuse link"
+    ],
+    "clauses": [
+      {
+        "id": "is13703-1-c8",
+        "number": "Clause 8.1",
+        "title": "Breaking Capacity Test (100 kA)",
+        "content": "Fuses must safely interrupt short circuit current of 100 kA at 1.1 times rated voltage without explosive fragmentation.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13703-2-1993",
+    "code": "IS 13703 (Part 2):1993",
+    "title": "Low-Voltage Fuses: Part 2 Fuses for Use by Authorized Persons (Industrial Fuses)",
+    "year": 1993,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 39",
+    "division": "Electrotechnical / ETD 39",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Low Voltage Switchgear Standards",
+    "qcoOrder": "Low Voltage Switchgear Standards",
+    "businessTypes": [
+      "industrial fuse plants",
+      "knife contact blade factories"
+    ],
+    "summary": "Specifies dimensional interchangeability, slotted tags, and knife-blade contacts for industrial bolted and blade fuse links.",
+    "scope": "Covers DIN and BS type industrial fuse configurations for motor feeder protection.",
+    "keywords": [
+      "industrial fuse",
+      "bolted fuse",
+      "knife blade fuse",
+      "DIN type fuse",
+      "power dissipation"
+    ],
+    "clauses": [
+      {
+        "id": "is13703-2-c5",
+        "number": "Clause 5.1",
+        "title": "Power Dissipation Limits",
+        "content": "Power dissipation in watts at rated current shall not exceed threshold values specified in Table 1 to prevent overheating.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13947-1-1993",
+    "code": "IS 13947 (Part 1):1993",
+    "title": "Low-Voltage Switchgear and Controlgear — Part 1: General Rules",
+    "year": 1993,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 39",
+    "division": "Electrotechnical / ETD 39",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "LV Switchgear Quality Control Order",
+    "qcoOrder": "LV Switchgear Quality Control Order",
+    "businessTypes": [
+      "switchgear manufacturing plants",
+      "control panel assemblers"
+    ],
+    "summary": "Foundational standard defining utilization categories (AC-1 to AC-4), IP degree of ingress protection, and clearances.",
+    "scope": "Applies to low-voltage electrical circuit control, switching, and protection equipment up to 1000 V AC.",
+    "keywords": [
+      "switchgear",
+      "utilization category AC-3",
+      "IP55 ingress",
+      "creepage distance",
+      "impulse withstand Uimp"
+    ],
+    "clauses": [
+      {
+        "id": "is13947-1-c7",
+        "number": "Clause 7.1",
+        "title": "Dielectric Properties & Clearances",
+        "content": "Clearances and creepage distances shall withstand rated impulse voltage Uimp (up to 8 kV) per Table 12.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13947-2-1993",
+    "code": "IS 13947 (Part 2):1993",
+    "title": "Low-Voltage Switchgear and Controlgear: Part 2 Circuit-Breakers (MCCB & ACB)",
+    "year": 1993,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 39",
+    "division": "Electrotechnical / ETD 39",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Circuit Breakers Quality Control Order",
+    "qcoOrder": "Circuit Breakers Quality Control Order",
+    "businessTypes": [
+      "MCCB manufacturing plants",
+      "Air Circuit Breaker (ACB) factories"
+    ],
+    "summary": "Mandatory standard for Moulded Case Circuit Breakers (MCCB) and Air Circuit Breakers (ACB), Icu and Ics short-circuit capacities.",
+    "scope": "Covers thermal-magnetic and electronic trip releases, service breaking capacity (Ics = 100% Icu).",
+    "keywords": [
+      "MCCB",
+      "ACB",
+      "circuit breaker",
+      "Icu breaking capacity 50kA",
+      "Ics service capacity",
+      "thermal overload"
+    ],
+    "clauses": [
+      {
+        "id": "is13947-2-c8",
+        "number": "Clause 8.3",
+        "title": "Rated Service Short-Circuit Breaking Capacity (Ics)",
+        "content": "Circuit breaker must clear sequence O - t - CO - t - CO at rated Ics and remain functional with full dielectric integrity.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13947-3-1993",
+    "code": "IS 13947 (Part 3):1993",
+    "title": "Switches, Disconnectors, Switch-Disconnectors and Fuse-Combination Units",
+    "year": 1993,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 39",
+    "division": "Electrotechnical / ETD 39",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "LV Switchgear Quality Control Order",
+    "qcoOrder": "LV Switchgear Quality Control Order",
+    "businessTypes": [
+      "isolator manufacturing",
+      "fuse switch unit factories",
+      "on-load changeover switch plants"
+    ],
+    "summary": "Mandatory standard for on-load rotary isolators, changeover switches, and switch-disconnector-fuse (SDF) units.",
+    "scope": "Covers making and breaking capacity under inductive motor loads (AC-23A) and operational durability.",
+    "keywords": [
+      "isolator",
+      "changeover switch",
+      "SDF unit",
+      "switch disconnector",
+      "AC-23A inductive switching"
+    ],
+    "clauses": [
+      {
+        "id": "is13947-3-c7",
+        "number": "Clause 7.2",
+        "title": "Making and Breaking Capacities (AC-23A)",
+        "content": "Switch must make 10 times rated current and break 8 times rated current at 1.05 times voltage and 0.35 power factor.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13947-4-1-1993",
+    "code": "IS 13947 (Part 4/Sec 1):1993",
+    "title": "Contactors and Motor-Starters: Electromechanical Contactors",
+    "year": 1993,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 39",
+    "division": "Electrotechnical / ETD 39",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Motor Starters Standards",
+    "qcoOrder": "Motor Starters Standards",
+    "businessTypes": [
+      "contactor manufacturers",
+      "DOL and star-delta starter plants"
+    ],
+    "summary": "Mandatory standard for AC power contactors (9A to 800A), bimetallic thermal overload relays, and motor starters.",
+    "scope": "Covers mechanical endurance (10 million operations), electrical endurance under AC-3 duty, and coil pick-up voltage.",
+    "keywords": [
+      "power contactor",
+      "motor starter",
+      "overload relay",
+      "AC-3 duty",
+      "electrical endurance 1 million"
+    ],
+    "clauses": [
+      {
+        "id": "is13947-4-c8",
+        "number": "Clause 8.2",
+        "title": "Electrical Operational Endurance",
+        "content": "Contactors must endure at least 1,000,000 electrical make-break operations under AC-3 motor starting condition without contact welding.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13947-5-1-2004",
+    "code": "IS 13947 (Part 5/Sec 1):2004",
+    "title": "Control Circuit Devices and Switching Elements — Electromechanical Control Devices",
+    "year": 2004,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 39",
+    "division": "Electrotechnical / ETD 39",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Control Devices Standards",
+    "qcoOrder": "Control Devices Standards",
+    "businessTypes": [
+      "push button station factories",
+      "limit switch manufacturing",
+      "selector switch plants"
+    ],
+    "summary": "Specifies mechanical and electrical durability of 22.5 mm push buttons, emergency stop actuators, and industrial limit switches.",
+    "scope": "Covers IP65 ingress, positive opening operation of emergency stops, and pilot light LED indicators.",
+    "keywords": [
+      "push button 22.5mm",
+      "limit switch",
+      "emergency stop",
+      "pilot light",
+      "positive opening contact"
+    ],
+    "clauses": [
+      {
+        "id": "is13947-5-c8",
+        "number": "Clause 8.1",
+        "title": "Emergency Stop Direct Opening Action",
+        "content": "Emergency stop actuators must feature direct drive positive opening operation (no intervening springs) per Annexure K.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-14697-1999",
+    "code": "IS 14697:1999",
+    "title": "AC Static Transformer Operated Watt-Hour and VAR-Hour Meters (Class 0.2S and 0.5S)",
+    "year": 1999,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 13",
+    "division": "Electrotechnical / ETD 13",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Energy Meters Quality Control Order",
+    "qcoOrder": "Energy Meters Quality Control Order",
+    "businessTypes": [
+      "grid tariff meter manufacturers",
+      "HT electricity meter plants"
+    ],
+    "summary": "Mandatory standard for high-accuracy substation grid meters and commercial HT boundary energy tariff meters.",
+    "scope": "Covers Class 0.2S and 0.5S metrological accuracy, anti-tamper security, and DLMS protocol communication.",
+    "keywords": [
+      "grid meter",
+      "HT meter",
+      "Class 0.2S",
+      "transformer operated meter",
+      "anti-tamper",
+      "DLMS"
+    ],
+    "clauses": [
+      {
+        "id": "is14697-c6",
+        "number": "Clause 6.1",
+        "title": "High Accuracy Metrology (Class 0.2S)",
+        "content": "Measurement error shall remain strictly within ±0.2% over 5% to 120% rated current across 0.5 inductive to unity power factor.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13779-1999",
+    "code": "IS 13779:1999",
+    "title": "AC Static Watt-Hour Meters, Class 1 and 2 — Specification",
+    "year": 1999,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 13",
+    "division": "Electrotechnical / ETD 13",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Energy Meters Quality Control Order",
+    "qcoOrder": "Energy Meters Quality Control Order",
+    "businessTypes": [
+      "residential energy meter factories",
+      "electronic kWh meter manufacturing"
+    ],
+    "summary": "Mandatory standard for single-phase and three-phase direct connected residential static electricity meters.",
+    "scope": "Covers electromagnetic immunity (EMC 10 V/m), starting current threshold (0.2% Ib), and voltage surge protection.",
+    "keywords": [
+      "residential energy meter",
+      "kWh meter",
+      "Class 1.0",
+      "anti tamper",
+      "EMC immunity",
+      "starting current"
+    ],
+    "clauses": [
+      {
+        "id": "is13779-c8",
+        "number": "Clause 8.1",
+        "title": "Starting Current and No-Load Creep",
+        "content": "Meter shall start and continuously record energy at 0.2% of basic current; under no load with 115% voltage, meter shall not register creep.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15885-1-2011",
+    "code": "IS 15885 (Part 1):2011",
+    "title": "Lamp Controlgear — Part 1: General and Safety Requirements",
+    "year": 2011,
+    "category": "Electronics & IT",
+    "department": "Electrotechnical / ETD 23",
+    "division": "Electrotechnical / ETD 23",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "Electronics Quality Control Order",
+    "qcoOrder": "Electronics Quality Control Order",
+    "businessTypes": [
+      "electronic ballast factories",
+      "LED driver plants",
+      "lighting power supply units"
+    ],
+    "summary": "Mandatory safety standard for electronic ballasts and power controlgear feeding fluorescent lamps, HID, and LED fixtures.",
+    "scope": "Covers electrical insulation, creepage distances, thermal protection, and fire resistance.",
+    "keywords": [
+      "lamp controlgear",
+      "electronic ballast",
+      "creepage distance",
+      "thermal endurance",
+      "CRS registration"
+    ],
+    "clauses": [
+      {
+        "id": "is15885-1-c8",
+        "number": "Clause 8.1",
+        "title": "Insulation Resistance & Electric Strength",
+        "content": "Insulation resistance >= 4 Megaohms; dielectric test with 2U + 1000 V AC applied for 1 minute without breakdown.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16103-1-2012",
+    "code": "IS 16103 (Part 1):2012",
+    "title": "LED Modules for General Lighting — Part 1: Safety Specifications",
+    "year": 2012,
+    "category": "Electronics & IT",
+    "department": "Electrotechnical / ETD 23",
+    "division": "Electrotechnical / ETD 23",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "Electronics Quality Control Order",
+    "qcoOrder": "Electronics Quality Control Order",
+    "businessTypes": [
+      "LED SMD PCB assembly",
+      "LED light module plants"
+    ],
+    "summary": "Mandatory CRS standard for self-ballasted and non-self-ballasted LED modules used in commercial and architectural fixtures.",
+    "scope": "Covers eye safety, thermal management, creepage, and electric shock prevention.",
+    "keywords": [
+      "LED module",
+      "SMD LED",
+      "LED safety",
+      "creepage",
+      "CRS registration",
+      "thermal pad"
+    ],
+    "clauses": [
+      {
+        "id": "is16103-1-c7",
+        "number": "Clause 7.1",
+        "title": "Protection Against Electric Shock",
+        "content": "Accessible parts of non-isolated LED modules shall be protected against direct contact with live circuit traces.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16107-1-2012",
+    "code": "IS 16107 (Part 1):2012",
+    "title": "Luminaires — Part 1: General Requirements and Tests",
+    "year": 2012,
+    "category": "Electronics & IT",
+    "department": "Electrotechnical / ETD 23",
+    "division": "Electrotechnical / ETD 23",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Luminaires Standards",
+    "qcoOrder": "Luminaires Standards",
+    "businessTypes": [
+      "luminaire manufacturing factories",
+      "commercial light fitting plants"
+    ],
+    "summary": "General construction, internal wiring, mechanical impact resistance (IK rating), and thermal endurance of light fittings.",
+    "scope": "Covers luminaires for use with tungsten filament, tubular fluorescent, and other discharge lamps.",
+    "keywords": [
+      "luminaire",
+      "light fixture",
+      "IK impact rating",
+      "thermal endurance test",
+      "IP protection"
+    ],
+    "clauses": [
+      {
+        "id": "is16107-1-c9",
+        "number": "Clause 9.2",
+        "title": "Endurance Test & Thermal Investigation",
+        "content": "Luminaire operated in thermal draught-free enclosure for 240 hours continuously without thermal degradation of insulation.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16107-2-1-2012",
+    "code": "IS 16107 (Part 2/Sec 1):2012",
+    "title": "Luminaires: Part 2 Particular Requirements — Fixed General Purpose Luminaires",
+    "year": 2012,
+    "category": "Electronics & IT",
+    "department": "Electrotechnical / ETD 23",
+    "division": "Electrotechnical / ETD 23",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Luminaires Standards",
+    "qcoOrder": "Luminaires Standards",
+    "businessTypes": [
+      "recessed ceiling light factories",
+      "surface mounted LED panel manufacturers"
+    ],
+    "summary": "Specific requirements for fixed general purpose ceiling lights, downlights, and architectural troffers.",
+    "scope": "Covers mechanical mounting stability, earthing continuity, and gland cord anchorage.",
+    "keywords": [
+      "downlight",
+      "ceiling light",
+      "LED panel",
+      "cord anchorage",
+      "earthing continuity"
+    ],
+    "clauses": [
+      {
+        "id": "is16107-2-1-c5",
+        "number": "Clause 5.1",
+        "title": "Cord Anchorage Pull and Torsion Test",
+        "content": "Cord anchorage subjected to 25 cycles of 60 N axial pull without conductor displacement exceeding 2.0 mm.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16108-2012",
+    "code": "IS 16108:2012",
+    "title": "Photobiological Safety of Lamps and Lamp Systems",
+    "year": 2012,
+    "category": "Electronics & IT",
+    "department": "Electrotechnical / ETD 23",
+    "division": "Electrotechnical / ETD 23",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Lighting Eye Safety Order",
+    "qcoOrder": "Lighting Eye Safety Order",
+    "businessTypes": [
+      "LED optical testing laboratories",
+      "spectroradiometer test facilities"
+    ],
+    "summary": "Mandatory standard evaluating retinal blue-light hazard, UV actinic hazard, and thermal skin injury from high-power LEDs.",
+    "scope": "Classifies lighting sources into Exempt Group (no hazard), Risk Group 1 (low), Risk Group 2 (moderate), and Risk Group 3 (high).",
+    "keywords": [
+      "blue light hazard",
+      "photobiological safety",
+      "Risk Group 0 RG0",
+      "retinal thermal hazard",
+      "UV actinic"
+    ],
+    "clauses": [
+      {
+        "id": "is16108-c4",
+        "number": "Clause 4.3",
+        "title": "Retinal Blue Light Hazard Exposure Limit",
+        "content": "Blue light radiance weighted spectrum Lb shall not exceed 100 W/m²/sr for RG0 (Exempt Group) classification.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16106-2012",
+    "code": "IS 16106:2012",
+    "title": "Method of Electrical and Photometric Measurements of Solid-State Lighting (LED) Products",
+    "year": 2012,
+    "category": "Electronics & IT",
+    "department": "Electrotechnical / ETD 23",
+    "division": "Electrotechnical / ETD 23",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Lighting Testing Standards",
+    "qcoOrder": "Lighting Testing Standards",
+    "businessTypes": [
+      "integrating sphere test labs",
+      "goniophotometer facilities"
+    ],
+    "summary": "Standard test procedures for measuring total luminous flux (lumens), luminous efficacy (lm/W), CRI, and CCT using integrating spheres.",
+    "scope": "Covers laboratory calibration protocols for all solid-state LED luminaires and lamps.",
+    "keywords": [
+      "luminous flux",
+      "lumens per watt",
+      "integrating sphere",
+      "CRI >= 80",
+      "correlated color temperature CCT"
+    ],
+    "clauses": [
+      {
+        "id": "is16106-c6",
+        "number": "Clause 6.1",
+        "title": "Total Luminous Flux & Efficacy Measurement",
+        "content": "Luminous flux measured at (25 ± 1)°C stabilized operating temperature inside 2.0 meter integrating sphere spectrometer.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-996-2009",
+    "code": "IS 996:2009",
+    "title": "Single-Phase AC Induction Motors for General Purpose — Specification",
+    "year": 2009,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 15",
+    "division": "Electrotechnical / ETD 15",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Electric Motors Quality Control Order",
+    "qcoOrder": "Electric Motors Quality Control Order",
+    "businessTypes": [
+      "single phase motor factories",
+      "cooler motor manufacturing",
+      "air blower motor plants"
+    ],
+    "summary": "Mandatory standard for capacitor-start, capacitor-run, and split-phase fractional horsepower (FHP) motors up to 2.2 kW.",
+    "scope": "Covers starting torque, full-load efficiency, temperature rise, and centrifugal switch endurance.",
+    "keywords": [
+      "single phase motor",
+      "cooler motor",
+      "FHP motor",
+      "capacitor start",
+      "starting torque 200%"
+    ],
+    "clauses": [
+      {
+        "id": "is996-c7",
+        "number": "Clause 7.1",
+        "title": "Temperature Rise & Locked Rotor Torque",
+        "content": "Class B insulation temperature rise <= 80°C by resistance; locked rotor torque >= 200% of rated full-load torque.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-12615-2018",
+    "code": "IS 12615:2018",
+    "title": "Line Operated Three-Phase Induction Motors (IE2, IE3, IE4 Efficiency Classes)",
+    "year": 2018,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 15",
+    "division": "Electrotechnical / ETD 15",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Electric Motors Quality Control Order",
+    "qcoOrder": "Electric Motors Quality Control Order",
+    "businessTypes": [
+      "three phase motor manufacturing",
+      "IE3 motor plants",
+      "industrial pump motor factories"
+    ],
+    "summary": "Mandatory energy efficiency standard enforcing IE2 (High), IE3 (Premium), and IE4 (Super Premium) ratings for motors from 0.75 kW to 375 kW.",
+    "scope": "Covers loss determination per IS 15999 (stray load losses, iron losses, rotor I²R losses).",
+    "keywords": [
+      "three phase motor",
+      "IE3 efficiency",
+      "energy efficient motor",
+      "stray load loss",
+      "BEE star rating"
+    ],
+    "clauses": [
+      {
+        "id": "is12615-c6",
+        "number": "Clause 6.1",
+        "title": "Minimum Energy Efficiency Values (IE3)",
+        "content": "For 4-pole 7.5 kW motor: minimum nominal full load efficiency shall not be less than 90.4% per Table 3.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-325-1996",
+    "code": "IS 325:1996",
+    "title": "Three-Phase Induction Motors — Specification",
+    "year": 1996,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 15",
+    "division": "Electrotechnical / ETD 15",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Electric Motors Quality Control Order",
+    "qcoOrder": "Electric Motors Quality Control Order",
+    "businessTypes": [
+      "electric motor manufacturing",
+      "submersible motor plants"
+    ],
+    "summary": "Foundational standard for mechanical dimensions, terminal markings, mounting types (B3 foot, B5 flange), and vibration limits.",
+    "scope": "Covers general industrial squirrel cage and slip ring three-phase induction motors.",
+    "keywords": [
+      "induction motor",
+      "squirrel cage",
+      "B3 mounting",
+      "vibration velocity <= 1.8 mm/s",
+      "terminal marking"
+    ],
+    "clauses": [
+      {
+        "id": "is325-c9",
+        "number": "Clause 9.1",
+        "title": "Vibration and Overload Withstand",
+        "content": "Vibration velocity shall not exceed 1.8 mm/s RMS; motor shall withstand 1.6 times rated torque for 15 seconds without stalling.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-900-1992",
+    "code": "IS 900:1992",
+    "title": "Code of Practice for Installation and Maintenance of Induction Motors",
+    "year": 1992,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 15",
+    "division": "Electrotechnical / ETD 15",
+    "status": "Active",
+    "isMandatory": false,
+    "mandatory": false,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "National Electrical Code",
+    "qcoOrder": "National Electrical Code",
+    "businessTypes": [
+      "industrial maintenance engineers",
+      "motor rewinding workshops"
+    ],
+    "summary": "Engineering code of practice for motor foundation alignment, belt tensioning, bearing lubrication, and insulation testing.",
+    "scope": "Covers preventative maintenance schedule and failure diagnostics for industrial electric motors.",
+    "keywords": [
+      "motor installation",
+      "shaft alignment",
+      "bearing grease",
+      "megger test",
+      "preventative maintenance"
+    ],
+    "clauses": [
+      {
+        "id": "is900-c5",
+        "number": "Clause 5.2",
+        "title": "Shaft Dial Indicator Alignment",
+        "content": "Angular and parallel shaft misalignment measured by dial indicator shall not exceed 0.05 mm.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-14155-1994",
+    "code": "IS 14155:1994",
+    "title": "Domestic Electric Food Mixers (Mixer-Grinders) — Specification",
+    "year": 1994,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Household Appliances Quality Order",
+    "qcoOrder": "Household Appliances Quality Order",
+    "businessTypes": [
+      "mixer grinder factories",
+      "food processor manufacturing"
+    ],
+    "summary": "Mandatory standard for kitchen mixer grinders, motor thermal overload protectors, jar interlocking, and blade retention.",
+    "scope": "Covers electrical safety, motor temperature rise under turmeric load, and noise levels.",
+    "keywords": [
+      "mixer grinder",
+      "food processor",
+      "thermal overload protector TOP",
+      "turmeric grinding test",
+      "jar lock"
+    ],
+    "clauses": [
+      {
+        "id": "is14155-c7",
+        "number": "Clause 7.1",
+        "title": "Grinding Performance & Motor Protection",
+        "content": "Must grind 50g dry turmeric fingers to 300 micron mesh within 2 minutes; TOP must trip before motor winding exceeds 130°C.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-302-2-30-2007",
+    "code": "IS 302 (Part 2/Sec 30):2007",
+    "title": "Safety of Household Electrical Appliances: Particular Requirements for Room Heaters",
+    "year": 2007,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Household Appliances Quality Order",
+    "qcoOrder": "Household Appliances Quality Order",
+    "businessTypes": [
+      "room heater factories",
+      "oil filled radiator plants",
+      "halogen heater manufacturing"
+    ],
+    "summary": "Mandatory safety standard for electric room heaters, convection radiators, fan heaters, and quartz radiant heaters.",
+    "scope": "Covers tip-over safety switches, surface temperature limits, and fire hazard prevention.",
+    "keywords": [
+      "room heater",
+      "oil filled radiator",
+      "fan heater",
+      "tip over switch",
+      "fire hazard test"
+    ],
+    "clauses": [
+      {
+        "id": "is302-2-30-c19",
+        "number": "Clause 19.11",
+        "title": "Tilt / Tip-Over Cut-Off Mechanism",
+        "content": "Heater tilted at 15° in any direction must automatically cut off power supply within 1.0 second.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-302-2-35-2017",
+    "code": "IS 302 (Part 2/Sec 35):2017",
+    "title": "Safety of Household Electrical Appliances: Electric Instantaneous Water Heaters",
+    "year": 2017,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Water Heaters Quality Control Order",
+    "qcoOrder": "Water Heaters Quality Control Order",
+    "businessTypes": [
+      "instant geyser factories",
+      "gas/electric water heater plants"
+    ],
+    "summary": "Mandatory safety standard for instantaneous geysers (tankless), pressure release valves, and dry-heating cutoffs.",
+    "scope": "Covers high water pressure proof test (up to 1.0 MPa), earth leakage, and boiling prevention thermostats.",
+    "keywords": [
+      "instant geyser",
+      "water heater",
+      "pressure relief valve 1.0MPa",
+      "thermal cut out",
+      "dry burn test"
+    ],
+    "clauses": [
+      {
+        "id": "is302-2-35-c22",
+        "number": "Clause 22.1",
+        "title": "Hydrostatic Pressure Withstand",
+        "content": "Water container shall withstand 1.5 times maximum rated operating pressure (minimum 1.0 MPa) without rupture or deformation.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-302-2-15-2009",
+    "code": "IS 302 (Part 2/Sec 15):2009",
+    "title": "Safety of Household Electrical Appliances: Particular Requirements for Heating Liquids",
+    "year": 2009,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Household Appliances Quality Order",
+    "qcoOrder": "Household Appliances Quality Order",
+    "businessTypes": [
+      "electric kettle manufacturing",
+      "coffee maker factories",
+      "egg boiler plants"
+    ],
+    "summary": "Mandatory safety standard for electric kettles, coffee makers, and liquid heaters.",
+    "scope": "Covers automatic steam switch shutoff, boil-dry thermal protection, and cordless connector contact endurance.",
+    "keywords": [
+      "electric kettle",
+      "boil dry protection",
+      "steam switch",
+      "cordless base",
+      "strix connector"
+    ],
+    "clauses": [
+      {
+        "id": "is302-2-15-c19",
+        "number": "Clause 19.101",
+        "title": "Boil-Dry Thermal Switch Action",
+        "content": "Kettle operated without water; thermal cut-out must disconnect circuit before base temperature exceeds 260°C.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-302-2-24-1994",
+    "code": "IS 302 (Part 2/Sec 24):1994",
+    "title": "Safety of Household Electrical Appliances: Refrigerating Appliances",
+    "year": 1994,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Refrigerators Quality Control Order",
+    "qcoOrder": "Refrigerators Quality Control Order",
+    "businessTypes": [
+      "domestic refrigerator plants",
+      "deep freezer factories"
+    ],
+    "summary": "Mandatory electrical and mechanical safety standard for domestic frost-free and direct cool refrigerators.",
+    "scope": "Covers flammable refrigerant safety (R600a isobutane), compressor earthing, defroster heater insulation, and condensation drain.",
+    "keywords": [
+      "refrigerator safety",
+      "R600a isobutane",
+      "compressor earth",
+      "defrost heater",
+      "door gasket seal"
+    ],
+    "clauses": [
+      {
+        "id": "is302-2-24-c22",
+        "number": "Clause 22.101",
+        "title": "Flammable Refrigerant Leakage Protection",
+        "content": "In the event of R600a circuit rupture, refrigerant concentration inside food compartment shall not exceed 75% of lower flammability limit.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-302-2-23-2009",
+    "code": "IS 302 (Part 2/Sec 23):2009",
+    "title": "Safety of Household Electrical Appliances: Appliances for Skin or Hair Care",
+    "year": 2009,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Personal Care Appliances Order",
+    "qcoOrder": "Personal Care Appliances Order",
+    "businessTypes": [
+      "hair dryer manufacturing",
+      "hair straightener factories"
+    ],
+    "summary": "Mandatory safety standard for hair dryers, curling irons, hair straighteners, and facial steamers.",
+    "scope": "Covers thermal cutouts, air inlet blockage test, cord flexure endurance, and high voltage dielectric strength.",
+    "keywords": [
+      "hair dryer",
+      "hair straightener",
+      "blocked air inlet test",
+      "cord flexure 20000 cycles",
+      "thermal fuse"
+    ],
+    "clauses": [
+      {
+        "id": "is302-2-23-c19",
+        "number": "Clause 19.101",
+        "title": "Air Intake Obstruction Test",
+        "content": "Hair dryer air inlet completely blocked with paper; thermal limiter must safely isolate heating coil without casing ignition.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-302-2-80-2017",
+    "code": "IS 302 (Part 2/Sec 80):2017",
+    "title": "Safety of Household Electrical Appliances: Particular Requirements for Electric Fans",
+    "year": 2017,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Electric Fans Quality Order",
+    "qcoOrder": "Electric Fans Quality Order",
+    "businessTypes": [
+      "ceiling fan factories",
+      "pedestal and exhaust fan plants"
+    ],
+    "summary": "Mandatory safety standard for ceiling fans, exhaust fans, pedestal fans, and wall bracket fans.",
+    "scope": "Covers suspension shackle secondary safety wire rope, blade finger guard probe tests, and moisture resistance.",
+    "keywords": [
+      "ceiling fan",
+      "safety wire rope",
+      "blade guard finger probe",
+      "suspension shackle",
+      "BEE star rating"
+    ],
+    "clauses": [
+      {
+        "id": "is302-2-80-c20",
+        "number": "Clause 20.2",
+        "title": "Finger Guard Enclosure Probe Test",
+        "content": "Test probe B of IS 1401 applied with 20 N force shall not touch rotating fan blades through protective guard mesh.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-302-2-7-2010",
+    "code": "IS 302 (Part 2/Sec 7):2010",
+    "title": "Safety of Household Electrical Appliances: Washing Machines",
+    "year": 2010,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Washing Machines Quality Order",
+    "qcoOrder": "Washing Machines Quality Order",
+    "businessTypes": [
+      "washing machine manufacturing",
+      "front load and top load plants"
+    ],
+    "summary": "Mandatory safety standard for semi-automatic and fully-automatic front/top load domestic clothes washing machines.",
+    "scope": "Covers spin tub brake interlock (<12 seconds stop time), water overflow protection, and dynamic unbalance vibration.",
+    "keywords": [
+      "washing machine",
+      "spin tub brake <= 12s",
+      "water overflow test",
+      "lid safety interlock",
+      "spin drum balance"
+    ],
+    "clauses": [
+      {
+        "id": "is302-2-7-c20",
+        "number": "Clause 20.101",
+        "title": "Spin Tub Lid Interlock Braking",
+        "content": "Opening spin basket lid during 1000 RPM high-speed spin cycle must brake drum to complete stop within 12 seconds.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-302-2-25-2014",
+    "code": "IS 302 (Part 2/Sec 25):2014",
+    "title": "Safety of Household Electrical Appliances: Microwave Ovens",
+    "year": 2014,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Microwave Ovens Quality Order",
+    "qcoOrder": "Microwave Ovens Quality Order",
+    "businessTypes": [
+      "microwave oven manufacturing plants",
+      "combination microwave factories"
+    ],
+    "summary": "Mandatory standard for domestic and commercial microwave ovens, regulating microwave radiation leakage (<50 W/m²).",
+    "scope": "Covers door interlock switches (dual safety monitors), cavity fire containment, and high voltage magnetron safety.",
+    "keywords": [
+      "microwave oven",
+      "radiation leakage <= 5mW/cm²",
+      "dual door interlock",
+      "magnetron",
+      "cavity fire test"
+    ],
+    "clauses": [
+      {
+        "id": "is302-2-25-c32",
+        "number": "Clause 32.1",
+        "title": "Microwave Radiation Leakage Limit",
+        "content": "Microwave power leakage measured at 50 mm distance from any external surface shall not exceed 50 W/m² (5 mW/cm²).",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-302-2-2-2018",
+    "code": "IS 302 (Part 2/Sec 2):2018",
+    "title": "Safety of Household Electrical Appliances: Vacuum Cleaners",
+    "year": 2018,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Household Appliances Quality Order",
+    "qcoOrder": "Household Appliances Quality Order",
+    "businessTypes": [
+      "vacuum cleaner manufacturing",
+      "robotic vacuum cleaner assembly"
+    ],
+    "summary": "Mandatory standard for canister, upright, and wet-and-dry domestic vacuum cleaners.",
+    "scope": "Covers motor cooling airflow, water ingestion safety, current-carrying suction hose endurance, and radio interference.",
+    "keywords": [
+      "vacuum cleaner",
+      "suction hose flexure",
+      "wet pickup safety",
+      "motor overheating",
+      "double insulation"
+    ],
+    "clauses": [
+      {
+        "id": "is302-2-2-c21",
+        "number": "Clause 21.101",
+        "title": "Current-Carrying Hose Flexure Test",
+        "content": "Electrified suction hose subjected to 40,000 bending cycles under electrical load without insulation puncture or wire severance.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-302-2-6-2009",
+    "code": "IS 302 (Part 2/Sec 6):2009",
+    "title": "Safety of Household Electrical Appliances: Cooking Ranges, Hobs and Ovens",
+    "year": 2009,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Household Appliances Quality Order",
+    "qcoOrder": "Household Appliances Quality Order",
+    "businessTypes": [
+      "electric hob manufacturers",
+      "built-in oven plants",
+      "induction cooktop factories"
+    ],
+    "summary": "Mandatory standard for electric cooking ranges, built-in ovens, induction cooktops, and ceramic glass hobs.",
+    "scope": "Covers glass ceramic impact resistance, spillover liquid ingress, and thermostat cut-offs.",
+    "keywords": [
+      "induction cooktop",
+      "built in oven",
+      "hob spillover test",
+      "ceramic glass impact",
+      "pan detection sensor"
+    ],
+    "clauses": [
+      {
+        "id": "is302-2-6-c15",
+        "number": "Clause 15.2",
+        "title": "Liquid Spillage Over Electric Hob",
+        "content": "0.5 liter saline water spilled over cooking surface; appliance must pass 1500 V dielectric test without insulation breakdown.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16805-2018",
+    "code": "IS 16805:2018",
+    "title": "Safety of Power Converters for Photovoltaic Power Systems: EMC Requirements",
+    "year": 2018,
+    "category": "Electronics & IT",
+    "department": "Electrotechnical / ETD 28",
+    "division": "Electrotechnical / ETD 28",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Solar Quality Control Order",
+    "qcoOrder": "Solar Quality Control Order",
+    "businessTypes": [
+      "solar inverter factories",
+      "EMC testing laboratories",
+      "PV power converter plants"
+    ],
+    "summary": "Mandatory standard for conducted and radiated electromagnetic emission limits and immunity for solar PV inverters.",
+    "scope": "Covers CISPR 11 Class A/B emission limits, electrostatic discharge (ESD 8kV air), and lightning surge immunity (4kV).",
+    "keywords": [
+      "solar inverter EMC",
+      "conducted emission",
+      "radiated emission",
+      "surge immunity 4kV",
+      "ESD 8kV",
+      "CISPR 11"
+    ],
+    "clauses": [
+      {
+        "id": "is16805-c6",
+        "number": "Clause 6.1",
+        "title": "Conducted Emissions & Surge Immunity",
+        "content": "Conducted radio interference on AC mains ports shall not exceed quasi-peak limits of CISPR 11; withstand 4.0 kV line-to-earth surge.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16270-2014",
+    "code": "IS 16270:2014",
+    "title": "Secondary Cells and Batteries for Solar Photovoltaic (PV) Energy Systems",
+    "year": 2014,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 11",
+    "division": "Electrotechnical / ETD 11",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Solar Energy Quality Control Order",
+    "qcoOrder": "Solar Energy Quality Control Order",
+    "businessTypes": [
+      "solar battery manufacturers",
+      "tubular gel battery plants"
+    ],
+    "summary": "Mandatory standard for deep-cycle stationary batteries (lead-acid and gel) used in off-grid solar rooftop installations.",
+    "scope": "Covers deep discharge cycle endurance (minimum 1500 cycles at 80% DOD) and ampere-hour efficiency.",
+    "keywords": [
+      "solar battery",
+      "deep cycle battery",
+      "tubular gel",
+      "ampere hour efficiency >= 90%",
+      "cycle life 1500 cycles"
+    ],
+    "clauses": [
+      {
+        "id": "is16270-c7",
+        "number": "Clause 7.2",
+        "title": "Endurance in Solar Deep Cycling",
+        "content": "Battery must sustain 1500 charge-discharge cycles at 80% depth of discharge (DOD) retaining >80% initial capacity.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15549-2005",
+    "code": "IS 15549:2005",
+    "title": "Stationary Valve Regulated Lead-Acid (VRLA) Batteries — Specification",
+    "year": 2005,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 11",
+    "division": "Electrotechnical / ETD 11",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "VRLA Batteries Standards",
+    "qcoOrder": "VRLA Batteries Standards",
+    "businessTypes": [
+      "VRLA battery plants",
+      "telecom UPS battery manufacturing",
+      "SMF battery factories"
+    ],
+    "summary": "Mandatory standard for Sealed Maintenance Free (SMF) absorbed glass mat (AGM) and gel VRLA batteries for telecom and data centers.",
+    "scope": "Covers gas recombination efficiency (minimum 95%), thermal runaway prevention, and self-discharge rates.",
+    "keywords": [
+      "VRLA battery",
+      "SMF battery",
+      "AGM battery",
+      "gas recombination >= 95%",
+      "telecom battery"
+    ],
+    "clauses": [
+      {
+        "id": "is15549-c8",
+        "number": "Clause 8.1",
+        "title": "Gas Recombination Efficiency",
+        "content": "Gas recombination efficiency shall not be less than 95.0% under float charge voltage conditions.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-1651-2013",
+    "code": "IS 1651:2013",
+    "title": "Stationary Cells and Batteries, Lead-Acid Type with Tubular Positive Plates",
+    "year": 2013,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 11",
+    "division": "Electrotechnical / ETD 11",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Batteries Quality Standards",
+    "qcoOrder": "Batteries Quality Standards",
+    "businessTypes": [
+      "tubular inverter battery plants",
+      "lead acid battery foundries"
+    ],
+    "summary": "Mandatory standard for long-life tubular lead-acid flooded stationary batteries used in home inverters and power utilities.",
+    "scope": "Covers spine antimony alloy composition, active material retention gauntlets, and life cycle endurance.",
+    "keywords": [
+      "tubular battery",
+      "inverter battery",
+      "positive tubular plate",
+      "antimony lead spine",
+      "cycle life"
+    ],
+    "clauses": [
+      {
+        "id": "is1651-c7",
+        "number": "Clause 7.1",
+        "title": "Life Cycle Endurance Test",
+        "content": "Battery subjected to life cycles per Table 3; shall achieve minimum 1200 cycles of charge/discharge before capacity drops below 80%.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-1652-2013",
+    "code": "IS 1652:2013",
+    "title": "Stationary Cells and Batteries, Lead-Acid Type with Plante Positive Plates",
+    "year": 2013,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 11",
+    "division": "Electrotechnical / ETD 11",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Batteries Quality Standards",
+    "qcoOrder": "Batteries Quality Standards",
+    "businessTypes": [
+      "pure lead plante battery plants",
+      "power utility DC backup plants"
+    ],
+    "summary": "Specifies long-life pure lead solid cast Plante plate stationary batteries engineered for 25-year service life in thermal power stations.",
+    "scope": "Covers float charge current, high discharge rates, and container transparency.",
+    "keywords": [
+      "plante battery",
+      "pure lead plate",
+      "25 year design life",
+      "power grid DC backup"
+    ],
+    "clauses": [
+      {
+        "id": "is1652-c6",
+        "number": "Clause 6.1",
+        "title": "High Rate Discharge Performance",
+        "content": "Battery shall deliver 1-minute discharge rate at 3.0 times C10 current maintaining voltage above 1.70 V per cell.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-7372-1995",
+    "code": "IS 7372:1995",
+    "title": "Lead-Acid Storage Batteries for Motor Vehicles (Four Wheelers)",
+    "year": 1995,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 11",
+    "division": "Electrotechnical / ETD 11",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Automotive Quality Order",
+    "qcoOrder": "Automotive Quality Order",
+    "businessTypes": [
+      "automotive car battery factories",
+      "SLI battery manufacturing"
+    ],
+    "summary": "Mandatory standard for Starting, Lighting and Ignition (SLI) automotive lead-acid batteries for commercial vehicles and cars.",
+    "scope": "Covers Cold Cranking Amperes (CCA at -18°C), vibration resistance, and reserve capacity in minutes.",
+    "keywords": [
+      "car battery",
+      "automotive SLI",
+      "cold cranking amps CCA",
+      "reserve capacity 80min",
+      "vibration test"
+    ],
+    "clauses": [
+      {
+        "id": "is7372-c6",
+        "number": "Clause 6.2",
+        "title": "Cold Cranking Amperage (CCA at -18°C)",
+        "content": "Battery discharged at rated CCA at -18°C; terminal voltage shall remain above 7.2 V after 30 seconds of continuous cranking.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-14257-1995",
+    "code": "IS 14257:1995",
+    "title": "Lead-Acid Storage Batteries for Two Wheelers — Specification",
+    "year": 1995,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 11",
+    "division": "Electrotechnical / ETD 11",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Automotive Quality Order",
+    "qcoOrder": "Automotive Quality Order",
+    "businessTypes": [
+      "two wheeler battery plants",
+      "motorcycle battery factories"
+    ],
+    "summary": "Mandatory standard for compact 12V and 6V starting batteries for motorcycles, scooters, and mopeds.",
+    "scope": "Covers spill-proof vent caps, rapid charge acceptance, and high vibration resistance on Indian road conditions.",
+    "keywords": [
+      "motorcycle battery",
+      "two wheeler battery",
+      "spill proof cap",
+      "vibration test 30Hz",
+      "charge acceptance"
+    ],
+    "clauses": [
+      {
+        "id": "is14257-c5",
+        "number": "Clause 5.1",
+        "title": "Vibration Endurance Test",
+        "content": "Battery vibrated at 30 Hz with 1.5 mm amplitude for 4 hours; no acid leakage, internal plate bridging, or terminal cracking.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16169-2014",
+    "code": "IS 16169:2014",
+    "title": "Test Procedure for Islanding Prevention Measures for Utility-Interconnected Photovoltaic Inverters",
+    "year": 2014,
+    "category": "Electronics & IT",
+    "department": "Electrotechnical / ETD 28",
+    "division": "Electrotechnical / ETD 28",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Solar Quality Control Order",
+    "qcoOrder": "Solar Quality Control Order",
+    "businessTypes": [
+      "solar inverter testing laboratories",
+      "grid tie testing stations"
+    ],
+    "summary": "Standard laboratory test procedures for islanding protection disconnects in grid-tied solar inverters under tuned RLC resonant loads.",
+    "scope": "Prescribes testing protocols for anti-islanding trip times (< 2.0 seconds) to safeguard utility line workers.",
+    "keywords": [
+      "anti islanding test",
+      "RLC resonant load",
+      "solar grid inverter",
+      "quality factor Q 1.0",
+      "disconnect <= 2s"
+    ],
+    "clauses": [
+      {
+        "id": "is16169-c4",
+        "number": "Clause 4.1",
+        "title": "Resonant Load Islanding Disconnection Time",
+        "content": "Under perfectly matched resonant load with Quality Factor Q = 1.0, inverter must cease energizing grid within 2.0 seconds.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16077-2013",
+    "code": "IS 16077:2013",
+    "title": "Thin-Film Terrestrial Photovoltaic (PV) Modules — Design Qualification and Type Approval",
+    "year": 2013,
+    "category": "Electronics & IT",
+    "department": "Electrotechnical / ETD 28",
+    "division": "Electrotechnical / ETD 28",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Solar Quality Control Order",
+    "qcoOrder": "Solar Quality Control Order",
+    "businessTypes": [
+      "thin film solar panel factories",
+      "CdTe and CIGS module plants"
+    ],
+    "summary": "Mandatory standard for CdTe, CIGS, and amorphous silicon thin-film photovoltaic panels.",
+    "scope": "Covers wet leakage current test, light soaking stabilization, thermal cycling, and hail impact test (25 mm ice ball).",
+    "keywords": [
+      "thin film solar",
+      "CdTe module",
+      "CIGS panel",
+      "light soaking",
+      "hail test 25mm",
+      "wet leakage current"
+    ],
+    "clauses": [
+      {
+        "id": "is16077-c10",
+        "number": "Clause 10.17",
+        "title": "Hail Impact Resistance Test",
+        "content": "Module impacted at 11 points with 25 mm diameter ice sphere traveling at 23 m/s without glass cracking or power loss.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16627-2017",
+    "code": "IS 16627:2017",
+    "title": "Solar Photovoltaic Water Pumping Systems — Specification",
+    "year": 2017,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 28",
+    "division": "Electrotechnical / ETD 28",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "PM KUSUM Solar Scheme Order",
+    "qcoOrder": "PM KUSUM Solar Scheme Order",
+    "businessTypes": [
+      "solar water pump manufacturers",
+      "submersible agricultural pump plants"
+    ],
+    "summary": "Mandatory standard under PM KUSUM for solar-powered submersible and surface agricultural irrigation pump sets (1 HP to 10 HP).",
+    "scope": "Covers minimum daily water output (liters per day per watt peak), MPPT efficiency (>98%), and solar tracking.",
+    "keywords": [
+      "solar water pump",
+      "PM KUSUM",
+      "submersible solar pump",
+      "MPPT efficiency 98%",
+      "water output LPD"
+    ],
+    "clauses": [
+      {
+        "id": "is16627-c6",
+        "number": "Clause 6.1",
+        "title": "Daily Water Output Guarantee",
+        "content": "A 5 HP pump powered by 4800 Wp array must deliver minimum 150,000 liters/day from 30m head under standard solar irradiance.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16333-3-2022",
+    "code": "IS 16333 (Part 3):2022",
+    "title": "Mobile Phone Handsets — Part 3: Indian Language Support Requirements",
+    "year": 2022,
+    "category": "Electronics & IT",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "MeitY Compulsory Orders",
+    "qcoOrder": "MeitY Compulsory Orders",
+    "businessTypes": [
+      "smartphone manufacturing plants",
+      "feature phone assembly plants",
+      "mobile OS software vendors"
+    ],
+    "summary": "Mandatory MeitY standard requiring all mobile phones sold in India to support reading and input in all 22 official Indian languages.",
+    "scope": "Specifies font rendering, virtual keypad layout, and SMS transmission for devanagari, tamil, telugu, bengali, etc.",
+    "keywords": [
+      "mobile phone",
+      "Indian language support",
+      "22 scheduled languages",
+      "MeitY mandate",
+      "virtual keyboard"
+    ],
+    "clauses": [
+      {
+        "id": "is16333-3-c4",
+        "number": "Clause 4.1",
+        "title": "Text Input and Display in Indian Languages",
+        "content": "Phone must display and allow keyboard input of full character sets for all 22 scheduled official Indian languages.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13252-1-printers",
+    "code": "IS 13252 (Part 1):2010",
+    "title": "Information Technology Equipment: Desktop Printers, Plotters & Scanners",
+    "year": 2010,
+    "category": "Electronics & IT",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "MeitY Compulsory Orders",
+    "qcoOrder": "MeitY Compulsory Orders",
+    "businessTypes": [
+      "printer manufacturing plants",
+      "inkjet assembly lines",
+      "laser printer factories"
+    ],
+    "summary": "Mandatory safety standard for desktop inkjet printers, commercial laser printers, and architectural CAD plotters under CRS.",
+    "scope": "Covers heating fuser roller electrical insulation, toner emission, and SELV supply isolation.",
+    "keywords": [
+      "laser printer",
+      "inkjet printer",
+      "plotter",
+      "SELV circuit",
+      "fuser roller safety",
+      "CRS registration"
+    ],
+    "clauses": [
+      {
+        "id": "is13252-p-c4",
+        "number": "Clause 4.2",
+        "title": "Mechanical & Thermal Hazard of Fuser Assembly",
+        "content": "Fuser rollers operating at >180°C must be shielded from operator contact; thermal limiters must prevent paper ignition.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13252-1-servers",
+    "code": "IS 13252 (Part 1):2010",
+    "title": "Information Technology Equipment: Automatic Data Processing Machines (Servers)",
+    "year": 2010,
+    "category": "Electronics & IT",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "MeitY Compulsory Orders",
+    "qcoOrder": "MeitY Compulsory Orders",
+    "businessTypes": [
+      "data center server assembly",
+      "blade server manufacturing",
+      "compute rack plants"
+    ],
+    "summary": "Mandatory CRS standard for enterprise rackmount servers, blade chassis, and cloud computing data center servers.",
+    "scope": "Covers redundant power supply (CRPS) safety, leakage current under multi-cord connections, and fire enclosure integrity.",
+    "keywords": [
+      "enterprise server",
+      "rackmount server",
+      "data center hardware",
+      "earth leakage current",
+      "fire enclosure"
+    ],
+    "clauses": [
+      {
+        "id": "is13252-s-c5",
+        "number": "Clause 5.1",
+        "title": "Touch Current & Earth Conductor Integrity",
+        "content": "Maximum touch current for industrial high-leakage rack equipment shall not exceed 3.5% with permanent protective earthing.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13252-1-adapters",
+    "code": "IS 13252 (Part 1):2010",
+    "title": "Information Technology Equipment: Power Adapters for IT & Mobile Devices",
+    "year": 2010,
+    "category": "Electronics & IT",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "MeitY Compulsory Orders",
+    "qcoOrder": "MeitY Compulsory Orders",
+    "businessTypes": [
+      "mobile charger factories",
+      "SMPS adapter manufacturing",
+      "laptop charger plants"
+    ],
+    "summary": "Mandatory CRS standard for AC/DC power adapters, USB mobile chargers (GaN and Silicon), and laptop charging bricks.",
+    "scope": "Covers transformer isolation (3000 V AC withstand), creepage distances, short-circuit protection, and flame-retardant enclosures (V-0).",
+    "keywords": [
+      "mobile charger",
+      "laptop adapter",
+      "SMPS adapter",
+      "creepage 6mm",
+      "V-0 fire retardant",
+      "CRS"
+    ],
+    "clauses": [
+      {
+        "id": "is13252-a-c2",
+        "number": "Clause 2.10",
+        "title": "Primary to Secondary Creepage & Clearance",
+        "content": "Minimum creepage distance of 6.0 mm and clearance of 4.0 mm required across optocouplers and isolation transformers.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16242-1-2014",
+    "code": "IS 16242 (Part 1):2014",
+    "title": "Uninterruptible Power Systems (UPS) — Part 1: General and Safety Requirements",
+    "year": 2014,
+    "category": "Electronics & IT",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "Electronics Quality Control Order",
+    "qcoOrder": "Electronics Quality Control Order",
+    "businessTypes": [
+      "online UPS manufacturing plants",
+      "home inverter UPS factories"
+    ],
+    "summary": "Mandatory CRS standard for online double-conversion and line-interactive UPS systems from 500 VA to 500 kVA.",
+    "scope": "Covers battery dc reverse polarity protection, backfeed protection relays, and output overload withstand.",
+    "keywords": [
+      "online UPS",
+      "uninterruptible power supply",
+      "backfeed protection",
+      "battery dc isolation",
+      "CRS"
+    ],
+    "clauses": [
+      {
+        "id": "is16242-1-c4",
+        "number": "Clause 4.3",
+        "title": "Backfeed Protection on Mains Input",
+        "content": "UPS shall prevent hazardous backfeed voltage on input AC terminals within 1.0 second of utility mains failure.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13252-1-pos",
+    "code": "IS 13252 (Part 1):2010",
+    "title": "Information Technology Equipment: Point of Sale (POS) Terminals & EDC Machines",
+    "year": 2010,
+    "category": "Electronics & IT",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "MeitY Compulsory Orders",
+    "qcoOrder": "MeitY Compulsory Orders",
+    "businessTypes": [
+      "POS terminal factories",
+      "payment soundbox assembly",
+      "EDC machine manufacturing"
+    ],
+    "summary": "Mandatory CRS standard for handheld credit card POS terminals, payment soundboxes, and biometric banking micro-ATMs.",
+    "scope": "Covers lithium battery charging circuits, thermal printer safety, and drop impact resistance.",
+    "keywords": [
+      "POS terminal",
+      "payment soundbox",
+      "EDC machine",
+      "battery protection circuit",
+      "CRS registration"
+    ],
+    "clauses": [
+      {
+        "id": "is13252-pos-c3",
+        "number": "Clause 3.2",
+        "title": "Battery Charging Safety & Overvoltage",
+        "content": "Battery management system (BMS) inside terminal must safely terminate charge when voltage reaches 4.25V per cell.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13252-1-cctv",
+    "code": "IS 13252 (Part 1):2010",
+    "title": "Information Technology Equipment: CCTV Cameras and Recorders (DVR/NVR)",
+    "year": 2010,
+    "category": "Electronics & IT",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "MeitY Compulsory Orders",
+    "qcoOrder": "MeitY Compulsory Orders",
+    "businessTypes": [
+      "CCTV camera manufacturing",
+      "NVR assembly plants",
+      "security surveillance equipment"
+    ],
+    "summary": "Mandatory CRS standard for indoor dome cameras, outdoor bullet IP cameras, and network video recorders (NVR).",
+    "scope": "Covers Power over Ethernet (PoE 48V) isolation, surge immunity on video ports, and IP66 outdoor weather sealing.",
+    "keywords": [
+      "CCTV camera",
+      "IP camera",
+      "NVR",
+      "PoE safety",
+      "surge protection 4kV",
+      "CRS registration"
+    ],
+    "clauses": [
+      {
+        "id": "is13252-cctv-c4",
+        "number": "Clause 4.1",
+        "title": "PoE Ethernet Port Dielectric Isolation",
+        "content": "Ethernet PoE port shall withstand 1500 V AC dielectric test to chassis earth to protect against lightning transients.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13252-1-wearables",
+    "code": "IS 13252 (Part 1):2010",
+    "title": "Information Technology Equipment: Smart Watches and Fitness Trackers",
+    "year": 2010,
+    "category": "Electronics & IT",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "MeitY Compulsory Orders",
+    "qcoOrder": "MeitY Compulsory Orders",
+    "businessTypes": [
+      "smartwatch assembly lines",
+      "wearable tech manufacturing"
+    ],
+    "summary": "Mandatory CRS standard for wrist-worn smart watches, fitness bands, and continuous physiological monitoring wearables.",
+    "scope": "Covers skin contact biocompatibility, lithium coin/pouch battery puncture safety, and magnetic charging pin short circuit.",
+    "keywords": [
+      "smart watch",
+      "fitness tracker",
+      "wearable tech",
+      "skin contact biocompatibility",
+      "CRS registration"
+    ],
+    "clauses": [
+      {
+        "id": "is13252-w-c4",
+        "number": "Clause 4.3",
+        "title": "Skin Contact Temperature & Current",
+        "content": "Chassis temperature touching wrist shall not exceed 43°C during maximum compute and fast magnetic charging.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13252-1-tablets",
+    "code": "IS 13252 (Part 1):2010",
+    "title": "Information Technology Equipment: Tablet Computers and E-Book Readers",
+    "year": 2010,
+    "category": "Electronics & IT",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "MeitY Compulsory Orders",
+    "qcoOrder": "MeitY Compulsory Orders",
+    "businessTypes": [
+      "tablet computer assembly plants",
+      "e-reader manufacturing"
+    ],
+    "summary": "Mandatory CRS safety standard for touchscreen tablet computers, educational tablets, and digital e-readers.",
+    "scope": "Covers tempered cover glass impact, high C-rate battery charging thermals, and electromagnetic emission compliance.",
+    "keywords": [
+      "tablet computer",
+      "e-reader",
+      "touchscreen glass impact",
+      "battery thermal management",
+      "CRS"
+    ],
+    "clauses": [
+      {
+        "id": "is13252-t-c4",
+        "number": "Clause 4.2",
+        "title": "Touchscreen Impact Resistance",
+        "content": "Screen shall withstand steel ball drop test (50 mm diameter ball dropped from 500 mm height) without glass splintering.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13252-1-monitors",
+    "code": "IS 13252 (Part 1):2010",
+    "title": "Information Technology Equipment: Visual Display Units / LED Monitors",
+    "year": 2010,
+    "category": "Electronics & IT",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "MeitY Compulsory Orders",
+    "qcoOrder": "MeitY Compulsory Orders",
+    "businessTypes": [
+      "LED monitor manufacturing",
+      "commercial display panel factories"
+    ],
+    "summary": "Mandatory CRS standard for desktop LED computer monitors, commercial video walls, and interactive touch kiosks up to 65-inch.",
+    "scope": "Covers power supply creepage, blue light emissions, stability under tilt, and flame retardant back cover plastics.",
+    "keywords": [
+      "LED monitor",
+      "computer screen",
+      "video wall",
+      "display stability 10 degree tilt",
+      "CRS registration"
+    ],
+    "clauses": [
+      {
+        "id": "is13252-m-c4",
+        "number": "Clause 4.1",
+        "title": "Physical Stability Tilt Test",
+        "content": "Monitor mounted on desktop stand shall not overturn when tilted at an angle of 10° in any orientation.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15885-2-11-2011",
+    "code": "IS 15885 (Part 2/Sec 11):2011",
+    "title": "Lamp Controlgear: Electronic Step-Down Convertors for Filament Lamps",
+    "year": 2011,
+    "category": "Electronics & IT",
+    "department": "Electrotechnical / ETD 23",
+    "division": "Electrotechnical / ETD 23",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "Electronics Quality Control Order",
+    "qcoOrder": "Electronics Quality Control Order",
+    "businessTypes": [
+      "low voltage lighting transformer factories",
+      "halogen lighting converter plants"
+    ],
+    "summary": "Mandatory CRS standard for high frequency electronic step-down convertors delivering 12V supply to halogen and decorative lights.",
+    "scope": "Covers short circuit protection, radio interference, and high ambient thermal performance (Ta = 50°C).",
+    "keywords": [
+      "electronic transformer",
+      "step down convertor",
+      "12V halogen supply",
+      "short circuit proof",
+      "CRS"
+    ],
+    "clauses": [
+      {
+        "id": "is15885-2-11-c7",
+        "number": "Clause 7.1",
+        "title": "Secondary Output Short-Circuit Test",
+        "content": "Output terminals short-circuited; convertor shall safely trip via internal PTC/fuse without fire hazard.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-616-audio",
+    "code": "IS 616:2017",
+    "title": "Audio, Video Equipment: Wireless Microphones and Bluetooth PA Audio Systems",
+    "year": 2017,
+    "category": "Electronics & IT",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Compulsory Registration Scheme (CRS)",
+    "certificationScheme": "Compulsory Registration Scheme (CRS)",
+    "qcoReference": "MeitY Compulsory Orders",
+    "qcoOrder": "MeitY Compulsory Orders",
+    "businessTypes": [
+      "PA audio speaker factories",
+      "wireless microphone manufacturing"
+    ],
+    "summary": "Mandatory CRS standard for portable Bluetooth party speakers, commercial public address amplifiers, and wireless microphones.",
+    "scope": "Covers acoustic sound pressure level limits (<100 dBA), high temperature amplifier heatsinks, and internal battery safety.",
+    "keywords": [
+      "bluetooth speaker",
+      "wireless microphone",
+      "PA amplifier",
+      "sound pressure level <= 100dBA",
+      "CRS"
+    ],
+    "clauses": [
+      {
+        "id": "is616-a-c5",
+        "number": "Clause 5.1",
+        "title": "Maximum Sound Pressure Output Protection",
+        "content": "Personal audio playback through headphone/speaker ports shall not exceed safe listening limit of 100 dBA without user alert.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-9224-2-1979",
+    "code": "IS 9224 (Part 2):1979",
+    "title": "Low-Voltage Fuses — Specification: Fuses with High Breaking Capacity",
+    "year": 1979,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 39",
+    "division": "Electrotechnical / ETD 39",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "LV Switchgear Standards",
+    "qcoOrder": "LV Switchgear Standards",
+    "businessTypes": [
+      "high breaking capacity fuse manufacturers",
+      "substation fuse link plants"
+    ],
+    "summary": "Mandatory specification for cartridge fuses with breaking capacity of not less than 80 kA at 415 V.",
+    "scope": "Covers time-lag and quick-acting fuses for protection of transformers and motor circuits.",
+    "keywords": [
+      "HRC fuse link",
+      "80kA breaking capacity",
+      "fuse carrier",
+      "cartridge fuse link"
+    ],
+    "clauses": [
+      {
+        "id": "is9224-2-c6",
+        "number": "Clause 6.1",
+        "title": "Short-Circuit Breaking Capacity Test",
+        "content": "Fuse links shall clear prospective fault current of 80 kA at 1.1 times rated voltage without arc flash escape.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-1248-1-2003",
+    "code": "IS 1248 (Part 1):2003",
+    "title": "Direct Acting Indicating Analogue Electrical Measuring Instruments (Ammeters & Voltmeters)",
+    "year": 2003,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 13",
+    "division": "Electrotechnical / ETD 13",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Panel Instruments Standards",
+    "qcoOrder": "Panel Instruments Standards",
+    "businessTypes": [
+      "analogue meter manufacturers",
+      "switchboard panel meter plants"
+    ],
+    "summary": "Specifies accuracy classes (Class 0.5, 1.0, 1.5), damping, and overload withstand for moving coil and moving iron panel meters.",
+    "scope": "Covers AC and DC voltmeters, ammeters, and frequency meters for control switchboards.",
+    "keywords": [
+      "analogue meter",
+      "ammeter",
+      "voltmeter",
+      "moving coil meter",
+      "Class 1.5 accuracy",
+      "panel instrument"
+    ],
+    "clauses": [
+      {
+        "id": "is1248-1-c5",
+        "number": "Clause 5.1",
+        "title": "Intrinsic Accuracy and Overload Limit",
+        "content": "Error at reference conditions shall not exceed ±1.5% of fiducial scale; shall withstand 10-times short-time current overload.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-302-2-3-electric-iron",
+    "code": "IS 302 (Part 2/Sec 3):2007",
+    "title": "Safety of Household Electrical Appliances: Electric Dry and Steam Irons",
+    "year": 2007,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Household Appliances Quality Order",
+    "qcoOrder": "Household Appliances Quality Order",
+    "businessTypes": [
+      "electric iron manufacturing plants",
+      "steam iron factories"
+    ],
+    "summary": "Mandatory safety standard for domestic dry irons, steam irons, and garment steamers.",
+    "scope": "Covers soleplate temperature limits, thermostat endurance (100,000 cycles), thermal fuse cut-off, and drop impact resistance.",
+    "keywords": [
+      "electric iron",
+      "steam iron",
+      "soleplate temperature",
+      "thermostat endurance",
+      "thermal cut-off"
+    ],
+    "clauses": [
+      {
+        "id": "is302-2-3-c19",
+        "number": "Clause 19.101",
+        "title": "Thermostat Failure & Thermal Fuse Action",
+        "content": "In the event of thermostat contact welding, internal thermal fuse must permanently isolate element before soleplate exceeds 350°C.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
   }
 ]
