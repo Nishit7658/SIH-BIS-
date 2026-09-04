@@ -8498,5 +8498,2464 @@
     "factoryBlueprint": null,
     "blueprint": null,
     "amendments": []
+  },
+  {
+    "id": "is-13428-2005",
+    "code": "IS 13428:2005",
+    "title": "Packaged Natural Mineral Water — Specification",
+    "year": 2005,
+    "category": "Consumer Goods",
+    "department": "Food & Agriculture / FAD 14",
+    "division": "Food & Agriculture / FAD 14",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Packaged Water Quality Control Order",
+    "qcoOrder": "Packaged Water Quality Control Order",
+    "businessTypes": [
+      "mineral water bottling plants",
+      "spring water packaging units"
+    ],
+    "summary": "Mandatory standard for natural mineral water sourced directly from underground springs without chemical treatment.",
+    "scope": "Covers total dissolved solids (TDS), mineral limits, zero microbial pathogens, and hygienic bottling.",
+    "keywords": [
+      "natural mineral water",
+      "spring water",
+      "TDS 150-700 mg/l",
+      "microbiological safety",
+      "FSSAI compliance"
+    ],
+    "clauses": [
+      {
+        "id": "is13428-c5",
+        "number": "Clause 5.1",
+        "title": "Microbiological Safety Requirements",
+        "content": "Shall be completely free from E. coli, coliform bacteria, Faecal streptococci, Pseudomonas aeruginosa in 250 ml.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-10500-2012",
+    "code": "IS 10500:2012",
+    "title": "Drinking Water — Specification (Potable Water)",
+    "year": 2012,
+    "category": "Consumer Goods",
+    "department": "Food & Agriculture / FAD 14",
+    "division": "Food & Agriculture / FAD 14",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Drinking Water Standards",
+    "qcoOrder": "Drinking Water Standards",
+    "businessTypes": [
+      "municipal water utilities",
+      "water purification plants",
+      "RO plant operators"
+    ],
+    "summary": "National drinking water quality benchmark prescribing acceptable and permissible limits for 65 physicochemical parameters.",
+    "scope": "Covers pH, turbidity, total hardness, fluoride, arsenic, lead, pesticide residues, and coliform limits.",
+    "keywords": [
+      "drinking water",
+      "potable water",
+      "TDS <= 500 mg/l",
+      "fluoride <= 1.0 mg/l",
+      "arsenic <= 0.01 mg/l",
+      "pH 6.5-8.5"
+    ],
+    "clauses": [
+      {
+        "id": "is10500-c4",
+        "number": "Clause 4.1",
+        "title": "Acceptable and Permissible Limits",
+        "content": "TDS acceptable limit 500 mg/l; total hardness 200 mg/l; fluoride 1.0 mg/l; arsenic 0.01 mg/l per Table 1.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-1165-2002",
+    "code": "IS 1165:2002",
+    "title": "Milk Powder — Specification",
+    "year": 2002,
+    "category": "Consumer Goods",
+    "department": "Food & Agriculture / FAD 19",
+    "division": "Food & Agriculture / FAD 19",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Milk Products Quality Order",
+    "qcoOrder": "Milk Products Quality Order",
+    "businessTypes": [
+      "dairy processing plants",
+      "spray drying milk powder units"
+    ],
+    "summary": "Mandatory standard for whole milk powder, skimmed milk powder (SMP), and partly skimmed milk powder.",
+    "scope": "Covers milk fat (minimum 26% for whole milk), moisture (maximum 4.0%), solubility index, and scorched particles.",
+    "keywords": [
+      "milk powder",
+      "skimmed milk powder SMP",
+      "milk fat >= 26%",
+      "solubility index <= 1.0ml",
+      "FSSAI"
+    ],
+    "clauses": [
+      {
+        "id": "is1165-c5",
+        "number": "Clause 5.1",
+        "title": "Compositional Limits & Solubility",
+        "content": "Whole milk fat >= 26.0% by mass; moisture <= 4.0%; titratable acidity <= 1.2%; total plate count <= 40,000 CFU/g.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-1166-1986",
+    "code": "IS 1166:1986",
+    "title": "Condensed Milk, Partly Skimmed and Skimmed Condensed Milk — Specification",
+    "year": 1986,
+    "category": "Consumer Goods",
+    "department": "Food & Agriculture / FAD 19",
+    "division": "Food & Agriculture / FAD 19",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Milk Products Quality Order",
+    "qcoOrder": "Milk Products Quality Order",
+    "businessTypes": [
+      "sweetened condensed milk plants",
+      "dairy packaging units"
+    ],
+    "summary": "Mandatory standard for sweetened condensed milk, total milk solids (minimum 31.0%), and sucrose content.",
+    "scope": "Covers vacuum evaporation, sugar addition, bacterial counts, and hermetic tin canning.",
+    "keywords": [
+      "condensed milk",
+      "milk solids >= 31%",
+      "milk fat >= 9%",
+      "sucrose content 40%",
+      "canning safety"
+    ],
+    "clauses": [
+      {
+        "id": "is1166-c5",
+        "number": "Clause 5.1",
+        "title": "Chemical Composition and Milk Solids",
+        "content": "Total milk solids >= 31.0% by mass; milk fat >= 9.0%; sucrose >= 40.0%; yeast and mould <= 10 CFU/g.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-12220-1987",
+    "code": "IS 12220:1987",
+    "title": "Infant Milk Foods — Specification",
+    "year": 1987,
+    "category": "Consumer Goods",
+    "department": "Food & Agriculture / FAD 19",
+    "division": "Food & Agriculture / FAD 19",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Infant Nutrition Quality Order",
+    "qcoOrder": "Infant Nutrition Quality Order",
+    "businessTypes": [
+      "infant formula manufacturers",
+      "baby nutrition pharmaceutical plants"
+    ],
+    "summary": "Mandatory standard for infant milk foods for nourishment of infants up to 6 months.",
+    "scope": "Covers milk protein, iron enrichment, vitamin additions (A, D, C, B-complex), and strict pesticide residue limits.",
+    "keywords": [
+      "infant milk food",
+      "baby formula",
+      "infant nutrition",
+      "vitamin fortification",
+      "FSSAI baby food"
+    ],
+    "clauses": [
+      {
+        "id": "is12220-c5",
+        "number": "Clause 5.1",
+        "title": "Nutrient Profile & Vitamin Fortification",
+        "content": "Protein 12-16% by mass; milk fat 18-28%; vitamin A >= 350 mcg/100g; iron >= 5.0 mg/100g per Table 1.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-14433-2007",
+    "code": "IS 14433:2007",
+    "title": "Infant Formula — Specification",
+    "year": 2007,
+    "category": "Consumer Goods",
+    "department": "Food & Agriculture / FAD 19",
+    "division": "Food & Agriculture / FAD 19",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Infant Nutrition Quality Order",
+    "qcoOrder": "Infant Nutrition Quality Order",
+    "businessTypes": [
+      "specialty infant nutrition plants",
+      "whey-predominant formula factories"
+    ],
+    "summary": "Mandatory standard for adapted whey-to-casein ratio infant formula replicating human milk nutritional profile.",
+    "scope": "Covers linoleic acid, alpha-linolenic acid, taurine, nucleotides, choline, and zero pathogenic microbes.",
+    "keywords": [
+      "infant formula",
+      "whey casein ratio 60:40",
+      "DHA ARA",
+      "linoleic acid",
+      "microbial safety zero E coli"
+    ],
+    "clauses": [
+      {
+        "id": "is14433-c5",
+        "number": "Clause 5.2",
+        "title": "Fatty Acid Profile & Essential Nutrients",
+        "content": "Linoleic acid >= 300 mg/100 kcal; whey-to-casein ratio 60:40; Cronobacter sakazakii absent in 100g.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15757-2007",
+    "code": "IS 15757:2007",
+    "title": "Follow-Up Formula — Specification",
+    "year": 2007,
+    "category": "Consumer Goods",
+    "department": "Food & Agriculture / FAD 19",
+    "division": "Food & Agriculture / FAD 19",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Infant Nutrition Quality Order",
+    "qcoOrder": "Infant Nutrition Quality Order",
+    "businessTypes": [
+      "toddler nutrition manufacturers",
+      "dairy processing plants"
+    ],
+    "summary": "Mandatory standard for follow-up formula for infants aged 6 to 24 months as liquid complementary nutrition.",
+    "scope": "Covers iron absorption promoters, zinc, iodine, energy density (60-85 kcal/100 ml), and strict heavy metal limits.",
+    "keywords": [
+      "follow up formula",
+      "toddler milk",
+      "energy density",
+      "iron zinc iodine",
+      "infant health"
+    ],
+    "clauses": [
+      {
+        "id": "is15757-c5",
+        "number": "Clause 5.1",
+        "title": "Energy Density and Micronutrients",
+        "content": "Energy 60-85 kcal/100 ml; protein 3-5.5 g/100 kcal; iron >= 1.0 mg/100 kcal; lead <= 0.02 mg/kg.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-1656-2007",
+    "code": "IS 1656:2007",
+    "title": "Milk Cereal Based Weaning Foods — Specification",
+    "year": 2007,
+    "category": "Consumer Goods",
+    "department": "Food & Agriculture / FAD 19",
+    "division": "Food & Agriculture / FAD 19",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Infant Nutrition Quality Order",
+    "qcoOrder": "Infant Nutrition Quality Order",
+    "businessTypes": [
+      "cereal weaning food plants",
+      "baby cereal porridge manufacturing"
+    ],
+    "summary": "Mandatory standard for roller-dried or extruded cereal-milk weaning mixes (wheat, rice, ragi based).",
+    "scope": "Covers digestibility, crude fiber limits (maximum 1.0%), moisture, and complete absence of aflatoxins.",
+    "keywords": [
+      "weaning food",
+      "cereal milk porridge",
+      "aflatoxin absent",
+      "crude fiber <= 1.0%",
+      "infant cereal"
+    ],
+    "clauses": [
+      {
+        "id": "is1656-c5",
+        "number": "Clause 5.1",
+        "title": "Carbohydrate, Protein & Aflatoxin Limits",
+        "content": "Protein >= 15.0% by mass; fat >= 7.5%; total ash <= 5.0%; aflatoxin B1 shall not exceed 0.5 mcg/kg.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15333-2003",
+    "code": "IS 15333:2003",
+    "title": "Processed Cereal Based Complementary Foods for Infants — Specification",
+    "year": 2003,
+    "category": "Consumer Goods",
+    "department": "Food & Agriculture / FAD 19",
+    "division": "Food & Agriculture / FAD 19",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Infant Nutrition Quality Order",
+    "qcoOrder": "Infant Nutrition Quality Order",
+    "businessTypes": [
+      "baby food manufacturing",
+      "grain based complementary nutrition units"
+    ],
+    "summary": "Mandatory standard for baby biscuits, rusks, and dry extruded cereal foods intended for infants.",
+    "scope": "Covers sodium limits (<100 mg/100 kcal), vitamin fortification, and chemical preservative prohibitions.",
+    "keywords": [
+      "baby biscuits",
+      "complementary food",
+      "sodium limit <= 100mg",
+      "no chemical preservatives"
+    ],
+    "clauses": [
+      {
+        "id": "is15333-c5",
+        "number": "Clause 5.2",
+        "title": "Sodium Limit and Texture Safety",
+        "content": "Sodium content shall not exceed 100 mg/100 kcal; food texture must rapidly soften on contact with saliva to prevent choking.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-515-1959",
+    "code": "IS 515:1959",
+    "title": "Carbolic Soap — Specification",
+    "year": 1959,
+    "category": "Chemical & Plastics",
+    "department": "Chemical / CHD 25",
+    "division": "Chemical / CHD 25",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Soaps Standards",
+    "qcoOrder": "Soaps Standards",
+    "businessTypes": [
+      "disinfectant soap manufacturers",
+      "red carbolic soap factories"
+    ],
+    "summary": "Specifies phenolic carbolic acid content (minimum 0.75%), TFM, and antibacterial germicidal strength for carbolic red soaps.",
+    "scope": "Covers germicidal soaps for general washing and sanitization.",
+    "keywords": [
+      "carbolic soap",
+      "phenolic acid >= 0.75%",
+      "germicidal soap",
+      "TFM 55%"
+    ],
+    "clauses": [
+      {
+        "id": "is515-c5",
+        "number": "Clause 5.1",
+        "title": "Phenolic Substances & TFM",
+        "content": "Phenolic substances as carbolic acid >= 0.75% by mass; total fatty matter (TFM) >= 55.0% by mass.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-2925-1984",
+    "code": "IS 2925:1984",
+    "title": "Industrial Safety Helmets — Specification",
+    "year": 1984,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 8",
+    "division": "Chemical / CHD 8",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Safety Helmets Quality Control Order",
+    "qcoOrder": "Safety Helmets Quality Control Order",
+    "businessTypes": [
+      "safety helmet factories",
+      "HDPE hard hat manufacturing",
+      "construction PPE plants"
+    ],
+    "summary": "Mandatory standard for industrial hard hats and safety helmets used on construction sites, mines, and refineries.",
+    "scope": "Covers shock absorption (transmitted force <5.0 kN under 5 kg striker dropped from 1 m), penetration resistance, and 2000V electrical insulation.",
+    "keywords": [
+      "safety helmet",
+      "industrial hard hat",
+      "shock absorption < 5kN",
+      "penetration test",
+      "electrical insulation 2000V"
+    ],
+    "clauses": [
+      {
+        "id": "is2925-c6",
+        "number": "Clause 6.1",
+        "title": "Shock Absorption Test",
+        "content": "Transmitted force to headform under 5.0 kg drop striker dropped from 1.0 meter shall not exceed 5.0 kN.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15298-1-2011",
+    "code": "IS 15298 (Part 1):2011",
+    "title": "Personal Protective Equipment: Test Methods for Footwear",
+    "year": 2011,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 8",
+    "division": "Chemical / CHD 8",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Footwear Quality Control Order",
+    "qcoOrder": "Footwear Quality Control Order",
+    "businessTypes": [
+      "footwear testing laboratories",
+      "shoe manufacturing plants"
+    ],
+    "summary": "Standard test procedures for safety shoe impact resistance, toe cap compression, sole bond strength, and slip resistance.",
+    "scope": "Prescribes mechanical impact apparatus (200 J energy) and compression machines (15 kN load).",
+    "keywords": [
+      "footwear testing",
+      "200J toe impact",
+      "15kN compression",
+      "sole bond test",
+      "slip resistance SATRA"
+    ],
+    "clauses": [
+      {
+        "id": "is15298-1-c5",
+        "number": "Clause 5.1",
+        "title": "Toe Cap Impact Resistance Apparatus",
+        "content": "200 Joule impact energy delivered by steel striker; minimum clearance under toe cap after impact per Table 1.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15298-2-2016",
+    "code": "IS 15298 (Part 2):2016",
+    "title": "Personal Protective Equipment: Safety Footwear (200 J Impact)",
+    "year": 2016,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 8",
+    "division": "Chemical / CHD 8",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Footwear Quality Control Order",
+    "qcoOrder": "Footwear Quality Control Order",
+    "businessTypes": [
+      "safety shoe manufacturers",
+      "steel toe boot factories"
+    ],
+    "summary": "Mandatory standard for industrial safety shoes equipped with 200-Joule steel or composite protective toe caps.",
+    "scope": "Covers oil-resistant soles, anti-static electrical resistance (100 kOhm to 1000 MOhm), and energy absorption of heel (20 J).",
+    "keywords": [
+      "safety shoe",
+      "steel toe boot",
+      "200 Joule impact",
+      "antistatic footwear",
+      "puncture resistant midsole 1100N"
+    ],
+    "clauses": [
+      {
+        "id": "is15298-2-c5",
+        "number": "Clause 5.3",
+        "title": "Toe Cap Impact and Compression",
+        "content": "Toe cap shall withstand 200 J impact and 15 kN compression load maintaining clearance >= 14 mm for size 8.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15298-3-2019",
+    "code": "IS 15298 (Part 3):2019",
+    "title": "Personal Protective Equipment: Protective Footwear (100 J Impact)",
+    "year": 2019,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 8",
+    "division": "Chemical / CHD 8",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Footwear Quality Control Order",
+    "qcoOrder": "Footwear Quality Control Order",
+    "businessTypes": [
+      "protective shoe manufacturers",
+      "light industrial footwear plants"
+    ],
+    "summary": "Mandatory standard for intermediate protective shoes with 100-Joule toe cap impact rating for logistics and warehousing.",
+    "scope": "Covers water penetration, upper leather tear strength, and sole flexion durability (30,000 flexes).",
+    "keywords": [
+      "protective footwear",
+      "100 Joule toe impact",
+      "warehouse shoe",
+      "sole flexion 30000 flexes"
+    ],
+    "clauses": [
+      {
+        "id": "is15298-3-c5",
+        "number": "Clause 5.1",
+        "title": "100-Joule Impact Test",
+        "content": "Toe cap subjected to 100 Joule impact energy maintaining specified minimum internal clearance.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15298-4-2017",
+    "code": "IS 15298 (Part 4):2017",
+    "title": "Personal Protective Equipment: Occupational Footwear (No Toe Cap)",
+    "year": 2017,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 8",
+    "division": "Chemical / CHD 8",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Footwear Quality Control Order",
+    "qcoOrder": "Footwear Quality Control Order",
+    "businessTypes": [
+      "work shoes factories",
+      "slip resistant hospital shoe manufacturing"
+    ],
+    "summary": "Mandatory standard for occupational work shoes without toe caps used in hospitality, healthcare, and electronics cleanrooms.",
+    "scope": "Covers slip resistance on ceramic tile with NaLS detergent and steel floor with glycerol, and heel shock absorption.",
+    "keywords": [
+      "occupational footwear",
+      "slip resistance",
+      "hospital shoes",
+      "heel energy absorption 20J"
+    ],
+    "clauses": [
+      {
+        "id": "is15298-4-c5",
+        "number": "Clause 5.1",
+        "title": "Slip Resistance Coefficient (SRC)",
+        "content": "Coefficient of friction shall be >= 0.32 for forward heel slip on ceramic tile with sodium lauryl sulfate solution.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-9873-2-2019",
+    "code": "IS 9873 (Part 2):2019",
+    "title": "Safety of Toys — Part 2: Flammability Requirements",
+    "year": 2019,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 34",
+    "division": "Chemical / CHD 34",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Toys Quality Control Order",
+    "qcoOrder": "Toys Quality Control Order",
+    "businessTypes": [
+      "plush toy factories",
+      "costume toy manufacturing",
+      "soft toy plants"
+    ],
+    "summary": "Mandatory standard regulating burning rate (<30 mm/s) of beards, wigs, masks, plush toys, and fabric play tents.",
+    "scope": "Covers flame spread rates to ensure children can safely discard ignited costumes without burn injuries.",
+    "keywords": [
+      "toy flammability",
+      "burning rate <= 30mm/s",
+      "plush toy safety",
+      "costume flammability",
+      "toy QCO"
+    ],
+    "clauses": [
+      {
+        "id": "is9873-2-c4",
+        "number": "Clause 4.1",
+        "title": "Rate of Flame Spread",
+        "content": "Rate of flame spread along soft filled plush toys and disguises shall not exceed 30 mm/s measured per Clause 5.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-9873-4-2017",
+    "code": "IS 9873 (Part 4):2017",
+    "title": "Safety of Toys: Swings, Slides and Similar Activity Toys for Domestic Use",
+    "year": 2017,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 34",
+    "division": "Chemical / CHD 34",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Toys Quality Control Order",
+    "qcoOrder": "Toys Quality Control Order",
+    "businessTypes": [
+      "playground toy factories",
+      "plastic slide and swing manufacturers"
+    ],
+    "summary": "Mandatory standard preventing head and neck entrapment, finger trap pinch points, and tip-over on backyard slides and swings.",
+    "scope": "Covers dynamic structural strength, stability under 50 kg load, and safety barrier heights.",
+    "keywords": [
+      "toy swing",
+      "toy slide",
+      "head entrapment probe",
+      "finger pinch point",
+      "stability under load"
+    ],
+    "clauses": [
+      {
+        "id": "is9873-4-c4",
+        "number": "Clause 4.3",
+        "title": "Entrapment of Head and Neck",
+        "content": "Completely bound openings must either be smaller than 130mm (torso probe) or larger than 230mm (large head probe).",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-9873-7-2017",
+    "code": "IS 9873 (Part 7):2017",
+    "title": "Safety of Toys: Requirements and Test Methods for Finger Paints",
+    "year": 2017,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 34",
+    "division": "Chemical / CHD 34",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Toys Quality Control Order",
+    "qcoOrder": "Toys Quality Control Order",
+    "businessTypes": [
+      "finger paint factories",
+      "art supplies manufacturing for children"
+    ],
+    "summary": "Mandatory standard requiring non-toxic food-grade bittering agents (naringin, denatonium benzoate) to prevent ingestion of finger paints.",
+    "scope": "Covers restrictions on carcinogenic aromatic amines, azo colorants, and heavy metal limits.",
+    "keywords": [
+      "finger paint",
+      "bittering agent denatonium",
+      "non toxic paint",
+      "azo dye prohibition",
+      "toy safety"
+    ],
+    "clauses": [
+      {
+        "id": "is9873-7-c4",
+        "number": "Clause 4.2",
+        "title": "Taste Bittering Agent Requirement",
+        "content": "Finger paints must contain embittering substance (e.g. denatonium benzoate >= 4 mg/kg) to deter children from swallowing paint.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-9873-9-2017",
+    "code": "IS 9873 (Part 9):2017",
+    "title": "Safety of Toys: Certain Phthalates in Toys and Childcare Articles",
+    "year": 2017,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 34",
+    "division": "Chemical / CHD 34",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Toys Quality Control Order",
+    "qcoOrder": "Toys Quality Control Order",
+    "businessTypes": [
+      "plastic toy manufacturing",
+      "teether and rattle plants"
+    ],
+    "summary": "Mandatory standard restricting 6 hazardous phthalate plasticizers (DEHP, DBP, BBP, DINP, DIDP, DNOP) to <0.1% by mass.",
+    "scope": "Covers GC-MS laboratory testing of PVC toys, teethers, and soft vinyl bath toys.",
+    "keywords": [
+      "phthalates in toys",
+      "DEHP <= 0.1%",
+      "plasticizer restriction",
+      "teether safety",
+      "GC MS testing"
+    ],
+    "clauses": [
+      {
+        "id": "is9873-9-c4",
+        "number": "Clause 4.1",
+        "title": "Maximum Phthalate Concentration Limit",
+        "content": "The concentration of DEHP, DBP, and BBP individually or combined shall not exceed 0.1% (1000 mg/kg) by mass of plastic material.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15644-2006",
+    "code": "IS 15644:2006",
+    "title": "Safety of Electric Toys — Specification",
+    "year": 2006,
+    "category": "Consumer Goods",
+    "department": "Electrotechnical / ETD 32",
+    "division": "Electrotechnical / ETD 32",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Toys Quality Control Order",
+    "qcoOrder": "Toys Quality Control Order",
+    "businessTypes": [
+      "battery operated toy plants",
+      "RC car and drone toy factories"
+    ],
+    "summary": "Mandatory safety standard for battery-powered and transformer-fed electric toys.",
+    "scope": "Covers maximum operating voltage (<= 24V), battery compartment screw locking, short-circuit fire prevention, and laser safety.",
+    "keywords": [
+      "electric toy",
+      "battery toy",
+      "maximum voltage <= 24V",
+      "battery screw lock",
+      "laser radiation Class 1"
+    ],
+    "clauses": [
+      {
+        "id": "is15644-c7",
+        "number": "Clause 7.1",
+        "title": "Voltage Limits and Battery Compartment",
+        "content": "Electric toys shall operate from safety extra-low voltage not exceeding 24V; battery compartment accessible only via screwdriver.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-2553-1-2018",
+    "code": "IS 2553 (Part 1):2018",
+    "title": "Safety Glass — Specification: Part 1 Architectural, Building and General Uses",
+    "year": 2018,
+    "category": "Civil & Construction",
+    "department": "Civil Engineering / CED 5",
+    "division": "Civil Engineering / CED 5",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Safety Glass Quality Control Order",
+    "qcoOrder": "Safety Glass Quality Control Order",
+    "businessTypes": [
+      "toughened glass processing plants",
+      "laminated architectural glass factories"
+    ],
+    "summary": "Mandatory standard for toughened (tempered) and laminated safety glass used in building facades, railings, and shower cubicles.",
+    "scope": "Covers particle fragmentation count (minimum 40 particles in 50x50 mm square), thermal shock, and 45 kg shot bag impact.",
+    "keywords": [
+      "toughened glass",
+      "laminated safety glass",
+      "fragmentation test 40 particles",
+      "shot bag impact 45kg",
+      "building glass"
+    ],
+    "clauses": [
+      {
+        "id": "is2553-1-c6",
+        "number": "Clause 6.1",
+        "title": "Fragmentation Test for Toughened Glass",
+        "content": "Center punch fracture shall yield not less than 40 granular particles within any 50 mm x 50 mm counting area without slivers.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-2553-2-2019",
+    "code": "IS 2553 (Part 2):2019",
+    "title": "Safety Glass — Specification: Part 2 For Road Transport (Automotive Glass)",
+    "year": 2019,
+    "category": "Consumer Goods",
+    "department": "Mechanical / TED 6",
+    "division": "Mechanical / TED 6",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Automotive Glass Quality Control Order",
+    "qcoOrder": "Automotive Glass Quality Control Order",
+    "businessTypes": [
+      "automotive windshield plants",
+      "toughened side window glass factories"
+    ],
+    "summary": "Mandatory standard for car laminated windshields and toughened side/rear door glasses.",
+    "scope": "Covers 2260 g steel ball drop test from 4.0 m, light transmittance (>70%), 10 kg dummy headform impact, and abrasion resistance.",
+    "keywords": [
+      "automotive glass",
+      "car windshield",
+      "laminated glass",
+      "light transmittance >= 70%",
+      "ball drop test 4m"
+    ],
+    "clauses": [
+      {
+        "id": "is2553-2-c6",
+        "number": "Clause 6.1",
+        "title": "2260g Steel Ball Impact on Windshield",
+        "content": "Ball dropped from 4.0 meters on laminated windshield at -20°C and +40°C; ball must not penetrate glass within 5 seconds.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13098-2012",
+    "code": "IS 13098:2012",
+    "title": "Automotive Vehicles — Pneumatic Tyres for Commercial Vehicles — Specification",
+    "year": 2012,
+    "category": "Consumer Goods",
+    "department": "Chemical / TED 7",
+    "division": "Chemical / TED 7",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Pneumatic Tyres Quality Control Order",
+    "qcoOrder": "Pneumatic Tyres Quality Control Order",
+    "businessTypes": [
+      "truck bus radial tyre plants",
+      "commercial vehicle tyre manufacturing"
+    ],
+    "summary": "Mandatory standard for truck and bus radial (TBR) and bias pneumatic tyres.",
+    "scope": "Covers high speed endurance drum testing (47 hours continuous), tyre plunger energy, and bead unseating resistance.",
+    "keywords": [
+      "commercial tyre",
+      "truck tyre TBR",
+      "endurance drum test",
+      "plunger energy",
+      "tyres QCO"
+    ],
+    "clauses": [
+      {
+        "id": "is13098-c6",
+        "number": "Clause 6.1",
+        "title": "High Speed Endurance Drum Test",
+        "content": "Tyre tested on 1.7m diameter test drum at rated speed/load for 47 hours without tread chunking, ply separation, or bead failure.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15633-2005",
+    "code": "IS 15633:2005",
+    "title": "Automotive Vehicles — Pneumatic Tyres for Passenger Car Vehicles — Specification",
+    "year": 2005,
+    "category": "Consumer Goods",
+    "department": "Chemical / TED 7",
+    "division": "Chemical / TED 7",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Pneumatic Tyres Quality Control Order",
+    "qcoOrder": "Pneumatic Tyres Quality Control Order",
+    "businessTypes": [
+      "passenger car radial tyre plants",
+      "PCR tyre factories"
+    ],
+    "summary": "Mandatory standard for tubeless radial car tyres (T, H, V, W, Y speed symbols).",
+    "scope": "Covers high-speed wheel drum test up to 300 km/h, breaking energy, and tread wear indicators (TWI 1.6 mm).",
+    "keywords": [
+      "car tyre",
+      "passenger car radial PCR",
+      "high speed drum test 240kmh",
+      "tread wear indicator TWI 1.6mm"
+    ],
+    "clauses": [
+      {
+        "id": "is15633-c6",
+        "number": "Clause 6.2",
+        "title": "High-Speed Performance Test",
+        "content": "Tyre rotated under load in steps of 10 km/h every 10 minutes up to declared top speed rating without carcass rupture.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15636-2012",
+    "code": "IS 15636:2012",
+    "title": "Automotive Vehicles — Pneumatic Tyres for Two and Three-Wheeled Motor Vehicles",
+    "year": 2012,
+    "category": "Consumer Goods",
+    "department": "Chemical / TED 7",
+    "division": "Chemical / TED 7",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Pneumatic Tyres Quality Control Order",
+    "qcoOrder": "Pneumatic Tyres Quality Control Order",
+    "businessTypes": [
+      "motorcycle tyre manufacturing",
+      "scooter tyre plants"
+    ],
+    "summary": "Mandatory standard for motorcycle, scooter, and auto-rickshaw front and rear tyres.",
+    "scope": "Covers bead unseating resistance force, plunger breaking energy, and dynamic drum endurance test.",
+    "keywords": [
+      "two wheeler tyre",
+      "motorcycle tyre",
+      "bead unseating resistance",
+      "tyre plunger test"
+    ],
+    "clauses": [
+      {
+        "id": "is15636-c6",
+        "number": "Clause 6.1",
+        "title": "Bead Unseating Resistance Force",
+        "content": "Force required to unseat tyre bead from rim edge shall be not less than specified minimum values per Table 3.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-28-1985",
+    "code": "IS 28:1985",
+    "title": "Copper Strip and Sheet for Electrical Purposes — Specification",
+    "year": 1985,
+    "category": "Civil & Construction",
+    "department": "Metallurgical / MTD 8",
+    "division": "Metallurgical / MTD 8",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Copper Products Quality Order",
+    "qcoOrder": "Copper Products Quality Order",
+    "businessTypes": [
+      "copper strip rolling mills",
+      "electrical busbar manufacturing"
+    ],
+    "summary": "Mandatory standard for electrolytic tough pitch (ETP) and oxygen-free copper strips (99.90% Cu) used in busbars and motor windings.",
+    "scope": "Covers electrical conductivity (minimum 100% IACS), tensile strength, and hardness.",
+    "keywords": [
+      "copper strip",
+      "ETP copper 99.9%",
+      "electrical busbar",
+      "conductivity 100% IACS",
+      "busbar copper"
+    ],
+    "clauses": [
+      {
+        "id": "is28-c5",
+        "number": "Clause 5.1",
+        "title": "Electrical Resistivity and Conductivity",
+        "content": "Volume resistivity at 20°C shall not exceed 0.017241 ohm.mm²/m corresponding to 100% IACS conductivity.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-617-1994",
+    "code": "IS 617:1994",
+    "title": "Aluminium and Aluminium Alloy Ingots and Castings for General Engineering",
+    "year": 1994,
+    "category": "Civil & Construction",
+    "department": "Metallurgical / MTD 7",
+    "division": "Metallurgical / MTD 7",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Aluminium Quality Control Order",
+    "qcoOrder": "Aluminium Quality Control Order",
+    "businessTypes": [
+      "aluminium die casting foundries",
+      "alloy ingot manufacturing"
+    ],
+    "summary": "Mandatory standard for primary and secondary aluminium foundry alloys (A6, 4600, LM6, LM24) for automotive engine and structural castings.",
+    "scope": "Covers chemical composition, gas porosity X-ray limits, and tensile strength of test bars.",
+    "keywords": [
+      "aluminium ingot",
+      "die casting alloy",
+      "LM6",
+      "LM24",
+      "silicon aluminium alloy",
+      "tensile strength 170MPa"
+    ],
+    "clauses": [
+      {
+        "id": "is617-c4",
+        "number": "Clause 4.1",
+        "title": "Chemical Composition and Tensile Properties",
+        "content": "Alloy 4600 (LM6): Silicon 10.0-13.0%, Iron <= 0.6%; tensile strength >= 170 MPa, elongation >= 5.0%.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-733-1983",
+    "code": "IS 733:1983",
+    "title": "Wrought Aluminium and Aluminium Alloy Bars, Rods and Sections for General Engineering",
+    "year": 1983,
+    "category": "Civil & Construction",
+    "department": "Metallurgical / MTD 7",
+    "division": "Metallurgical / MTD 7",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Aluminium Quality Control Order",
+    "qcoOrder": "Aluminium Quality Control Order",
+    "businessTypes": [
+      "aluminium extrusion plants",
+      "architectural aluminium section mills"
+    ],
+    "summary": "Mandatory standard for extruded aluminium alloy 6063 and 6082 bars, angles, and channels (T6 temper).",
+    "scope": "Covers mechanical strength (yield strength >170 MPa for 6063-T6), Webster hardness, and chemical tolerances.",
+    "keywords": [
+      "aluminium extrusion",
+      "alloy 6063 T6",
+      "architectural aluminium",
+      "yield strength 170MPa",
+      "Webster hardness"
+    ],
+    "clauses": [
+      {
+        "id": "is733-c6",
+        "number": "Clause 6.1",
+        "title": "Mechanical Properties (6063-T6)",
+        "content": "0.2% proof stress >= 170 MPa, tensile strength >= 205 MPa, elongation >= 8% on 50 mm gauge length.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-737-2008",
+    "code": "IS 737:2008",
+    "title": "Wrought Aluminium and Aluminium Alloy Sheet and Strip for General Engineering",
+    "year": 2008,
+    "category": "Civil & Construction",
+    "department": "Metallurgical / MTD 7",
+    "division": "Metallurgical / MTD 7",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Aluminium Quality Control Order",
+    "qcoOrder": "Aluminium Quality Control Order",
+    "businessTypes": [
+      "aluminium sheet rolling mills",
+      "cookware blank manufacturing plants"
+    ],
+    "summary": "Mandatory standard for cold-rolled aluminium sheets (alloys 19000, 31000, 52000) used for pressure cookers, aircraft skin, and facades.",
+    "scope": "Covers bend test, tensile strength, and deep drawing Erichsen cupping.",
+    "keywords": [
+      "aluminium sheet",
+      "alloy 31000",
+      "cookware sheet",
+      "Erichsen cupping value",
+      "anodizing quality"
+    ],
+    "clauses": [
+      {
+        "id": "is737-c6",
+        "number": "Clause 6.1",
+        "title": "Tensile and 180° Bend Test",
+        "content": "Tensile strength per Table 3; cold bend 180° flat on itself without edge cracking or surface tears.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-1285-2002",
+    "code": "IS 1285:2002",
+    "title": "Wrought Aluminium and Aluminium Alloy Extruded Round Tube and Hollow Sections",
+    "year": 2002,
+    "category": "Civil & Construction",
+    "department": "Metallurgical / MTD 7",
+    "division": "Metallurgical / MTD 7",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Aluminium Quality Control Order",
+    "qcoOrder": "Aluminium Quality Control Order",
+    "businessTypes": [
+      "aluminium tube extrusion plants",
+      "condenser tube manufacturers"
+    ],
+    "summary": "Mandatory standard for extruded aluminium round tubes and hollow profiles for heat exchangers, furniture, and structural frames.",
+    "scope": "Covers hydraulic internal pressure test (up to 3.0 MPa), flattening test, and dimensional tolerances.",
+    "keywords": [
+      "aluminium tube",
+      "hollow extrusion",
+      "hydraulic proof test",
+      "flattening test"
+    ],
+    "clauses": [
+      {
+        "id": "is1285-c8",
+        "number": "Clause 8.1",
+        "title": "Hydraulic Pressure and Flattening",
+        "content": "Tube tested at internal hydrostatic pressure for 10 seconds; tube section flattened between plates to 50% diameter without cracking.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-282-1982",
+    "code": "IS 282:1982",
+    "title": "Hard-Drawn Aluminium Conductors for Overhead Transmission Purposes (AAC)",
+    "year": 1982,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 37",
+    "division": "Electrotechnical / ETD 37",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Conductors Quality Control Order",
+    "qcoOrder": "Conductors Quality Control Order",
+    "businessTypes": [
+      "overhead conductor factories",
+      "wire stranding plants"
+    ],
+    "summary": "Mandatory standard for solid and stranded All-Aluminium Conductors (AAC) for power transmission lines.",
+    "scope": "Covers wire tensile breaking load, wrapping test, and electrical resistance at 20°C.",
+    "keywords": [
+      "AAC conductor",
+      "all aluminium conductor",
+      "overhead power line",
+      "tensile breaking load",
+      "wrapping test"
+    ],
+    "clauses": [
+      {
+        "id": "is282-c6",
+        "number": "Clause 6.1",
+        "title": "Tensile Breaking Load & Electrical Resistance",
+        "content": "Individual wire tensile strength >= 160 to 200 MPa; maximum DC resistance at 20°C per Table 2.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-398-1-1996",
+    "code": "IS 398 (Part 1):1996",
+    "title": "Aluminium Conductors for Overhead Transmission: Part 1 Aluminium Stranded Conductors",
+    "year": 1996,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 37",
+    "division": "Electrotechnical / ETD 37",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Conductors Quality Control Order",
+    "qcoOrder": "Conductors Quality Control Order",
+    "businessTypes": [
+      "transmission line conductor plants",
+      "cable manufacturing factories"
+    ],
+    "summary": "Mandatory standard for stranded aluminium conductors (AAC) with uniform lay ratio and wire count (7, 19, 37 strands).",
+    "scope": "Covers lay length, joints in wires, and total breaking load of conductor assembly.",
+    "keywords": [
+      "stranded aluminium conductor",
+      "lay ratio",
+      "7 strand conductor",
+      "tensile breaking load"
+    ],
+    "clauses": [
+      {
+        "id": "is398-1-c7",
+        "number": "Clause 7.2",
+        "title": "Conductor Breaking Load",
+        "content": "Rated breaking load of stranded conductor shall be calculated as 95% of sum of individual wire breaking strengths.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-398-2-1996",
+    "code": "IS 398 (Part 2):1996",
+    "title": "Aluminium Conductor, Galvanized Steel-Reinforced (ACSR) — Specification",
+    "year": 1996,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 37",
+    "division": "Electrotechnical / ETD 37",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Conductors Quality Control Order",
+    "qcoOrder": "Conductors Quality Control Order",
+    "businessTypes": [
+      "ACSR conductor plants",
+      "high voltage power grid conductor factories"
+    ],
+    "summary": "Mandatory standard for ACSR conductors (Dog, Panther, Zebra, Moose) combining high-conductivity aluminium with high-tensile steel core.",
+    "scope": "Covers zinc coating on steel core wires, torsion test (minimum 18 twists), and rated breaking strength.",
+    "keywords": [
+      "ACSR conductor",
+      "Panther Moose Zebra",
+      "galvanized steel core",
+      "torsion test 18 twists",
+      "high voltage transmission"
+    ],
+    "clauses": [
+      {
+        "id": "is398-2-c7",
+        "number": "Clause 7.1",
+        "title": "Torsion and Zinc Coating on Core Wire",
+        "content": "Galvanized steel core wire must withstand minimum 18 twists in torsion; zinc coating mass >= 240 g/m².",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-398-4-1994",
+    "code": "IS 398 (Part 4):1994",
+    "title": "Aluminium Alloy Stranded Conductors (AAAC) — Specification",
+    "year": 1994,
+    "category": "Electrical",
+    "department": "Electrotechnical / ETD 37",
+    "division": "Electrotechnical / ETD 37",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Conductors Quality Control Order",
+    "qcoOrder": "Conductors Quality Control Order",
+    "businessTypes": [
+      "AAAC conductor plants",
+      "coastal power distribution line manufacturers"
+    ],
+    "summary": "Mandatory standard for Al-Mg-Si heat-treated alloy conductors (AAAC) offering high corrosion resistance in coastal areas.",
+    "scope": "Covers electrical conductivity (minimum 52.5% IACS) and high tensile strength (minimum 295 MPa).",
+    "keywords": [
+      "AAAC conductor",
+      "all aluminium alloy conductor",
+      "coastal transmission",
+      "tensile strength 295MPa",
+      "conductivity 52.5% IACS"
+    ],
+    "clauses": [
+      {
+        "id": "is398-4-c6",
+        "number": "Clause 6.1",
+        "title": "Mechanical and Electrical Properties",
+        "content": "Individual alloy wire tensile strength >= 295 MPa; electrical resistivity at 20°C <= 0.0328 ohm.mm²/m.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-319-2007",
+    "code": "IS 319:2007",
+    "title": "Free Cutting Brass Bars, Rods and Sections — Specification",
+    "year": 2007,
+    "category": "Civil & Construction",
+    "department": "Metallurgical / MTD 8",
+    "division": "Metallurgical / MTD 8",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Brass Quality Control Order",
+    "qcoOrder": "Brass Quality Control Order",
+    "businessTypes": [
+      "brass extrusion units",
+      "CNC turned parts manufacturing",
+      "plumbing brassware factories"
+    ],
+    "summary": "Mandatory standard for leaded free-cutting brass (CuZn39Pb3, Grade 1 to 3) for high-speed automated machining.",
+    "scope": "Covers machinability index (100%), copper content (56.0-59.0%), lead (2.0-3.5%), and mercurous nitrate crack test.",
+    "keywords": [
+      "free cutting brass",
+      "brass rod",
+      "CuZn39Pb3",
+      "machinability 100%",
+      "mercurous nitrate test"
+    ],
+    "clauses": [
+      {
+        "id": "is319-c6",
+        "number": "Clause 6.2",
+        "title": "Mercurous Nitrate Stress Corrosion Test",
+        "content": "Extruded brass rods immersed in mercurous nitrate solution for 30 minutes without developing intergranular stress cracks.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-410-1977",
+    "code": "IS 410:1977",
+    "title": "Cold Rolled Brass Sheet, Strip and Foil — Specification",
+    "year": 1977,
+    "category": "Civil & Construction",
+    "department": "Metallurgical / MTD 8",
+    "division": "Metallurgical / MTD 8",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Brass Quality Control Order",
+    "qcoOrder": "Brass Quality Control Order",
+    "businessTypes": [
+      "brass strip rolling mills",
+      "electrical terminal stamping units"
+    ],
+    "summary": "Mandatory standard for 70/30 cartridge brass and 63/37 cold-rolled brass strips for electrical socket clips and radiator fins.",
+    "scope": "Covers grain size, Vickers hardness, tensile elongation, and deep drawing properties.",
+    "keywords": [
+      "brass sheet",
+      "cartridge brass 70/30",
+      "brass strip",
+      "Vickers hardness",
+      "electrical contact stamping"
+    ],
+    "clauses": [
+      {
+        "id": "is410-c5",
+        "number": "Clause 5.1",
+        "title": "Tensile Strength & Grain Size (Annealed)",
+        "content": "70/30 brass annealed: tensile strength 300 to 380 MPa, elongation >= 50%, average grain size 0.025 to 0.050 mm.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-1566-1982",
+    "code": "IS 1566:1982",
+    "title": "Hard-Drawn Steel Wire Fabric for Concrete Reinforcement (Welded Wire Mesh)",
+    "year": 1982,
+    "category": "Civil & Construction",
+    "department": "Metallurgical / MTD 4",
+    "division": "Metallurgical / MTD 4",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Steel Quality Control Order",
+    "qcoOrder": "Steel Quality Control Order",
+    "businessTypes": [
+      "welded wire mesh plants",
+      "BRC fabric factories",
+      "precast RCC mesh manufacturing"
+    ],
+    "summary": "Mandatory standard for machine-welded wire mesh sheets and rolls used in RCC slabs, precast pipes, and road pavements.",
+    "scope": "Covers weld shear strength (minimum 25% of wire tensile strength), mesh squareness, and wire tensile limits.",
+    "keywords": [
+      "welded wire mesh",
+      "steel wire fabric",
+      "weld shear strength",
+      "BRC mesh",
+      "RCC slab reinforcement"
+    ],
+    "clauses": [
+      {
+        "id": "is1566-c7",
+        "number": "Clause 7.1",
+        "title": "Weld Cross Joint Shear Strength",
+        "content": "Shear strength of electrical resistance weld at cross wire intersection shall be not less than 25% of nominal wire tensile strength.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-2825-1969",
+    "code": "IS 2825:1969",
+    "title": "Code for Unfired Pressure Vessels — Design, Construction and Inspection",
+    "year": 1969,
+    "category": "Civil & Construction",
+    "department": "Mechanical / MED 22",
+    "division": "Mechanical / MED 22",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "PESO Pressure Vessels Regulations",
+    "qcoOrder": "PESO Pressure Vessels Regulations",
+    "businessTypes": [
+      "pressure vessel fabrication shops",
+      "chemical reactor manufacturers",
+      "boiler factories"
+    ],
+    "summary": "National design code for unfired cylindrical and spherical pressure vessels, joint efficiency, and hydrostatic proof test.",
+    "scope": "Covers shell thickness calculations, weld radiography, head dishing (torispherical/ellipsoidal), and stress relieving.",
+    "keywords": [
+      "pressure vessel",
+      "unfired vessel",
+      "PESO",
+      "radiography test",
+      "hydrostatic test 1.5x",
+      "post weld heat treatment"
+    ],
+    "clauses": [
+      {
+        "id": "is2825-c6",
+        "number": "Clause 6.1",
+        "title": "Hydrostatic Proof Test Pressure",
+        "content": "Vessel subjected to hydrostatic test pressure equal to 1.3 to 1.5 times maximum design pressure for at least 30 minutes without leakage.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-3196-1-2013",
+    "code": "IS 3196 (Part 1):2013",
+    "title": "Welded Low Carbon Steel Cylinders for Low Pressure Liquefiable Gases (LPG)",
+    "year": 2013,
+    "category": "Consumer Goods",
+    "department": "Mechanical / MED 16",
+    "division": "Mechanical / MED 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "PESO Gas Cylinders Rules",
+    "qcoOrder": "PESO Gas Cylinders Rules",
+    "businessTypes": [
+      "domestic LPG cylinder factories",
+      "14.2 kg gas cylinder manufacturing"
+    ],
+    "summary": "Mandatory standard for 14.2 kg and 19 kg domestic/commercial LPG cylinders manufactured from high-strength micro-alloyed steel.",
+    "scope": "Covers burst pressure test (minimum 4.0 MPa), water jacket volumetric expansion test, and seam weld radiography.",
+    "keywords": [
+      "LPG cylinder",
+      "14.2 kg cylinder",
+      "burst pressure 4MPa",
+      "water jacket expansion test",
+      "PESO approval"
+    ],
+    "clauses": [
+      {
+        "id": "is3196-1-c7",
+        "number": "Clause 7.1",
+        "title": "Hydrostatic Stretch and Bursting Pressure",
+        "content": "Cylinder volumetric permanent expansion <= 10% under 2.5 MPa; minimum hydrostatic bursting pressure shall not be less than 4.0 MPa.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-3196-2-2006",
+    "code": "IS 3196 (Part 2):2006",
+    "title": "Welded Low Carbon Steel Cylinders for Low Pressure Liquefiable Gases: Above 5L",
+    "year": 2006,
+    "category": "Consumer Goods",
+    "department": "Mechanical / MED 16",
+    "division": "Mechanical / MED 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "PESO Gas Cylinders Rules",
+    "qcoOrder": "PESO Gas Cylinders Rules",
+    "businessTypes": [
+      "industrial LPG cylinder plants",
+      "commercial cylinder factories"
+    ],
+    "summary": "Mandatory standard for commercial 35 kg, 47.5 kg, and bulk refrigerant gas cylinders exceeding 5 liter water capacity.",
+    "scope": "Covers weld root bend tests, circular seam submerged arc welding, and heat treatment normalization.",
+    "keywords": [
+      "commercial LPG cylinder",
+      "47.5 kg cylinder",
+      "refrigerant cylinder",
+      "weld bend test",
+      "normalizing furnace"
+    ],
+    "clauses": [
+      {
+        "id": "is3196-2-c6",
+        "number": "Clause 6.1",
+        "title": "Heat Treatment and Weld Root Bend",
+        "content": "All cylinders normalized in furnace at (900 ± 20)°C; circumferential weld root bend 180° around former without crack.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-7285-1-2018",
+    "code": "IS 7285 (Part 1):2018",
+    "title": "Refillable Seamless Steel Gas Cylinders: Normalized Steel Cylinders",
+    "year": 2018,
+    "category": "Consumer Goods",
+    "department": "Mechanical / MED 16",
+    "division": "Mechanical / MED 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Gas Cylinders Rules PESO",
+    "qcoOrder": "Gas Cylinders Rules PESO",
+    "businessTypes": [
+      "seamless oxygen cylinder plants",
+      "CNG cylinder manufacturing"
+    ],
+    "summary": "Mandatory standard for seamless hot-spun gas cylinders for industrial oxygen, nitrogen, argon, and hydrogen at 150-200 bar.",
+    "scope": "Covers ultrasonic flaw inspection of seamless shell, flattening test, and hydrostatic proof test at 250 bar.",
+    "keywords": [
+      "seamless gas cylinder",
+      "oxygen cylinder",
+      "CNG cylinder",
+      "ultrasonic test 100%",
+      "proof pressure 250 bar"
+    ],
+    "clauses": [
+      {
+        "id": "is7285-1-c8",
+        "number": "Clause 8.1",
+        "title": "Hydrostatic Proof Test and Volumetric Expansion",
+        "content": "Cylinder tested at 250 bar test pressure; permanent volumetric expansion shall not exceed 10% of total expansion.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-7285-2-2017",
+    "code": "IS 7285 (Part 2):2017",
+    "title": "Refillable Seamless Steel Gas Cylinders: Quenched and Tempered Steel (Up to 300 bar)",
+    "year": 2017,
+    "category": "Consumer Goods",
+    "department": "Mechanical / MED 16",
+    "division": "Mechanical / MED 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Gas Cylinders Rules PESO",
+    "qcoOrder": "Gas Cylinders Rules PESO",
+    "businessTypes": [
+      "CNG cascade cylinder plants",
+      "high pressure gas cylinder manufacturing"
+    ],
+    "summary": "Mandatory standard for quenched and tempered high-strength Cr-Mo alloy steel cylinders operating up to 300 bar.",
+    "scope": "Covers low temperature Charpy V-notch impact test (-40°C), burst pressure, and cyclic fatigue testing (12,000 cycles).",
+    "keywords": [
+      "quenched and tempered cylinder",
+      "Cr Mo alloy cylinder",
+      "cyclic fatigue 12000 cycles",
+      "burst ratio >= 1.6"
+    ],
+    "clauses": [
+      {
+        "id": "is7285-2-c9",
+        "number": "Clause 9.1",
+        "title": "Cyclic Pressure Fatigue Test",
+        "content": "Cylinder subjected to 12,000 hydraulic pressure cycles between atmospheric and 200 bar without leak or structural rupture.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15100-2001",
+    "code": "IS 15100:2001",
+    "title": "Multifunction Valves for LPG Cylinders — Specification",
+    "year": 2001,
+    "category": "Consumer Goods",
+    "department": "Mechanical / MED 16",
+    "division": "Mechanical / MED 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Gas Valves Quality Control Order",
+    "qcoOrder": "Gas Valves Quality Control Order",
+    "businessTypes": [
+      "LPG cylinder valve factories",
+      "brass valve forging units"
+    ],
+    "summary": "Mandatory standard for self-closing Compact 25.6 mm valves fitted on 14.2 kg household domestic LPG cylinders.",
+    "scope": "Covers internal excess flow valve, pressure relief valve, seal leak tightness under 1.7 MPa pneumatic pressure, and 10,000 opening cycles.",
+    "keywords": [
+      "LPG valve",
+      "cylinder valve",
+      "pressure relief valve PRV",
+      "pneumatic leak test",
+      "10000 cycles endurance"
+    ],
+    "clauses": [
+      {
+        "id": "is15100-c6",
+        "number": "Clause 6.1",
+        "title": "Pneumatic Leak Tightness Test",
+        "content": "Valve submerged in water under 1.7 MPa nitrogen gas pressure for 1 minute; zero air bubble leakage permitted.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-8776-2003",
+    "code": "IS 8776:2003",
+    "title": "Valve Fittings for Gas Cylinders — Specification",
+    "year": 2003,
+    "category": "Consumer Goods",
+    "department": "Mechanical / MED 16",
+    "division": "Mechanical / MED 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Gas Valves Quality Control Order",
+    "qcoOrder": "Gas Valves Quality Control Order",
+    "businessTypes": [
+      "industrial gas valve plants",
+      "oxygen cylinder valve manufacturing"
+    ],
+    "summary": "Mandatory standard for wheel-operated brass valves for industrial and medical gas cylinders (Oxygen, Nitrogen, CO2, Argon).",
+    "scope": "Covers taper thread dimensions, safety burst disc diaphragms, and operating torque endurance.",
+    "keywords": [
+      "gas cylinder valve",
+      "medical oxygen valve",
+      "burst disc",
+      "taper thread",
+      "handwheel torque"
+    ],
+    "clauses": [
+      {
+        "id": "is8776-c5",
+        "number": "Clause 5.1",
+        "title": "Safety Burst Disc Rupture Pressure",
+        "content": "Bursting disc fitted to valve shall safely rupture between 110% and 130% of cylinder hydrostatic test pressure.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15683-2018",
+    "code": "IS 15683:2018",
+    "title": "Portable Fire Extinguishers — Performance and Construction (Clean Agent, Powder, Foam)",
+    "year": 2018,
+    "category": "Consumer Goods",
+    "department": "Civil Engineering / CED 22",
+    "division": "Civil Engineering / CED 22",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Fire Extinguishers Quality Order",
+    "qcoOrder": "Fire Extinguishers Quality Order",
+    "businessTypes": [
+      "fire extinguisher manufacturing plants",
+      "clean agent fire equipment factories"
+    ],
+    "summary": "Mandatory standard for portable dry chemical powder (ABC), mechanical foam (AFFF), water, and clean agent fire extinguishers.",
+    "scope": "Covers fire rating tests (Class 1A to 20A wood crib fire, Class 21B to 233B heptane fuel fire), burst pressure, and discharge range.",
+    "keywords": [
+      "fire extinguisher",
+      "ABC powder extinguisher",
+      "fire rating 4A 55B",
+      "burst pressure 5.5MPa",
+      "discharge range 6m"
+    ],
+    "clauses": [
+      {
+        "id": "is15683-c7",
+        "number": "Clause 7.1",
+        "title": "Fire Test Rating (Class A Wood Crib)",
+        "content": "4A rated extinguisher must completely extinguish standard 4A wood crib test fire of 120 wooden sticks within discharge time.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-2171-1999",
+    "code": "IS 2171:1999",
+    "title": "Dry Powder Fire Extinguishers (Cartridge and Stored Pressure) — Specification",
+    "year": 1999,
+    "category": "Consumer Goods",
+    "department": "Civil Engineering / CED 22",
+    "division": "Civil Engineering / CED 22",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Fire Extinguishers Standards",
+    "qcoOrder": "Fire Extinguishers Standards",
+    "businessTypes": [
+      "dry powder extinguisher plants",
+      "CO2 cartridge manufacturing"
+    ],
+    "summary": "Specifies construction, minimum 85% discharge of contents within 15 seconds, and 2.5 MPa hydrostatic pressure withstand.",
+    "scope": "Covers sodium bicarbonate and monoammonium phosphate based industrial dry chemical extinguishers.",
+    "keywords": [
+      "dry powder extinguisher",
+      "stored pressure",
+      "CO2 gas cartridge",
+      "discharge time 15s",
+      "hydrostatic test 2.5MPa"
+    ],
+    "clauses": [
+      {
+        "id": "is2171-c6",
+        "number": "Clause 6.1",
+        "title": "Discharge Performance and Time",
+        "content": "Extinguisher must discharge not less than 85% of total chemical powder within 15 to 25 seconds continuously.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16018-2012",
+    "code": "IS 16018:2012",
+    "title": "Wheeled Fire Extinguishers — Performance and Construction",
+    "year": 2012,
+    "category": "Consumer Goods",
+    "department": "Civil Engineering / CED 22",
+    "division": "Civil Engineering / CED 22",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Fire Extinguishers Standards",
+    "qcoOrder": "Fire Extinguishers Standards",
+    "businessTypes": [
+      "trolley fire extinguisher plants",
+      "airport fire equipment manufacturing"
+    ],
+    "summary": "Mandatory standard for large mobile wheeled fire extinguishers (25 kg to 150 kg dry powder and 50 L mechanical foam).",
+    "scope": "Covers carriage towability at 20 km/h, 5.0 meter discharge hose, and large industrial flammable liquid fire ratings (233B).",
+    "keywords": [
+      "wheeled extinguisher",
+      "trolley fire extinguisher 50kg",
+      "large fire rating 233B",
+      "towing test 20kmh"
+    ],
+    "clauses": [
+      {
+        "id": "is16018-c6",
+        "number": "Clause 6.2",
+        "title": "High Capacity Flammable Liquid Fire (233B)",
+        "content": "Wheeled extinguisher must completely knock down and extinguish 233B circular fuel tray fire within 60 seconds.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13849-1993",
+    "code": "IS 13849:1993",
+    "title": "Portable Fire Extinguisher, Carbon Dioxide Type — Specification",
+    "year": 1993,
+    "category": "Consumer Goods",
+    "department": "Civil Engineering / CED 22",
+    "division": "Civil Engineering / CED 22",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Fire Extinguishers Standards",
+    "qcoOrder": "Fire Extinguishers Standards",
+    "businessTypes": [
+      "CO2 fire extinguisher plants",
+      "electrical substation fire safety"
+    ],
+    "summary": "Mandatory standard for 2 kg, 3 kg, and 4.5 kg CO2 fire extinguishers with non-conductive discharge horn for live electrical equipment.",
+    "scope": "Covers seamless steel cylinder (tested to 250 bar), discharge horn frostbite protection, and Class B/C electrical fire suppression.",
+    "keywords": [
+      "CO2 fire extinguisher",
+      "electrical fire safety",
+      "discharge horn frostbite",
+      "cylinder pressure 250 bar"
+    ],
+    "clauses": [
+      {
+        "id": "is13849-c5",
+        "number": "Clause 5.1",
+        "title": "Electrical Non-Conductivity Test",
+        "content": "Discharge stream directed at 100 kV high voltage metallic plate at 1.0 meter distance; leakage current through horn <= 0.5 mA.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-10245-2-1994",
+    "code": "IS 10245 (Part 2):1994",
+    "title": "Respiratory Protective Devices: Open-Circuit Self-Contained Breathing Apparatus (SCBA)",
+    "year": 1994,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 8",
+    "division": "Chemical / CHD 8",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Respiratory Safety Equipment Standards",
+    "qcoOrder": "Respiratory Safety Equipment Standards",
+    "businessTypes": [
+      "SCBA breathing apparatus plants",
+      "firefighter PPE manufacturing"
+    ],
+    "summary": "Mandatory standard for compressed air SCBA sets used by firefighters, chemical spill response teams, and mine rescue crews.",
+    "scope": "Covers breathing resistance, positive pressure face mask seal, audible low pressure warning whistle, and flame engulfment.",
+    "keywords": [
+      "SCBA",
+      "breathing apparatus",
+      "firefighter mask",
+      "positive pressure 300 bar",
+      "warning whistle 55 bar"
+    ],
+    "clauses": [
+      {
+        "id": "is10245-2-c7",
+        "number": "Clause 7.1",
+        "title": "Breathing Resistance & Warning Whistle",
+        "content": "Inhalation breathing resistance <= 3.0 mbar; audible alarm whistle must sound continuously when cylinder drops below 55 bar.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-9473-2002",
+    "code": "IS 9473:2002",
+    "title": "Respiratory Protective Devices — Filtering Half Masks (N95 / FFP2) — Specification",
+    "year": 2002,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 8",
+    "division": "Chemical / CHD 8",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Masks Quality Control Order",
+    "qcoOrder": "Masks Quality Control Order",
+    "businessTypes": [
+      "N95 mask manufacturing plants",
+      "particulate respirator factories"
+    ],
+    "summary": "Mandatory standard for FFP1 (80%), FFP2 (94% / N95 equivalent), and FFP3 (99%) particulate filtering half masks.",
+    "scope": "Covers sodium chloride particulate penetration, paraffin oil aerosol penetration, breathing resistance, and flammability.",
+    "keywords": [
+      "N95 mask",
+      "FFP2 respirator",
+      "filtration efficiency >= 94%",
+      "breathing resistance <= 2.4 mbar",
+      "paraffin oil aerosol"
+    ],
+    "clauses": [
+      {
+        "id": "is9473-c6",
+        "number": "Clause 6.1",
+        "title": "Sodium Chloride & Paraffin Oil Aerosol Penetration",
+        "content": "Total penetration of NaCl and paraffin oil aerosols through FFP2 filter mask shall not exceed 6.0% (94% efficiency).",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-16289-2014",
+    "code": "IS 16289:2014",
+    "title": "Medical Textiles — Surgical Face Masks — Specification",
+    "year": 2014,
+    "category": "Consumer Goods",
+    "department": "Textiles / TXD 36",
+    "division": "Textiles / TXD 36",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Medical Textiles Standards",
+    "qcoOrder": "Medical Textiles Standards",
+    "businessTypes": [
+      "3-ply surgical mask plants",
+      "medical PPE manufacturing"
+    ],
+    "summary": "Mandatory standard for 3-ply disposable surgical face masks (Class I, II, IIR) used in hospital operating theaters.",
+    "scope": "Covers Bacterial Filtration Efficiency (BFE >= 98%), sub-micron particulate filtration (PFE >= 95%), and splash synthetic blood resistance.",
+    "keywords": [
+      "surgical mask",
+      "3 ply mask",
+      "bacterial filtration BFE >= 98%",
+      "synthetic blood splash 120 mmHg",
+      "meltblown fabric"
+    ],
+    "clauses": [
+      {
+        "id": "is16289-c5",
+        "number": "Clause 5.1",
+        "title": "Bacterial Filtration Efficiency (BFE)",
+        "content": "BFE tested with Staphylococcus aureus aerosol shall not be less than 98.0% for Class II and Class IIR masks.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-17334-2019",
+    "code": "IS 17334:2019",
+    "title": "Medical Textiles — Coveralls for Healthcare Workers — Specification",
+    "year": 2019,
+    "category": "Consumer Goods",
+    "department": "Textiles / TXD 36",
+    "division": "Textiles / TXD 36",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Medical PPE Standards",
+    "qcoOrder": "Medical PPE Standards",
+    "businessTypes": [
+      "PPE coverall factories",
+      "seam tape sealing plants",
+      "medical protective suit manufacturing"
+    ],
+    "summary": "Mandatory standard for viral barrier healthcare coveralls protecting doctors and nurses from infectious biological fluids.",
+    "scope": "Covers synthetic blood penetration resistance (Class 3), seam tape seal integrity, and moisture vapor transmission rate (MVTR).",
+    "keywords": [
+      "PPE coverall",
+      "medical protective suit",
+      "synthetic blood penetration",
+      "seam heat seal tape",
+      "viral barrier"
+    ],
+    "clauses": [
+      {
+        "id": "is17334-c5",
+        "number": "Clause 5.1",
+        "title": "Synthetic Blood Penetration Resistance",
+        "content": "Fabric and taped seams shall resist synthetic blood penetration at 14 kPa hydrostatic pressure per ISO 16603 Class 3.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13422-1992",
+    "code": "IS 13422:1992",
+    "title": "Medical Gloves: Single-Use Sterile Rubber Surgical Gloves — Specification",
+    "year": 1992,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 9",
+    "division": "Chemical / CHD 9",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Medical Devices Quality Order",
+    "qcoOrder": "Medical Devices Quality Order",
+    "businessTypes": [
+      "latex surgical glove factories",
+      "nitrile medical glove manufacturing"
+    ],
+    "summary": "Mandatory standard for sterile natural rubber latex surgical gloves used in invasive surgical procedures.",
+    "scope": "Covers tensile strength (minimum 24 MPa unaged), elongation at break (minimum 750%), water leak test, and sterility verification.",
+    "keywords": [
+      "surgical gloves",
+      "sterile latex gloves",
+      "tensile strength 24MPa",
+      "water leak 1000ml",
+      "elongation 750%"
+    ],
+    "clauses": [
+      {
+        "id": "is13422-c6",
+        "number": "Clause 6.1",
+        "title": "Water Leak Impermeability Test",
+        "content": "Gloves filled with 1000 ml water; zero droplet pinhole leakage permitted per AQL 1.5 sampling inspection.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15354-2003",
+    "code": "IS 15354:2003",
+    "title": "Single-Use Sterile Rubber Examination Gloves — Specification",
+    "year": 2003,
+    "category": "Consumer Goods",
+    "department": "Chemical / CHD 9",
+    "division": "Chemical / CHD 9",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Medical Devices Quality Order",
+    "qcoOrder": "Medical Devices Quality Order",
+    "businessTypes": [
+      "examination glove plants",
+      "powder free nitrile glove factories"
+    ],
+    "summary": "Mandatory standard for medical examination gloves used during clinical diagnostics and outpatient healthcare.",
+    "scope": "Covers biocompatibility, powder-free residue limits (<2 mg per glove), tensile strength (14 MPa), and freedom from pinholes.",
+    "keywords": [
+      "examination gloves",
+      "nitrile gloves",
+      "powder free <= 2mg",
+      "water leak test AQL 2.5",
+      "medical glove"
+    ],
+    "clauses": [
+      {
+        "id": "is15354-c6",
+        "number": "Clause 6.1",
+        "title": "Pinhole Freedom and Powder Residue",
+        "content": "Pinhole AQL 2.5; total powder mass for powder-free examination gloves shall not exceed 2.0 mg per glove.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-10263-1982",
+    "code": "IS 10263:1982",
+    "title": "Clinical Thermometers (Liquid-in-Glass) — Specification",
+    "year": 1982,
+    "category": "Consumer Goods",
+    "department": "Mechanical / PGD 25",
+    "division": "Mechanical / PGD 25",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Medical Thermometers Standards",
+    "qcoOrder": "Medical Thermometers Standards",
+    "businessTypes": [
+      "glass thermometer factories",
+      "mercury/alcohol clinical thermometer plants"
+    ],
+    "summary": "Mandatory standard for liquid-in-glass clinical maximum thermometers measuring human body temperature from 35.0°C to 42.0°C.",
+    "scope": "Covers maximum permissible error (±0.1°C), constriction tube reset, and thermal shock durability.",
+    "keywords": [
+      "clinical thermometer",
+      "mercury thermometer",
+      "maximum error ±0.1C",
+      "constriction tube",
+      "scale 35 to 42C"
+    ],
+    "clauses": [
+      {
+        "id": "is10263-c5",
+        "number": "Clause 5.1",
+        "title": "Maximum Permissible Error & Constriction",
+        "content": "Error between 35.5°C and 42.0°C shall not exceed ±0.1°C; constriction must maintain reading until shaken down.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-15907-2010",
+    "code": "IS 15907:2010",
+    "title": "Digital Clinical Thermometers — Specification",
+    "year": 2010,
+    "category": "Consumer Goods",
+    "department": "Electronics / LITD 16",
+    "division": "Electronics / LITD 16",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Medical Electronics Standards",
+    "qcoOrder": "Medical Electronics Standards",
+    "businessTypes": [
+      "digital thermometer assembly lines",
+      "infrared thermometer factories"
+    ],
+    "summary": "Mandatory standard for electronic digital contact and infrared forehead clinical thermometers.",
+    "scope": "Covers electronic thermistor accuracy (±0.1°C between 35°C and 42°C), waterproof probe tip, low battery alert, and self-test verification.",
+    "keywords": [
+      "digital thermometer",
+      "electronic thermometer",
+      "accuracy ±0.1C",
+      "infrared thermometer",
+      "waterproof probe"
+    ],
+    "clauses": [
+      {
+        "id": "is15907-c5",
+        "number": "Clause 5.1",
+        "title": "Laboratory Measurement Accuracy",
+        "content": "Digital readout error calibrated in precision water bath shall not exceed ±0.1°C across 35.5°C to 42.0°C clinical range.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13450-1-2018",
+    "code": "IS 13450 (Part 1):2018",
+    "title": "Medical Electrical Equipment — Part 1: General Requirements for Basic Safety",
+    "year": 2018,
+    "category": "Consumer Goods",
+    "department": "Electrotechnical / ETD 23",
+    "division": "Electrotechnical / ETD 23",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Medical Electrical Equipment Order",
+    "qcoOrder": "Medical Electrical Equipment Order",
+    "businessTypes": [
+      "medical device manufacturing",
+      "patient monitoring system plants",
+      "dialysis machine assembly"
+    ],
+    "summary": "National safety code for medical electrical systems: patient leakage current (<10 uA for Type CF), earth continuity, and defibrillation protection.",
+    "scope": "Applies to all electro-medical diagnostic and therapeutic equipment.",
+    "keywords": [
+      "medical device safety",
+      "patient leakage current < 10uA",
+      "Type CF applied part",
+      "defibrillator proof"
+    ],
+    "clauses": [
+      {
+        "id": "is13450-1-c8",
+        "number": "Clause 8.7",
+        "title": "Patient Auxiliary and Leakage Currents",
+        "content": "Patient leakage current to earth shall not exceed 10 microamperes under normal condition for Type CF cardiac floating parts.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13450-2-24-2018",
+    "code": "IS 13450 (Part 2/Sec 24):2018",
+    "title": "Medical Electrical Equipment: Particular Requirements for Infusion Pumps",
+    "year": 2018,
+    "category": "Consumer Goods",
+    "department": "Electrotechnical / ETD 23",
+    "division": "Electrotechnical / ETD 23",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Medical Electrical Equipment Order",
+    "qcoOrder": "Medical Electrical Equipment Order",
+    "businessTypes": [
+      "syringe pump manufacturers",
+      "volumetric infusion pump factories"
+    ],
+    "summary": "Mandatory standard for volumetric infusion pumps and syringe drivers used in intensive care units (ICU).",
+    "scope": "Covers occlusion alarm pressure detection, anti-free-flow protection, air-in-line bubble detection, and volumetric dosage accuracy (±5%).",
+    "keywords": [
+      "infusion pump",
+      "syringe pump",
+      "air in line detector",
+      "occlusion pressure alarm",
+      "flow accuracy ±5%"
+    ],
+    "clauses": [
+      {
+        "id": "is13450-2-24-c201",
+        "number": "Clause 201.12",
+        "title": "Delivery Accuracy and Air-in-Line Alarm",
+        "content": "Volumetric flow rate accuracy within ±5%; ultrasonic detector must trigger alarm for air bubbles >= 50 microliters.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13450-2-2-2018",
+    "code": "IS 13450 (Part 2/Sec 2):2018",
+    "title": "Medical Electrical Equipment: High Frequency Surgical Equipment (Electrosurgical Units)",
+    "year": 2018,
+    "category": "Consumer Goods",
+    "department": "Electrotechnical / ETD 23",
+    "division": "Electrotechnical / ETD 23",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Medical Electrical Equipment Order",
+    "qcoOrder": "Medical Electrical Equipment Order",
+    "businessTypes": [
+      "electrosurgical generator plants",
+      "cautery machine factories"
+    ],
+    "summary": "Mandatory safety standard for monopolar and bipolar high-frequency (HF) surgical cutting and coagulation cautery generators.",
+    "scope": "Covers neutral patient return electrode monitoring (REM contact quality), HF leakage current limits, and spark energy control.",
+    "keywords": [
+      "electrosurgical unit",
+      "cautery machine",
+      "REM return electrode",
+      "HF leakage current <= 150mA",
+      "coagulation"
+    ],
+    "clauses": [
+      {
+        "id": "is13450-2-2-c201",
+        "number": "Clause 201.8",
+        "title": "Neutral Return Electrode Contact Quality",
+        "content": "Return electrode monitor (REM) must cut off HF generator within 50 ms if patient skin contact resistance rises above 150 Ohms.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
+  },
+  {
+    "id": "is-13450-2-25-2018",
+    "code": "IS 13450 (Part 2/Sec 25):2018",
+    "title": "Medical Electrical Equipment: Particular Requirements for Electrocardiographs (ECG)",
+    "year": 2018,
+    "category": "Consumer Goods",
+    "department": "Electrotechnical / ETD 23",
+    "division": "Electrotechnical / ETD 23",
+    "status": "Active",
+    "isMandatory": true,
+    "mandatory": true,
+    "scheme": "Scheme I (ISI Mark)",
+    "certificationScheme": "Scheme I (ISI Mark)",
+    "qcoReference": "Medical Electrical Equipment Order",
+    "qcoOrder": "Medical Electrical Equipment Order",
+    "businessTypes": [
+      "ECG machine manufacturing plants",
+      "12-lead cardiac diagnostic device plants"
+    ],
+    "summary": "Mandatory standard for diagnostic 12-lead electrocardiographs (ECG machines) and ambulatory holter monitors.",
+    "scope": "Covers input impedance (minimum 10 MOhm), common mode rejection ratio (CMRR >= 100 dB), and defibrillation overload recovery (<5 seconds).",
+    "keywords": [
+      "ECG machine",
+      "electrocardiograph",
+      "CMRR >= 100dB",
+      "defibrillator recovery <= 5s",
+      "input impedance 10MOhm"
+    ],
+    "clauses": [
+      {
+        "id": "is13450-2-25-c201",
+        "number": "Clause 201.12",
+        "title": "Defibrillator Overload Recovery & CMRR",
+        "content": "ECG baseline trace must return to screen within 5.0 seconds after 5000 V defibrillator discharge; CMRR >= 100 dB.",
+        "mandatory": true
+      }
+    ],
+    "factoryBlueprint": null,
+    "blueprint": null,
+    "amendments": []
   }
 ]
