@@ -55,11 +55,11 @@ async def call_gemini_llm(prompt: str) -> Optional[str]:
 
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 1024}
+        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 4000}
     }
 
     try:
-        async with httpx.AsyncClient(timeout=4.0) as client:
+        async with httpx.AsyncClient(timeout=10.0) as client:
             for model in models:
                 url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
                 try:
@@ -192,12 +192,12 @@ class RagService:
 
         scored_clauses.sort(key=lambda x: x[0], reverse=True)
 
-        # Pick diverse top clauses across distinct standards (max 1-2 clauses per standard, up to 3 standards)
+        # Pick diverse top clauses across distinct standards (up to 2 standards for deep analysis)
         top_clauses = []
         seen_standards = {}
         for score, std, cl in scored_clauses:
             code = std["code"]
-            if seen_standards.get(code, 0) < 1 and len(top_clauses) < 3:
+            if seen_standards.get(code, 0) < 1 and len(top_clauses) < 2:
                 top_clauses.append((score, std, cl))
                 seen_standards[code] = seen_standards.get(code, 0) + 1
 
@@ -222,9 +222,18 @@ class RagService:
                 "relevantStandards": []
             }
 
-        # 4. Form Citations
+        # 4. Compile Rich 800-1000 Token Technical Chunks
+        from backend.services.rich_standards import get_rich_standard_chunk
+        from backend.database import load_store
+
+        seen_ids = set()
+        unique_stds = []
+        for _, std, _ in top_clauses:
+            if std["id"] not in seen_ids:
+                seen_ids.add(std["id"])
+                unique_stds.append(std)
+
         citations = []
-        context_snippets = []
         for score, std, clause in top_clauses:
             citations.append({
                 "standardCode": std["code"],
@@ -235,73 +244,74 @@ class RagService:
                 "standardId": std["id"],
                 "officialBisUrl": OFFICIAL_BIS_PORTAL_BASE
             })
-            context_snippets.append(
-                f"- Standard: {std['code']} ({std['title']})\n"
-                f"  Clause: {clause['number']} - {clause['title']}\n"
-                f"  Requirement: {clause['content']}\n"
-                f"  Test Method: {clause.get('testRequirement') or clause.get('testMethod') or 'Standard STI Procedure'}"
-            )
 
-        context_text = "\n\n".join(context_snippets)
+        rich_chunks = []
+        for std in unique_stds:
+            rich_chunk = get_rich_standard_chunk(std)
+            rich_chunks.append(rich_chunk)
 
-        # 5. LLM Prompt Construction with Strict Concise Format
+        # Also search uploaded documents in bis_store.json for relevant 800-1000 token chunks
+        try:
+            store = load_store()
+            for doc in store.get("documents", []):
+                doc_title = (doc.get("title") or doc.get("originalFilename", "")).lower()
+                doc_matched = any(t in doc_title for t in search_terms)
+                for ch in doc.get("chunks", []):
+                    ch_text = ch.get("text", "").lower()
+                    if doc_matched or any(t in ch_text for t in search_terms):
+                        rich_chunks.append(
+                            f"### Uploaded Standard Document: {doc.get('title')}\n"
+                            f"- Primary Clause: {ch.get('primaryClause')}\n"
+                            f"{ch.get('text')}"
+                        )
+                        citations.append({
+                            "standardCode": doc.get("title") or "Uploaded Standard",
+                            "standardTitle": doc.get("originalFilename") or "Technical Document",
+                            "clauseNumber": ch.get("primaryClause") or "Section 1",
+                            "clauseTitle": "Ingested Standard Clause",
+                            "snippet": ch.get("text")[:200],
+                            "standardId": doc.get("id"),
+                            "officialBisUrl": OFFICIAL_BIS_PORTAL_BASE
+                        })
+                        break
+        except Exception:
+            pass
+
+        context_text = "\n\n---\n\n".join(rich_chunks)
+
+        # 5. LLM Prompt Construction with Strict Comprehensive Reporting Rules
         prompt = (
             "You are the official Bureau of Indian Standards (BIS) Smart Digital Expert.\n"
-            "Answer the user's technical inquiry strictly using ONLY the verified BIS clauses provided below.\n\n"
-            "STRICT FORMATTING REQUIREMENTS:\n"
-            "1. Output format must ONLY be concise structured blocks in this exact format:\n\n"
-            f"Greetings, I am the official Bureau of Indian Standards (BIS) Smart Digital Expert. Based on your inquiry regarding **{raw_query}**, here are the verified technical requirements from our official standards context:\n\n"
-            "### **[Standard Code] ([Standard Title])**\n\n"
-            "*   **[Clause Number] - [Clause Title]**\n"
-            "    *   **Requirement:** [Concise technical limits, dimensions, or chemical/mechanical requirements strictly from context]\n"
-            "    *   **Test Method:** [Exact test method, STI procedure, or apparatus strictly from context]\n\n"
-            "2. If multiple standards are present, separate them with '---'.\n"
-            "3. Do NOT include conversational filler, long paragraphs, or narrative conclusions. Keep the bullet points clean and executive.\n"
-            "4. Never invent or speculate values outside the provided context.\n\n"
-            f"=== VERIFIED BIS CONTEXT ===\n{context_text}\n\n"
+            "Answer the user's technical inquiry with a Comprehensive Authoritative Technical Memorandum strictly grounded in the verified BIS standards context provided below.\n\n"
+            "STRICT COMPREHENSIVE REPORTING RULES:\n"
+            "1. Deliver an EXHAUSTIVE, high-density technical memorandum for each relevant standard. Do NOT withhold details or condense into single sentences.\n"
+            "2. RENDER FULL MARKDOWN TABLES: Include all chemical composition limits, mechanical property matrices, dimensional mass tolerances, and physical test thresholds present in the context.\n"
+            "3. For each standard, structure your response clearly:\n"
+            "   ### **[Standard Code]: [Standard Title]**\n"
+            "   - **Statutory Scope & QCO Status:** State the Quality Control Order, BIS Act 2016 statutory mandate, and Scheme I (ISI Mark) / Scheme II (CRS) conformity requirements.\n"
+            "   - **Chemical Composition Matrix:** Render full markdown table with all grades and constituent % limits (C, S, P, CE, Cr, Ni, etc.).\n"
+            "   - **Mechanical Properties & Acceptance Criteria:** Render full markdown table with Proof Stress, Tensile Strength, TS/YS ratio, Elongation %, Uniform Elongation Agt.\n"
+            "   - **Dimensional Tolerances & Test Rules:** Details on nominal sizes, mass per metre tolerances, bend & rebend mandrel diameters, temperature criteria.\n"
+            "   - **Factory Quality Control & STI Batch Testing:** Batch testing frequency per heat/tonnage, routine factory tests, and mandatory ISI mark licensing.\n"
+            "4. Separate multiple standards with '---'.\n"
+            "5. Maintain absolute fidelity to all numbers, limits, formulas, and SI units (MPa, %, mm, °C, kg/m) in the provided context.\n\n"
+            f"=== VERIFIED BIS CONTEXT (800-1000 Token Standards Chunks) ===\n{context_text}\n\n"
             f"=== USER INQUIRY ===\n{raw_query}\n\n"
-            "=== OFFICIAL ADVISORY RESPONSE ==="
+            "=== OFFICIAL AUTHORITATIVE TECHNICAL MEMORANDUM ==="
         )
 
         llm_answer = await call_gemini_llm(prompt)
 
         if not llm_answer:
-            # Deterministic offline synthesis matching the exact 4-bullet structure
-            standards_shown = {}
-            for _, std, cl in top_clauses:
-                code = std["code"]
-                if code not in standards_shown:
-                    standards_shown[code] = {
-                        "title": std["title"],
-                        "clauses": []
-                    }
-                standards_shown[code]["clauses"].append(cl)
-
-            blocks = []
-            for code, s_data in standards_shown.items():
-                cl_blocks = []
-                for cl in s_data["clauses"]:
-                    t_method = cl.get("testRequirement") or cl.get("testMethod") or "Standard STI Procedure"
-                    cl_blocks.append(
-                        f"*   **{cl['number']} - {cl['title']}**\n"
-                        f"    *   **Requirement:** {cl['content']}\n"
-                        f"    *   **Test Method:** {t_method}"
-                    )
-                blocks.append(f"### **{code} ({s_data['title']})**\n\n" + "\n\n".join(cl_blocks))
-
+            # Deterministic offline synthesis using the rich 800-1000 token standard chunks
             llm_answer = (
-                f"Greetings, I am the official Bureau of Indian Standards (BIS) Smart Digital Expert. "
-                f"Based on your inquiry regarding **{raw_query}**, here are the verified technical requirements from our official standards context:\n\n"
-                + "\n\n---\n\n".join(blocks)
+                f"# BUREAU OF INDIAN STANDARDS (BIS)\n"
+                f"## SMART DIGITAL EXPERT — AUTHORITATIVE TECHNICAL MEMORANDUM\n\n"
+                f"**Inquiry:** {raw_query.title()} | **Status:** Verified Official BIS Standards Repository\n\n"
+                + "\n\n---\n\n".join(rich_chunks)
             )
 
         latency = int((time.time() - start_time) * 1000)
-        seen_ids = set()
-        unique_stds = []
-        for _, std, _ in top_clauses:
-            if std["id"] not in seen_ids:
-                seen_ids.add(std["id"])
-                unique_stds.append(std)
 
         return {
             "query": raw_query,
