@@ -79,7 +79,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2771-1-2020",
     "code": "IS 2771 (Part 1):2020",
-    "title": "Corrugated Fibreboard Boxes — Specification: Part 1 for General Packaging",
+    "title": "Corrugated Fibreboard Boxes \u2014 Specification: Part 1 for General Packaging",
     "year": 2020,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
@@ -135,7 +135,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2771-2-2020",
     "code": "IS 2771 (Part 2):2020",
-    "title": "Corrugated Fibreboard Boxes — Part 2: Packaging of Heavy and Export Goods",
+    "title": "Corrugated Fibreboard Boxes \u2014 Part 2: Packaging of Heavy and Export Goods",
     "year": 2020,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
@@ -178,7 +178,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1060-1-1966",
     "code": "IS 1060 (Part 1):1966",
-    "title": "Methods of Sampling and Test for Paper and Allied Products — Part 1",
+    "title": "Methods of Sampling and Test for Paper and Allied Products \u2014 Part 1",
     "year": 1966,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
@@ -210,7 +210,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is1060-c4",
         "number": "Clause 4.1",
         "title": "Standard Atmosphere for Conditioning",
-        "content": "Test specimens shall be conditioned at (27 ± 2)°C and (65 ± 5)% relative humidity.",
+        "content": "Test specimens shall be conditioned at (27 \u00b1 2)\u00b0C and (65 \u00b1 5)% relative humidity.",
         "mandatory": true
       },
       {
@@ -228,7 +228,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1060-2-1960",
     "code": "IS 1060 (Part 2):1960",
-    "title": "Methods of Sampling and Test for Paper and Allied Products — Part 2: Chemical Tests",
+    "title": "Methods of Sampling and Test for Paper and Allied Products \u2014 Part 2: Chemical Tests",
     "year": 1960,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
@@ -258,7 +258,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is1060-2-c4",
         "number": "Clause 4.1",
         "title": "Ash Content Determination",
-        "content": "Ash content determination at 900°C in muffle furnace shall not exceed specified grade threshold.",
+        "content": "Ash content determination at 900\u00b0C in muffle furnace shall not exceed specified grade threshold.",
         "mandatory": true
       }
     ],
@@ -355,7 +355,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is10146-c4",
         "number": "Clause 4.1",
         "title": "Overall Migration Limit",
-        "content": "Overall migration of polymer constituents shall not exceed 60 mg/kg or 10 mg/dm² of food contact surface area.",
+        "content": "Overall migration of polymer constituents shall not exceed 60 mg/kg or 10 mg/dm\u00b2 of food contact surface area.",
         "mandatory": true,
         "testRequirement": "Global migration test per IS 9845.",
         "testMethod": "Global migration test per IS 9845."
@@ -400,7 +400,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is9845-c5",
         "number": "Clause 5.2",
         "title": "Simulant Exposure Conditions",
-        "content": "Aqueous foods: distilled water (40°C, 10 days); Acidic foods: 3% acetic acid; Alcoholic: 15% ethanol; Fatty foods: purified n-heptane.",
+        "content": "Aqueous foods: distilled water (40\u00b0C, 10 days); Acidic foods: 3% acetic acid; Alcoholic: 15% ethanol; Fatty foods: purified n-heptane.",
         "mandatory": true
       }
     ],
@@ -411,7 +411,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1397-1990",
     "code": "IS 1397:1990",
-    "title": "Kraft Paper — Specification (Plain and Ribbed)",
+    "title": "Kraft Paper \u2014 Specification (Plain and Ribbed)",
     "year": 1990,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
@@ -442,7 +442,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is1397-c5",
         "number": "Clause 5.1",
         "title": "Burst Factor and Cobb Sizing Test",
-        "content": "Grade 1 kraft paper burst factor shall be minimum 28. Cobb 60 water absorption shall not exceed 25 g/m².",
+        "content": "Grade 1 kraft paper burst factor shall be minimum 28. Cobb 60 water absorption shall not exceed 25 g/m\u00b2.",
         "mandatory": true
       }
     ],
@@ -453,7 +453,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15495-2020",
     "code": "IS 15495:2020",
-    "title": "Printing Ink for Food Packaging — Code of Practice",
+    "title": "Printing Ink for Food Packaging \u2014 Code of Practice",
     "year": 2020,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
@@ -609,7 +609,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is10910-c4",
         "number": "Clause 4.1",
         "title": "Extractive and Hexane Soluble Limits",
-        "content": "Hexane extractable fraction at 50°C shall not exceed 6.4% by mass for homopolymer PP.",
+        "content": "Hexane extractable fraction at 50\u00b0C shall not exceed 6.4% by mass for homopolymer PP.",
         "mandatory": true
       }
     ],
@@ -661,7 +661,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16687-2017",
     "code": "IS 16687:2017",
-    "title": "Textile — HDPE / PP Woven Sacks for Packaging",
+    "title": "Textile \u2014 HDPE / PP Woven Sacks for Packaging",
     "year": 2017,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
@@ -704,7 +704,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-14444-1997",
     "code": "IS 14444:1997",
-    "title": "Biaxially Oriented Polypropylene (BOPP) Films for Packaging — Specification",
+    "title": "Biaxially Oriented Polypropylene (BOPP) Films for Packaging \u2014 Specification",
     "year": 1997,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
@@ -736,7 +736,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is14444-c5",
         "number": "Clause 5.1",
         "title": "Heat Seal Strength and Tensile Modulus",
-        "content": "Minimum heat seal strength shall be 2.0 N/15mm at 120°C sealing temperature.",
+        "content": "Minimum heat seal strength shall be 2.0 N/15mm at 120\u00b0C sealing temperature.",
         "mandatory": true
       }
     ],
@@ -747,7 +747,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-14447-1997",
     "code": "IS 14447:1997",
-    "title": "Aluminium Foil for Pharmaceutical Packaging — Specification",
+    "title": "Aluminium Foil for Pharmaceutical Packaging \u2014 Specification",
     "year": 1997,
     "category": "Packaging & Paper",
     "department": "Chemical / Packaging (CHD 15 / TED 24)",
@@ -789,7 +789,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-17526-2021",
     "code": "IS 17526:2021",
-    "title": "Stainless Steel Vacuum Flasks and Insulated Containers — Specification",
+    "title": "Stainless Steel Vacuum Flasks and Insulated Containers \u2014 Specification",
     "year": 2021,
     "category": "Consumer Goods",
     "department": "Mechanical / Consumer Products (MED 32)",
@@ -859,31 +859,31 @@ export const STANDARDS_DATABASE: Standard[] = [
             [
               "350 ml",
               "0.40 mm",
-              "± 5.0%",
+              "\u00b1 5.0%",
               "72 mm"
             ],
             [
               "500 ml",
               "0.40 mm",
-              "± 5.0%",
+              "\u00b1 5.0%",
               "76 mm"
             ],
             [
               "750 ml",
               "0.40 mm",
-              "± 5.0%",
+              "\u00b1 5.0%",
               "82 mm"
             ],
             [
               "1000 ml",
               "0.45 mm",
-              "± 5.0%",
+              "\u00b1 5.0%",
               "88 mm"
             ],
             [
               "1500 ml",
               "0.50 mm",
-              "± 3.0%",
+              "\u00b1 3.0%",
               "105 mm"
             ]
           ]
@@ -919,14 +919,14 @@ export const STANDARDS_DATABASE: Standard[] = [
             ],
             [
               "Carbon (C)",
-              "≤ 0.07% max",
-              "≤ 0.07% max",
+              "\u2264 0.07% max",
+              "\u2264 0.07% max",
               "Combustion Analyzer"
             ],
             [
               "Manganese (Mn)",
-              "≤ 2.00% max",
-              "≤ 2.00% max",
+              "\u2264 2.00% max",
+              "\u2264 2.00% max",
               "Spectrometry"
             ],
             [
@@ -949,39 +949,39 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is17526-c7",
         "number": "Clause 7.2",
         "title": "Thermal Insulation Retention Performance (Table 3)",
-        "content": "When filled with boiling potable water at 95°C and sealed in an ambient environment maintained at 20°C +/- 2°C, the water temperature inside the container shall remain >= 60°C after 6 hours (and >= 45°C after 24 hours). For cold retention, water filled at 4°C shall remain <= 10°C after 6 hours.",
+        "content": "When filled with boiling potable water at 95\u00b0C and sealed in an ambient environment maintained at 20\u00b0C +/- 2\u00b0C, the water temperature inside the container shall remain >= 60\u00b0C after 6 hours (and >= 45\u00b0C after 24 hours). For cold retention, water filled at 4\u00b0C shall remain <= 10\u00b0C after 6 hours.",
         "mandatory": true,
         "testRequirement": "Calibrated multi-channel thermocouple datalogger test per Section 7.",
         "testMethod": "Calibrated multi-channel thermocouple datalogger test per Section 7.",
         "tableData": {
           "headers": [
             "Container Type",
-            "Initial Temp (°C)",
-            "Ambient Temp (°C)",
-            "Min Temp after 6h (°C)",
-            "Min Temp after 24h (°C)"
+            "Initial Temp (\u00b0C)",
+            "Ambient Temp (\u00b0C)",
+            "Min Temp after 6h (\u00b0C)",
+            "Min Temp after 24h (\u00b0C)"
           ],
           "rows": [
             [
-              "Double-Walled Vacuum (≤ 500 ml)",
-              "95°C ± 1°C",
-              "20°C ± 2°C",
-              "≥ 58°C",
-              "≥ 42°C"
+              "Double-Walled Vacuum (\u2264 500 ml)",
+              "95\u00b0C \u00b1 1\u00b0C",
+              "20\u00b0C \u00b1 2\u00b0C",
+              "\u2265 58\u00b0C",
+              "\u2265 42\u00b0C"
             ],
             [
               "Double-Walled Vacuum (750 - 1000 ml)",
-              "95°C ± 1°C",
-              "20°C ± 2°C",
-              "≥ 62°C",
-              "≥ 48°C"
+              "95\u00b0C \u00b1 1\u00b0C",
+              "20\u00b0C \u00b1 2\u00b0C",
+              "\u2265 62\u00b0C",
+              "\u2265 48\u00b0C"
             ],
             [
               "Double-Walled Vacuum (> 1000 ml)",
-              "95°C ± 1°C",
-              "20°C ± 2°C",
-              "≥ 66°C",
-              "≥ 52°C"
+              "95\u00b0C \u00b1 1\u00b0C",
+              "20\u00b0C \u00b1 2\u00b0C",
+              "\u2265 66\u00b0C",
+              "\u2265 52\u00b0C"
             ]
           ]
         }
@@ -990,10 +990,10 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is17526-c8",
         "number": "Clause 8.1",
         "title": "Gasket Sealing & Inversion Hydrostatic Leak Test",
-        "content": "The bottle closure gasket shall be made of food-grade silicone conforming to IS 9845. When filled to nominal capacity with hot water at 80°C and inverted upside-down for 10 continuous minutes, the closure shall show ZERO droplets, moisture seepage, or pressure loss.",
+        "content": "The bottle closure gasket shall be made of food-grade silicone conforming to IS 9845. When filled to nominal capacity with hot water at 80\u00b0C and inverted upside-down for 10 continuous minutes, the closure shall show ZERO droplets, moisture seepage, or pressure loss.",
         "mandatory": true,
-        "testRequirement": "Inversion hydrostatic seal test at 80°C under 1000 lux inspection.",
-        "testMethod": "Inversion hydrostatic seal test at 80°C under 1000 lux inspection."
+        "testRequirement": "Inversion hydrostatic seal test at 80\u00b0C under 1000 lux inspection.",
+        "testMethod": "Inversion hydrostatic seal test at 80\u00b0C under 1000 lux inspection."
       },
       {
         "id": "is17526-c9",
@@ -1033,7 +1033,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         },
         {
           "material": "Food-Grade Silicone Sealing Gaskets",
-          "specification": "IS 9845:1998 & FSSAI food contact compliance (BPA free, heat resistant to 120°C)",
+          "specification": "IS 9845:1998 & FSSAI food contact compliance (BPA free, heat resistant to 120\u00b0C)",
           "inwardTest": "Overall migration test into 3% acetic acid and purified water simulants."
         },
         {
@@ -1066,7 +1066,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         {
           "stage": "4. Vacuum Annealing & Evacuation",
           "machine": "High-Vacuum Industrial Furnace (< 10^-4 mbar) with Diffusion Pumps",
-          "purpose": "Evacuate air between double walls at 450°C to create permanent thermal vacuum barrier."
+          "purpose": "Evacuate air between double walls at 450\u00b0C to create permanent thermal vacuum barrier."
         },
         {
           "stage": "5. Surface Passivation & Cleaning",
@@ -1083,12 +1083,12 @@ export const STANDARDS_DATABASE: Standard[] = [
         {
           "equipmentName": "Calibrated Multi-Channel Temperature Datalogger with Thermocouples",
           "clauseTested": "Clause 7.2 (Thermal Insulation Retention Test)",
-          "calibrationRequirement": "Calibrated annually against NABL standard with +/- 0.5°C accuracy."
+          "calibrationRequirement": "Calibrated annually against NABL standard with +/- 0.5\u00b0C accuracy."
         },
         {
-          "equipmentName": "Hydrostatic Inversion Seal Testing Rig with 80°C Water Bath",
+          "equipmentName": "Hydrostatic Inversion Seal Testing Rig with 80\u00b0C Water Bath",
           "clauseTested": "Clause 8.1 (Leakage and Gasket Seal Integrity)",
-          "calibrationRequirement": "Timer calibrated to +/- 1 sec; digital thermometer for 80°C bath."
+          "calibrationRequirement": "Timer calibrated to +/- 1 sec; digital thermometer for 80\u00b0C bath."
         },
         {
           "equipmentName": "Guided 1.0-Metre Drop Impact Tester onto Rigid Concrete Anvil",
@@ -1175,7 +1175,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         },
         {
           "material": "Food-Grade Silicone Sealing Gaskets",
-          "specification": "IS 9845:1998 & FSSAI food contact compliance (BPA free, heat resistant to 120°C)",
+          "specification": "IS 9845:1998 & FSSAI food contact compliance (BPA free, heat resistant to 120\u00b0C)",
           "inwardTest": "Overall migration test into 3% acetic acid and purified water simulants."
         },
         {
@@ -1208,7 +1208,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         {
           "stage": "4. Vacuum Annealing & Evacuation",
           "machine": "High-Vacuum Industrial Furnace (< 10^-4 mbar) with Diffusion Pumps",
-          "purpose": "Evacuate air between double walls at 450°C to create permanent thermal vacuum barrier."
+          "purpose": "Evacuate air between double walls at 450\u00b0C to create permanent thermal vacuum barrier."
         },
         {
           "stage": "5. Surface Passivation & Cleaning",
@@ -1225,12 +1225,12 @@ export const STANDARDS_DATABASE: Standard[] = [
         {
           "equipmentName": "Calibrated Multi-Channel Temperature Datalogger with Thermocouples",
           "clauseTested": "Clause 7.2 (Thermal Insulation Retention Test)",
-          "calibrationRequirement": "Calibrated annually against NABL standard with +/- 0.5°C accuracy."
+          "calibrationRequirement": "Calibrated annually against NABL standard with +/- 0.5\u00b0C accuracy."
         },
         {
-          "equipmentName": "Hydrostatic Inversion Seal Testing Rig with 80°C Water Bath",
+          "equipmentName": "Hydrostatic Inversion Seal Testing Rig with 80\u00b0C Water Bath",
           "clauseTested": "Clause 8.1 (Leakage and Gasket Seal Integrity)",
-          "calibrationRequirement": "Timer calibrated to +/- 1 sec; digital thermometer for 80°C bath."
+          "calibrationRequirement": "Timer calibrated to +/- 1 sec; digital thermometer for 80\u00b0C bath."
         },
         {
           "equipmentName": "Guided 1.0-Metre Drop Impact Tester onto Rigid Concrete Anvil",
@@ -1308,7 +1308,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-6911-2017",
     "code": "IS 6911:2017",
-    "title": "Stainless Steel Plate, Sheet and Strip — Specification",
+    "title": "Stainless Steel Plate, Sheet and Strip \u2014 Specification",
     "year": 2017,
     "category": "Civil & Construction",
     "department": "Metallurgical Engineering (MTD 4)",
@@ -1338,19 +1338,127 @@ export const STANDARDS_DATABASE: Standard[] = [
     ],
     "clauses": [
       {
-        "id": "is6911-c6",
-        "number": "Clause 6.1",
-        "title": "Chemical Composition for Food Contact (SS 304)",
-        "content": "Grade 304 (X04Cr19Ni9): Carbon <= 0.07%, Chromium 17.5-19.5%, Nickel 8.0-10.5%. Strictly prohibited from using radioactive or toxic scrap.",
+        "id": "is6911-c5",
+        "number": "Clause 5.1",
+        "title": "Chemical Composition of Stainless Steels (Table 1)",
+        "content": "Austenitic stainless steels for food contact and industrial equipment: SS 304 (X04Cr19Ni9) requires C <= 0.07%, Cr 17.50-19.50%, Ni 8.00-10.50%, Mn <= 2.00%, Si <= 0.75%. SS 316 requires C <= 0.07%, Cr 16.00-18.00%, Ni 10.00-14.00%, Mo 2.00-3.00%. Use of radioactive scrap is strictly prohibited (Cobalt-60 < 0.1 Bq/g).",
+        "testRequirement": "X-ray fluorescence (XRF) or OES spectrometry and radiation portal monitor.",
+        "testMethod": "Chemical analysis per IS 228 / IS 9845.",
         "mandatory": true,
-        "testRequirement": "Spectrometric chemical analysis.",
-        "testMethod": "Spectrometric chemical analysis."
+        "tableData": {
+          "headers": [
+            "Grade",
+            "Carbon (C)",
+            "Chromium (Cr)",
+            "Nickel (Ni)",
+            "Manganese (Mn)",
+            "Silicon (Si)",
+            "Molybdenum (Mo)"
+          ],
+          "rows": [
+            [
+              "SS 304 (X04Cr19Ni9)",
+              "<= 0.07%",
+              "17.50% - 19.50%",
+              "8.00% - 10.50%",
+              "<= 2.00%",
+              "<= 0.75%",
+              "\u2014"
+            ],
+            [
+              "SS 304L (X02Cr19Ni9)",
+              "<= 0.03%",
+              "17.50% - 19.50%",
+              "9.00% - 12.00%",
+              "<= 2.00%",
+              "<= 0.75%",
+              "\u2014"
+            ],
+            [
+              "SS 316 (X04Cr17Ni12Mo2)",
+              "<= 0.07%",
+              "16.00% - 18.00%",
+              "10.00% - 14.00%",
+              "<= 2.00%",
+              "<= 0.75%",
+              "2.00% - 3.00%"
+            ],
+            [
+              "SS 316L (X02Cr17Ni12Mo2)",
+              "<= 0.03%",
+              "16.00% - 18.00%",
+              "10.00% - 14.00%",
+              "<= 2.00%",
+              "<= 0.75%",
+              "2.00% - 3.00%"
+            ],
+            [
+              "SS 430 (Ferritic)",
+              "<= 0.12%",
+              "16.00% - 18.00%",
+              "<= 0.75%",
+              "<= 1.00%",
+              "<= 1.00%",
+              "\u2014"
+            ]
+          ]
+        }
       },
       {
         "id": "is6911-c7",
         "number": "Clause 7.1",
-        "title": "Tensile Strength and Elongation",
-        "content": "Tensile strength shall be between 520 and 750 MPa with minimum elongation of 40% for deep drawing bottle bodies.",
+        "title": "Mechanical Properties & Hardness (Table 2)",
+        "content": "Annealed stainless sheets shall comply: SS 304 requires 0.2% Proof Stress >= 205 MPa, Tensile Strength 520-750 MPa, Elongation A50 >= 40%, Hardness <= 201 HB / 92 HRB. SS 316 requires 0.2% Proof Stress >= 220 MPa, Tensile Strength 520-720 MPa, Elongation >= 40%, Hardness <= 217 HB / 95 HRB.",
+        "testRequirement": "Universal Testing Machine (UTM) and Rockwell/Brinell Hardness Tester.",
+        "testMethod": "Tensile testing per IS 1608 and hardness per IS 1500.",
+        "mandatory": true,
+        "tableData": {
+          "headers": [
+            "Grade",
+            "0.2% Proof Stress (Min)",
+            "Tensile Strength (MPa)",
+            "Elongation A50 (Min %)",
+            "Hardness (Max)"
+          ],
+          "rows": [
+            [
+              "SS 304",
+              "205 MPa",
+              "520 - 750 MPa",
+              "40%",
+              "201 HB / 92 HRB"
+            ],
+            [
+              "SS 304L",
+              "175 MPa",
+              "480 - 680 MPa",
+              "40%",
+              "201 HB / 92 HRB"
+            ],
+            [
+              "SS 316",
+              "220 MPa",
+              "520 - 720 MPa",
+              "40%",
+              "217 HB / 95 HRB"
+            ],
+            [
+              "SS 316L",
+              "200 MPa",
+              "480 - 680 MPa",
+              "40%",
+              "217 HB / 95 HRB"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "is6911-c8",
+        "number": "Clause 8.1",
+        "title": "Corrosion Resistance & Intergranular Attack (IGC)",
+        "content": "Stainless steel shall show zero grain boundary corrosion attack when tested under ASTM A262 Practice E (15-hour boiling in copper sulfate-sulfuric acid solution with metallic copper). Internal surfaces in food contact shall be acid passivated with zero toxic metal leaching.",
+        "testRequirement": "Boiling glass apparatus with reflux condenser and optical microscope.",
+        "testMethod": "Intergranular corrosion test per ASTM A262 Practice E / IS 10461.",
         "mandatory": true
       }
     ],
@@ -1395,22 +1503,60 @@ export const STANDARDS_DATABASE: Standard[] = [
       {
         "id": "is1293-c5",
         "number": "Clause 5.1",
-        "title": "Standard Ratings (6A, 10A, 16A)",
-        "content": "Standard ratings are 250V a.c., with rated current limited strictly to 6A, 10A, or 16A. Non-standard ratings are prohibited.",
-        "mandatory": true
+        "title": "Standard Current Ratings & Configurations (Table 1)",
+        "content": "Plugs and sockets shall be rated at 250V AC with current ratings strictly limited to 6A (small appliances), 10A (portable multi-plugs with automatic shutter), or 16A (high-power appliances). Non-standard ratings are prohibited under electrical safety QCO.",
+        "testRequirement": "Go/No-go dimensional gauges and current probe instrumentation.",
+        "testMethod": "Dimensional gauge check per Clause 9.",
+        "mandatory": true,
+        "tableData": {
+          "headers": [
+            "Device Type",
+            "Rated Voltage",
+            "Rated Current",
+            "Pin Configuration",
+            "Mandatory Safety Feature"
+          ],
+          "rows": [
+            [
+              "Small Appliance Plug/Socket",
+              "250 V AC",
+              "6 A",
+              "3 Round Pins (Small)",
+              "Integral Earth Pin Contact"
+            ],
+            [
+              "High-Power Plug/Socket",
+              "250 V AC",
+              "16 A",
+              "3 Round Pins (Large)",
+              "Integral Earth Pin Contact"
+            ],
+            [
+              "Commercial Portable Multi-plug",
+              "250 V AC",
+              "10 A",
+              "Combined Shuttered",
+              "Automatic Internal Shutter Screen"
+            ]
+          ]
+        }
       },
       {
-        "id": "is1293-c6",
-        "number": "Clause 6.1",
-        "title": "Earthing Contact Requirement",
-        "content": "16A accessories must have an earthing contact. 2-pin non-earthed configurations are only permitted for 6A or 2.5A flat reversible plugs.",
+        "id": "is1293-c19",
+        "number": "Clause 19.1",
+        "title": "Temperature Rise Test",
+        "content": "Terminals and contacts shall undergo temperature rise testing at 1.25 times rated current (20 A for 16 A socket) for 1 continuous hour. Maximum allowable temperature rise of terminals shall not exceed 45 K.",
+        "testRequirement": "Multi-channel thermocouple datalogger and stabilized current injection rig.",
+        "testMethod": "Temperature rise measurement per Clause 19.",
         "mandatory": true
       },
       {
         "id": "is1293-c28",
         "number": "Clause 28.1",
-        "title": "Glow-Wire Test (850°C)",
-        "content": "Insulating parts retaining current-carrying contacts must pass 850°C glow-wire test without sustained flame.",
+        "title": "Glow-Wire Resistance to Abnormal Heat and Fire",
+        "content": "Insulating parts retaining live connections in position shall withstand 850 C glow-wire test for 30 seconds. Outer enclosures and covers shall withstand 750 C glow-wire test. Flames must extinguish within 30 seconds with zero ignition of tissue paper.",
+        "testRequirement": "Calibrated glow-wire testing apparatus with optical pyrometer.",
+        "testMethod": "Glow-wire flammability test per IS 11000 / Clause 28.",
         "mandatory": true
       }
     ],
@@ -1421,7 +1567,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-302-1-2008",
     "code": "IS 302-1:2008",
-    "title": "Safety of Household and Similar Electrical Appliances — General Requirements",
+    "title": "Safety of Household and Similar Electrical Appliances \u2014 General Requirements",
     "year": 2008,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
@@ -1466,7 +1612,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-302-2-3-2007",
     "code": "IS 302-2-3:2007",
-    "title": "Safety of Household Appliances — Part 2-3: Electric Irons",
+    "title": "Safety of Household Appliances \u2014 Part 2-3: Electric Irons",
     "year": 2007,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
@@ -1497,7 +1643,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is302-2-3-c11",
         "number": "Clause 11.2",
         "title": "Soleplate Temperature Rise",
-        "content": "Maximum soleplate temperature shall not exceed 250°C during maximum thermostat setting under continuous heating.",
+        "content": "Maximum soleplate temperature shall not exceed 250\u00b0C during maximum thermostat setting under continuous heating.",
         "mandatory": true
       }
     ],
@@ -1508,7 +1654,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-302-2-21-2018",
     "code": "IS 302-2-21:2018",
-    "title": "Safety of Household Appliances — Part 2-21: Stationary Storage Water Heaters (Geysers)",
+    "title": "Safety of Household Appliances \u2014 Part 2-21: Stationary Storage Water Heaters (Geysers)",
     "year": 2018,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
@@ -1550,7 +1696,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-302-2-201-2008",
     "code": "IS 302-2-201:2008",
-    "title": "Safety of Household Appliances — Part 2-201: Electric Immersion Water Heaters",
+    "title": "Safety of Household Appliances \u2014 Part 2-201: Electric Immersion Water Heaters",
     "year": 2008,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
@@ -1642,7 +1788,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-7098-1-1988",
     "code": "IS 7098 (Part 1):1988",
-    "title": "Crosslinked Polyethylene (XLPE) Insulated PVC Sheathed Cables — Part 1: up to 1100 V",
+    "title": "Crosslinked Polyethylene (XLPE) Insulated PVC Sheathed Cables \u2014 Part 1: up to 1100 V",
     "year": 1988,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
@@ -1659,7 +1805,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "armoured power cables",
       "industrial cable plants"
     ],
-    "summary": "Mandatory standard for heavy-duty industrial and underground distribution cables with XLPE insulation rated up to 90°C.",
+    "summary": "Mandatory standard for heavy-duty industrial and underground distribution cables with XLPE insulation rated up to 90\u00b0C.",
     "scope": "Covers single, two, three, three-and-a-half and four-core XLPE armoured and unarmoured cables.",
     "keywords": [
       "XLPE cable",
@@ -1672,7 +1818,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is7098-c14",
         "number": "Clause 14.1",
         "title": "Hot Set Test for XLPE",
-        "content": "XLPE insulation elongation under 20 N/cm² load at 200°C shall not exceed 175%; permanent elongation after cooling <= 15%.",
+        "content": "XLPE insulation elongation under 20 N/cm\u00b2 load at 200\u00b0C shall not exceed 175%; permanent elongation after cooling <= 15%.",
         "mandatory": true
       }
     ],
@@ -1683,7 +1829,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-8130-2013",
     "code": "IS 8130:2013",
-    "title": "Conductors for Insulated Electric Cables and Flexible Cords — Specification",
+    "title": "Conductors for Insulated Electric Cables and Flexible Cords \u2014 Specification",
     "year": 2013,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
@@ -1713,8 +1859,8 @@ export const STANDARDS_DATABASE: Standard[] = [
       {
         "id": "is8130-c6",
         "number": "Clause 6.1",
-        "title": "Maximum D.C. Resistance at 20°C",
-        "content": "Conductor DC resistance shall not exceed values in Table 1 (e.g., 1.5 sq mm copper <= 12.1 Ohm/km at 20°C).",
+        "title": "Maximum D.C. Resistance at 20\u00b0C",
+        "content": "Conductor DC resistance shall not exceed values in Table 1 (e.g., 1.5 sq mm copper <= 12.1 Ohm/km at 20\u00b0C).",
         "mandatory": true
       }
     ],
@@ -1767,7 +1913,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-374-2019",
     "code": "IS 374:2019",
-    "title": "Electric Ceiling Type Fans and Regulators — Specification",
+    "title": "Electric Ceiling Type Fans and Regulators \u2014 Specification",
     "year": 2019,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
@@ -1799,7 +1945,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is374-c10",
         "number": "Clause 10.1",
         "title": "Air Delivery and Service Value",
-        "content": "For 1200 mm sweep fans, minimum air delivery shall be 210 m³/min with service value not less than 4.0 m³/min/W.",
+        "content": "For 1200 mm sweep fans, minimum air delivery shall be 210 m\u00b3/min with service value not less than 4.0 m\u00b3/min/W.",
         "mandatory": true
       }
     ],
@@ -1810,7 +1956,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16102-1-2012",
     "code": "IS 16102 (Part 1):2012",
-    "title": "Self-Ballasted LED Lamps for General Lighting Services — Part 1: Safety Requirements",
+    "title": "Self-Ballasted LED Lamps for General Lighting Services \u2014 Part 1: Safety Requirements",
     "year": 2012,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
@@ -1841,7 +1987,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is16102-c9",
         "number": "Clause 9.1",
         "title": "Insulation Resistance and Electric Strength",
-        "content": "Insulation resistance between live parts and accessible conductive parts shall be not less than 4 MΩ under 500 V d.c.",
+        "content": "Insulation resistance between live parts and accessible conductive parts shall be not less than 4 M\u03a9 under 500 V d.c.",
         "mandatory": true
       }
     ],
@@ -1852,7 +1998,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15885-2-13-2012",
     "code": "IS 15885 (Part 2/Sec 13):2012",
-    "title": "Lamp Controlgear — Part 2-13: Particular Requirements for Electronic Controlgear for LED Modules",
+    "title": "Lamp Controlgear \u2014 Part 2-13: Particular Requirements for Electronic Controlgear for LED Modules",
     "year": 2012,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
@@ -2010,7 +2156,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is12640-c9",
         "number": "Clause 9.1",
         "title": "Break Time at Residual Currents",
-        "content": "Operating break time at rated residual operating current (IΔn = 30 mA) shall not exceed 0.040 s (40 ms).",
+        "content": "Operating break time at rated residual operating current (I\u0394n = 30 mA) shall not exceed 0.040 s (40 ms).",
         "mandatory": true
       }
     ],
@@ -2021,7 +2167,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-10322-5-1-2012",
     "code": "IS 10322 (Part 5/Sec 1):2012",
-    "title": "Luminaires — Part 5: Particular Requirements, Section 1 General Purpose Fixed Luminaires",
+    "title": "Luminaires \u2014 Part 5: Particular Requirements, Section 1 General Purpose Fixed Luminaires",
     "year": 2012,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
@@ -2052,7 +2198,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is10322-c12",
         "number": "Clause 12.1",
         "title": "Thermal Endurance Test",
-        "content": "Luminaires shall withstand thermal endurance test at rated ambient + 10°C for 240 hours without insulation degradation.",
+        "content": "Luminaires shall withstand thermal endurance test at rated ambient + 10\u00b0C for 240 hours without insulation degradation.",
         "mandatory": true
       }
     ],
@@ -2063,7 +2209,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-10322-5-3-2012",
     "code": "IS 10322 (Part 5/Sec 3):2012",
-    "title": "Luminaires — Particular Requirements, Section 3 Luminaires for Road and Street Lighting",
+    "title": "Luminaires \u2014 Particular Requirements, Section 3 Luminaires for Road and Street Lighting",
     "year": 2012,
     "category": "Electrical",
     "department": "Electrotechnical (ETD)",
@@ -2138,7 +2284,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is16046-c7-3-2",
         "number": "Clause 7.3.2",
         "title": "External Short Circuit Test (Battery)",
-        "content": "Fully charged battery pack is short-circuited with <= 80 mΩ resistance at 55°C. Result: No fire, no explosion; max casing temp <= 150°C.",
+        "content": "Fully charged battery pack is short-circuited with <= 80 m\u03a9 resistance at 55\u00b0C. Result: No fire, no explosion; max casing temp <= 150\u00b0C.",
         "mandatory": true
       },
       {
@@ -2197,7 +2343,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-13252-1-2010",
     "code": "IS 13252 (Part 1):2010",
-    "title": "Information Technology Equipment — Safety: General Requirements",
+    "title": "Information Technology Equipment \u2014 Safety: General Requirements",
     "year": 2010,
     "category": "Electronics & IT",
     "department": "Electronics / LITD / ETD",
@@ -2242,7 +2388,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-616-2017",
     "code": "IS 616:2017",
-    "title": "Audio, Video and Similar Electronic Apparatus — Safety Requirements",
+    "title": "Audio, Video and Similar Electronic Apparatus \u2014 Safety Requirements",
     "year": 2017,
     "category": "Electronics & IT",
     "department": "Electronics / LITD / ETD",
@@ -2285,7 +2431,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16221-2-2015",
     "code": "IS 16221 (Part 2):2015",
-    "title": "Safety of Power Converters for Photovoltaic Power Systems — Part 2: Solar Inverters",
+    "title": "Safety of Power Converters for Photovoltaic Power Systems \u2014 Part 2: Solar Inverters",
     "year": 2015,
     "category": "Electronics & IT",
     "department": "Electronics / LITD / ETD",
@@ -2327,7 +2473,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-14286-2010",
     "code": "IS 14286:2010",
-    "title": "Crystalline Silicon Terrestrial Photovoltaic (PV) Modules — Design Qualification and Type Approval",
+    "title": "Crystalline Silicon Terrestrial Photovoltaic (PV) Modules \u2014 Design Qualification and Type Approval",
     "year": 2010,
     "category": "Electronics & IT",
     "department": "Electronics / LITD / ETD",
@@ -2344,7 +2490,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "solar module assembly plant",
       "PV laminate manufacturing"
     ],
-    "summary": "Mandatory quality approval standard for solar photovoltaic panels, thermal cycling (-40°C to +85°C), damp heat, and mechanical load test (2400 Pa).",
+    "summary": "Mandatory quality approval standard for solar photovoltaic panels, thermal cycling (-40\u00b0C to +85\u00b0C), damp heat, and mechanical load test (2400 Pa).",
     "scope": "Covers terrestrial crystalline silicon solar photovoltaic modules for long-term outdoor operation.",
     "keywords": [
       "solar panel",
@@ -2359,7 +2505,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is14286-c10",
         "number": "Clause 10.11",
         "title": "Thermal Cycling Test (200 cycles)",
-        "content": "Module subjected to 200 cycles between -40°C and +85°C without power degradation exceeding 5%.",
+        "content": "Module subjected to 200 cycles between -40\u00b0C and +85\u00b0C without power degradation exceeding 5%.",
         "mandatory": true
       }
     ],
@@ -2402,7 +2548,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is16444-c6",
         "number": "Clause 6.1",
         "title": "Metrological Accuracy (Class 1.0 & 2.0)",
-        "content": "Meter percentage error shall remain within ±1.0% across 5% to 100% rated current load at unity and inductive power factors.",
+        "content": "Meter percentage error shall remain within \u00b11.0% across 5% to 100% rated current load at unity and inductive power factors.",
         "mandatory": true
       }
     ],
@@ -2413,7 +2559,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1786-2020",
     "code": "IS 1786:2020",
-    "title": "High Strength Deformed Steel Bars and Wires for Concrete Reinforcement — Specification",
+    "title": "High Strength Deformed Steel Bars and Wires for Concrete Reinforcement \u2014 Specification",
     "year": 2020,
     "category": "Civil & Construction",
     "department": "Civil Engineering / Metallurgical",
@@ -2443,17 +2589,218 @@ export const STANDARDS_DATABASE: Standard[] = [
     ],
     "clauses": [
       {
+        "id": "is1786-c4",
+        "number": "Clause 4.2",
+        "title": "Chemical Composition Limits (Table 1)",
+        "content": "Ladle analysis of steel must comply with maximum permissible mass percentages: Fe 415 (C 0.30%, S 0.060%, P 0.060%), Fe 415D (C 0.25%, S 0.045%, P 0.045%), Fe 500 (C 0.30%, S 0.055%, P 0.055%), Fe 500D (C 0.25%, S 0.040%, P 0.040%), Fe 550D (C 0.25%, S 0.035%, P 0.035%), Fe 600 (C 0.30%, S 0.040%, P 0.040%). Maximum Carbon Equivalent CE <= 0.42% for all D-grades.",
+        "testRequirement": "Optical Emission Spectrometry (OES) / Combustion Carbon-Sulfur Analyzer.",
+        "testMethod": "Spectrometric chemical analysis per IS 228.",
+        "mandatory": true,
+        "tableData": {
+          "headers": [
+            "Grade",
+            "Carbon (C) Max",
+            "Sulfur (S) Max",
+            "Phosphorus (P) Max",
+            "S + P Max",
+            "Carbon Equivalent (CE)"
+          ],
+          "rows": [
+            [
+              "Fe 415",
+              "0.30%",
+              "0.060%",
+              "0.060%",
+              "0.110%",
+              "0.42%"
+            ],
+            [
+              "Fe 415D",
+              "0.25%",
+              "0.045%",
+              "0.045%",
+              "0.085%",
+              "0.42%"
+            ],
+            [
+              "Fe 500",
+              "0.30%",
+              "0.055%",
+              "0.055%",
+              "0.105%",
+              "0.42%"
+            ],
+            [
+              "Fe 500D",
+              "0.25%",
+              "0.040%",
+              "0.040%",
+              "0.075%",
+              "0.42%"
+            ],
+            [
+              "Fe 550D",
+              "0.25%",
+              "0.035%",
+              "0.035%",
+              "0.070%",
+              "0.42%"
+            ],
+            [
+              "Fe 600",
+              "0.30%",
+              "0.040%",
+              "0.040%",
+              "0.075%",
+              "0.42%"
+            ]
+          ]
+        }
+      },
+      {
         "id": "is1786-c6",
         "number": "Clause 6.1",
-        "title": "Mechanical Properties & Elongation",
-        "content": "For Fe 500D: Yield strength >= 500 MPa; Tensile/Yield ratio >= 1.10; Minimum elongation >= 16.0%.",
+        "title": "Mechanical Properties & Tensile Criteria (Table 2)",
+        "content": "Mandatory yield stress, tensile strength, and elongation thresholds: Fe 500D requires 0.2% Proof Stress >= 500 MPa, Tensile Strength >= 565 MPa, TS/YS Ratio >= 1.10, Total Elongation >= 16.0%, Uniform Elongation (Agt) >= 5.0%.",
+        "testRequirement": "Universal Testing Machine (UTM) with calibrated extensometer.",
+        "testMethod": "Tensile testing per IS 1608 (Part 1).",
+        "mandatory": true,
+        "tableData": {
+          "headers": [
+            "Property",
+            "Fe 415",
+            "Fe 415D",
+            "Fe 500",
+            "Fe 500D",
+            "Fe 550D",
+            "Fe 600"
+          ],
+          "rows": [
+            [
+              "0.2% Proof Stress / Yield (Min)",
+              "415 MPa",
+              "415 MPa",
+              "500 MPa",
+              "500 MPa",
+              "550 MPa",
+              "600 MPa"
+            ],
+            [
+              "Tensile Strength (Min)",
+              "485 MPa",
+              "500 MPa",
+              "545 MPa",
+              "565 MPa",
+              "600 MPa",
+              "660 MPa"
+            ],
+            [
+              "TS / YS Ratio (Min)",
+              ">= 1.10",
+              ">= 1.12",
+              ">= 1.08",
+              ">= 1.10",
+              ">= 1.08",
+              ">= 1.06"
+            ],
+            [
+              "Total Elongation (Min %)",
+              "14.5%",
+              "18.0%",
+              "12.0%",
+              "16.0%",
+              "14.5%",
+              "10.0%"
+            ],
+            [
+              "Uniform Elongation Agt",
+              "\u2014",
+              ">= 5.0%",
+              "\u2014",
+              ">= 5.0%",
+              ">= 5.0%",
+              "\u2014"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "is1786-c7",
+        "number": "Clause 7.1",
+        "title": "Nominal Sizes & Mass Tolerances (Table 3)",
+        "content": "Rebars shall conform to designated nominal cross-sectional areas and mass per metre tolerances: 8mm (0.395 kg/m, +/-7%), 10mm (0.617 kg/m, +/-7%), 12mm (0.888 kg/m, +/-5%), 16mm (1.58 kg/m, +/-5%), 20mm (2.47 kg/m, +/-3%), 25mm (3.85 kg/m, +/-3%), 32mm (6.31 kg/m, +/-3%).",
+        "testRequirement": "Precision electronic balance (0.1g) and digital caliper on 0.5m sample.",
+        "testMethod": "Direct gravimetric measurement per Clause 7.",
+        "mandatory": true,
+        "tableData": {
+          "headers": [
+            "Nominal Diameter",
+            "Cross Section Area",
+            "Nominal Mass (kg/m)",
+            "Batch Tolerance on Mass"
+          ],
+          "rows": [
+            [
+              "8 mm",
+              "50.3 sq mm",
+              "0.395 kg/m",
+              "+/- 7.0%"
+            ],
+            [
+              "10 mm",
+              "78.6 sq mm",
+              "0.617 kg/m",
+              "+/- 7.0%"
+            ],
+            [
+              "12 mm",
+              "113.1 sq mm",
+              "0.888 kg/m",
+              "+/- 5.0%"
+            ],
+            [
+              "16 mm",
+              "201.2 sq mm",
+              "1.580 kg/m",
+              "+/- 5.0%"
+            ],
+            [
+              "20 mm",
+              "314.2 sq mm",
+              "2.470 kg/m",
+              "+/- 3.0%"
+            ],
+            [
+              "25 mm",
+              "491.1 sq mm",
+              "3.850 kg/m",
+              "+/- 3.0%"
+            ],
+            [
+              "32 mm",
+              "804.2 sq mm",
+              "6.310 kg/m",
+              "+/- 3.0%"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "is1786-c9",
+        "number": "Clause 9.1",
+        "title": "Bend and Rebend Test Specifications",
+        "content": "Specimens shall withstand 180 degree cold bend without transverse cracking (mandrel 3d for dia <= 20mm, 4d for > 20mm). Rebend test entails 135 degree bend around mandrel, immersion in boiling water (100 C) for 30 minutes, and reverse bending to 157.5 degrees with zero surface rupture.",
+        "testRequirement": "Cold mandrel bend test fixture and boiling water aging bath.",
+        "testMethod": "Cold bend test per IS 1599 and rebend procedure per Clause 9.",
         "mandatory": true
       },
       {
-        "id": "is1786-c4",
-        "number": "Clause 4.2",
-        "title": "Chemical Composition & Carbon Equivalent",
-        "content": "Maximum Carbon <= 0.25%, Sulfur <= 0.040%, Phosphorus <= 0.040%. Carbon Equivalent <= 0.42%.",
+        "id": "is1786-c10",
+        "number": "Clause 10.1",
+        "title": "Factory STI Sampling & ISI Mark Licensing",
+        "content": "Ladle analysis required on every heat/cast. Mechanical testing (tensile and bend) on 1 sample per 50 tonnes batch. All bundles must bear registered ISI monogram, manufacturer CM/L license number, and grade color identification (Black band for Fe 500D).",
+        "testRequirement": "Factory test log maintenance and bundle tagging verification.",
+        "testMethod": "BIS Scheme of Testing and Inspection (STI).",
         "mandatory": true
       }
     ],
@@ -2464,7 +2811,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-269-2015",
     "code": "IS 269:2015",
-    "title": "Ordinary Portland Cement — Specification (33, 43 and 53 Grade)",
+    "title": "Ordinary Portland Cement \u2014 Specification (33, 43 and 53 Grade)",
     "year": 2015,
     "category": "Civil & Construction",
     "department": "Civil Engineering / Metallurgical",
@@ -2496,9 +2843,82 @@ export const STANDARDS_DATABASE: Standard[] = [
       {
         "id": "is269-c6",
         "number": "Clause 6.1",
-        "title": "28-Day Compressive Strength",
-        "content": "For 53 Grade OPC: 72h strength >= 27 MPa; 168h (7-day) >= 37 MPa; 672h (28-day) >= 53 MPa.",
-        "mandatory": true
+        "title": "Compressive Strength Requirements (Table 1)",
+        "content": "Ordinary Portland Cement shall attain mandatory compressive strengths: 33 Grade (72h >= 16.0 MPa, 168h >= 22.0 MPa, 672h >= 33.0 MPa), 43 Grade (72h >= 23.0 MPa, 168h >= 33.0 MPa, 672h >= 43.0 MPa), 53 Grade (72h >= 27.0 MPa, 168h >= 37.0 MPa, 672h >= 53.0 MPa).",
+        "testRequirement": "Compression testing machine on 70.6mm cement-sand mortar cubes.",
+        "testMethod": "Compressive strength determination per IS 4031 (Part 6).",
+        "mandatory": true,
+        "tableData": {
+          "headers": [
+            "Grade",
+            "72 \u00b1 1 Hour (3 Days)",
+            "168 \u00b1 2 Hours (7 Days)",
+            "672 \u00b1 4 Hours (28 Days)"
+          ],
+          "rows": [
+            [
+              "33 Grade OPC",
+              ">= 16.0 MPa",
+              ">= 22.0 MPa",
+              ">= 33.0 MPa"
+            ],
+            [
+              "43 Grade OPC",
+              ">= 23.0 MPa",
+              ">= 33.0 MPa",
+              ">= 43.0 MPa"
+            ],
+            [
+              "53 Grade OPC",
+              ">= 27.0 MPa",
+              ">= 37.0 MPa",
+              ">= 53.0 MPa"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "is269-c5",
+        "number": "Clause 5.1",
+        "title": "Physical Properties & Setting Time Limits (Table 2)",
+        "content": "OPC cement shall meet physical parameters: Fineness by Blaine air permeability >= 225 sq m/kg, Initial setting time >= 30 minutes, Final setting time <= 600 minutes, Soundness by Le Chatelier expansion <= 10.0 mm, Autoclave expansion <= 0.80%.",
+        "testRequirement": "Blaine air permeability apparatus, Vicat apparatus, Le Chatelier mould.",
+        "testMethod": "Physical testing per IS 4031 (Parts 2, 3, 5).",
+        "mandatory": true,
+        "tableData": {
+          "headers": [
+            "Physical Property",
+            "Statutory Requirement",
+            "Test Method"
+          ],
+          "rows": [
+            [
+              "Fineness (Blaine)",
+              ">= 225 sq m/kg",
+              "IS 4031 (Part 2)"
+            ],
+            [
+              "Initial Setting Time",
+              ">= 30 Minutes",
+              "IS 4031 (Part 5)"
+            ],
+            [
+              "Final Setting Time",
+              "<= 600 Minutes",
+              "IS 4031 (Part 5)"
+            ],
+            [
+              "Soundness (Le Chatelier)",
+              "<= 10.0 mm",
+              "IS 4031 (Part 3)"
+            ],
+            [
+              "Soundness (Autoclave)",
+              "<= 0.80%",
+              "IS 4031 (Part 3)"
+            ]
+          ]
+        }
       }
     ],
     "factoryBlueprint": null,
@@ -2508,7 +2928,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1489-1-2015",
     "code": "IS 1489 (Part 1):2015",
-    "title": "Portland Pozzolana Cement — Specification: Part 1 Flyash Based",
+    "title": "Portland Pozzolana Cement \u2014 Specification: Part 1 Flyash Based",
     "year": 2015,
     "category": "Civil & Construction",
     "department": "Civil Engineering / Metallurgical",
@@ -2549,7 +2969,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2062-2011",
     "code": "IS 2062:2011",
-    "title": "Hot Rolled Medium and High Tensile Structural Steel — Specification",
+    "title": "Hot Rolled Medium and High Tensile Structural Steel \u2014 Specification",
     "year": 2011,
     "category": "Civil & Construction",
     "department": "Civil Engineering / Metallurgical",
@@ -2579,10 +2999,149 @@ export const STANDARDS_DATABASE: Standard[] = [
     ],
     "clauses": [
       {
+        "id": "is2062-c6",
+        "number": "Clause 6.1",
+        "title": "Chemical Composition of Structural Steels (Table 1)",
+        "content": "Hot-rolled structural steel grades shall satisfy chemical limits: E250 Grade (Fe 410 W): Carbon <= 0.23% (0.22% for BR/B0), Manganese <= 1.50%, Sulfur <= 0.045%, Phosphorus <= 0.045%, Carbon Equivalent CE <= 0.42%. E350 Grade (Fe 490): Carbon <= 0.20%, Manganese <= 1.60%, CE <= 0.45%. E450 Grade: Carbon <= 0.22%, Manganese <= 1.65%, CE <= 0.47%.",
+        "testRequirement": "Spectrometric chemical analysis per IS 228.",
+        "testMethod": "Direct spark OES analysis on ladle samples.",
+        "mandatory": true,
+        "tableData": {
+          "headers": [
+            "Grade Designation",
+            "Quality Sub-Class",
+            "Carbon (C) Max",
+            "Manganese (Mn) Max",
+            "Sulfur (S) Max",
+            "Phosphorus (P) Max",
+            "CE Max"
+          ],
+          "rows": [
+            [
+              "E250 (Fe 410 W)",
+              "A (Non-Killed)",
+              "0.23%",
+              "1.50%",
+              "0.045%",
+              "0.045%",
+              "0.42%"
+            ],
+            [
+              "E250 (Fe 410 W)",
+              "BR (Killed, Room Temp)",
+              "0.22%",
+              "1.50%",
+              "0.045%",
+              "0.045%",
+              "0.41%"
+            ],
+            [
+              "E250 (Fe 410 W)",
+              "B0 (Killed, 0 C Test)",
+              "0.22%",
+              "1.50%",
+              "0.040%",
+              "0.040%",
+              "0.41%"
+            ],
+            [
+              "E250 (Fe 410 W)",
+              "C (Sub-Zero -20 C)",
+              "0.20%",
+              "1.50%",
+              "0.040%",
+              "0.040%",
+              "0.39%"
+            ],
+            [
+              "E350 (Fe 490)",
+              "A / BR / B0",
+              "0.20%",
+              "1.60%",
+              "0.040%",
+              "0.040%",
+              "0.45%"
+            ],
+            [
+              "E450 (Fe 570)",
+              "BR / B0",
+              "0.22%",
+              "1.65%",
+              "0.040%",
+              "0.040%",
+              "0.47%"
+            ]
+          ]
+        }
+      },
+      {
         "id": "is2062-c8",
         "number": "Clause 8.1",
-        "title": "Yield Strength and Impact Energy",
-        "content": "For Grade E250 (Fe 410 W): Yield strength >= 250 MPa; Tensile strength 410-540 MPa; Charpy impact energy >= 27 J at 0°C.",
+        "title": "Mechanical Properties & Charpy V-Notch Impact Energy (Table 2)",
+        "content": "For thickness <= 20mm: E250 requires Yield Strength >= 250 MPa, Tensile Strength 410-540 MPa, Elongation >= 23%, Charpy impact energy >= 27 Joules at specified test temperature (+27 C for BR, 0 C for B0, -20 C for C). E350 requires Yield Strength >= 350 MPa, Tensile Strength 490-630 MPa, Elongation >= 22%, Charpy energy >= 27 Joules at 0 C.",
+        "testRequirement": "Universal Testing Machine (UTM) and Charpy Impact Pendulum.",
+        "testMethod": "Tensile test per IS 1608 and Charpy V-notch test per IS 1757.",
+        "mandatory": true,
+        "tableData": {
+          "headers": [
+            "Grade",
+            "Thickness (t)",
+            "Yield Strength (Min)",
+            "Tensile Strength",
+            "Elongation (Min %)",
+            "Charpy Impact Energy (Min)"
+          ],
+          "rows": [
+            [
+              "E250 A",
+              "t <= 20 mm",
+              "250 MPa",
+              "410 - 540 MPa",
+              "23%",
+              "Not specified"
+            ],
+            [
+              "E250 BR",
+              "t <= 20 mm",
+              "250 MPa",
+              "410 - 540 MPa",
+              "23%",
+              "27 Joules at +27 C"
+            ],
+            [
+              "E250 B0",
+              "t <= 20 mm",
+              "250 MPa",
+              "410 - 540 MPa",
+              "23%",
+              "27 Joules at 0 C"
+            ],
+            [
+              "E250 C",
+              "t <= 20 mm",
+              "250 MPa",
+              "410 - 540 MPa",
+              "23%",
+              "27 Joules at -20 C"
+            ],
+            [
+              "E350 B0",
+              "t <= 20 mm",
+              "350 MPa",
+              "490 - 630 MPa",
+              "22%",
+              "27 Joules at 0 C"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "is2062-c9",
+        "number": "Clause 9.1",
+        "title": "Ultrasonic Testing & Scheme of Testing (STI)",
+        "content": "Heavy structural plates >= 40 mm shall undergo ultrasonic testing per IS 4225 to detect internal laminations or slag inclusions. Factory testing frequency requires 1 tensile and 1 bend test per cast or per 50 tonnes batch. All structural products must bear ISI mark with heat/cast number.",
+        "testRequirement": "Pulse-echo ultrasonic flaw detector and calibration blocks.",
+        "testMethod": "Ultrasonic examination per IS 4225.",
         "mandatory": true
       }
     ],
@@ -2635,7 +3194,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-456-2000",
     "code": "IS 456:2000",
-    "title": "Plain and Reinforced Concrete — Code of Practice",
+    "title": "Plain and Reinforced Concrete \u2014 Code of Practice",
     "year": 2000,
     "category": "Civil & Construction",
     "department": "Civil Engineering / Metallurgical",
@@ -2678,7 +3237,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-4984-2016",
     "code": "IS 4984:2016",
-    "title": "Polyethylene Pipes for Water Supply — Specification",
+    "title": "Polyethylene Pipes for Water Supply \u2014 Specification",
     "year": 2016,
     "category": "Chemical & Plastics",
     "department": "Chemical / Plastics Piping (CED 50 / CHD)",
@@ -2710,7 +3269,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is4984-c8",
         "number": "Clause 8.1",
         "title": "Hydrostatic Strength Test (100h / 165h)",
-        "content": "PE 100 pipes shall withstand 12.4 MPa hoop stress at 20°C for 100 hours without bursting or localized swelling.",
+        "content": "PE 100 pipes shall withstand 12.4 MPa hoop stress at 20\u00b0C for 100 hours without bursting or localized swelling.",
         "mandatory": true
       }
     ],
@@ -2721,7 +3280,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-4985-2021",
     "code": "IS 4985:2021",
-    "title": "Unplasticized PVC Pipes for Potable Water Supplies — Specification",
+    "title": "Unplasticized PVC Pipes for Potable Water Supplies \u2014 Specification",
     "year": 2021,
     "category": "Chemical & Plastics",
     "department": "Chemical / Plastics Piping (CED 50 / CHD)",
@@ -2751,8 +3310,8 @@ export const STANDARDS_DATABASE: Standard[] = [
       {
         "id": "is4985-c9",
         "number": "Clause 9.2",
-        "title": "Vicat Softening Temperature (>= 80°C)",
-        "content": "Vicat softening temperature of the pipe wall material shall not be less than 80°C per IS 12235 (Part 2).",
+        "title": "Vicat Softening Temperature (>= 80\u00b0C)",
+        "content": "Vicat softening temperature of the pipe wall material shall not be less than 80\u00b0C per IS 12235 (Part 2).",
         "mandatory": true
       }
     ],
@@ -2780,7 +3339,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "hot water plumbing pipes",
       "residential plumbing"
     ],
-    "summary": "Mandatory standard for CPVC pipes engineered for hot and cold water distribution up to 93°C.",
+    "summary": "Mandatory standard for CPVC pipes engineered for hot and cold water distribution up to 93\u00b0C.",
     "scope": "Applies to SDR 11 and SDR 13.5 CPVC pipes from 15 mm to 50 mm.",
     "keywords": [
       "CPVC pipe",
@@ -2793,8 +3352,8 @@ export const STANDARDS_DATABASE: Standard[] = [
       {
         "id": "is15778-c7",
         "number": "Clause 7.1",
-        "title": "Short-Term Hydrostatic Pressure at 82°C",
-        "content": "Pipes shall withstand hydrostatic test pressure of 1.45 MPa at 82°C for 1000 hours without failure.",
+        "title": "Short-Term Hydrostatic Pressure at 82\u00b0C",
+        "content": "Pipes shall withstand hydrostatic test pressure of 1.45 MPa at 82\u00b0C for 1000 hours without failure.",
         "mandatory": true
       }
     ],
@@ -2834,7 +3393,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       {
         "id": "is13592-c8",
         "number": "Clause 8.2",
-        "title": "Impact Resistance at 0°C (Falling Dart)",
+        "title": "Impact Resistance at 0\u00b0C (Falling Dart)",
         "content": "Type B pipes shall withstand falling weight impact without shattering or internal crack propagation.",
         "mandatory": true
       }
@@ -2846,7 +3405,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15489-2004",
     "code": "IS 15489:2004",
-    "title": "Plastic Emulsion Paint — Specification",
+    "title": "Plastic Emulsion Paint \u2014 Specification",
     "year": 2004,
     "category": "Chemical & Plastics",
     "department": "Chemical / Plastics Piping (CED 50 / CHD)",
@@ -2888,7 +3447,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15477-2019",
     "code": "IS 15477:2019",
-    "title": "Adhesives for Use with Ceramic, Mosaic and Stone Tiles — Specification",
+    "title": "Adhesives for Use with Ceramic, Mosaic and Stone Tiles \u2014 Specification",
     "year": 2019,
     "category": "Chemical & Plastics",
     "department": "Chemical / Plastics Piping (CED 50 / CHD)",
@@ -2918,7 +3477,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is15477-c5",
         "number": "Clause 5.1",
         "title": "Tensile Adhesion Strength",
-        "content": "Type 2 adhesive tensile adhesion after 28 days dry curing shall not be less than 1.0 N/mm².",
+        "content": "Type 2 adhesive tensile adhesion after 28 days dry curing shall not be less than 1.0 N/mm\u00b2.",
         "mandatory": true
       }
     ],
@@ -2929,7 +3488,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-9873-1-2019",
     "code": "IS 9873 (Part 1):2019",
-    "title": "Safety of Toys — Part 1: Mechanical and Physical Properties",
+    "title": "Safety of Toys \u2014 Part 1: Mechanical and Physical Properties",
     "year": 2019,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
@@ -2973,7 +3532,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-9873-3-2020",
     "code": "IS 9873 (Part 3):2020",
-    "title": "Safety of Toys — Part 3: Migration of Certain Elements (Heavy Metals)",
+    "title": "Safety of Toys \u2014 Part 3: Migration of Certain Elements (Heavy Metals)",
     "year": 2020,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
@@ -3015,7 +3574,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-14543-2016",
     "code": "IS 14543:2016",
-    "title": "Packaged Drinking Water (Other than Natural Mineral Water) — Specification",
+    "title": "Packaged Drinking Water (Other than Natural Mineral Water) \u2014 Specification",
     "year": 2016,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
@@ -3066,7 +3625,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15844-1-2023",
     "code": "IS 15844 (Part 1):2023",
-    "title": "Sports Footwear — Specification: Part 1 General Purpose",
+    "title": "Sports Footwear \u2014 Specification: Part 1 General Purpose",
     "year": 2023,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
@@ -3110,7 +3669,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15652-2006",
     "code": "IS 15652:2006",
-    "title": "Insulating Mats for Electrical Purposes — Specification",
+    "title": "Insulating Mats for Electrical Purposes \u2014 Specification",
     "year": 2006,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
@@ -3152,7 +3711,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-4151-2015",
     "code": "IS 4151:2015",
-    "title": "Protective Helmets for Two Wheeler Riders — Specification",
+    "title": "Protective Helmets for Two Wheeler Riders \u2014 Specification",
     "year": 2015,
     "category": "Consumer Goods",
     "department": "Textiles / Chemical / Food (TXD / CHD / FAD)",
@@ -3194,7 +3753,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-383-2016",
     "code": "IS 383:2016",
-    "title": "Coarse and Fine Aggregate for Concrete — Specification",
+    "title": "Coarse and Fine Aggregate for Concrete \u2014 Specification",
     "year": 2016,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -3244,7 +3803,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-516-2021",
     "code": "IS 516:2021",
-    "title": "Hardened Concrete — Methods of Test (Compressive, Flexural & Split Tensile)",
+    "title": "Hardened Concrete \u2014 Methods of Test (Compressive, Flexural & Split Tensile)",
     "year": 2021,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -3286,7 +3845,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1199-2018",
     "code": "IS 1199:2018",
-    "title": "Fresh Concrete — Methods of Sampling, Testing and Analysis (Slump Test)",
+    "title": "Fresh Concrete \u2014 Methods of Sampling, Testing and Analysis (Slump Test)",
     "year": 2018,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -3328,7 +3887,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-10262-2019",
     "code": "IS 10262:2019",
-    "title": "Concrete Mix Proportioning — Guidelines",
+    "title": "Concrete Mix Proportioning \u2014 Guidelines",
     "year": 2019,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -3370,7 +3929,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-800-2007",
     "code": "IS 800:2007",
-    "title": "General Construction in Steel — Code of Practice (Limit State Method)",
+    "title": "General Construction in Steel \u2014 Code of Practice (Limit State Method)",
     "year": 2007,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 7",
@@ -3402,7 +3961,18 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is800-c5",
         "number": "Clause 5.1",
         "title": "Limit States of Strength and Serviceability",
-        "content": "Structural steel elements shall satisfy limit state of collapse (flexure, compression, shear) and deflection.",
+        "content": "Structural steel design must satisfy Limit State of Strength (flexure, compression, shear under factored load combinations 1.5 DL + 1.5 LL) with partial safety factors gamma_m0 = 1.10 for yield stress and gamma_m1 = 1.25 for tensile fracture. Limit State of Serviceability mandates deflection limits: Span/300 for industrial shed rafters and Span/360 for commercial building floors.",
+        "testRequirement": "Structural analysis calculations and load testing verification.",
+        "testMethod": "Limit state calculation procedures per Sections 5 and 6.",
+        "mandatory": true
+      },
+      {
+        "id": "is800-c10",
+        "number": "Clause 10.1",
+        "title": "Connections, HSFG Bolting & Welded Joints",
+        "content": "High Strength Friction Grip (HSFG) bolts conforming to IS 3757 must be pre-tensioned to specified proof loads without slipping. Welded connections per IS 816 require 100% visual inspection, with ultrasonic or radiographic testing mandated on all primary tension flanges.",
+        "testRequirement": "Torque wrench for bolt pre-tensioning and ultrasonic weld flaw detector.",
+        "testMethod": "Non-destructive testing (NDT) per IS 4225 / IS 1182.",
         "mandatory": true
       }
     ],
@@ -3442,7 +4012,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is875-1-c3",
         "number": "Clause 3.1",
         "title": "Unit Weights of Building Materials",
-        "content": "RCC unit weight 25.0 kN/m³; plain cement concrete 24.0 kN/m³; brick masonry 19.0 kN/m³.",
+        "content": "RCC unit weight 25.0 kN/m\u00b3; plain cement concrete 24.0 kN/m\u00b3; brick masonry 19.0 kN/m\u00b3.",
         "mandatory": true
       }
     ],
@@ -3482,7 +4052,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is875-2-c3",
         "number": "Clause 3.1",
         "title": "Uniformly Distributed Imposed Floor Loads",
-        "content": "Residential rooms: 2.0 kN/m²; office general floors: 3.0 kN/m²; storage warehouses: 5.0 kN/m² minimum.",
+        "content": "Residential rooms: 2.0 kN/m\u00b2; office general floors: 3.0 kN/m\u00b2; storage warehouses: 5.0 kN/m\u00b2 minimum.",
         "mandatory": true
       }
     ],
@@ -3617,7 +4187,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1077-1992",
     "code": "IS 1077:1992",
-    "title": "Common Burnt Clay Building Bricks — Specification",
+    "title": "Common Burnt Clay Building Bricks \u2014 Specification",
     "year": 1992,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 30",
@@ -3659,7 +4229,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2185-1-2005",
     "code": "IS 2185 (Part 1):2005",
-    "title": "Concrete Masonry Units — Specification: Part 1 Hollow and Solid Concrete Blocks",
+    "title": "Concrete Masonry Units \u2014 Specification: Part 1 Hollow and Solid Concrete Blocks",
     "year": 2005,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 30",
@@ -3701,7 +4271,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2185-2-1983",
     "code": "IS 2185 (Part 2):1983",
-    "title": "Concrete Masonry Units — Specification: Part 2 Autoclaved Cellular Aerated Concrete Blocks (AAC)",
+    "title": "Concrete Masonry Units \u2014 Specification: Part 2 Autoclaved Cellular Aerated Concrete Blocks (AAC)",
     "year": 1983,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 30",
@@ -3732,7 +4302,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is2185-2-c6",
         "number": "Clause 6.1",
         "title": "Density and Compressive Strength of AAC",
-        "content": "Grade 1 AAC dry density 551-650 kg/m³, minimum compressive strength >= 4.0 MPa; thermal conductivity <= 0.24 W/m-K.",
+        "content": "Grade 1 AAC dry density 551-650 kg/m\u00b3, minimum compressive strength >= 4.0 MPa; thermal conductivity <= 0.24 W/m-K.",
         "mandatory": true
       }
     ],
@@ -3783,7 +4353,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1363-1-2019",
     "code": "IS 1363 (Part 1):2019",
-    "title": "Hexagon Head Bolts, Screws and Nuts (Grade C) — Part 1: Hexagon Head Bolts",
+    "title": "Hexagon Head Bolts, Screws and Nuts (Grade C) \u2014 Part 1: Hexagon Head Bolts",
     "year": 2019,
     "category": "Civil & Construction",
     "department": "Mechanical / PGD 31",
@@ -3825,7 +4395,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1367-1-2018",
     "code": "IS 1367 (Part 1):2018",
-    "title": "Technical Supply Conditions for Threaded Steel Fasteners — General Requirements",
+    "title": "Technical Supply Conditions for Threaded Steel Fasteners \u2014 General Requirements",
     "year": 2018,
     "category": "Civil & Construction",
     "department": "Mechanical / PGD 31",
@@ -3865,7 +4435,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1239-1-2014",
     "code": "IS 1239 (Part 1):2014",
-    "title": "Steel Tubes, Tubulars and Other Wrought Steel Fittings — Part 1: Steel Tubes (MS Pipes)",
+    "title": "Steel Tubes, Tubulars and Other Wrought Steel Fittings \u2014 Part 1: Steel Tubes (MS Pipes)",
     "year": 2014,
     "category": "Civil & Construction",
     "department": "Metallurgical / MTD 19",
@@ -3890,7 +4460,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "ERW tube",
       "hydrostatic test 5MPa",
       "flattening test",
-      "zinc coating 360g/m²"
+      "zinc coating 360g/m\u00b2"
     ],
     "clauses": [
       {
@@ -4022,7 +4592,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is432-c6",
         "number": "Clause 6.1",
         "title": "Tensile and Bend Test",
-        "content": "Minimum yield stress >= 250 MPa, ultimate tensile strength >= 410 MPa, elongation >= 23% with 180° cold bend.",
+        "content": "Minimum yield stress >= 250 MPa, ultimate tensile strength >= 410 MPa, elongation >= 23% with 180\u00b0 cold bend.",
         "mandatory": true
       }
     ],
@@ -4076,7 +4646,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1161-2014",
     "code": "IS 1161:2014",
-    "title": "Steel Tubes for Structural Purposes — Specification",
+    "title": "Steel Tubes for Structural Purposes \u2014 Specification",
     "year": 2014,
     "category": "Civil & Construction",
     "department": "Metallurgical / MTD 19",
@@ -4118,7 +4688,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-4923-2017",
     "code": "IS 4923:2017",
-    "title": "Hollow Steel Sections for Structural Use (RHS and SHS) — Specification",
+    "title": "Hollow Steel Sections for Structural Use (RHS and SHS) \u2014 Specification",
     "year": 2017,
     "category": "Civil & Construction",
     "department": "Metallurgical / MTD 19",
@@ -4161,7 +4731,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-11587-1986",
     "code": "IS 11587:1986",
-    "title": "Structural Weathering Steel — Specification",
+    "title": "Structural Weathering Steel \u2014 Specification",
     "year": 1986,
     "category": "Civil & Construction",
     "department": "Metallurgical / MTD 4",
@@ -4276,7 +4846,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is1732-c3",
         "number": "Clause 3.2",
         "title": "Mass and Ovality Tolerances",
-        "content": "Weight tolerance ±2.5% to ±5%; ovality (difference between max and min diameter) <= 75% of tolerance band.",
+        "content": "Weight tolerance \u00b12.5% to \u00b15%; ovality (difference between max and min diameter) <= 75% of tolerance band.",
         "mandatory": true
       }
     ],
@@ -4329,7 +4899,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-513-1-2016",
     "code": "IS 513 (Part 1):2016",
-    "title": "Cold Reduced Low Carbon Steel Sheets and Strips — Part 1: Cold Forming and Drawing Steel",
+    "title": "Cold Reduced Low Carbon Steel Sheets and Strips \u2014 Part 1: Cold Forming and Drawing Steel",
     "year": 2016,
     "category": "Civil & Construction",
     "department": "Metallurgical / MTD 4",
@@ -4371,7 +4941,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-277-2018",
     "code": "IS 277:2018",
-    "title": "Galvanized Steel Sheets (Plain and Corrugated) — Specification",
+    "title": "Galvanized Steel Sheets (Plain and Corrugated) \u2014 Specification",
     "year": 2018,
     "category": "Civil & Construction",
     "department": "Metallurgical / MTD 4",
@@ -4388,7 +4958,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "roofing sheet plants",
       "duct manufacturing"
     ],
-    "summary": "Mandatory standard for hot-dip zinc coated plain and corrugated steel sheets (GP & GC) with coating mass from 90 to 600 g/m².",
+    "summary": "Mandatory standard for hot-dip zinc coated plain and corrugated steel sheets (GP & GC) with coating mass from 90 to 600 g/m\u00b2.",
     "scope": "Covers galvanized carbon steel sheets for roofing, cladding, and HVAC ductwork.",
     "keywords": [
       "GI sheet",
@@ -4403,7 +4973,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is277-c6",
         "number": "Clause 6.1",
         "title": "Zinc Coating Mass Determination (Triple Spot Test)",
-        "content": "Class 120 zinc coating >= 120 g/m²; Class 275 >= 275 g/m² (both sides total) per IS 6745.",
+        "content": "Class 120 zinc coating >= 120 g/m\u00b2; Class 275 >= 275 g/m\u00b2 (both sides total) per IS 6745.",
         "mandatory": true
       }
     ],
@@ -4414,7 +4984,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-14246-2013",
     "code": "IS 14246:2013",
-    "title": "Continuously Pre-Painted Galvanized Steel Sheets and Coils — Specification",
+    "title": "Continuously Pre-Painted Galvanized Steel Sheets and Coils \u2014 Specification",
     "year": 2013,
     "category": "Civil & Construction",
     "department": "Metallurgical / MTD 4",
@@ -4455,7 +5025,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15911-2010",
     "code": "IS 15911:2010",
-    "title": "Structural Steel for Fire Resistant Applications — Specification",
+    "title": "Structural Steel for Fire Resistant Applications \u2014 Specification",
     "year": 2010,
     "category": "Civil & Construction",
     "department": "Metallurgical / MTD 4",
@@ -4471,12 +5041,12 @@ export const STANDARDS_DATABASE: Standard[] = [
       "fire rated steel manufacturing",
       "high-rise skyscraper fabrication"
     ],
-    "summary": "Mandatory standard for thermo-mechanically treated structural steel retaining at least two-thirds of yield strength at 600°C.",
+    "summary": "Mandatory standard for thermo-mechanically treated structural steel retaining at least two-thirds of yield strength at 600\u00b0C.",
     "scope": "Covers fire-resistant steel plates, beams, and columns for multi-storey high-occupancy structures.",
     "keywords": [
       "fire resistant steel",
       "high temperature yield strength",
-      "600°C strength",
+      "600\u00b0C strength",
       "fire safety steel"
     ],
     "clauses": [
@@ -4484,7 +5054,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is15911-c6",
         "number": "Clause 6.2",
         "title": "Elevated Temperature Yield Strength",
-        "content": "Yield strength at 600°C shall not be less than 67% of specified room temperature minimum yield strength.",
+        "content": "Yield strength at 600\u00b0C shall not be less than 67% of specified room temperature minimum yield strength.",
         "mandatory": true
       }
     ],
@@ -4495,7 +5065,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-303-1989",
     "code": "IS 303:1989",
-    "title": "Plywood for General Purposes — Specification (MR and BWR Grades)",
+    "title": "Plywood for General Purposes \u2014 Specification (MR and BWR Grades)",
     "year": 1989,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 20",
@@ -4537,7 +5107,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-710-2010",
     "code": "IS 710:2010",
-    "title": "Marine Plywood — Specification",
+    "title": "Marine Plywood \u2014 Specification",
     "year": 2010,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 20",
@@ -4579,7 +5149,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1659-2004",
     "code": "IS 1659:2004",
-    "title": "Blockboards — Specification",
+    "title": "Blockboards \u2014 Specification",
     "year": 2004,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 20",
@@ -4620,7 +5190,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2202-1-1999",
     "code": "IS 2202 (Part 1):1999",
-    "title": "Wooden Flush Door Shutters (Solid Core Type) — Specification",
+    "title": "Wooden Flush Door Shutters (Solid Core Type) \u2014 Specification",
     "year": 1999,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 20",
@@ -4661,7 +5231,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-12823-2015",
     "code": "IS 12823:2015",
-    "title": "Pre-laminated Particle Boards — Specification",
+    "title": "Pre-laminated Particle Boards \u2014 Specification",
     "year": 2015,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 20",
@@ -4703,7 +5273,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-14587-1999",
     "code": "IS 14587:1999",
-    "title": "Prelaminated Medium Density Fibreboard (MDF) — Specification",
+    "title": "Prelaminated Medium Density Fibreboard (MDF) \u2014 Specification",
     "year": 1999,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 20",
@@ -4733,7 +5303,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is14587-c6",
         "number": "Clause 6.1",
         "title": "Internal Bond Strength & Density",
-        "content": "MDF density 650 to 900 kg/m³; internal bond tensile perpendicular to surface >= 0.60 MPa; 24h thickness swelling <= 10%.",
+        "content": "MDF density 650 to 900 kg/m\u00b3; internal bond tensile perpendicular to surface >= 0.60 MPa; 24h thickness swelling <= 10%.",
         "mandatory": true
       }
     ],
@@ -4774,7 +5344,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is13753-c5",
         "number": "Clause 5.1",
         "title": "Water Absorption and Breaking Strength",
-        "content": "Water absorption <= 0.5%; breaking strength >= 1300 N; modulus of rupture >= 35.0 N/mm²; scratch hardness >= 6 Mohs.",
+        "content": "Water absorption <= 0.5%; breaking strength >= 1300 N; modulus of rupture >= 35.0 N/mm\u00b2; scratch hardness >= 6 Mohs.",
         "mandatory": true
       }
     ],
@@ -4785,7 +5355,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15622-2017",
     "code": "IS 15622:2017",
-    "title": "Pressed Ceramic Tiles — Specification (Glazed Wall & Floor Tiles)",
+    "title": "Pressed Ceramic Tiles \u2014 Specification (Glazed Wall & Floor Tiles)",
     "year": 2017,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 5",
@@ -4826,7 +5396,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-12269-2015",
     "code": "IS 12269:2015",
-    "title": "53 Grade Ordinary Portland Cement — High Strength Specification",
+    "title": "53 Grade Ordinary Portland Cement \u2014 High Strength Specification",
     "year": 2015,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -4867,7 +5437,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-8041-1990",
     "code": "IS 8041:1990",
-    "title": "Rapid Hardening Portland Cement — Specification",
+    "title": "Rapid Hardening Portland Cement \u2014 Specification",
     "year": 1990,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -4896,7 +5466,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is8041-c5",
         "number": "Clause 5.1",
         "title": "1-Day and 3-Day Compressive Strength",
-        "content": "Specific surface >= 3250 cm²/g; compressive strength: 24h >= 16.0 MPa; 72h >= 27.0 MPa.",
+        "content": "Specific surface >= 3250 cm\u00b2/g; compressive strength: 24h >= 16.0 MPa; 72h >= 27.0 MPa.",
         "mandatory": true
       }
     ],
@@ -4907,7 +5477,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-455-2015",
     "code": "IS 455:2015",
-    "title": "Portland Slag Cement — Specification (PSC)",
+    "title": "Portland Slag Cement \u2014 Specification (PSC)",
     "year": 2015,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -4948,7 +5518,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-12330-1988",
     "code": "IS 12330:1988",
-    "title": "Sulfate Resisting Portland Cement — Specification (SRC)",
+    "title": "Sulfate Resisting Portland Cement \u2014 Specification (SRC)",
     "year": 1988,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -4989,7 +5559,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-6452-1989",
     "code": "IS 6452:1989",
-    "title": "High Alumina Cement for Structural Use — Specification",
+    "title": "High Alumina Cement for Structural Use \u2014 Specification",
     "year": 1989,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -5005,12 +5575,12 @@ export const STANDARDS_DATABASE: Standard[] = [
       "refractory cement production",
       "high temperature kiln castables"
     ],
-    "summary": "Mandatory standard for monocalcium aluminate cement resisting chemical attacks and temperatures up to 1400°C.",
+    "summary": "Mandatory standard for monocalcium aluminate cement resisting chemical attacks and temperatures up to 1400\u00b0C.",
     "scope": "Covers bauxite-derived cement for refractory furnaces and chemical containment floors.",
     "keywords": [
       "high alumina cement",
       "refractory cement",
-      "1400°C resistance",
+      "1400\u00b0C resistance",
       "bauxite cement"
     ],
     "clauses": [
@@ -5029,7 +5599,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-3466-1988",
     "code": "IS 3466:1988",
-    "title": "Masonry Cement — Specification",
+    "title": "Masonry Cement \u2014 Specification",
     "year": 1988,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -5069,7 +5639,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1542-1992",
     "code": "IS 1542:1992",
-    "title": "Sand for Plaster — Specification",
+    "title": "Sand for Plaster \u2014 Specification",
     "year": 1992,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -5109,7 +5679,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2116-1980",
     "code": "IS 2116:1980",
-    "title": "Sand for Masonry Mortars — Specification",
+    "title": "Sand for Masonry Mortars \u2014 Specification",
     "year": 1980,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 2",
@@ -5150,7 +5720,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-3370-1-2009",
     "code": "IS 3370 (Part 1):2009",
-    "title": "Concrete Structures for Storage of Liquids — Code of Practice: Part 1 General Requirements",
+    "title": "Concrete Structures for Storage of Liquids \u2014 Code of Practice: Part 1 General Requirements",
     "year": 2009,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 38",
@@ -5270,7 +5840,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-101-5-1-1988",
     "code": "IS 101 (Part 5/Sec 1):1988",
-    "title": "Methods of Sampling and Test for Paints: Mechanical Tests — Cross Cut Adhesion",
+    "title": "Methods of Sampling and Test for Paints: Mechanical Tests \u2014 Cross Cut Adhesion",
     "year": 1988,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 20",
@@ -5299,7 +5869,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is101-5-1-c5",
         "number": "Clause 5.1",
         "title": "Cross Hatch Grid Adhesion Classification",
-        "content": "Lattice cut of 6x6 squares; tape applied and removed at 60° angle; edges of cuts completely smooth for Grade 0.",
+        "content": "Lattice cut of 6x6 squares; tape applied and removed at 60\u00b0 angle; edges of cuts completely smooth for Grade 0.",
         "mandatory": true
       }
     ],
@@ -5352,7 +5922,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-5410-2013",
     "code": "IS 5410:2013",
-    "title": "Cement Paint — Specification",
+    "title": "Cement Paint \u2014 Specification",
     "year": 2013,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 20",
@@ -5393,7 +5963,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2932-2003",
     "code": "IS 2932:2003",
-    "title": "Enamel, Synthetic, Exterior: (a) Undercoating, (b) Finishing — Specification",
+    "title": "Enamel, Synthetic, Exterior: (a) Undercoating, (b) Finishing \u2014 Specification",
     "year": 2003,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 20",
@@ -5410,7 +5980,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "alkyd resin paint factories"
     ],
     "summary": "Mandatory standard for high-gloss alkyd exterior synthetic enamel paint for metal and wood structures.",
-    "scope": "Covers specular gloss (minimum 80% at 60°), scratch resistance (1500 g load), and accelerated weathering.",
+    "scope": "Covers specular gloss (minimum 80% at 60\u00b0), scratch resistance (1500 g load), and accelerated weathering.",
     "keywords": [
       "synthetic enamel",
       "alkyd paint",
@@ -5423,7 +5993,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is2932-c5",
         "number": "Clause 5.1",
         "title": "Gloss, Scratch Hardness & Lead Prohibition",
-        "content": "Gloss at 60° >= 80 units; scratch test >= 1500g without bare metal breakthrough; lead content <= 90 ppm.",
+        "content": "Gloss at 60\u00b0 >= 80 units; scratch test >= 1500g without bare metal breakthrough; lead content <= 90 ppm.",
         "mandatory": true
       }
     ],
@@ -5434,7 +6004,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-133-2004",
     "code": "IS 133:2004",
-    "title": "Enamel, Interior: (a) Undercoating, (b) Finishing — Specification",
+    "title": "Enamel, Interior: (a) Undercoating, (b) Finishing \u2014 Specification",
     "year": 2004,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 20",
@@ -5475,7 +6045,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-252-2013",
     "code": "IS 252:2013",
-    "title": "Caustic Soda (Pure and Technical) — Specification",
+    "title": "Caustic Soda (Pure and Technical) \u2014 Specification",
     "year": 2013,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 1",
@@ -5517,7 +6087,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-265-2021",
     "code": "IS 265:2021",
-    "title": "Hydrochloric Acid — Specification",
+    "title": "Hydrochloric Acid \u2014 Specification",
     "year": 2021,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 1",
@@ -5547,7 +6117,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is265-c4",
         "number": "Clause 4.1",
         "title": "Total Acidity & Heavy Metals",
-        "content": "Specific gravity at 20°C >= 1.152; total acidity as HCl >= 30.0% by mass; iron (Fe) <= 0.005% for pure grade.",
+        "content": "Specific gravity at 20\u00b0C >= 1.152; total acidity as HCl >= 30.0% by mass; iron (Fe) <= 0.005% for pure grade.",
         "mandatory": true
       }
     ],
@@ -5558,7 +6128,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-266-1993",
     "code": "IS 266:1993",
-    "title": "Sulfuric Acid — Specification",
+    "title": "Sulfuric Acid \u2014 Specification",
     "year": 1993,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 1",
@@ -5600,7 +6170,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-285-1992",
     "code": "IS 285:1992",
-    "title": "Laundry Soaps — Specification",
+    "title": "Laundry Soaps \u2014 Specification",
     "year": 1992,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 25",
@@ -5641,7 +6211,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2888-2004",
     "code": "IS 2888:2004",
-    "title": "Toilet Soap — Specification",
+    "title": "Toilet Soap \u2014 Specification",
     "year": 2004,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 25",
@@ -5682,7 +6252,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-4955-2001",
     "code": "IS 4955:2001",
-    "title": "Household Laundry Detergent Powders — Specification",
+    "title": "Household Laundry Detergent Powders \u2014 Specification",
     "year": 2001,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 25",
@@ -5722,7 +6292,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-54-1988",
     "code": "IS 54:1988",
-    "title": "Paraffin Wax — Specification",
+    "title": "Paraffin Wax \u2014 Specification",
     "year": 1988,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 18",
@@ -5739,7 +6309,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "wax coating converters",
       "petroleum refineries"
     ],
-    "summary": "Specifies melting point grades (Type 1 to Type 3, 50°C to 65°C), oil content, and color for fully refined paraffin wax.",
+    "summary": "Specifies melting point grades (Type 1 to Type 3, 50\u00b0C to 65\u00b0C), oil content, and color for fully refined paraffin wax.",
     "scope": "Covers refined waxes for food packaging wrappers, cosmetics, electrical insulation, and candle production.",
     "keywords": [
       "paraffin wax",
@@ -5753,7 +6323,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is54-c4",
         "number": "Clause 4.1",
         "title": "Melting Point and Oil Content",
-        "content": "Melting point (cooling curve) 50°C to 65°C; maximum oil content <= 0.5% by mass for fully refined wax.",
+        "content": "Melting point (cooling curve) 50\u00b0C to 65\u00b0C; maximum oil content <= 0.5% by mass for fully refined wax.",
         "mandatory": true
       }
     ],
@@ -5764,7 +6334,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1065-1989",
     "code": "IS 1065:1989",
-    "title": "Bleaching Powder, Stable — Specification",
+    "title": "Bleaching Powder, Stable \u2014 Specification",
     "year": 1989,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 1",
@@ -5793,7 +6363,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is1065-c4",
         "number": "Clause 4.1",
         "title": "Available Chlorine & Heat Stability",
-        "content": "Available chlorine >= 34.0% by mass; loss of chlorine on heating at 100°C for 2 hours shall not exceed 1.5%.",
+        "content": "Available chlorine >= 34.0% by mass; loss of chlorine on heating at 100\u00b0C for 2 hours shall not exceed 1.5%.",
         "mandatory": true
       }
     ],
@@ -5804,7 +6374,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-544-2019",
     "code": "IS 544:2019",
-    "title": "Carbon Disulfide, Technical — Specification",
+    "title": "Carbon Disulfide, Technical \u2014 Specification",
     "year": 2019,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 1",
@@ -5834,7 +6404,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is544-c4",
         "number": "Clause 4.1",
         "title": "Distillation Range & Purity",
-        "content": "Distillation range: 100% distill between 46.0°C and 47.0°C at 760 mm Hg; non-volatile residue <= 0.005%.",
+        "content": "Distillation range: 100% distill between 46.0\u00b0C and 47.0\u00b0C at 760 mm Hg; non-volatile residue <= 0.005%.",
         "mandatory": true
       }
     ],
@@ -5845,7 +6415,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-170-2020",
     "code": "IS 170:2020",
-    "title": "Acetone — Specification",
+    "title": "Acetone \u2014 Specification",
     "year": 2020,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 1",
@@ -5876,7 +6446,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is170-c4",
         "number": "Clause 4.1",
         "title": "Purity and Distillation Range",
-        "content": "Purity by GC >= 99.5% by mass; distillation range 55.6°C to 56.6°C; permanganate fading time >= 120 minutes.",
+        "content": "Purity by GC >= 99.5% by mass; distillation range 55.6\u00b0C to 56.6\u00b0C; permanganate fading time >= 120 minutes.",
         "mandatory": true
       }
     ],
@@ -5929,7 +6499,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-3043-2018",
     "code": "IS 3043:2018",
-    "title": "Code of Practice for Earthing — Specification",
+    "title": "Code of Practice for Earthing \u2014 Specification",
     "year": 2018,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 20",
@@ -5972,7 +6542,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2026-1-2011",
     "code": "IS 2026 (Part 1):2011",
-    "title": "Power Transformers — Part 1: General Requirements",
+    "title": "Power Transformers \u2014 Part 1: General Requirements",
     "year": 2011,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 16",
@@ -6003,7 +6573,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is2026-1-c6",
         "number": "Clause 6.1",
         "title": "Losses and Impedance Tolerances",
-        "content": "No-load loss tolerance +15%; total loss tolerance +10%; component impedance within ±10% of declared rating.",
+        "content": "No-load loss tolerance +15%; total loss tolerance +10%; component impedance within \u00b110% of declared rating.",
         "mandatory": true
       }
     ],
@@ -6014,7 +6584,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2026-2-2010",
     "code": "IS 2026 (Part 2):2010",
-    "title": "Power Transformers — Part 2: Temperature Rise",
+    "title": "Power Transformers \u2014 Part 2: Temperature Rise",
     "year": 2010,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 16",
@@ -6030,7 +6600,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "transformer testing labs",
       "cooling system manufacturers"
     ],
-    "summary": "Mandatory limits on oil temperature rise (50°C/55°C) and winding temperature rise (55°C/60°C) above 50°C ambient.",
+    "summary": "Mandatory limits on oil temperature rise (50\u00b0C/55\u00b0C) and winding temperature rise (55\u00b0C/60\u00b0C) above 50\u00b0C ambient.",
     "scope": "Prescribes heat run test and cooling methods: ONAN, ONAF, OFAF, ODAF.",
     "keywords": [
       "temperature rise test",
@@ -6044,7 +6614,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is2026-2-c4",
         "number": "Clause 4.1",
         "title": "Maximum Permissible Temperature Rise",
-        "content": "Top oil temperature rise shall not exceed 50°C; average winding temperature rise by resistance method <= 55°C.",
+        "content": "Top oil temperature rise shall not exceed 50\u00b0C; average winding temperature rise by resistance method <= 55\u00b0C.",
         "mandatory": true
       }
     ],
@@ -6055,7 +6625,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2026-3-2009",
     "code": "IS 2026 (Part 3):2009",
-    "title": "Power Transformers — Part 3: Insulation Levels and Dielectric Tests",
+    "title": "Power Transformers \u2014 Part 3: Insulation Levels and Dielectric Tests",
     "year": 2009,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 16",
@@ -6095,7 +6665,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2026-5-2011",
     "code": "IS 2026 (Part 5):2011",
-    "title": "Power Transformers — Part 5: Ability to Withstand Short Circuit",
+    "title": "Power Transformers \u2014 Part 5: Ability to Withstand Short Circuit",
     "year": 2011,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 16",
@@ -6135,7 +6705,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-11171-1985",
     "code": "IS 11171:1985",
-    "title": "Dry-Type Power Transformers — Specification",
+    "title": "Dry-Type Power Transformers \u2014 Specification",
     "year": 1985,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 16",
@@ -6166,7 +6736,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is11171-c7",
         "number": "Clause 7.1",
         "title": "Insulation Class & Temperature Rise",
-        "content": "Class F winding temperature rise <= 90°C; Class H temperature rise <= 115°C above 40°C ambient.",
+        "content": "Class F winding temperature rise <= 90\u00b0C; Class H temperature rise <= 115\u00b0C above 40\u00b0C ambient.",
         "mandatory": true
       }
     ],
@@ -6177,7 +6747,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2099-1986",
     "code": "IS 2099:1986",
-    "title": "Bushings for Alternating Voltages Above 1000 V — Specification",
+    "title": "Bushings for Alternating Voltages Above 1000 V \u2014 Specification",
     "year": 1986,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 19",
@@ -6300,7 +6870,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-13703-1-1993",
     "code": "IS 13703 (Part 1):1993",
-    "title": "Low-Voltage Fuses — Part 1: General Requirements (HRC Fuses)",
+    "title": "Low-Voltage Fuses \u2014 Part 1: General Requirements (HRC Fuses)",
     "year": 1993,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 39",
@@ -6317,7 +6887,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "electrical fuse link plants"
     ],
     "summary": "Mandatory standard for High Rupturing Capacity (HRC) low-voltage cartridge fuses up to 1000 V AC and 100 kA breaking capacity.",
-    "scope": "Covers time-current characteristics, cut-off current, and Joule integral (I²t) energy let-through.",
+    "scope": "Covers time-current characteristics, cut-off current, and Joule integral (I\u00b2t) energy let-through.",
     "keywords": [
       "HRC fuse",
       "cartridge fuse",
@@ -6382,7 +6952,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-13947-1-1993",
     "code": "IS 13947 (Part 1):1993",
-    "title": "Low-Voltage Switchgear and Controlgear — Part 1: General Rules",
+    "title": "Low-Voltage Switchgear and Controlgear \u2014 Part 1: General Rules",
     "year": 1993,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 39",
@@ -6548,7 +7118,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-13947-5-1-2004",
     "code": "IS 13947 (Part 5/Sec 1):2004",
-    "title": "Control Circuit Devices and Switching Elements — Electromechanical Control Devices",
+    "title": "Control Circuit Devices and Switching Elements \u2014 Electromechanical Control Devices",
     "year": 2004,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 39",
@@ -6621,7 +7191,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is14697-c6",
         "number": "Clause 6.1",
         "title": "High Accuracy Metrology (Class 0.2S)",
-        "content": "Measurement error shall remain strictly within ±0.2% over 5% to 120% rated current across 0.5 inductive to unity power factor.",
+        "content": "Measurement error shall remain strictly within \u00b10.2% over 5% to 120% rated current across 0.5 inductive to unity power factor.",
         "mandatory": true
       }
     ],
@@ -6632,7 +7202,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-13779-1999",
     "code": "IS 13779:1999",
-    "title": "AC Static Watt-Hour Meters, Class 1 and 2 — Specification",
+    "title": "AC Static Watt-Hour Meters, Class 1 and 2 \u2014 Specification",
     "year": 1999,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 13",
@@ -6674,7 +7244,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15885-1-2011",
     "code": "IS 15885 (Part 1):2011",
-    "title": "Lamp Controlgear — Part 1: General and Safety Requirements",
+    "title": "Lamp Controlgear \u2014 Part 1: General and Safety Requirements",
     "year": 2011,
     "category": "Electronics & IT",
     "department": "Electrotechnical / ETD 23",
@@ -6716,7 +7286,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16103-1-2012",
     "code": "IS 16103 (Part 1):2012",
-    "title": "LED Modules for General Lighting — Part 1: Safety Specifications",
+    "title": "LED Modules for General Lighting \u2014 Part 1: Safety Specifications",
     "year": 2012,
     "category": "Electronics & IT",
     "department": "Electrotechnical / ETD 23",
@@ -6758,7 +7328,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16107-1-2012",
     "code": "IS 16107 (Part 1):2012",
-    "title": "Luminaires — Part 1: General Requirements and Tests",
+    "title": "Luminaires \u2014 Part 1: General Requirements and Tests",
     "year": 2012,
     "category": "Electronics & IT",
     "department": "Electrotechnical / ETD 23",
@@ -6799,7 +7369,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16107-2-1-2012",
     "code": "IS 16107 (Part 2/Sec 1):2012",
-    "title": "Luminaires: Part 2 Particular Requirements — Fixed General Purpose Luminaires",
+    "title": "Luminaires: Part 2 Particular Requirements \u2014 Fixed General Purpose Luminaires",
     "year": 2012,
     "category": "Electronics & IT",
     "department": "Electrotechnical / ETD 23",
@@ -6870,7 +7440,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is16108-c4",
         "number": "Clause 4.3",
         "title": "Retinal Blue Light Hazard Exposure Limit",
-        "content": "Blue light radiance weighted spectrum Lb shall not exceed 100 W/m²/sr for RG0 (Exempt Group) classification.",
+        "content": "Blue light radiance weighted spectrum Lb shall not exceed 100 W/m\u00b2/sr for RG0 (Exempt Group) classification.",
         "mandatory": true
       }
     ],
@@ -6911,7 +7481,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is16106-c6",
         "number": "Clause 6.1",
         "title": "Total Luminous Flux & Efficacy Measurement",
-        "content": "Luminous flux measured at (25 ± 1)°C stabilized operating temperature inside 2.0 meter integrating sphere spectrometer.",
+        "content": "Luminous flux measured at (25 \u00b1 1)\u00b0C stabilized operating temperature inside 2.0 meter integrating sphere spectrometer.",
         "mandatory": true
       }
     ],
@@ -6922,7 +7492,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-996-2009",
     "code": "IS 996:2009",
-    "title": "Single-Phase AC Induction Motors for General Purpose — Specification",
+    "title": "Single-Phase AC Induction Motors for General Purpose \u2014 Specification",
     "year": 2009,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 15",
@@ -6953,7 +7523,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is996-c7",
         "number": "Clause 7.1",
         "title": "Temperature Rise & Locked Rotor Torque",
-        "content": "Class B insulation temperature rise <= 80°C by resistance; locked rotor torque >= 200% of rated full-load torque.",
+        "content": "Class B insulation temperature rise <= 80\u00b0C by resistance; locked rotor torque >= 200% of rated full-load torque.",
         "mandatory": true
       }
     ],
@@ -6982,7 +7552,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "industrial pump motor factories"
     ],
     "summary": "Mandatory energy efficiency standard enforcing IE2 (High), IE3 (Premium), and IE4 (Super Premium) ratings for motors from 0.75 kW to 375 kW.",
-    "scope": "Covers loss determination per IS 15999 (stray load losses, iron losses, rotor I²R losses).",
+    "scope": "Covers loss determination per IS 15999 (stray load losses, iron losses, rotor I\u00b2R losses).",
     "keywords": [
       "three phase motor",
       "IE3 efficiency",
@@ -7006,7 +7576,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-325-1996",
     "code": "IS 325:1996",
-    "title": "Three-Phase Induction Motors — Specification",
+    "title": "Three-Phase Induction Motors \u2014 Specification",
     "year": 1996,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 15",
@@ -7088,7 +7658,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-14155-1994",
     "code": "IS 14155:1994",
-    "title": "Domestic Electric Food Mixers (Mixer-Grinders) — Specification",
+    "title": "Domestic Electric Food Mixers (Mixer-Grinders) \u2014 Specification",
     "year": 1994,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 32",
@@ -7118,7 +7688,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is14155-c7",
         "number": "Clause 7.1",
         "title": "Grinding Performance & Motor Protection",
-        "content": "Must grind 50g dry turmeric fingers to 300 micron mesh within 2 minutes; TOP must trip before motor winding exceeds 130°C.",
+        "content": "Must grind 50g dry turmeric fingers to 300 micron mesh within 2 minutes; TOP must trip before motor winding exceeds 130\u00b0C.",
         "mandatory": true
       }
     ],
@@ -7160,7 +7730,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is302-2-30-c19",
         "number": "Clause 19.11",
         "title": "Tilt / Tip-Over Cut-Off Mechanism",
-        "content": "Heater tilted at 15° in any direction must automatically cut off power supply within 1.0 second.",
+        "content": "Heater tilted at 15\u00b0 in any direction must automatically cut off power supply within 1.0 second.",
         "mandatory": true
       }
     ],
@@ -7243,7 +7813,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is302-2-15-c19",
         "number": "Clause 19.101",
         "title": "Boil-Dry Thermal Switch Action",
-        "content": "Kettle operated without water; thermal cut-out must disconnect circuit before base temperature exceeds 260°C.",
+        "content": "Kettle operated without water; thermal cut-out must disconnect circuit before base temperature exceeds 260\u00b0C.",
         "mandatory": true
       }
     ],
@@ -7434,11 +8004,11 @@ export const STANDARDS_DATABASE: Standard[] = [
       "microwave oven manufacturing plants",
       "combination microwave factories"
     ],
-    "summary": "Mandatory standard for domestic and commercial microwave ovens, regulating microwave radiation leakage (<50 W/m²).",
+    "summary": "Mandatory standard for domestic and commercial microwave ovens, regulating microwave radiation leakage (<50 W/m\u00b2).",
     "scope": "Covers door interlock switches (dual safety monitors), cavity fire containment, and high voltage magnetron safety.",
     "keywords": [
       "microwave oven",
-      "radiation leakage <= 5mW/cm²",
+      "radiation leakage <= 5mW/cm\u00b2",
       "dual door interlock",
       "magnetron",
       "cavity fire test"
@@ -7448,7 +8018,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is302-2-25-c32",
         "number": "Clause 32.1",
         "title": "Microwave Radiation Leakage Limit",
-        "content": "Microwave power leakage measured at 50 mm distance from any external surface shall not exceed 50 W/m² (5 mW/cm²).",
+        "content": "Microwave power leakage measured at 50 mm distance from any external surface shall not exceed 50 W/m\u00b2 (5 mW/cm\u00b2).",
         "mandatory": true
       }
     ],
@@ -7626,7 +8196,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15549-2005",
     "code": "IS 15549:2005",
-    "title": "Stationary Valve Regulated Lead-Acid (VRLA) Batteries — Specification",
+    "title": "Stationary Valve Regulated Lead-Acid (VRLA) Batteries \u2014 Specification",
     "year": 2005,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 11",
@@ -7766,7 +8336,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "SLI battery manufacturing"
     ],
     "summary": "Mandatory standard for Starting, Lighting and Ignition (SLI) automotive lead-acid batteries for commercial vehicles and cars.",
-    "scope": "Covers Cold Cranking Amperes (CCA at -18°C), vibration resistance, and reserve capacity in minutes.",
+    "scope": "Covers Cold Cranking Amperes (CCA at -18\u00b0C), vibration resistance, and reserve capacity in minutes.",
     "keywords": [
       "car battery",
       "automotive SLI",
@@ -7778,8 +8348,8 @@ export const STANDARDS_DATABASE: Standard[] = [
       {
         "id": "is7372-c6",
         "number": "Clause 6.2",
-        "title": "Cold Cranking Amperage (CCA at -18°C)",
-        "content": "Battery discharged at rated CCA at -18°C; terminal voltage shall remain above 7.2 V after 30 seconds of continuous cranking.",
+        "title": "Cold Cranking Amperage (CCA at -18\u00b0C)",
+        "content": "Battery discharged at rated CCA at -18\u00b0C; terminal voltage shall remain above 7.2 V after 30 seconds of continuous cranking.",
         "mandatory": true
       }
     ],
@@ -7790,7 +8360,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-14257-1995",
     "code": "IS 14257:1995",
-    "title": "Lead-Acid Storage Batteries for Two Wheelers — Specification",
+    "title": "Lead-Acid Storage Batteries for Two Wheelers \u2014 Specification",
     "year": 1995,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 11",
@@ -7872,7 +8442,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16077-2013",
     "code": "IS 16077:2013",
-    "title": "Thin-Film Terrestrial Photovoltaic (PV) Modules — Design Qualification and Type Approval",
+    "title": "Thin-Film Terrestrial Photovoltaic (PV) Modules \u2014 Design Qualification and Type Approval",
     "year": 2013,
     "category": "Electronics & IT",
     "department": "Electrotechnical / ETD 28",
@@ -7914,7 +8484,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16627-2017",
     "code": "IS 16627:2017",
-    "title": "Solar Photovoltaic Water Pumping Systems — Specification",
+    "title": "Solar Photovoltaic Water Pumping Systems \u2014 Specification",
     "year": 2017,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 28",
@@ -7955,7 +8525,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16333-3-2022",
     "code": "IS 16333 (Part 3):2022",
-    "title": "Mobile Phone Handsets — Part 3: Indian Language Support Requirements",
+    "title": "Mobile Phone Handsets \u2014 Part 3: Indian Language Support Requirements",
     "year": 2022,
     "category": "Electronics & IT",
     "department": "Electronics / LITD 16",
@@ -8029,7 +8599,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is13252-p-c4",
         "number": "Clause 4.2",
         "title": "Mechanical & Thermal Hazard of Fuser Assembly",
-        "content": "Fuser rollers operating at >180°C must be shielded from operator contact; thermal limiters must prevent paper ignition.",
+        "content": "Fuser rollers operating at >180\u00b0C must be shielded from operator contact; thermal limiters must prevent paper ignition.",
         "mandatory": true
       }
     ],
@@ -8125,7 +8695,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16242-1-2014",
     "code": "IS 16242 (Part 1):2014",
-    "title": "Uninterruptible Power Systems (UPS) — Part 1: General and Safety Requirements",
+    "title": "Uninterruptible Power Systems (UPS) \u2014 Part 1: General and Safety Requirements",
     "year": 2014,
     "category": "Electronics & IT",
     "department": "Electronics / LITD 16",
@@ -8281,7 +8851,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is13252-w-c4",
         "number": "Clause 4.3",
         "title": "Skin Contact Temperature & Current",
-        "content": "Chassis temperature touching wrist shall not exceed 43°C during maximum compute and fast magnetic charging.",
+        "content": "Chassis temperature touching wrist shall not exceed 43\u00b0C during maximum compute and fast magnetic charging.",
         "mandatory": true
       }
     ],
@@ -8363,7 +8933,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is13252-m-c4",
         "number": "Clause 4.1",
         "title": "Physical Stability Tilt Test",
-        "content": "Monitor mounted on desktop stand shall not overturn when tilted at an angle of 10° in any orientation.",
+        "content": "Monitor mounted on desktop stand shall not overturn when tilted at an angle of 10\u00b0 in any orientation.",
         "mandatory": true
       }
     ],
@@ -8391,7 +8961,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "halogen lighting converter plants"
     ],
     "summary": "Mandatory CRS standard for high frequency electronic step-down convertors delivering 12V supply to halogen and decorative lights.",
-    "scope": "Covers short circuit protection, radio interference, and high ambient thermal performance (Ta = 50°C).",
+    "scope": "Covers short circuit protection, radio interference, and high ambient thermal performance (Ta = 50\u00b0C).",
     "keywords": [
       "electronic transformer",
       "step down convertor",
@@ -8456,7 +9026,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-9224-2-1979",
     "code": "IS 9224 (Part 2):1979",
-    "title": "Low-Voltage Fuses — Specification: Fuses with High Breaking Capacity",
+    "title": "Low-Voltage Fuses \u2014 Specification: Fuses with High Breaking Capacity",
     "year": 1979,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 39",
@@ -8527,7 +9097,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is1248-1-c5",
         "number": "Clause 5.1",
         "title": "Intrinsic Accuracy and Overload Limit",
-        "content": "Error at reference conditions shall not exceed ±1.5% of fiducial scale; shall withstand 10-times short-time current overload.",
+        "content": "Error at reference conditions shall not exceed \u00b11.5% of fiducial scale; shall withstand 10-times short-time current overload.",
         "mandatory": true
       }
     ],
@@ -8568,7 +9138,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is302-2-3-c19",
         "number": "Clause 19.101",
         "title": "Thermostat Failure & Thermal Fuse Action",
-        "content": "In the event of thermostat contact welding, internal thermal fuse must permanently isolate element before soleplate exceeds 350°C.",
+        "content": "In the event of thermostat contact welding, internal thermal fuse must permanently isolate element before soleplate exceeds 350\u00b0C.",
         "mandatory": true
       }
     ],
@@ -8579,7 +9149,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-13428-2005",
     "code": "IS 13428:2005",
-    "title": "Packaged Natural Mineral Water — Specification",
+    "title": "Packaged Natural Mineral Water \u2014 Specification",
     "year": 2005,
     "category": "Consumer Goods",
     "department": "Food & Agriculture / FAD 14",
@@ -8620,7 +9190,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-10500-2012",
     "code": "IS 10500:2012",
-    "title": "Drinking Water — Specification (Potable Water)",
+    "title": "Drinking Water \u2014 Specification (Potable Water)",
     "year": 2012,
     "category": "Consumer Goods",
     "department": "Food & Agriculture / FAD 14",
@@ -8663,7 +9233,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1165-2002",
     "code": "IS 1165:2002",
-    "title": "Milk Powder — Specification",
+    "title": "Milk Powder \u2014 Specification",
     "year": 2002,
     "category": "Consumer Goods",
     "department": "Food & Agriculture / FAD 19",
@@ -8704,7 +9274,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1166-1986",
     "code": "IS 1166:1986",
-    "title": "Condensed Milk, Partly Skimmed and Skimmed Condensed Milk — Specification",
+    "title": "Condensed Milk, Partly Skimmed and Skimmed Condensed Milk \u2014 Specification",
     "year": 1986,
     "category": "Consumer Goods",
     "department": "Food & Agriculture / FAD 19",
@@ -8745,7 +9315,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-12220-1987",
     "code": "IS 12220:1987",
-    "title": "Infant Milk Foods — Specification",
+    "title": "Infant Milk Foods \u2014 Specification",
     "year": 1987,
     "category": "Consumer Goods",
     "department": "Food & Agriculture / FAD 19",
@@ -8786,7 +9356,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-14433-2007",
     "code": "IS 14433:2007",
-    "title": "Infant Formula — Specification",
+    "title": "Infant Formula \u2014 Specification",
     "year": 2007,
     "category": "Consumer Goods",
     "department": "Food & Agriculture / FAD 19",
@@ -8827,7 +9397,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15757-2007",
     "code": "IS 15757:2007",
-    "title": "Follow-Up Formula — Specification",
+    "title": "Follow-Up Formula \u2014 Specification",
     "year": 2007,
     "category": "Consumer Goods",
     "department": "Food & Agriculture / FAD 19",
@@ -8868,7 +9438,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-1656-2007",
     "code": "IS 1656:2007",
-    "title": "Milk Cereal Based Weaning Foods — Specification",
+    "title": "Milk Cereal Based Weaning Foods \u2014 Specification",
     "year": 2007,
     "category": "Consumer Goods",
     "department": "Food & Agriculture / FAD 19",
@@ -8909,7 +9479,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15333-2003",
     "code": "IS 15333:2003",
-    "title": "Processed Cereal Based Complementary Foods for Infants — Specification",
+    "title": "Processed Cereal Based Complementary Foods for Infants \u2014 Specification",
     "year": 2003,
     "category": "Consumer Goods",
     "department": "Food & Agriculture / FAD 19",
@@ -8949,7 +9519,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-515-1959",
     "code": "IS 515:1959",
-    "title": "Carbolic Soap — Specification",
+    "title": "Carbolic Soap \u2014 Specification",
     "year": 1959,
     "category": "Chemical & Plastics",
     "department": "Chemical / CHD 25",
@@ -8989,7 +9559,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2925-1984",
     "code": "IS 2925:1984",
-    "title": "Industrial Safety Helmets — Specification",
+    "title": "Industrial Safety Helmets \u2014 Specification",
     "year": 1984,
     "category": "Consumer Goods",
     "department": "Chemical / CHD 8",
@@ -9193,7 +9763,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-9873-2-2019",
     "code": "IS 9873 (Part 2):2019",
-    "title": "Safety of Toys — Part 2: Flammability Requirements",
+    "title": "Safety of Toys \u2014 Part 2: Flammability Requirements",
     "year": 2019,
     "category": "Consumer Goods",
     "department": "Chemical / CHD 34",
@@ -9358,7 +9928,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15644-2006",
     "code": "IS 15644:2006",
-    "title": "Safety of Electric Toys — Specification",
+    "title": "Safety of Electric Toys \u2014 Specification",
     "year": 2006,
     "category": "Consumer Goods",
     "department": "Electrotechnical / ETD 32",
@@ -9399,7 +9969,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2553-1-2018",
     "code": "IS 2553 (Part 1):2018",
-    "title": "Safety Glass — Specification: Part 1 Architectural, Building and General Uses",
+    "title": "Safety Glass \u2014 Specification: Part 1 Architectural, Building and General Uses",
     "year": 2018,
     "category": "Civil & Construction",
     "department": "Civil Engineering / CED 5",
@@ -9440,7 +10010,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2553-2-2019",
     "code": "IS 2553 (Part 2):2019",
-    "title": "Safety Glass — Specification: Part 2 For Road Transport (Automotive Glass)",
+    "title": "Safety Glass \u2014 Specification: Part 2 For Road Transport (Automotive Glass)",
     "year": 2019,
     "category": "Consumer Goods",
     "department": "Mechanical / TED 6",
@@ -9470,7 +10040,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is2553-2-c6",
         "number": "Clause 6.1",
         "title": "2260g Steel Ball Impact on Windshield",
-        "content": "Ball dropped from 4.0 meters on laminated windshield at -20°C and +40°C; ball must not penetrate glass within 5 seconds.",
+        "content": "Ball dropped from 4.0 meters on laminated windshield at -20\u00b0C and +40\u00b0C; ball must not penetrate glass within 5 seconds.",
         "mandatory": true
       }
     ],
@@ -9481,7 +10051,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-13098-2012",
     "code": "IS 13098:2012",
-    "title": "Automotive Vehicles — Pneumatic Tyres for Commercial Vehicles — Specification",
+    "title": "Automotive Vehicles \u2014 Pneumatic Tyres for Commercial Vehicles \u2014 Specification",
     "year": 2012,
     "category": "Consumer Goods",
     "department": "Chemical / TED 7",
@@ -9522,7 +10092,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15633-2005",
     "code": "IS 15633:2005",
-    "title": "Automotive Vehicles — Pneumatic Tyres for Passenger Car Vehicles — Specification",
+    "title": "Automotive Vehicles \u2014 Pneumatic Tyres for Passenger Car Vehicles \u2014 Specification",
     "year": 2005,
     "category": "Consumer Goods",
     "department": "Chemical / TED 7",
@@ -9562,7 +10132,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15636-2012",
     "code": "IS 15636:2012",
-    "title": "Automotive Vehicles — Pneumatic Tyres for Two and Three-Wheeled Motor Vehicles",
+    "title": "Automotive Vehicles \u2014 Pneumatic Tyres for Two and Three-Wheeled Motor Vehicles",
     "year": 2012,
     "category": "Consumer Goods",
     "department": "Chemical / TED 7",
@@ -9602,7 +10172,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-28-1985",
     "code": "IS 28:1985",
-    "title": "Copper Strip and Sheet for Electrical Purposes — Specification",
+    "title": "Copper Strip and Sheet for Electrical Purposes \u2014 Specification",
     "year": 1985,
     "category": "Civil & Construction",
     "department": "Metallurgical / MTD 8",
@@ -9632,7 +10202,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is28-c5",
         "number": "Clause 5.1",
         "title": "Electrical Resistivity and Conductivity",
-        "content": "Volume resistivity at 20°C shall not exceed 0.017241 ohm.mm²/m corresponding to 100% IACS conductivity.",
+        "content": "Volume resistivity at 20\u00b0C shall not exceed 0.017241 ohm.mm\u00b2/m corresponding to 100% IACS conductivity.",
         "mandatory": true
       }
     ],
@@ -9755,8 +10325,8 @@ export const STANDARDS_DATABASE: Standard[] = [
       {
         "id": "is737-c6",
         "number": "Clause 6.1",
-        "title": "Tensile and 180° Bend Test",
-        "content": "Tensile strength per Table 3; cold bend 180° flat on itself without edge cracking or surface tears.",
+        "title": "Tensile and 180\u00b0 Bend Test",
+        "content": "Tensile strength per Table 3; cold bend 180\u00b0 flat on itself without edge cracking or surface tears.",
         "mandatory": true
       }
     ],
@@ -9824,7 +10394,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "wire stranding plants"
     ],
     "summary": "Mandatory standard for solid and stranded All-Aluminium Conductors (AAC) for power transmission lines.",
-    "scope": "Covers wire tensile breaking load, wrapping test, and electrical resistance at 20°C.",
+    "scope": "Covers wire tensile breaking load, wrapping test, and electrical resistance at 20\u00b0C.",
     "keywords": [
       "AAC conductor",
       "all aluminium conductor",
@@ -9837,7 +10407,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is282-c6",
         "number": "Clause 6.1",
         "title": "Tensile Breaking Load & Electrical Resistance",
-        "content": "Individual wire tensile strength >= 160 to 200 MPa; maximum DC resistance at 20°C per Table 2.",
+        "content": "Individual wire tensile strength >= 160 to 200 MPa; maximum DC resistance at 20\u00b0C per Table 2.",
         "mandatory": true
       }
     ],
@@ -9888,7 +10458,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-398-2-1996",
     "code": "IS 398 (Part 2):1996",
-    "title": "Aluminium Conductor, Galvanized Steel-Reinforced (ACSR) — Specification",
+    "title": "Aluminium Conductor, Galvanized Steel-Reinforced (ACSR) \u2014 Specification",
     "year": 1996,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 37",
@@ -9918,7 +10488,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is398-2-c7",
         "number": "Clause 7.1",
         "title": "Torsion and Zinc Coating on Core Wire",
-        "content": "Galvanized steel core wire must withstand minimum 18 twists in torsion; zinc coating mass >= 240 g/m².",
+        "content": "Galvanized steel core wire must withstand minimum 18 twists in torsion; zinc coating mass >= 240 g/m\u00b2.",
         "mandatory": true
       }
     ],
@@ -9929,7 +10499,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-398-4-1994",
     "code": "IS 398 (Part 4):1994",
-    "title": "Aluminium Alloy Stranded Conductors (AAAC) — Specification",
+    "title": "Aluminium Alloy Stranded Conductors (AAAC) \u2014 Specification",
     "year": 1994,
     "category": "Electrical",
     "department": "Electrotechnical / ETD 37",
@@ -9959,7 +10529,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is398-4-c6",
         "number": "Clause 6.1",
         "title": "Mechanical and Electrical Properties",
-        "content": "Individual alloy wire tensile strength >= 295 MPa; electrical resistivity at 20°C <= 0.0328 ohm.mm²/m.",
+        "content": "Individual alloy wire tensile strength >= 295 MPa; electrical resistivity at 20\u00b0C <= 0.0328 ohm.mm\u00b2/m.",
         "mandatory": true
       }
     ],
@@ -9970,7 +10540,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-319-2007",
     "code": "IS 319:2007",
-    "title": "Free Cutting Brass Bars, Rods and Sections — Specification",
+    "title": "Free Cutting Brass Bars, Rods and Sections \u2014 Specification",
     "year": 2007,
     "category": "Civil & Construction",
     "department": "Metallurgical / MTD 8",
@@ -10012,7 +10582,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-410-1977",
     "code": "IS 410:1977",
-    "title": "Cold Rolled Brass Sheet, Strip and Foil — Specification",
+    "title": "Cold Rolled Brass Sheet, Strip and Foil \u2014 Specification",
     "year": 1977,
     "category": "Civil & Construction",
     "department": "Metallurgical / MTD 8",
@@ -10095,7 +10665,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2825-1969",
     "code": "IS 2825:1969",
-    "title": "Code for Unfired Pressure Vessels — Design, Construction and Inspection",
+    "title": "Code for Unfired Pressure Vessels \u2014 Design, Construction and Inspection",
     "year": 1969,
     "category": "Civil & Construction",
     "department": "Mechanical / MED 22",
@@ -10209,7 +10779,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is3196-2-c6",
         "number": "Clause 6.1",
         "title": "Heat Treatment and Weld Root Bend",
-        "content": "All cylinders normalized in furnace at (900 ± 20)°C; circumferential weld root bend 180° around former without crack.",
+        "content": "All cylinders normalized in furnace at (900 \u00b1 20)\u00b0C; circumferential weld root bend 180\u00b0 around former without crack.",
         "mandatory": true
       }
     ],
@@ -10278,7 +10848,7 @@ export const STANDARDS_DATABASE: Standard[] = [
       "high pressure gas cylinder manufacturing"
     ],
     "summary": "Mandatory standard for quenched and tempered high-strength Cr-Mo alloy steel cylinders operating up to 300 bar.",
-    "scope": "Covers low temperature Charpy V-notch impact test (-40°C), burst pressure, and cyclic fatigue testing (12,000 cycles).",
+    "scope": "Covers low temperature Charpy V-notch impact test (-40\u00b0C), burst pressure, and cyclic fatigue testing (12,000 cycles).",
     "keywords": [
       "quenched and tempered cylinder",
       "Cr Mo alloy cylinder",
@@ -10301,7 +10871,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15100-2001",
     "code": "IS 15100:2001",
-    "title": "Multifunction Valves for LPG Cylinders — Specification",
+    "title": "Multifunction Valves for LPG Cylinders \u2014 Specification",
     "year": 2001,
     "category": "Consumer Goods",
     "department": "Mechanical / MED 16",
@@ -10342,7 +10912,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-8776-2003",
     "code": "IS 8776:2003",
-    "title": "Valve Fittings for Gas Cylinders — Specification",
+    "title": "Valve Fittings for Gas Cylinders \u2014 Specification",
     "year": 2003,
     "category": "Consumer Goods",
     "department": "Mechanical / MED 16",
@@ -10383,7 +10953,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15683-2018",
     "code": "IS 15683:2018",
-    "title": "Portable Fire Extinguishers — Performance and Construction (Clean Agent, Powder, Foam)",
+    "title": "Portable Fire Extinguishers \u2014 Performance and Construction (Clean Agent, Powder, Foam)",
     "year": 2018,
     "category": "Consumer Goods",
     "department": "Civil Engineering / CED 22",
@@ -10424,7 +10994,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-2171-1999",
     "code": "IS 2171:1999",
-    "title": "Dry Powder Fire Extinguishers (Cartridge and Stored Pressure) — Specification",
+    "title": "Dry Powder Fire Extinguishers (Cartridge and Stored Pressure) \u2014 Specification",
     "year": 1999,
     "category": "Consumer Goods",
     "department": "Civil Engineering / CED 22",
@@ -10465,7 +11035,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16018-2012",
     "code": "IS 16018:2012",
-    "title": "Wheeled Fire Extinguishers — Performance and Construction",
+    "title": "Wheeled Fire Extinguishers \u2014 Performance and Construction",
     "year": 2012,
     "category": "Consumer Goods",
     "department": "Civil Engineering / CED 22",
@@ -10505,7 +11075,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-13849-1993",
     "code": "IS 13849:1993",
-    "title": "Portable Fire Extinguisher, Carbon Dioxide Type — Specification",
+    "title": "Portable Fire Extinguisher, Carbon Dioxide Type \u2014 Specification",
     "year": 1993,
     "category": "Consumer Goods",
     "department": "Civil Engineering / CED 22",
@@ -10586,7 +11156,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-9473-2002",
     "code": "IS 9473:2002",
-    "title": "Respiratory Protective Devices — Filtering Half Masks (N95 / FFP2) — Specification",
+    "title": "Respiratory Protective Devices \u2014 Filtering Half Masks (N95 / FFP2) \u2014 Specification",
     "year": 2002,
     "category": "Consumer Goods",
     "department": "Chemical / CHD 8",
@@ -10627,7 +11197,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-16289-2014",
     "code": "IS 16289:2014",
-    "title": "Medical Textiles — Surgical Face Masks — Specification",
+    "title": "Medical Textiles \u2014 Surgical Face Masks \u2014 Specification",
     "year": 2014,
     "category": "Consumer Goods",
     "department": "Textiles / TXD 36",
@@ -10668,7 +11238,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-17334-2019",
     "code": "IS 17334:2019",
-    "title": "Medical Textiles — Coveralls for Healthcare Workers — Specification",
+    "title": "Medical Textiles \u2014 Coveralls for Healthcare Workers \u2014 Specification",
     "year": 2019,
     "category": "Consumer Goods",
     "department": "Textiles / TXD 36",
@@ -10710,7 +11280,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-13422-1992",
     "code": "IS 13422:1992",
-    "title": "Medical Gloves: Single-Use Sterile Rubber Surgical Gloves — Specification",
+    "title": "Medical Gloves: Single-Use Sterile Rubber Surgical Gloves \u2014 Specification",
     "year": 1992,
     "category": "Consumer Goods",
     "department": "Chemical / CHD 9",
@@ -10751,7 +11321,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15354-2003",
     "code": "IS 15354:2003",
-    "title": "Single-Use Sterile Rubber Examination Gloves — Specification",
+    "title": "Single-Use Sterile Rubber Examination Gloves \u2014 Specification",
     "year": 2003,
     "category": "Consumer Goods",
     "department": "Chemical / CHD 9",
@@ -10792,7 +11362,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-10263-1982",
     "code": "IS 10263:1982",
-    "title": "Clinical Thermometers (Liquid-in-Glass) — Specification",
+    "title": "Clinical Thermometers (Liquid-in-Glass) \u2014 Specification",
     "year": 1982,
     "category": "Consumer Goods",
     "department": "Mechanical / PGD 25",
@@ -10808,12 +11378,12 @@ export const STANDARDS_DATABASE: Standard[] = [
       "glass thermometer factories",
       "mercury/alcohol clinical thermometer plants"
     ],
-    "summary": "Mandatory standard for liquid-in-glass clinical maximum thermometers measuring human body temperature from 35.0°C to 42.0°C.",
-    "scope": "Covers maximum permissible error (±0.1°C), constriction tube reset, and thermal shock durability.",
+    "summary": "Mandatory standard for liquid-in-glass clinical maximum thermometers measuring human body temperature from 35.0\u00b0C to 42.0\u00b0C.",
+    "scope": "Covers maximum permissible error (\u00b10.1\u00b0C), constriction tube reset, and thermal shock durability.",
     "keywords": [
       "clinical thermometer",
       "mercury thermometer",
-      "maximum error ±0.1C",
+      "maximum error \u00b10.1C",
       "constriction tube",
       "scale 35 to 42C"
     ],
@@ -10822,7 +11392,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is10263-c5",
         "number": "Clause 5.1",
         "title": "Maximum Permissible Error & Constriction",
-        "content": "Error between 35.5°C and 42.0°C shall not exceed ±0.1°C; constriction must maintain reading until shaken down.",
+        "content": "Error between 35.5\u00b0C and 42.0\u00b0C shall not exceed \u00b10.1\u00b0C; constriction must maintain reading until shaken down.",
         "mandatory": true
       }
     ],
@@ -10833,7 +11403,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-15907-2010",
     "code": "IS 15907:2010",
-    "title": "Digital Clinical Thermometers — Specification",
+    "title": "Digital Clinical Thermometers \u2014 Specification",
     "year": 2010,
     "category": "Consumer Goods",
     "department": "Electronics / LITD 16",
@@ -10850,11 +11420,11 @@ export const STANDARDS_DATABASE: Standard[] = [
       "infrared thermometer factories"
     ],
     "summary": "Mandatory standard for electronic digital contact and infrared forehead clinical thermometers.",
-    "scope": "Covers electronic thermistor accuracy (±0.1°C between 35°C and 42°C), waterproof probe tip, low battery alert, and self-test verification.",
+    "scope": "Covers electronic thermistor accuracy (\u00b10.1\u00b0C between 35\u00b0C and 42\u00b0C), waterproof probe tip, low battery alert, and self-test verification.",
     "keywords": [
       "digital thermometer",
       "electronic thermometer",
-      "accuracy ±0.1C",
+      "accuracy \u00b10.1C",
       "infrared thermometer",
       "waterproof probe"
     ],
@@ -10863,7 +11433,7 @@ export const STANDARDS_DATABASE: Standard[] = [
         "id": "is15907-c5",
         "number": "Clause 5.1",
         "title": "Laboratory Measurement Accuracy",
-        "content": "Digital readout error calibrated in precision water bath shall not exceed ±0.1°C across 35.5°C to 42.0°C clinical range.",
+        "content": "Digital readout error calibrated in precision water bath shall not exceed \u00b10.1\u00b0C across 35.5\u00b0C to 42.0\u00b0C clinical range.",
         "mandatory": true
       }
     ],
@@ -10874,7 +11444,7 @@ export const STANDARDS_DATABASE: Standard[] = [
   {
     "id": "is-13450-1-2018",
     "code": "IS 13450 (Part 1):2018",
-    "title": "Medical Electrical Equipment — Part 1: General Requirements for Basic Safety",
+    "title": "Medical Electrical Equipment \u2014 Part 1: General Requirements for Basic Safety",
     "year": 2018,
     "category": "Consumer Goods",
     "department": "Electrotechnical / ETD 23",
@@ -10932,20 +11502,20 @@ export const STANDARDS_DATABASE: Standard[] = [
       "volumetric infusion pump factories"
     ],
     "summary": "Mandatory standard for volumetric infusion pumps and syringe drivers used in intensive care units (ICU).",
-    "scope": "Covers occlusion alarm pressure detection, anti-free-flow protection, air-in-line bubble detection, and volumetric dosage accuracy (±5%).",
+    "scope": "Covers occlusion alarm pressure detection, anti-free-flow protection, air-in-line bubble detection, and volumetric dosage accuracy (\u00b15%).",
     "keywords": [
       "infusion pump",
       "syringe pump",
       "air in line detector",
       "occlusion pressure alarm",
-      "flow accuracy ±5%"
+      "flow accuracy \u00b15%"
     ],
     "clauses": [
       {
         "id": "is13450-2-24-c201",
         "number": "Clause 201.12",
         "title": "Delivery Accuracy and Air-in-Line Alarm",
-        "content": "Volumetric flow rate accuracy within ±5%; ultrasonic detector must trigger alarm for air bubbles >= 50 microliters.",
+        "content": "Volumetric flow rate accuracy within \u00b15%; ultrasonic detector must trigger alarm for air bubbles >= 50 microliters.",
         "mandatory": true
       }
     ],
