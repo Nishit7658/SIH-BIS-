@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIS Technical Architecture & RAG Flowchart</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      text-align: center;
+      max-width: 900px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      color: #38bdf8;
+      margin-bottom: 8px;
+      font-size: 28px;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-top: 0;
+    }
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    }
+    button:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-1px);
+    }
+    button.secondary {
+      background-color: #059669;
+    }
+    button.secondary:hover {
+      background-color: #047857;
+    }
+    .diagram-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+      max-width: 1200px;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-x: auto;
+      display: flex;
+      justify-content: center;
+    }
+    #mermaid-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    #mermaid-container svg {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Technical Architecture & RAG Pipeline Flowchart</h1>
+    <p>Bureau of Indian Standards (BIS) Smart Digital Expert &bull; Runtime Query, Security & RAG Lifecycle</p>
+  </div>
+
+  <div class="controls">
+    <button onclick="downloadPNG()">
+      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download High-Res PNG
+    </button>
+    <button class="secondary" onclick="downloadSVG()">
+      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download Vector SVG
+    </button>
+  </div>
+
+  <div class="diagram-card">
+    <div id="mermaid-container" class="mermaid">
+flowchart TD
+    classDef client fill:#E0F2FE,stroke:#0284C7,stroke-width:2px,color:#0369A1;
+    classDef security fill:#FEE2E2,stroke:#DC2626,stroke-width:2px,color:#991B1B;
+    classDef backend fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#92400E;
+    classDef database fill:#E0E7FF,stroke:#4F46E5,stroke-width:2px,color:#3730A3;
+    classDef ai fill:#DCFCE7,stroke:#16A34A,stroke-width:2px,color:#166534;
+
+    subgraph Layer1 ["1. Presentation Layer (Frontend)"]
+        UI["Web UI (React / Next.js)<br>• Conversational Regulatory Desk<br>• Standards Explorer & Blueprint Viewer<br>• License Verification (CM/L)"]:::client
+    end
+
+    subgraph Layer2 ["2. Security & Guardrail Gateway"]
+        Val["Input Sanitization & Schema Validation<br>(Zod / Pydantic v2)"]:::security
+        Guard["Prompt Protection & Anti-Jailbreak Guardrail<br>• Token smearing defense<br>• Regex injection interception<br>• Out-of-scope intent abstention"]:::security
+        SafeCheck{"Passes Security<br>Inspection?"}:::security
+        Reject["400 / 403 Structured Rejection<br>• Security Alert Logged<br>• Safe Refusal Message"]:::security
+    end
+
+    subgraph Layer3 ["3. Backend API Gateway (Node.js + Express / Python)"]
+        Router["API Route Controllers<br>(/api/chat, /api/standards, /api/search)"]:::backend
+        Cache{"Session / Query<br>Cache Hit?"}:::backend
+    end
+
+    subgraph Layer4 ["4. AI & Vector Retrieval Engine"]
+        Embed["Embedding Model<br>(Generate Query Vector, e.g. 768 / 1536 dim)"]:::ai
+        Hybrid["Hybrid Search Orchestrator<br>• Dense Vector Cosine Similarity (<=>)<br>• Sparse Lexical BM25 Keyword Matching"]:::ai
+        Rerank["Context Assembly & Reranking<br>• Filter by Mandatory QCO Status<br>• Top 3-5 Relevant Standard Clauses"]:::ai
+    end
+
+    subgraph Layer5 ["5. Database Layer (PostgreSQL + pgvector)"]
+        PG["PostgreSQL Database<br>• Relational: Users, Audits, Standards, Blueprints<br>• pgvector: HNSW Index on Clause Embeddings<br>• JSONB: Technical Tables, Testing Criteria"]:::database
+    end
+
+    subgraph Layer6 ["6. LLM Generation & Output Verification"]
+        PromptPack["System Prompt Packaging<br>• Strictly Grounded Context<br>• Zero-Hallucination Directives<br>• Citation Mapping Rules"]:::ai
+        LLM["Generative LLM (Gemini / Claude / GPT)<br>• Synthesizes Technical Advisory<br>• Extracts Exact Numerical Limits"]:::ai
+        OutAudit{"Output Faithfulness<br>Audit"}:::security
+        FinalResp["Grounded Response with Citations<br>• Standard Code & Clause Numbers<br>• Official e-BIS Portal Links<br>• Testing Parameters & Machines"]:::client
+    end
+
+    UI -->|"HTTP POST /api/chat"| Val
+    Val --> Guard
+    Guard --> SafeCheck
+    SafeCheck -->|"No (Adversarial / Malicious)"| Reject
+    Reject -->|"Return Error"| UI
+
+    SafeCheck -->|"Yes (Clean)"| Router
+    Router --> Cache
+    Cache -->|"Yes"| FinalResp
+    Cache -->|"No"| Embed
+
+    Embed --> Hybrid
+    Hybrid <-->|"SELECT clause, 1 - (embedding <=> q_vec)<br>WHERE category = 'Electrical'<br>ORDER BY score LIMIT 5;"| PG
+    Hybrid --> Rerank
+    Rerank --> PromptPack
+
+    PromptPack --> LLM
+    LLM --> OutAudit
+    OutAudit -->|"Verified Grounding"| FinalResp
+    FinalResp -->|"Render Structured Answer"| UI
+    </div>
+  </div>
+
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'default', securityLevel: 'loose' });
+
+    function downloadSVG() {
+      const svg = document.querySelector('#mermaid-container svg');
+      if (!svg) {
+        alert('Flowchart is still rendering. Please wait a second.');
+        return;
+      }
+      const serializer = new XMLSerializer();
+      const source = serializer.serializeToString(svg);
+      const blob = new Blob([source], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'bis_technical_flowchart.svg';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function downloadPNG() {
+      const svg = document.querySelector('#mermaid-container svg');
+      if (!svg) {
+        alert('Flowchart is still rendering. Please wait a second.');
+        return;
+      }
+      const serializer = new XMLSerializer();
+      const svgString = serializer.serializeToString(svg);
+      const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+      const URLObj = window.URL || window.webkitURL || window;
+      const blobURL = URLObj.createObjectURL(svgBlob);
+
+      const image = new Image();
+      image.onload = function () {
+        const scale = 2; // 2x for sharp retina resolution
+        const canvas = document.createElement('canvas');
+        canvas.width = svg.getBoundingClientRect().width * scale;
+        canvas.height = svg.getBoundingClientRect().height * scale;
+        const context = canvas.getContext('2d');
+        context.fillStyle = '#ffffff';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+        const pngURL = canvas.toDataURL('image/png');
+        const a = document.createElement('a');
+        a.href = pngURL;
+        a.download = 'bis_technical_flowchart.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URLObj.revokeObjectURL(blobURL);
+      };
+      image.src = blobURL;
+    }
+  </script>
+</body>
+</html>

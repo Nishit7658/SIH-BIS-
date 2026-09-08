@@ -131,44 +131,75 @@ class RagService:
                 "relevantStandards": []
             }
 
-        # 2. Tokenize search terms
+        # 2. Tokenize search terms & detect domain context
         search_terms = [t for t in re.sub(r"[^\w\s]", " ", normalized).split() if len(t) > 2]
         if not search_terms:
             search_terms = [t for t in normalized.split() if len(t) > 1]
 
+        METALLURGY_TERMS = {"steel", "iron", "tmt", "rebar", "alloy", "metal", "sheet", "pipe", "wire", "plate", "billet"}
+        is_metallurgy = any(term in METALLURGY_TERMS for term in search_terms)
+
         scored_clauses = []
         for std in STANDARDS_DB:
             std_code = std.get("code", "").lower()
-            std_text = f"{std_code} {std.get('title', '')} {' '.join(std.get('businessTypes', []))} {' '.join(std.get('keywords', []))} {std.get('summary', '')}".lower()
-            std_score = 0
+            std_title = std.get("title", "").lower()
+            std_keywords = " ".join(std.get("keywords", [])).lower()
+            std_biz = " ".join(std.get("businessTypes", [])).lower()
+            std_summary = std.get("summary", "").lower()
+            std_cat = f"{std.get('category', '')} {std.get('department', '')} {std.get('division', '')}".lower()
 
-            # Check for exact code match or term match
+            std_score = 0
             for term in search_terms:
                 if term in std_code:
-                    std_score += 60
-                elif term in std_text:
-                    std_score += 12
+                    std_score += 150
+                if term in std_title:
+                    std_score += 80
+                if term in std_keywords:
+                    std_score += 50
+                if term in std_biz:
+                    std_score += 35
+                if term in std_cat:
+                    std_score += 30
+                if term in std_summary:
+                    std_score += 20
+
+            # Domain boost for primary structural & metallurgical standards over incidental utensils
+            if is_metallurgy and ("metallurgical" in std_cat or "civil" in std_cat or "structural" in std_title or "bars" in std_title or "plate" in std_title):
+                std_score += 40
 
             for clause in std.get("clauses", []):
                 cl_num = clause.get("number", "").lower()
                 cl_title = clause.get("title", "").lower()
                 cl_content = clause.get("content", "").lower()
-                cl_text = f"{cl_num} {cl_title} {cl_content}".replace("-", " ")
 
-                cl_score = std_score
+                # Clause inherits standard domain authority
+                cl_score = std_score * 1.5
+
                 for term in search_terms:
                     if term in cl_num:
-                        cl_score += 40
+                        cl_score += 60
                     if term in cl_title:
-                        cl_score += 25
-                    if term in cl_text:
-                        cl_score += 15
+                        cl_score += 35
+                    if term in cl_content:
+                        cl_score += 20
 
-                if cl_score > 0:
+                # High-density quantitative specifications bonus
+                if any(u in cl_content for u in ["mpa", "kpa", "%", "mm", "kn", "table", "yield", "tensile"]):
+                    cl_score += 15
+
+                if cl_score > 0 and (std_score > 0 or any(term in cl_title or term in cl_content for term in search_terms)):
                     scored_clauses.append((cl_score, std, clause))
 
         scored_clauses.sort(key=lambda x: x[0], reverse=True)
-        top_clauses = scored_clauses[:4]
+
+        # Pick diverse top clauses across distinct standards (max 1-2 clauses per standard, up to 3 standards)
+        top_clauses = []
+        seen_standards = {}
+        for score, std, cl in scored_clauses:
+            code = std["code"]
+            if seen_standards.get(code, 0) < 1 and len(top_clauses) < 3:
+                top_clauses.append((score, std, cl))
+                seen_standards[code] = seen_standards.get(code, 0) + 1
 
         # 3. If no relevant clauses found -> Grounded Abstention
         if not top_clauses:
@@ -213,14 +244,20 @@ class RagService:
 
         context_text = "\n\n".join(context_snippets)
 
-        # 5. LLM Prompt Construction with Strict Grounding
+        # 5. LLM Prompt Construction with Strict Concise Format
         prompt = (
             "You are the official Bureau of Indian Standards (BIS) Smart Digital Expert.\n"
-            "Answer the user's technical inquiry strictly using ONLY the verified BIS clauses provided below.\n"
-            "Rules:\n"
-            "1. Cite the exact IS code and clause numbers.\n"
-            "2. Do NOT invent or speculate values outside the provided context.\n"
-            "3. Format your response cleanly with clear headings and bullet points.\n\n"
+            "Answer the user's technical inquiry strictly using ONLY the verified BIS clauses provided below.\n\n"
+            "STRICT FORMATTING REQUIREMENTS:\n"
+            "1. Output format must ONLY be concise structured blocks in this exact format:\n\n"
+            f"Greetings, I am the official Bureau of Indian Standards (BIS) Smart Digital Expert. Based on your inquiry regarding **{raw_query}**, here are the verified technical requirements from our official standards context:\n\n"
+            "### **[Standard Code] ([Standard Title])**\n\n"
+            "*   **[Clause Number] - [Clause Title]**\n"
+            "    *   **Requirement:** [Concise technical limits, dimensions, or chemical/mechanical requirements strictly from context]\n"
+            "    *   **Test Method:** [Exact test method, STI procedure, or apparatus strictly from context]\n\n"
+            "2. If multiple standards are present, separate them with '---'.\n"
+            "3. Do NOT include conversational filler, long paragraphs, or narrative conclusions. Keep the bullet points clean and executive.\n"
+            "4. Never invent or speculate values outside the provided context.\n\n"
             f"=== VERIFIED BIS CONTEXT ===\n{context_text}\n\n"
             f"=== USER INQUIRY ===\n{raw_query}\n\n"
             "=== OFFICIAL ADVISORY RESPONSE ==="
@@ -229,23 +266,43 @@ class RagService:
         llm_answer = await call_gemini_llm(prompt)
 
         if not llm_answer:
-            # Deterministic offline synthesis
-            primary_std = top_clauses[0][1]
-            primary_cl = top_clauses[0][2]
+            # Deterministic offline synthesis matching the exact 4-bullet structure
+            standards_shown = {}
+            for _, std, cl in top_clauses:
+                code = std["code"]
+                if code not in standards_shown:
+                    standards_shown[code] = {
+                        "title": std["title"],
+                        "clauses": []
+                    }
+                standards_shown[code]["clauses"].append(cl)
+
+            blocks = []
+            for code, s_data in standards_shown.items():
+                cl_blocks = []
+                for cl in s_data["clauses"]:
+                    t_method = cl.get("testRequirement") or cl.get("testMethod") or "Standard STI Procedure"
+                    cl_blocks.append(
+                        f"*   **{cl['number']} - {cl['title']}**\n"
+                        f"    *   **Requirement:** {cl['content']}\n"
+                        f"    *   **Test Method:** {t_method}"
+                    )
+                blocks.append(f"### **{code} ({s_data['title']})**\n\n" + "\n\n".join(cl_blocks))
+
             llm_answer = (
-                f"### Bureau of Indian Standards (BIS) Technical Advisory\n\n"
-                f"**Standard Code:** {primary_std['code']}\n"
-                f"**Title:** {primary_std['title']}\n\n"
-                f"**Governing Clause:** {primary_cl['number']} — {primary_cl['title']}\n\n"
-                f"{primary_cl['content']}\n\n"
-                f"**Mandatory Testing & Quality Requirements:**\n"
-                f"- **Test Method:** {primary_cl.get('testRequirement') or primary_cl.get('testMethod') or 'Conforming to BIS Scheme of Testing & Inspection (STI)'}\n"
-                f"- **Conformity Scheme:** {primary_std.get('scheme', 'Scheme I (ISI Mark)')}\n"
-                f"- **Regulatory Status:** {'Mandatory Quality Control Order (QCO) Enforced' if primary_std.get('isMandatory') else 'Voluntary Indian Standard'}\n\n"
-                f"For full legal conformity or application under Form V, consult the official e-BIS portal at services.bis.gov.in."
+                f"Greetings, I am the official Bureau of Indian Standards (BIS) Smart Digital Expert. "
+                f"Based on your inquiry regarding **{raw_query}**, here are the verified technical requirements from our official standards context:\n\n"
+                + "\n\n---\n\n".join(blocks)
             )
 
         latency = int((time.time() - start_time) * 1000)
+        seen_ids = set()
+        unique_stds = []
+        for _, std, _ in top_clauses:
+            if std["id"] not in seen_ids:
+                seen_ids.add(std["id"])
+                unique_stds.append(std)
+
         return {
             "query": raw_query,
             "answer": llm_answer,
@@ -255,5 +312,5 @@ class RagService:
             "cached": False,
             "costTier": "fast_tier",
             "latencyMs": latency,
-            "relevantStandards": [top_clauses[0][1]]
+            "relevantStandards": unique_stds
         }

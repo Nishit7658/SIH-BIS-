@@ -58,7 +58,7 @@ class IngestionService:
                             break
                 update_store(_st1)
 
-                # Stage 2: Chunking by clauses & sections
+                # Stage 2: Semantic Chunking (800-1000 tokens, 150 overlap)
                 text = doc.get("extractedText", "")
                 if not text:
                     stored_file = UPLOADS_DIR / doc.get("storedFilename", "")
@@ -67,8 +67,9 @@ class IngestionService:
                             from backend.services.document_service import DocumentService
                             text = DocumentService.extract_text_from_bytes(f.read(), doc.get("mimeType", ""), doc.get("originalFilename", ""))
 
-                paragraphs = [p.strip() for p in text.split("\n\n") if len(p.strip()) > 30]
-                chunks_count = max(1, len(paragraphs) if paragraphs else 5)
+                from backend.services.chunker import chunk_text_800_1000
+                chunks = chunk_text_800_1000(text, {"code": doc.get("title") or doc.get("originalFilename")})
+                chunks_count = len(chunks)
 
                 time.sleep(0.5)
                 def _st2(s):
@@ -80,7 +81,7 @@ class IngestionService:
                 update_store(_st2)
 
                 time.sleep(0.5)
-                # Stage 3 & 4: Indexing complete
+                # Stage 3 & 4: Indexing complete with chunk metadata
                 now_done = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
                 def _st_done(s):
                     for j in s.get("ingestionJobs", []):
@@ -94,6 +95,7 @@ class IngestionService:
                         if d["id"] == document_id:
                             d["status"] = "INDEXED"
                             d["chunksCount"] = chunks_count
+                            d["chunks"] = chunks
                             break
                 update_store(_st_done)
 

@@ -34,3 +34,8 @@ yarn-error.log*
 
 # Local data store & uploads
 /.data/
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
