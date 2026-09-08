@@ -27,6 +27,7 @@ import {
   FlaskConical,
   X
 } from "lucide-react";
+import { MarkdownRenderer } from "@/components/chat/MarkdownRenderer";
 
 interface Message {
   id: string;
@@ -263,10 +264,14 @@ function ChatContent() {
                     </div>
                   </div>
 
-                  {/* Message Content rendered in clean prose */}
-                  <div className="prose-bis text-xs sm:text-sm leading-relaxed whitespace-pre-line">
-                    {msg.text}
-                  </div>
+                  {/* Message Content rendered in clean prose or rich government-style markdown */}
+                  {msg.sender === "bot" ? (
+                    <MarkdownRenderer content={msg.text} />
+                  ) : (
+                    <div className="text-xs sm:text-sm leading-relaxed whitespace-pre-line font-medium text-gov-navy">
+                      {msg.text}
+                    </div>
+                  )}
 
                   {/* Citations Footer for Bot Messages */}
                   {msg.citations && msg.citations.length > 0 && (
