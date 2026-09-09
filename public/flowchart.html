@@ -107,66 +107,59 @@
 
   <div class="diagram-card">
     <div id="mermaid-container" class="mermaid">
-flowchart TD
+flowchart TB
     classDef client fill:#E0F2FE,stroke:#0284C7,stroke-width:2px,color:#0369A1;
     classDef security fill:#FEE2E2,stroke:#DC2626,stroke-width:2px,color:#991B1B;
     classDef backend fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#92400E;
     classDef database fill:#E0E7FF,stroke:#4F46E5,stroke-width:2px,color:#3730A3;
     classDef ai fill:#DCFCE7,stroke:#16A34A,stroke-width:2px,color:#166534;
 
-    subgraph Layer1 ["1. Presentation Layer (Frontend)"]
-        UI["Web UI (React / Next.js)<br>• Conversational Regulatory Desk<br>• Standards Explorer & Blueprint Viewer<br>• License Verification (CM/L)"]:::client
+    %% ================= ROW 1: INGESTION & GATEWAY (LEFT TO RIGHT) =================
+    subgraph ROW1 ["ROW 1: Ingestion & Python Gateway (Left → Right)"]
+        direction LR
+        UI["1. Web UI (Client)<br>• React / Next.js Desk<br>• Technical BIS Query"]:::client
+        SEC["2. Security & Guardrails<br>• Zero-width Stripping<br>• Token-smearing Defense<br>• Pydantic v2 Schema"]:::security
+        SAFE{"Passes Security<br>Check?"}:::security
+        REJ["400/403 Refusal<br>• Malicious Alert Logged<br>• Safe Abstention"]:::security
+        API["3. FastAPI Gateway (Python)<br>• Async Route Handlers<br>• Query / Session Cache"]:::backend
+
+        UI -->|"HTTP POST /api/chat"| SEC
+        SEC --> SAFE
+        SAFE -->|"Yes: Clean"| API
+        SAFE -->|"No: Malicious"| REJ
     end
 
-    subgraph Layer2 ["2. Security & Guardrail Gateway"]
-        Val["Input Sanitization & Schema Validation<br>(Zod / Pydantic v2)"]:::security
-        Guard["Prompt Protection & Anti-Jailbreak Guardrail<br>• Token smearing defense<br>• Regex injection interception<br>• Out-of-scope intent abstention"]:::security
-        SafeCheck{"Passes Security<br>Inspection?"}:::security
-        Reject["400 / 403 Structured Rejection<br>• Security Alert Logged<br>• Safe Refusal Message"]:::security
+    %% ================= ROW 2: VECTOR RETRIEVAL & CHUNKING (RIGHT TO LEFT) =================
+    subgraph ROW2 ["ROW 2: Vector Search & Chunking Engine (Right → Left)"]
+        direction RL
+        EMB["4. Embedding Model<br>• 768-dim Vectorization<br>• Query Vector Generation"]:::ai
+        PG[("5. PostgreSQL + pgvector<br>• HNSW Index Cosine Match<br>• JSONB Technical Tables")]:::database
+        HYB["6. Hybrid Reranker<br>• Dense Vector (0.7)<br>• Sparse BM25 Keywords (0.3)<br>• QCO Mandate Filter"]:::ai
+        CHK["7. 800-1000 Token Chunker<br>• Semantic Clause Grouping<br>• Table & Matrix Preservation<br>• 150-Token Overlap"]:::ai
+
+        EMB -->|"Vector Query"| PG
+        PG -->|"Top K Chunks"| HYB
+        HYB -->|"Re-ordered"| CHK
     end
 
-    subgraph Layer3 ["3. Backend API Gateway (Node.js + Express / Python)"]
-        Router["API Route Controllers<br>(/api/chat, /api/standards, /api/search)"]:::backend
-        Cache{"Session / Query<br>Cache Hit?"}:::backend
+    %% ================= ROW 3: SYNTHESIS & AUDITING (LEFT TO RIGHT) =================
+    subgraph ROW3 ["ROW 3: LLM Synthesis & Verification (Left → Right)"]
+        direction LR
+        PROMPT["8. System Prompt Packaging<br>• 800-1000 Token Context<br>• Zero-Hallucination Directives<br>• Citation Mapping Rules"]:::ai
+        LLM["9. Gemini Generative LLM<br>• Extract Chemical & Mechanical Specs<br>• Render Full Markdown Tables"]:::ai
+        AUDIT{"Faithfulness<br>Audit?"}:::security
+        RESP["10. Technical Memorandum<br>• Chemical & Mechanical Tables<br>• Mandatory STI Procedures<br>• Official e-BIS Citations"]:::client
+
+        PROMPT --> LLM
+        LLM --> AUDIT
+        AUDIT -->|"Verified Grounding"| RESP
+        AUDIT -->|"Unverified"| PROMPT
     end
 
-    subgraph Layer4 ["4. AI & Vector Retrieval Engine"]
-        Embed["Embedding Model<br>(Generate Query Vector, e.g. 768 / 1536 dim)"]:::ai
-        Hybrid["Hybrid Search Orchestrator<br>• Dense Vector Cosine Similarity (<=>)<br>• Sparse Lexical BM25 Keyword Matching"]:::ai
-        Rerank["Context Assembly & Reranking<br>• Filter by Mandatory QCO Status<br>• Top 3-5 Relevant Standard Clauses"]:::ai
-    end
-
-    subgraph Layer5 ["5. Database Layer (PostgreSQL + pgvector)"]
-        PG["PostgreSQL Database<br>• Relational: Users, Audits, Standards, Blueprints<br>• pgvector: HNSW Index on Clause Embeddings<br>• JSONB: Technical Tables, Testing Criteria"]:::database
-    end
-
-    subgraph Layer6 ["6. LLM Generation & Output Verification"]
-        PromptPack["System Prompt Packaging<br>• Strictly Grounded Context<br>• Zero-Hallucination Directives<br>• Citation Mapping Rules"]:::ai
-        LLM["Generative LLM (Gemini / Claude / GPT)<br>• Synthesizes Technical Advisory<br>• Extracts Exact Numerical Limits"]:::ai
-        OutAudit{"Output Faithfulness<br>Audit"}:::security
-        FinalResp["Grounded Response with Citations<br>• Standard Code & Clause Numbers<br>• Official e-BIS Portal Links<br>• Testing Parameters & Machines"]:::client
-    end
-
-    UI -->|"HTTP POST /api/chat"| Val
-    Val --> Guard
-    Guard --> SafeCheck
-    SafeCheck -->|"No (Adversarial / Malicious)"| Reject
-    Reject -->|"Return Error"| UI
-
-    SafeCheck -->|"Yes (Clean)"| Router
-    Router --> Cache
-    Cache -->|"Yes"| FinalResp
-    Cache -->|"No"| Embed
-
-    Embed --> Hybrid
-    Hybrid <-->|"SELECT clause, 1 - (embedding <=> q_vec)<br>WHERE category = 'Electrical'<br>ORDER BY score LIMIT 5;"| PG
-    Hybrid --> Rerank
-    Rerank --> PromptPack
-
-    PromptPack --> LLM
-    LLM --> OutAudit
-    OutAudit -->|"Verified Grounding"| FinalResp
-    FinalResp -->|"Render Structured Answer"| UI
+    %% ================= SERPENTINE SNAKE CONNECTIONS =================
+    API -->|"Cache Miss (Turn Down to Right)"| EMB
+    CHK -->|"Turn Down to Left"| PROMPT
+    API -.->|"Cache Hit (Bypass)"| RESP
     </div>
   </div>
 
