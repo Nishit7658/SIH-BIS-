@@ -3,85 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIS Technical Architecture & RAG Flowchart</title>
+  <title>BIS Technical Architecture - Ultra-HD Presentation Export</title>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
+      background-color: #f8fafc;
+      color: #0f172a;
       margin: 0;
-      padding: 30px;
+      padding: 30px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
     .header {
       text-align: center;
-      max-width: 900px;
+      max-width: 950px;
       margin-bottom: 24px;
     }
     h1 {
-      color: #38bdf8;
-      margin-bottom: 8px;
-      font-size: 28px;
+      color: #0f172a;
+      margin-bottom: 6px;
+      font-size: 26px;
+      font-weight: 700;
     }
     p {
-      color: #94a3b8;
+      color: #64748b;
       font-size: 15px;
-      line-height: 1.5;
       margin-top: 0;
     }
-    .controls {
-      display: flex;
-      gap: 12px;
+    .tip-banner {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 12px 18px;
+      color: #1e40af;
+      font-size: 14px;
       margin-bottom: 24px;
+      max-width: 950px;
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .stage-section {
+      width: 100%;
+      max-width: 1150px;
+      margin-bottom: 36px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .stage-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
       flex-wrap: wrap;
-      justify-content: center;
+      gap: 12px;
+    }
+    .stage-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .stage-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-all { background-color: #fef3c7; color: #b45309; }
+    .badge-1 { background-color: #eff6ff; color: #1d4ed8; }
+    .badge-2 { background-color: #eef2ff; color: #4338ca; }
+    .badge-3 { background-color: #f0fdf4; color: #15803d; }
+
+    .btn-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
     }
     button {
       background-color: #2563eb;
-      color: white;
+      color: #ffffff;
       border: none;
-      padding: 12px 20px;
-      font-size: 14px;
+      padding: 9px 15px;
+      font-size: 13px;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      gap: 6px;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
     button:hover {
       background-color: #1d4ed8;
       transform: translateY(-1px);
     }
-    button.secondary {
+    button.trans {
       background-color: #059669;
     }
-    button.secondary:hover {
+    button.trans:hover {
       background-color: #047857;
     }
-    .diagram-card {
+    button.vector {
+      background-color: #4f46e5;
+    }
+    button.vector:hover {
+      background-color: #4338ca;
+    }
+    .diagram-viewport {
       background-color: #ffffff;
-      border-radius: 12px;
-      padding: 32px;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-      max-width: 1200px;
-      width: 100%;
-      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
       overflow-x: auto;
-      display: flex;
-      justify-content: center;
     }
-    #mermaid-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-    #mermaid-container svg {
+    .diagram-viewport svg {
       max-width: 100% !important;
       height: auto !important;
     }
@@ -90,23 +136,37 @@
 <body>
 
   <div class="header">
-    <h1>Technical Architecture & RAG Pipeline Flowchart</h1>
-    <p>Bureau of Indian Standards (BIS) Smart Digital Expert &bull; Runtime Query, Security & RAG Lifecycle</p>
+    <h1>BIS Technical Flowchart (Ultra-HD Presentation Export)</h1>
+    <p>Enhanced 4x / 300 DPI Resolution &bull; Transparent & Solid White Options &bull; Lossless Vector SVG</p>
   </div>
 
-  <div class="controls">
-    <button onclick="downloadPNG()">
-      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-      Download High-Res PNG
-    </button>
-    <button class="secondary" onclick="downloadSVG()">
-      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-      Download Vector SVG
-    </button>
+  <div class="tip-banner">
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+    <span><strong>Tip for PowerPoint:</strong> You can directly insert the <strong>Vector SVG</strong> into your PowerPoint slide (Insert &gt; Pictures). SVGs stay 100% crystal clear at any zoom level. Or click <strong>4K Transparent PNG</strong> for ultra-high-resolution raster output.</span>
   </div>
 
-  <div class="diagram-card">
-    <div id="mermaid-container" class="mermaid">
+  <!-- FULL SERPENTINE 3-ROW FLOWCHART -->
+  <div class="stage-section">
+    <div class="stage-header">
+      <div>
+        <span class="stage-badge badge-all">Complete Architecture</span>
+        <span class="stage-title" style="margin-left: 8px;">Full 3-Row Serpentine Snake Flowchart</span>
+      </div>
+      <div class="btn-group">
+        <button class="trans" onclick="downloadUltraHD('container-full', 'full_flowchart_4k_transparent.png', true)">
+          ⚡ Download 4K Transparent PNG
+        </button>
+        <button onclick="downloadUltraHD('container-full', 'full_flowchart_4k_white.png', false)">
+          Download 4K White PNG
+        </button>
+        <button class="vector" onclick="downloadSVG('container-full', 'full_flowchart_vector.svg')">
+          Download Lossless Vector SVG
+        </button>
+      </div>
+    </div>
+    <div class="diagram-viewport">
+      <div id="container-full" class="mermaid">
+%%{init: {'theme': 'default', 'themeVariables': { 'background': 'transparent', 'clusterBkg': '#F8FAFC', 'clusterBorder': '#CBD5E1' }}}%%
 flowchart TB
     classDef client fill:#E0F2FE,stroke:#0284C7,stroke-width:2px,color:#0369A1;
     classDef security fill:#FEE2E2,stroke:#DC2626,stroke-width:2px,color:#991B1B;
@@ -114,7 +174,6 @@ flowchart TB
     classDef database fill:#E0E7FF,stroke:#4F46E5,stroke-width:2px,color:#3730A3;
     classDef ai fill:#DCFCE7,stroke:#16A34A,stroke-width:2px,color:#166534;
 
-    %% ================= ROW 1: INGESTION & GATEWAY (LEFT TO RIGHT) =================
     subgraph ROW1 ["ROW 1: Ingestion & Python Gateway (Left → Right)"]
         direction LR
         UI["1. Web UI (Client)<br>• React / Next.js Desk<br>• Technical BIS Query"]:::client
@@ -129,7 +188,6 @@ flowchart TB
         SAFE -->|"No: Malicious"| REJ
     end
 
-    %% ================= ROW 2: VECTOR RETRIEVAL & CHUNKING (RIGHT TO LEFT) =================
     subgraph ROW2 ["ROW 2: Vector Search & Chunking Engine (Right → Left)"]
         direction RL
         EMB["4. Embedding Model<br>• 768-dim Vectorization<br>• Query Vector Generation"]:::ai
@@ -142,7 +200,6 @@ flowchart TB
         HYB -->|"Re-ordered"| CHK
     end
 
-    %% ================= ROW 3: SYNTHESIS & AUDITING (LEFT TO RIGHT) =================
     subgraph ROW3 ["ROW 3: LLM Synthesis & Verification (Left → Right)"]
         direction LR
         PROMPT["8. System Prompt Packaging<br>• 800-1000 Token Context<br>• Zero-Hallucination Directives<br>• Citation Mapping Rules"]:::ai
@@ -156,20 +213,148 @@ flowchart TB
         AUDIT -->|"Unverified"| PROMPT
     end
 
-    %% ================= SERPENTINE SNAKE CONNECTIONS =================
-    API -->|"Cache Miss (Turn Down to Right)"| EMB
-    CHK -->|"Turn Down to Left"| PROMPT
+    API -->|"Cache Miss"| EMB
+    CHK -->|"Rich Context"| PROMPT
     API -.->|"Cache Hit (Bypass)"| RESP
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 1 SEPARATE -->
+  <div class="stage-section">
+    <div class="stage-header">
+      <div>
+        <span class="stage-badge badge-1">Stage 1</span>
+        <span class="stage-title" style="margin-left: 8px;">Ingestion & Python Gateway (Left → Right)</span>
+      </div>
+      <div class="btn-group">
+        <button class="trans" onclick="downloadUltraHD('container-stage1', 'stage1_4k_transparent.png', true)">
+          ⚡ Download 4K Transparent PNG
+        </button>
+        <button onclick="downloadUltraHD('container-stage1', 'stage1_4k_white.png', false)">
+          Download 4K White PNG
+        </button>
+        <button class="vector" onclick="downloadSVG('container-stage1', 'stage1_vector.svg')">
+          Vector SVG
+        </button>
+      </div>
+    </div>
+    <div class="diagram-viewport">
+      <div id="container-stage1" class="mermaid">
+%%{init: {'theme': 'default', 'themeVariables': { 'background': 'transparent', 'clusterBkg': '#F8FAFC', 'clusterBorder': '#CBD5E1' }}}%%
+flowchart LR
+    classDef client fill:#E0F2FE,stroke:#0284C7,stroke-width:2px,color:#0369A1;
+    classDef security fill:#FEE2E2,stroke:#DC2626,stroke-width:2px,color:#991B1B;
+    classDef backend fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#92400E;
+
+    subgraph ROW1 ["ROW 1: Ingestion & Python Gateway (Left → Right)"]
+        direction LR
+        UI["1. Web UI (Client Desk)<br>• React / Next.js<br>• Technical Query Submission"]:::client
+        SEC["2. Security & Guardrails<br>• Zero-width Stripping<br>• Token-smearing Defense<br>• Pydantic v2 Validation"]:::security
+        SAFE{"Passes Security<br>Check?"}:::security
+        REJ["400/403 Refusal<br>• Malicious Prompt Blocked<br>• Safe Abstention"]:::security
+        API["3. FastAPI Gateway<br>• Async Route Handlers<br>• In-Memory / Redis Cache"]:::backend
+
+        UI -->|"HTTP POST /api/chat"| SEC
+        SEC --> SAFE
+        SAFE -->|"Yes: Clean"| API
+        SAFE -->|"No: Malicious"| REJ
+    end
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 2 SEPARATE -->
+  <div class="stage-section">
+    <div class="stage-header">
+      <div>
+        <span class="stage-badge badge-2">Stage 2</span>
+        <span class="stage-title" style="margin-left: 8px;">Vector Search & Chunking Engine (Right → Left)</span>
+      </div>
+      <div class="btn-group">
+        <button class="trans" onclick="downloadUltraHD('container-stage2', 'stage2_4k_transparent.png', true)">
+          ⚡ Download 4K Transparent PNG
+        </button>
+        <button onclick="downloadUltraHD('container-stage2', 'stage2_4k_white.png', false)">
+          Download 4K White PNG
+        </button>
+        <button class="vector" onclick="downloadSVG('container-stage2', 'stage2_vector.svg')">
+          Vector SVG
+        </button>
+      </div>
+    </div>
+    <div class="diagram-viewport">
+      <div id="container-stage2" class="mermaid">
+%%{init: {'theme': 'default', 'themeVariables': { 'background': 'transparent', 'clusterBkg': '#F8FAFC', 'clusterBorder': '#CBD5E1' }}}%%
+flowchart RL
+    classDef database fill:#E0E7FF,stroke:#4F46E5,stroke-width:2px,color:#3730A3;
+    classDef ai fill:#DCFCE7,stroke:#16A34A,stroke-width:2px,color:#166534;
+
+    subgraph ROW2 ["ROW 2: Vector Search & Chunking Engine (Right → Left)"]
+        direction RL
+        EMB["4. Embedding Model<br>• 768-dim Vectorization<br>• Query Vector Generation"]:::ai
+        PG[("5. PostgreSQL + pgvector<br>• HNSW Index Cosine Match<br>• JSONB Technical Tables")]:::database
+        HYB["6. Hybrid Reranker<br>• Dense Vector (0.7)<br>• Sparse BM25 Keywords (0.3)<br>• QCO Mandate Filter"]:::ai
+        CHK["7. 800-1000 Token Chunker<br>• Semantic Clause Grouping<br>• Table & Matrix Preservation<br>• 150-Token Overlap"]:::ai
+
+        EMB -->|"Vector Query"| PG
+        PG -->|"Top K Chunks"| HYB
+        HYB -->|"Re-ordered"| CHK
+    end
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 3 SEPARATE -->
+  <div class="stage-section">
+    <div class="stage-header">
+      <div>
+        <span class="stage-badge badge-3">Stage 3</span>
+        <span class="stage-title" style="margin-left: 8px;">LLM Synthesis & Verification (Left → Right)</span>
+      </div>
+      <div class="btn-group">
+        <button class="trans" onclick="downloadUltraHD('container-stage3', 'stage3_4k_transparent.png', true)">
+          ⚡ Download 4K Transparent PNG
+        </button>
+        <button onclick="downloadUltraHD('container-stage3', 'stage3_4k_white.png', false)">
+          Download 4K White PNG
+        </button>
+        <button class="vector" onclick="downloadSVG('container-stage3', 'stage3_vector.svg')">
+          Vector SVG
+        </button>
+      </div>
+    </div>
+    <div class="diagram-viewport">
+      <div id="container-stage3" class="mermaid">
+%%{init: {'theme': 'default', 'themeVariables': { 'background': 'transparent', 'clusterBkg': '#F8FAFC', 'clusterBorder': '#CBD5E1' }}}%%
+flowchart LR
+    classDef security fill:#FEE2E2,stroke:#DC2626,stroke-width:2px,color:#991B1B;
+    classDef ai fill:#DCFCE7,stroke:#16A34A,stroke-width:2px,color:#166534;
+    classDef client fill:#E0F2FE,stroke:#0284C7,stroke-width:2px,color:#0369A1;
+
+    subgraph ROW3 ["ROW 3: LLM Synthesis & Verification (Left → Right)"]
+        direction LR
+        PROMPT["8. System Prompt Packaging<br>• 800-1000 Token Context<br>• Zero-Hallucination Directives<br>• Citation Mapping Rules"]:::ai
+        LLM["9. Gemini Generative LLM<br>• Extract Chemical & Mechanical Specs<br>• Render Full Markdown Tables"]:::ai
+        AUDIT{"Faithfulness<br>Audit?"}:::security
+        RESP["10. Technical Memorandum<br>• Chemical & Mechanical Tables<br>• Mandatory STI Procedures<br>• Official e-BIS Citations"]:::client
+
+        PROMPT --> LLM
+        LLM --> AUDIT
+        AUDIT -->|"Verified Grounding"| RESP
+        AUDIT -->|"Unverified"| PROMPT
+    end
+      </div>
     </div>
   </div>
 
   <script>
     mermaid.initialize({ startOnLoad: true, theme: 'default', securityLevel: 'loose' });
 
-    function downloadSVG() {
-      const svg = document.querySelector('#mermaid-container svg');
+    function downloadSVG(containerId, filename) {
+      const svg = document.querySelector('#' + containerId + ' svg');
       if (!svg) {
-        alert('Flowchart is still rendering. Please wait a second.');
+        alert('Diagram is rendering. Please wait.');
         return;
       }
       const serializer = new XMLSerializer();
@@ -178,40 +363,75 @@ flowchart TB
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'bis_technical_flowchart.svg';
+      a.download = filename;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
 
-    function downloadPNG() {
-      const svg = document.querySelector('#mermaid-container svg');
+    function downloadUltraHD(containerId, filename, isTransparent) {
+      const svg = document.querySelector('#' + containerId + ' svg');
       if (!svg) {
-        alert('Flowchart is still rendering. Please wait a second.');
+        alert('Diagram is still rendering. Please wait.');
         return;
       }
+
+      // 1. Extract true vector dimensions from viewBox
+      const viewBox = svg.viewBox.baseVal;
+      const originalWidth = (viewBox && viewBox.width > 0) ? viewBox.width : svg.getBoundingClientRect().width;
+      const originalHeight = (viewBox && viewBox.height > 0) ? viewBox.height : svg.getBoundingClientRect().height;
+
+      // 2. High-DPI scale (4x multiplier for 4K / 300 DPI ultra-crisp output)
+      const scale = 4;
+      const targetWidth = originalWidth * scale;
+      const targetHeight = originalHeight * scale;
+
+      // 3. Clone SVG and explicitly inject high-resolution pixel dimensions
+      const clonedSvg = svg.cloneNode(true);
+      clonedSvg.setAttribute('width', targetWidth);
+      clonedSvg.setAttribute('height', targetHeight);
+      if (!clonedSvg.getAttribute('viewBox')) {
+        clonedSvg.setAttribute('viewBox', `0 0 ${originalWidth} ${originalHeight}`);
+      }
+
+      // Add inline background color style if needed
+      if (!isTransparent) {
+        clonedSvg.style.backgroundColor = '#ffffff';
+      } else {
+        clonedSvg.style.backgroundColor = 'transparent';
+      }
+
       const serializer = new XMLSerializer();
-      const svgString = serializer.serializeToString(svg);
+      const svgString = serializer.serializeToString(clonedSvg);
       const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
       const URLObj = window.URL || window.webkitURL || window;
       const blobURL = URLObj.createObjectURL(svgBlob);
 
       const image = new Image();
       image.onload = function () {
-        const scale = 2; // 2x for sharp retina resolution
         const canvas = document.createElement('canvas');
-        canvas.width = svg.getBoundingClientRect().width * scale;
-        canvas.height = svg.getBoundingClientRect().height * scale;
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
         const context = canvas.getContext('2d');
-        context.fillStyle = '#ffffff';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+        // Smooth high-quality anti-aliasing
+        context.imageSmoothingEnabled = true;
+        context.imageSmoothingQuality = 'high';
+
+        if (!isTransparent) {
+          context.fillStyle = '#ffffff';
+          context.fillRect(0, 0, canvas.width, canvas.height);
+        } else {
+          context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        context.drawImage(image, 0, 0, targetWidth, targetHeight);
 
         const pngURL = canvas.toDataURL('image/png');
         const a = document.createElement('a');
         a.href = pngURL;
-        a.download = 'bis_technical_flowchart.png';
+        a.download = filename;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);

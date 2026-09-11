@@ -1,7 +1,7 @@
 import time
 import os
 from typing import Dict, Any
-from backend.config import GEMINI_API_KEY
+from backend.config import LLM_BASE_URL, LLM_MODEL
 from backend.database import STANDARDS_DB, load_store
 
 _start_time = time.time()
@@ -30,7 +30,7 @@ class HealthService:
                 "standardsRegistry": "pass" if standards_count >= 50 else "fail",
                 "laboratoriesDirectory": "pass",
                 "schemesMatrix": "pass",
-                "llmProviderConfigured": "configured" if GEMINI_API_KEY else "fallback_mode"
+                "llmProviderConfigured": f"local_llama_server ({LLM_MODEL} @ {LLM_BASE_URL})"
             },
             "telemetry": {
                 "totalStandards": standards_count,

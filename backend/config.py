@@ -19,7 +19,9 @@ JWT_SECRET = os.getenv("JWT_SECRET", "bis-smart-digital-expert-sec-key-2026")
 JWT_ALGORITHM = "HS256"
 JWT_EXPIRY_HOURS = 24 * 7  # 7 days
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "http://127.0.0.1:8080").rstrip("/")
+LLM_MODEL = os.getenv("LLM_MODEL", "gemma-local")
+LLM_TIMEOUT = float(os.getenv("LLM_TIMEOUT", "180.0"))
 
 HOST = os.getenv("HOST", "127.0.0.1")
 PORT = int(os.getenv("PORT", "8000"))

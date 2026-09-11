@@ -2,7 +2,7 @@ import re
 import time
 import httpx
 from typing import Dict, Any, List, Optional
-from backend.config import GEMINI_API_KEY
+from backend.config import LLM_BASE_URL, LLM_MODEL, LLM_TIMEOUT
 from backend.database import STANDARDS_DB
 
 OUT_OF_SCOPE_TRIGGERS = [
@@ -44,38 +44,57 @@ def evaluate_prompt_guardrail(raw_input: str) -> Dict[str, Any]:
 
     return {"passed": True, "blockedReason": None, "sanitizedInput": sanitized}
 
-async def call_gemini_llm(prompt: str) -> Optional[str]:
-    if not GEMINI_API_KEY:
-        return None
-
-    models = [
-        "gemini-flash-lite-latest",
-        "gemini-pro-latest"
-    ]
-
+async def call_local_gemma_llm(system_prompt: str, user_prompt: str) -> Dict[str, Any]:
+    """
+    Calls the local llama-server running Gemma via OpenAI-compatible endpoint.
+    Target: POST {LLM_BASE_URL}/v1/chat/completions
+    Model: {LLM_MODEL} (default: gemma-local)
+    """
+    url = f"{LLM_BASE_URL}/v1/chat/completions"
     payload = {
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 4000}
+        "model": LLM_MODEL,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ],
+        "temperature": 0.1,
+        "max_tokens": 2048
     }
 
     try:
-        async with httpx.AsyncClient(timeout=10.0) as client:
-            for model in models:
-                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
-                try:
-                    resp = await client.post(url, json=payload)
-                    if resp.status_code == 200:
-                        data = resp.json()
-                        candidates = data.get("candidates", [])
-                        if candidates:
-                            parts = candidates[0].get("content", {}).get("parts", [])
-                            if parts:
-                                return parts[0].get("text", "").strip()
-                except Exception:
-                    continue
-    except Exception:
-        pass
-    return None
+        async with httpx.AsyncClient(timeout=LLM_TIMEOUT) as client:
+            resp = await client.post(url, json=payload)
+            if resp.status_code == 200:
+                data = resp.json()
+                choices = data.get("choices", [])
+                if choices:
+                    msg = choices[0].get("message", {})
+                    # For Gemma / reasoning models, content holds final answer; fallback to reasoning if content is empty
+                    text = msg.get("content") or ""
+                    if not text.strip():
+                        text = msg.get("reasoning_content") or ""
+                    return {"success": True, "text": text.strip(), "error": None}
+                return {"success": False, "text": None, "error": "Invalid response format from llama-server"}
+            else:
+                return {"success": False, "text": None, "error": f"llama-server returned HTTP {resp.status_code}: {resp.text}"}
+    except (httpx.ConnectError, httpx.ConnectTimeout, httpx.NetworkError):
+        return {
+            "success": False,
+            "text": None,
+            "error": "Local Gemma model server is unavailable. Please start llama-server on port 8080."
+        }
+    except httpx.TimeoutException:
+        return {
+            "success": False,
+            "text": None,
+            "error": "Local Gemma model inference timed out. The model server may be overloaded."
+        }
+    except Exception as e:
+        return {
+            "success": False,
+            "text": None,
+            "error": f"Local Gemma inference error: {str(e)}"
+        }
 
 GREETING_TRIGGERS = ["hello", "hi", "hey", "namaste", "good morning", "good afternoon", "good evening", "help"]
 
@@ -279,37 +298,36 @@ class RagService:
 
         context_text = "\n\n---\n\n".join(rich_chunks)
 
-        # 5. LLM Prompt Construction with Strict Comprehensive Reporting Rules
-        prompt = (
-            "You are the official Bureau of Indian Standards (BIS) Smart Digital Expert.\n"
-            "Answer the user's technical inquiry with a Comprehensive Authoritative Technical Memorandum strictly grounded in the verified BIS standards context provided below.\n\n"
-            "STRICT COMPREHENSIVE REPORTING RULES:\n"
-            "1. Deliver an EXHAUSTIVE, high-density technical memorandum for each relevant standard. Do NOT withhold details or condense into single sentences.\n"
-            "2. RENDER FULL MARKDOWN TABLES: Include all chemical composition limits, mechanical property matrices, dimensional mass tolerances, and physical test thresholds present in the context.\n"
-            "3. For each standard, structure your response clearly:\n"
-            "   ### **[Standard Code]: [Standard Title]**\n"
-            "   - **Statutory Scope & QCO Status:** State the Quality Control Order, BIS Act 2016 statutory mandate, and Scheme I (ISI Mark) / Scheme II (CRS) conformity requirements.\n"
-            "   - **Chemical Composition Matrix:** Render full markdown table with all grades and constituent % limits (C, S, P, CE, Cr, Ni, etc.).\n"
-            "   - **Mechanical Properties & Acceptance Criteria:** Render full markdown table with Proof Stress, Tensile Strength, TS/YS ratio, Elongation %, Uniform Elongation Agt.\n"
-            "   - **Dimensional Tolerances & Test Rules:** Details on nominal sizes, mass per metre tolerances, bend & rebend mandrel diameters, temperature criteria.\n"
-            "   - **Factory Quality Control & STI Batch Testing:** Batch testing frequency per heat/tonnage, routine factory tests, and mandatory ISI mark licensing.\n"
-            "4. Separate multiple standards with '---'.\n"
-            "5. Maintain absolute fidelity to all numbers, limits, formulas, and SI units (MPa, %, mm, °C, kg/m) in the provided context.\n\n"
-            f"=== VERIFIED BIS CONTEXT (800-1000 Token Standards Chunks) ===\n{context_text}\n\n"
-            f"=== USER INQUIRY ===\n{raw_query}\n\n"
-            "=== OFFICIAL AUTHORITATIVE TECHNICAL MEMORANDUM ==="
+        # 5. Local Gemma System & User Prompt Construction
+        system_prompt = (
+            "You are the official Bureau of Indian Standards (BIS) Smart Digital Expert and compliance assistant.\n"
+            "Your duty is to provide authoritative, accurate technical guidance strictly based on official Indian Standards (IS).\n\n"
+            "RULES:\n"
+            "1. Answer using ONLY the supplied retrieved BIS standards context.\n"
+            "2. Do not invent or assume any information, tolerances, grades, or requirements not present in the context.\n"
+            "3. If the retrieved context does not contain the answer, clearly say that the available BIS documents do not provide enough information.\n"
+            "4. Render full Markdown tables for chemical compositions, mechanical properties, and tolerances where applicable.\n"
+            "5. Cite the exact Indian Standard codes (e.g. IS 1786, IS 6911) and clause numbers from the context."
         )
 
-        llm_answer = await call_gemini_llm(prompt)
+        user_prompt = (
+            f"=== SUPPLIED RETRIEVED BIS STANDARDS CONTEXT ===\n"
+            f"{context_text}\n\n"
+            f"=== USER INQUIRY ===\n"
+            f"{raw_query}\n\n"
+            "=== INSTRUCTION ===\n"
+            "Provide an authoritative, detailed technical memorandum answering the user inquiry based strictly on the retrieved BIS context above."
+        )
 
-        if not llm_answer:
-            # Deterministic offline synthesis using the rich 800-1000 token standard chunks
-            llm_answer = (
-                f"# BUREAU OF INDIAN STANDARDS (BIS)\n"
-                f"## SMART DIGITAL EXPERT — AUTHORITATIVE TECHNICAL MEMORANDUM\n\n"
-                f"**Inquiry:** {raw_query.title()} | **Status:** Verified Official BIS Standards Repository\n\n"
-                + "\n\n---\n\n".join(rich_chunks)
-            )
+        llm_res = await call_local_gemma_llm(system_prompt, user_prompt)
+
+        if llm_res["success"] and llm_res["text"]:
+            llm_answer = llm_res["text"]
+            confidence = 0.98
+        else:
+            err_msg = llm_res.get("error") or "Local Gemma model server is unavailable. Please start llama-server on port 8080."
+            llm_answer = err_msg
+            confidence = 0.0
 
         latency = int((time.time() - start_time) * 1000)
 
@@ -317,10 +335,10 @@ class RagService:
             "query": raw_query,
             "answer": llm_answer,
             "citations": citations,
-            "confidence": 0.98,
+            "confidence": confidence,
             "isAbstained": False,
             "cached": False,
-            "costTier": "fast_tier",
+            "costTier": "local_gemma",
             "latencyMs": latency,
             "relevantStandards": unique_stds
         }
