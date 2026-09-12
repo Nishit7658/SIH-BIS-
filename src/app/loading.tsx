@@ -5,8 +5,12 @@ export default function Loading() {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center space-y-4 px-4">
       <div className="relative">
-        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-bis-navy via-bis-blue to-bis-saffron flex items-center justify-center shadow-lg animate-pulse">
-          <span className="text-white font-black text-xl tracking-tighter">IS</span>
+        <div className="w-16 h-16 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shadow-lg p-2.5 animate-pulse">
+          <img
+            src="/emblem.svg"
+            alt="State Emblem of India"
+            className="w-full h-full object-contain"
+          />
         </div>
         <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-bis-saffron flex items-center justify-center animate-ping">
           <Sparkles className="w-2.5 h-2.5 text-white" />

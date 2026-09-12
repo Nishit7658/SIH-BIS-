@@ -12,8 +12,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
           {/* Col 1: Statutory Authority */}
           <div className="md:col-span-2 space-y-3">
-            <div className="flex items-center gap-2 text-white font-bold font-serif text-sm">
-              <span className="w-5 h-5 bg-gov-saffron text-white rounded-sm flex items-center justify-center font-mono text-xs">IS</span>
+            <div className="flex items-center gap-2.5 text-white font-bold font-serif text-sm">
+              <img
+                src="/emblem.svg"
+                alt="State Emblem of India"
+                className="h-7 w-auto object-contain brightness-0 invert shrink-0"
+              />
               <span>Bureau of Indian Standards (BIS)</span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-lg">

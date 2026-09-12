@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   description: "AI-powered digital expert for Bureau of Indian Standards (BIS), ISI Mark specifications, Quality Control Orders (QCOs), and product compliance.",
   keywords: "BIS, ISI Mark, Indian Standards, QCO, IS 1293, IS 302, IS 694, DPDP, Conformity Assessment, Smart India Hackathon",
   authors: [{ name: "BIS Digital Team" }],
+  icons: {
+    icon: "/emblem.svg",
+  },
 };
 
 export default function RootLayout({
