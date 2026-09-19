@@ -4,6 +4,7 @@ import { AppProvider } from "@/context/AppContext";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { DpdpConsentModal, StatutoryDisclaimerBar } from "@/components/legal/DpdpConsentModal";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -35,6 +36,7 @@ export default function RootLayout({
           <main className="flex-1 w-full">{children}</main>
           <Footer />
           <DpdpConsentModal />
+          <ScrollToTop />
         </AppProvider>
       </body>
     </html>

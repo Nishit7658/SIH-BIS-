@@ -24,6 +24,20 @@ export function Navbar() {
   const pathname = usePathname();
   const { language, setLanguage, isSpeaking, stopSpeaking } = useApp();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [fontSizeLevel, setFontSizeLevel] = useState<"normal" | "large" | "larger">("normal");
+
+  const changeFontSize = (level: "normal" | "large" | "larger") => {
+    setFontSizeLevel(level);
+    if (typeof document !== "undefined") {
+      if (level === "normal") {
+        document.documentElement.style.fontSize = "100%";
+      } else if (level === "large") {
+        document.documentElement.style.fontSize = "108%";
+      } else if (level === "larger") {
+        document.documentElement.style.fontSize = "116%";
+      }
+    }
+  };
 
   const navItems = [
     { href: "/chat", label: "Consultation Workbench" },
@@ -80,6 +94,49 @@ export function Navbar() {
                     {l.code.toUpperCase()}
                   </button>
                 ))}
+              </div>
+            </div>
+
+            {/* Accessibility Font Size Control (GIGW Compliant) */}
+            <div className="hidden sm:flex items-center gap-1">
+              <span className="text-slate-400">Text:</span>
+              <div className="inline-flex rounded border border-slate-700 overflow-hidden text-[10px]">
+                <button
+                  type="button"
+                  onClick={() => changeFontSize("normal")}
+                  className={`px-1.5 py-0.5 font-bold transition-colors ${
+                    fontSizeLevel === "normal"
+                      ? "bg-gov-saffron text-white"
+                      : "text-slate-300 hover:bg-slate-800"
+                  }`}
+                  title="Default Text Size (A)"
+                >
+                  A
+                </button>
+                <button
+                  type="button"
+                  onClick={() => changeFontSize("large")}
+                  className={`px-1.5 py-0.5 font-bold transition-colors ${
+                    fontSizeLevel === "large"
+                      ? "bg-gov-saffron text-white"
+                      : "text-slate-300 hover:bg-slate-800"
+                  }`}
+                  title="Medium Text Size (A+)"
+                >
+                  A+
+                </button>
+                <button
+                  type="button"
+                  onClick={() => changeFontSize("larger")}
+                  className={`px-1.5 py-0.5 font-bold transition-colors ${
+                    fontSizeLevel === "larger"
+                      ? "bg-gov-saffron text-white"
+                      : "text-slate-300 hover:bg-slate-800"
+                  }`}
+                  title="Large Text Size (A++)"
+                >
+                  A++
+                </button>
               </div>
             </div>
 
