@@ -8,10 +8,6 @@ export function ScrollToTop() {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
 
-  if (pathname === "/chat") {
-    return null;
-  }
-
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 280) {
@@ -32,7 +28,7 @@ export function ScrollToTop() {
     });
   };
 
-  if (!isVisible) return null;
+  if (pathname === "/chat" || !isVisible) return null;
 
   return (
     <button

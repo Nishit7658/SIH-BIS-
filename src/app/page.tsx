@@ -49,18 +49,16 @@ export default function HomePage() {
           Matches frame_10.0s.png exactly
           ───────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-8 pb-16">
-        {/* Background Vertical Spectral Light Beam (right aligned) */}
-        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[60%] pointer-events-none select-none z-0 flex justify-end">
-          <div className="relative w-full h-full max-w-4xl">
+        {/* Luminous Triangular Spectral Beam (aligned to right side, matching Figma prototype) */}
+        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[52%] pointer-events-none select-none z-0 flex justify-end items-center sm:items-end">
+          <div className="relative w-full h-[85%] max-h-[700px] flex justify-end">
             <Image
               src="/assets/hero-beam.png"
-              alt="Luminous Spectrum Light Beam"
+              alt="BISync Spectral Triangle Light Beam"
               fill
               priority
-              className="object-cover object-right-top opacity-95"
+              className="object-contain object-right sm:object-right-bottom opacity-90 sm:opacity-100"
             />
-            {/* Subtle left-side gradient feathering */}
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent" />
           </div>
         </div>
 
