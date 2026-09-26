@@ -5,85 +5,65 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useApp } from "@/context/AppContext";
 import { SupportedLanguage } from "@/lib/i18n";
-import {
-  Menu,
-  X,
-  VolumeX,
-  ArrowRight
-} from "lucide-react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
-  const { language, setLanguage, isSpeaking, stopSpeaking } = useApp();
+  const { language, setLanguage } = useApp();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [fontSizeLevel, setFontSizeLevel] = useState<"normal" | "large" | "larger">("normal");
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
-  const changeFontSize = (level: "normal" | "large" | "larger") => {
-    setFontSizeLevel(level);
-    if (typeof document !== "undefined") {
-      if (level === "normal") {
-        document.documentElement.style.fontSize = "100%";
-      } else if (level === "large") {
-        document.documentElement.style.fontSize = "108%";
-      } else if (level === "larger") {
-        document.documentElement.style.fontSize = "116%";
-      }
-    }
-  };
+  // Dedicated Chat Workbench in the Figma prototype uses its own streamlined header
+  if (pathname === "/chat") {
+    return null;
+  }
 
-  const navItems = [
-    { href: "/chat", label: "Consultation Workbench" },
-    { href: "/explore", label: "Standards & Lab Directory" },
-    { href: "/compliance", label: "Audit & QCO Checklist" },
-    { href: "/verify", label: "License Verification (CM/L)" },
-    { href: "/compare", label: "Comparator" },
-    { href: "/admin/ops", label: "Audit Telemetry" },
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/explore", label: "Standards" },
+    { href: "/compliance", label: "BIS Services" },
   ];
 
   const languages: { code: SupportedLanguage; label: string }[] = [
     { code: "en", label: "English" },
     { code: "hi", label: "हिन्दी" },
     { code: "mr", label: "मराठी" },
-    { code: "ta", label: "தமிழ்" }
+    { code: "ta", label: "தமிழ்" },
   ];
 
+  const currentLangLabel = languages.find((l) => l.code === language)?.label || "Language";
+
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-300 py-2.5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
-        {/* 1. Left: Official Emblem & Title */}
+    <header className="sticky top-4 z-50 px-4 sm:px-8 max-w-7xl mx-auto w-full transition-all duration-300">
+      <div className="bg-[#180033] text-white rounded-full px-6 sm:px-8 py-3.5 flex items-center justify-between shadow-2xl shadow-purple-950/40 border border-purple-900/30 backdrop-blur-md">
+        {/* Brand Left */}
         <Link href="/" className="flex items-center gap-3 shrink-0 group">
           <img
             src="/emblem.svg"
             alt="State Emblem of India"
-            className="h-10 w-auto object-contain shrink-0"
+            className="h-6 w-auto object-contain brightness-0 invert opacity-90 shrink-0 group-hover:opacity-100 transition-opacity"
           />
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight font-serif leading-none">
-                BIS Smart Digital Expert
-              </span>
-              <span className="hidden sm:inline-block px-1.5 py-0.2 text-[9px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700 border border-slate-300 rounded">
-                Govt. of India
-              </span>
-            </div>
-            <p className="text-[11px] text-slate-500 font-medium">
-              Bureau of Indian Standards • National Standards Body
-            </p>
-          </div>
+          <span className="text-xl sm:text-2xl font-bold tracking-[0.25em] text-white uppercase font-sans">
+            BISYNC
+          </span>
         </Link>
 
-        {/* 2. Center: Tabbed Navigation */}
-        <nav className="hidden xl:flex items-center gap-1">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+        {/* Center Nav Items */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href);
+
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-3 py-1.5 text-xs font-bold whitespace-nowrap rounded-md transition-colors ${
+                className={`text-sm tracking-wide transition-colors ${
                   isActive
-                    ? "bg-slate-900 text-white"
-                    : "text-slate-600 hover:text-slate-950 hover:bg-slate-100"
+                    ? "text-[#f59e0b] font-semibold"
+                    : "text-white/80 hover:text-white font-medium"
                 }`}
               >
                 {item.label}
@@ -92,126 +72,98 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* 3. Right: Accessibility, Language & CTA */}
-        <div className="hidden md:flex items-center gap-3 shrink-0">
-          {isSpeaking && (
+        {/* Right Actions */}
+        <div className="hidden sm:flex items-center gap-3 shrink-0">
+          {/* Language Switcher Pill */}
+          <div className="relative">
             <button
-              onClick={stopSpeaking}
-              className="flex items-center gap-1 text-xs text-amber-700 hover:text-amber-800 font-bold bg-amber-50 px-2 py-1 rounded border border-amber-300"
+              type="button"
+              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+              className="border border-white/60 hover:border-white text-white rounded-full px-5 py-2 text-xs sm:text-sm font-medium hover:bg-white/10 transition-all flex items-center gap-1.5"
             >
-              <VolumeX className="w-3.5 h-3.5" /> Stop Audio
+              <Globe className="w-3.5 h-3.5 opacity-80" />
+              <span>{currentLangLabel}</span>
+              <ChevronDown className="w-3 h-3 opacity-70" />
             </button>
-          )}
 
-          {/* Accessibility Font Size Control (GIGW Compliant) */}
-          <div className="flex items-center gap-1 text-slate-500 text-xs">
-            <span className="text-[11px] font-medium">Text:</span>
-            <div className="inline-flex rounded border border-slate-300 overflow-hidden text-[10px] bg-slate-50">
-              <button
-                type="button"
-                onClick={() => changeFontSize("normal")}
-                className={`px-1.5 py-0.5 font-bold transition-colors ${
-                  fontSizeLevel === "normal"
-                    ? "bg-slate-900 text-white"
-                    : "text-slate-700 hover:bg-slate-200"
-                }`}
-                title="Default Text Size (A)"
-              >
-                A
-              </button>
-              <button
-                type="button"
-                onClick={() => changeFontSize("large")}
-                className={`px-1.5 py-0.5 font-bold transition-colors ${
-                  fontSizeLevel === "large"
-                    ? "bg-slate-900 text-white"
-                    : "text-slate-700 hover:bg-slate-200"
-                }`}
-                title="Medium Text Size (A+)"
-              >
-                A+
-              </button>
-              <button
-                type="button"
-                onClick={() => changeFontSize("larger")}
-                className={`px-1.5 py-0.5 font-bold transition-colors ${
-                  fontSizeLevel === "larger"
-                    ? "bg-slate-900 text-white"
-                    : "text-slate-700 hover:bg-slate-200"
-                }`}
-                title="Large Text Size (A++)"
-              >
-                A++
-              </button>
-            </div>
+            {langDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-36 bg-[#1f0242] border border-purple-800/60 rounded-2xl shadow-xl py-1 z-50 text-xs">
+                {languages.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => {
+                      setLanguage(l.code);
+                      setLangDropdownOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-2 hover:bg-purple-900/60 transition-colors ${
+                      language === l.code ? "text-[#f59e0b] font-bold" : "text-white/90"
+                    }`}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Language Selector */}
-          <div className="flex items-center gap-1 text-slate-500 text-xs">
-            <div className="inline-flex rounded border border-slate-300 overflow-hidden text-[10px] bg-slate-50">
+          {/* BiSync AI White CTA Pill */}
+          <Link
+            href="/chat"
+            className="bg-white hover:bg-slate-100 text-[#180033] rounded-full px-6 py-2 text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
+          >
+            BiSync AI
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger */}
+        <div className="flex md:hidden items-center gap-2">
+          <Link
+            href="/chat"
+            className="bg-white text-[#180033] rounded-full px-3.5 py-1.5 text-xs font-bold"
+          >
+            AI
+          </Link>
+          <button
+            type="button"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-white p-1 hover:text-purple-300"
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Drawer */}
+      {mobileOpen && (
+        <div className="md:hidden mt-2 bg-[#180033] border border-purple-900/40 rounded-3xl p-5 shadow-2xl space-y-4">
+          <div className="flex flex-col space-y-3">
+            {navLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-sm font-medium text-white/90 hover:text-[#f59e0b] py-1 px-2"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="pt-3 border-t border-purple-900/40 flex items-center justify-between">
+            <span className="text-xs text-white/70">Language:</span>
+            <div className="flex gap-2">
               {languages.map((l) => (
                 <button
                   key={l.code}
                   onClick={() => setLanguage(l.code)}
-                  className={`px-1.5 py-0.5 font-bold transition-colors ${
-                    language === l.code
-                      ? "bg-slate-900 text-white"
-                      : "text-slate-700 hover:bg-slate-200"
+                  className={`text-xs px-2.5 py-1 rounded-full ${
+                    language === l.code ? "bg-[#f59e0b] text-black font-bold" : "bg-purple-950 text-white"
                   }`}
                 >
-                  {l.code.toUpperCase()}
+                  {l.label}
                 </button>
               ))}
             </div>
-          </div>
-
-          <Link
-            href="/chat"
-            className="px-3.5 py-1.5 bg-slate-900 hover:bg-black text-white text-xs font-bold rounded-md flex items-center gap-1.5 transition-colors shadow-sm"
-          >
-            <span>Consult AI</span>
-            <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
-          </Link>
-        </div>
-
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="xl:hidden p-2 rounded border border-slate-300 text-slate-700"
-          aria-label="Toggle navigation"
-        >
-          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="xl:hidden border-t border-slate-300 bg-white px-4 py-3 space-y-2 mt-2">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className="block px-3 py-2 text-xs font-bold text-slate-800 hover:bg-slate-100 rounded"
-            >
-              {item.label}
-            </Link>
-          ))}
-          <div className="pt-2 border-t border-slate-200 flex items-center justify-between">
-            <Link
-              href="/chat"
-              onClick={() => setMobileOpen(false)}
-              className="px-3 py-1.5 bg-slate-900 text-white text-xs font-bold rounded"
-            >
-              Consult AI Expert
-            </Link>
-            <Link
-              href="/verify"
-              onClick={() => setMobileOpen(false)}
-              className="px-3 py-1.5 bg-slate-100 border border-slate-300 text-slate-800 text-xs font-bold rounded"
-            >
-              Verify License
-            </Link>
           </div>
         </div>
       )}

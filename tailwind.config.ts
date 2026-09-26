@@ -67,7 +67,19 @@ const config: Config = {
         DEFAULT: "4px",
         md: "6px",
         lg: "8px",
-        xl: "12px", // Maximum restrained radius
+        xl: "12px",
+        "2xl": "16px",
+        "3xl": "24px",
+        full: "9999px",
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+      },
+      animation: {
+        float: "float 5s ease-in-out infinite",
       },
       boxShadow: {
         none: "none",

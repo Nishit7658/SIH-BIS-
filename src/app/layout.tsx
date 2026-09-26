@@ -13,10 +13,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "BIS Smart Digital Expert — Technical Regulatory & Conformity Assistant",
-  description: "AI-powered digital expert for Bureau of Indian Standards (BIS), ISI Mark specifications, Quality Control Orders (QCOs), and product compliance.",
-  keywords: "BIS, ISI Mark, Indian Standards, QCO, IS 1293, IS 302, IS 694, DPDP, Conformity Assessment, Smart India Hackathon",
-  authors: [{ name: "BIS Digital Team" }],
+  title: "BISYNC — Standards made simpler. Compliance made smarter.",
+  description: "AI-powered assistance for Indian Standards, BIS Services, and product compliance.",
+  keywords: "BISYNC, BIS, ISI Mark, Indian Standards, QCO, IS 1293, IS 302, IS 17526, DPDP, Conformity Assessment, Smart India Hackathon",
+  authors: [{ name: "BISYNC Team" }],
   icons: {
     icon: "/emblem.svg",
   },

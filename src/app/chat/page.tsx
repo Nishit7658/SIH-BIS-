@@ -6,26 +6,16 @@ import Link from "next/link";
 import { useApp } from "@/context/AppContext";
 import { Citation, RagResult } from "@/lib/rag-engine";
 import {
-  Search,
-  Send,
-  Printer,
+  ArrowUp,
   Copy,
-  CheckCircle2,
-  ExternalLink,
   Volume2,
   VolumeX,
   FileText,
-  AlertTriangle,
-  Scale,
-  Building2,
-  HelpCircle,
   ThumbsUp,
   ThumbsDown,
   RefreshCw,
-  BookOpen,
-  Layers,
-  FlaskConical,
-  X
+  ExternalLink,
+  X,
 } from "lucide-react";
 import { MarkdownRenderer } from "@/components/chat/MarkdownRenderer";
 
@@ -46,17 +36,9 @@ interface Message {
 function ChatContent() {
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get("q");
-  const { t, speakText, isSpeaking, stopSpeaking } = useApp();
+  const { speakText, isSpeaking, stopSpeaking } = useApp();
 
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: "welcome-1",
-      sender: "bot",
-      text: "### Technical Regulatory Consultation Desk\n\nI am the **BIS Smart Digital Expert**, a technical intelligence system grounded in official Bureau of Indian Standards (BIS) specifications, Quality Control Orders (QCOs), and conformity schemes (Scheme I ISI Mark vs Scheme II CRS).\n\nAsk any question regarding product compliance, testing tolerances, raw material standards, in-house laboratory setup under the BIS Scheme of Testing & Inspection (STI), or the Manakonline application process.",
-      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-    },
-  ]);
-
+  const [messages, setMessages] = useState<Message[]>([]);
   const [inputQuery, setInputQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [selectedCitation, setSelectedCitation] = useState<Citation | null>(null);
@@ -138,288 +120,294 @@ function ChatContent() {
   };
 
   const handleFeedback = async (messageId: string, rating: "up" | "down", query: string) => {
-    setFeedbackGiven(prev => ({ ...prev, [messageId]: rating }));
+    setFeedbackGiven((prev) => ({ ...prev, [messageId]: rating }));
     try {
       await fetch("/api/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query, rating, messageId })
+        body: JSON.stringify({ query, rating, messageId }),
       });
     } catch (e) {
       console.error(e);
     }
   };
 
-  const printDossier = () => {
-    window.print();
-  };
-
-  const quickConsultations = [
-    { label: "Steel Bottles (IS 17526)", q: "What are the chemical composition limits and testing methods under IS 17526 for vacuum bottles?" },
-    { label: "Corrugated Cartons (IS 2771)", q: "What are the bursting strength and edge crush test requirements for corrugated boxes under IS 2771?" },
-    { label: "Electrical Plugs (IS 1293)", q: "What is the glow wire and temperature rise test requirement for electrical plugs under IS 1293?" },
-    { label: "HDPE Pipes (IS 4984)", q: "What hydrostatic pressure test and raw material specifications apply to HDPE water pipes under IS 4984?" },
-    { label: "Toys Safety (IS 9873)", q: "What are the mechanical and chemical safety standards for toys under the Toys Quality Control Order?" }
+  const popularQueries = [
+    { label: "IS 1293 Plug Earthing", q: "What are the earthing pin dimensions and testing tolerances for plugs under IS 1293?" },
+    { label: "IS 302 Leakage Current", q: "What is the maximum permissible leakage current under IS 302 for electrical appliances?" },
+    { label: "Plastic Recycling Codes", q: "What are the identification marking codes for plastic recycling under IS 14534?" },
   ];
 
+  const hasMessages = messages.length > 0;
+
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-4">
-      {/* 1. Workbench Header & Export Toolbar */}
-      <div className="bg-white border border-gov-border rounded p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-subtle">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="font-mono font-bold text-xs bg-gov-navy text-white px-2 py-0.5 rounded-sm">
-              REGULATORY CONSOLE
-            </span>
-            <h1 className="text-base font-bold text-gov-navy font-serif">
-              BIS Standards Consultation & Advisory Workbench
-            </h1>
-          </div>
-          <p className="text-xs text-gov-slate mt-0.5">
-            Grounded in active Indian Standards, DPIIT Quality Control Orders & Scheme of Testing and Inspection (STI).
-          </p>
-        </div>
-
-        <div className="flex items-center gap-2 shrink-0 no-print">
-          <button
-            onClick={printDossier}
-            className="px-3 py-1.5 bg-gov-paper hover:bg-slate-200 border border-gov-border text-gov-navy text-xs font-semibold rounded flex items-center gap-1.5 transition-colors"
-            title="Print or Export as PDF Dossier"
+    <div
+      className="min-h-screen relative flex flex-col justify-between"
+      style={{
+        background:
+          "radial-gradient(circle at 50% 35%, rgba(216, 185, 255, 0.45) 0%, rgba(238, 225, 255, 0.25) 45%, rgba(250, 248, 254, 1) 90%)",
+      }}
+    >
+      {/* ─────────────────────────────────────────────────────────────
+          TOP STREAMLINED HEADER
+          Matches frame_33.5s.png: Left back triangle + Right BiSync AI pill
+          ───────────────────────────────────────────────────────────── */}
+      <header className="w-full px-6 sm:px-12 py-6 flex items-center justify-between z-20">
+        <Link
+          href="/"
+          className="group p-2 rounded-full hover:bg-purple-200/50 transition-colors flex items-center justify-center"
+          title="Back to Home"
+        >
+          {/* Solid purple left-pointing triangle matching frame_33.5s */}
+          <svg
+            className="w-6 h-6 text-[#2b0059] fill-current group-hover:scale-110 transition-transform"
+            viewBox="0 0 24 24"
           >
-            <Printer className="w-3.5 h-3.5 text-gov-slate" />
-            <span>Print Technical Dossier</span>
-          </button>
+            <polygon points="18,4 6,12 18,20" />
+          </svg>
+        </Link>
 
-          <Link
-            href="/explore"
-            className="px-3 py-1.5 bg-gov-paper hover:bg-slate-200 border border-gov-border text-gov-navy text-xs font-semibold rounded flex items-center gap-1.5 transition-colors"
-          >
-            <BookOpen className="w-3.5 h-3.5 text-gov-slate" />
-            <span>Standards Catalog</span>
-          </Link>
+        <div className="bg-[#540ea3] text-white px-7 py-2.5 rounded-full font-bold text-sm tracking-wide shadow-md">
+          BiSync AI
         </div>
-      </div>
+      </header>
 
-      {/* 2. Main Workbench Layout (Split Grid: Reference Drawer + Consultation Stream) */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-        {/* Left Reference Drawer (1 Column) */}
-        <div className="lg:col-span-1 space-y-4 no-print">
-          {/* Preset Questions */}
-          <div className="bg-white border border-gov-border rounded p-3.5 space-y-2 shadow-subtle">
-            <h3 className="text-xs font-bold text-gov-navy uppercase tracking-wider border-b border-gov-border pb-1">
-              Standard Technical Inquiries
-            </h3>
-            <div className="space-y-1">
-              {quickConsultations.map((item, idx) => (
+      {/* ─────────────────────────────────────────────────────────────
+          MAIN CONTENT AREA
+          State 1: Initial Empty / Welcome view (frame_33.5s.png)
+          State 2: Active Chat Thread (frame_37.0s.png)
+          ───────────────────────────────────────────────────────────── */}
+      <main className="flex-1 flex flex-col justify-center px-4 sm:px-8 max-w-4xl mx-auto w-full z-10 py-6">
+        {!hasMessages ? (
+          /* INITIAL VIEW: Centered Headline + Frosted Box + Popular Queries */
+          <div className="text-center space-y-8 my-auto">
+            <div className="space-y-3">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-neutral-900 tracking-tight">
+                how can we help you today?
+              </h1>
+              <p className="text-neutral-700 text-sm sm:text-base font-normal">
+                Get clear answers about standards, certification, compliance, and BIS services
+              </p>
+            </div>
+
+            {/* Central Frosted Input Box */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSendMessage();
+              }}
+              className="relative max-w-2xl mx-auto"
+            >
+              <div className="bg-[#a89cb5]/60 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-white/50 text-left min-h-[140px] flex flex-col justify-between transition-all focus-within:ring-2 focus-within:ring-[#540ea3]/40">
+                <textarea
+                  rows={3}
+                  value={inputQuery}
+                  onChange={(e) => setInputQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.shiftKey) {
+                      e.preventDefault();
+                      handleSendMessage();
+                    }
+                  }}
+                  placeholder="Ask about a product, standard, certification or compliance requirement..."
+                  className="w-full bg-transparent text-neutral-900 placeholder:text-neutral-700 placeholder:font-normal font-medium text-sm sm:text-base focus:outline-none resize-none"
+                />
+
+                <div className="flex justify-end pt-2">
+                  <button
+                    type="submit"
+                    disabled={isLoading || !inputQuery.trim()}
+                    className="bg-[#23004b] hover:bg-[#380277] text-white p-2.5 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
+                  >
+                    <ArrowUp className="w-5 h-5 text-white" />
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            {/* Popular Queries Chips */}
+            <div className="flex flex-wrap items-center justify-center gap-2 pt-2 text-xs sm:text-sm">
+              <span className="font-semibold text-neutral-800">Popular Queries :</span>
+              {popularQueries.map((pq, idx) => (
                 <button
                   key={idx}
-                  onClick={() => handleSendMessage(item.q)}
-                  disabled={isLoading}
-                  className="w-full text-left p-2 rounded text-xs text-gov-slate hover:text-gov-navy hover:bg-gov-paper font-medium border border-transparent hover:border-gov-border transition-colors block"
+                  onClick={() => handleSendMessage(pq.q)}
+                  className="border border-white/80 bg-white/40 hover:bg-white/70 backdrop-blur-sm text-neutral-800 font-medium px-4 py-1.5 rounded-full transition-all hover:scale-105 shadow-xs"
                 >
-                  {item.label}
+                  {pq.label}
                 </button>
               ))}
             </div>
           </div>
-
-          {/* Statutory Integrity Note */}
-          <div className="bg-gov-paper border border-gov-border rounded p-3 text-[11px] text-gov-slate space-y-1.5">
-            <p className="font-bold text-gov-navy flex items-center gap-1">
-              <Scale className="w-3 h-3 text-gov-saffron" />
-              Regulatory Integrity Rules:
-            </p>
-            <p className="leading-relaxed">
-              Every technical claim is validated against active gazetted standards. If a query is outside the scope of Indian Standards, the assistant explicitly abstains rather than generating speculative claims.
-            </p>
-          </div>
-        </div>
-
-        {/* Center Consultation Memo Stream (3 Columns) */}
-        <div className="lg:col-span-3 space-y-4">
-          <div className="bg-white border border-gov-border rounded p-4 sm:p-6 shadow-subtle min-h-[550px] flex flex-col justify-between">
-            {/* Message Thread */}
-            <div className="space-y-6 pb-4">
-              {messages.map((msg) => (
-                <div
-                  key={msg.id}
-                  className={`p-4 rounded border ${
-                    msg.sender === "user"
-                      ? "bg-slate-50 border-slate-300 text-gov-navy ml-4 sm:ml-12"
-                      : "bg-white border-gov-border text-gov-text mr-0 sm:mr-4"
-                  }`}
-                >
-                  <div className="flex items-center justify-between border-b border-gov-border/60 pb-2 mb-3 text-[11px]">
-                    <span className="font-bold font-mono uppercase tracking-wide text-gov-navy">
-                      {msg.sender === "user" ? "Inquiry / Request" : "Authoritative Technical Memorandum"}
-                    </span>
-                    <div className="flex items-center gap-2 text-gov-slate font-mono text-[10px]">
-                      {msg.latencyMs && <span>Latency: {msg.latencyMs}ms</span>}
-                      {msg.confidence !== undefined && (
-                        <span className="font-bold text-emerald-700">
-                          Confidence: {(msg.confidence * 100).toFixed(0)}%
-                        </span>
-                      )}
-                      <span>{msg.timestamp}</span>
-                    </div>
-                  </div>
-
-                  {/* Message Content rendered in clean prose or rich government-style markdown */}
-                  {msg.sender === "bot" ? (
-                    <MarkdownRenderer content={msg.text} />
-                  ) : (
-                    <div className="text-xs sm:text-sm leading-relaxed whitespace-pre-line font-medium text-gov-navy">
+        ) : (
+          /* ACTIVE CHAT THREAD: Matches frame_37.0s.png */
+          <div className="space-y-8 pb-32 pt-4">
+            {messages.map((msg) => (
+              <div key={msg.id} className="space-y-3">
+                {msg.sender === "user" ? (
+                  /* User Bubble: Right-aligned pill */
+                  <div className="flex justify-end">
+                    <div className="bg-[#ded9e2] text-neutral-900 text-sm sm:text-base font-normal px-6 py-3.5 rounded-3xl max-w-xl shadow-sm leading-relaxed">
                       {msg.text}
                     </div>
-                  )}
+                  </div>
+                ) : (
+                  /* Assistant Response: Left-aligned direct text without bubble */
+                  <div className="text-neutral-900 text-sm sm:text-base leading-relaxed space-y-4 max-w-3xl pr-4">
+                    <MarkdownRenderer content={msg.text} />
 
-                  {/* Citations Footer for Bot Messages */}
-                  {msg.citations && msg.citations.length > 0 && (
-                    <div className="mt-4 pt-3 border-t border-gov-border space-y-2">
-                      <strong className="text-[11px] font-bold text-gov-slate uppercase tracking-wide block">
-                        Verified BIS Clause Citations:
-                      </strong>
-                      <div className="flex flex-wrap gap-2">
-                        {msg.citations.map((c, i) => (
-                          <button
-                            key={i}
-                            onClick={() => setSelectedCitation(c)}
-                            className="px-2.5 py-1 rounded bg-gov-paper hover:bg-slate-200 border border-gov-border text-gov-navy text-[11px] font-mono flex items-center gap-1 transition-colors"
-                          >
-                            <FileText className="w-3 h-3 text-gov-slate" />
-                            <span>{c.standardCode} {c.clauseNumber}</span>
-                          </button>
-                        ))}
+                    {/* Citations Snippets */}
+                    {msg.citations && msg.citations.length > 0 && (
+                      <div className="pt-3 border-t border-purple-200/60 space-y-2">
+                        <span className="text-xs font-bold text-neutral-600 uppercase tracking-wider block">
+                          Verified BIS Standard Clauses:
+                        </span>
+                        <div className="flex flex-wrap gap-2">
+                          {msg.citations.map((c, i) => (
+                            <button
+                              key={i}
+                              onClick={() => setSelectedCitation(c)}
+                              className="px-3 py-1 rounded-full bg-white/80 hover:bg-white border border-purple-200 text-[#301257] text-xs font-medium flex items-center gap-1.5 shadow-xs transition-colors"
+                            >
+                              <FileText className="w-3 h-3 text-[#540ea3]" />
+                              <span>{c.standardCode} {c.clauseNumber}</span>
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  {/* Actions (Copy, Audio Readout, Feedback) */}
-                  {msg.sender === "bot" && (
-                    <div className="mt-3 pt-2 border-t border-gov-border/60 flex items-center justify-between text-[11px] text-gov-slate no-print">
-                      <div className="flex items-center gap-3">
+                    {/* Action Bar (Copy, Audio Readout, Feedback) */}
+                    <div className="pt-2 flex items-center justify-between text-xs text-neutral-500">
+                      <div className="flex items-center gap-4">
                         <button
                           onClick={() => handleCopy(msg.text, msg.id)}
-                          className="hover:text-gov-navy flex items-center gap-1"
+                          className="hover:text-neutral-900 flex items-center gap-1 transition-colors"
                         >
-                          <Copy className="w-3 h-3" />
-                          <span>{copiedId === msg.id ? "Copied" : "Copy Memo"}</span>
+                          <Copy className="w-3.5 h-3.5" />
+                          <span>{copiedId === msg.id ? "Copied" : "Copy"}</span>
                         </button>
 
                         <button
-                          onClick={() => isSpeaking ? stopSpeaking() : speakText(msg.text)}
-                          className="hover:text-gov-navy flex items-center gap-1"
+                          onClick={() => (isSpeaking ? stopSpeaking() : speakText(msg.text))}
+                          className="hover:text-neutral-900 flex items-center gap-1 transition-colors"
                         >
-                          {isSpeaking ? <VolumeX className="w-3 h-3 text-red-600" /> : <Volume2 className="w-3 h-3" />}
-                          <span>{isSpeaking ? "Stop Voice" : "Audio Readout"}</span>
+                          {isSpeaking ? <VolumeX className="w-3.5 h-3.5 text-red-600" /> : <Volume2 className="w-3.5 h-3.5" />}
+                          <span>{isSpeaking ? "Stop Voice" : "Listen"}</span>
                         </button>
                       </div>
 
-                      {/* Feedback rating */}
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] text-slate-400">Accurate?</span>
                         <button
                           onClick={() => handleFeedback(msg.id, "up", msg.text)}
-                          className={`p-1 rounded hover:bg-slate-100 ${
-                            feedbackGiven[msg.id] === "up" ? "text-emerald-700 font-bold" : "text-slate-500"
+                          className={`p-1 rounded hover:bg-white/60 ${
+                            feedbackGiven[msg.id] === "up" ? "text-emerald-700 font-bold" : "text-neutral-400"
                           }`}
-                          title="Verified Accurate"
+                          title="Accurate"
                         >
-                          <ThumbsUp className="w-3 h-3" />
+                          <ThumbsUp className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleFeedback(msg.id, "down", msg.text)}
-                          className={`p-1 rounded hover:bg-slate-100 ${
-                            feedbackGiven[msg.id] === "down" ? "text-red-600 font-bold" : "text-slate-500"
+                          className={`p-1 rounded hover:bg-white/60 ${
+                            feedbackGiven[msg.id] === "down" ? "text-red-600 font-bold" : "text-neutral-400"
                           }`}
-                          title="Flag Inaccuracy"
+                          title="Report Issue"
                         >
-                          <ThumbsDown className="w-3 h-3" />
+                          <ThumbsDown className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     </div>
-                  )}
-                </div>
-              ))}
-
-              {isLoading && (
-                <div className="p-4 rounded border border-gov-border bg-gov-paper space-y-2 animate-pulse">
-                  <div className="flex items-center gap-2 text-xs font-bold text-gov-navy">
-                    <RefreshCw className="w-3.5 h-3.5 animate-spin text-gov-saffron" />
-                    <span>Consulting Bureau of Indian Standards Repository...</span>
                   </div>
-                  <p className="text-xs text-gov-slate">
-                    Matching clauses, verifying chemical composition tolerances, and synthesizing technical guide.
-                  </p>
-                </div>
-              )}
-              <div ref={messagesEndRef} />
-            </div>
-
-            {/* Input Console Bar */}
-            <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(); }} className="pt-3 border-t border-gov-border no-print">
-              <div className="flex rounded border border-gov-border overflow-hidden bg-white focus-within:border-gov-navy shadow-subtle">
-                <input
-                  type="text"
-                  value={inputQuery}
-                  onChange={(e) => setInputQuery(e.target.value)}
-                  placeholder="Enter your technical or compliance question (e.g. testing limits under IS 17526, glow wire requirement, scheme comparison)..."
-                  disabled={isLoading}
-                  className="w-full px-3.5 py-2.5 text-xs sm:text-sm text-gov-text focus:outline-none placeholder:text-slate-400 font-medium"
-                />
-                <button
-                  type="submit"
-                  disabled={isLoading || !inputQuery.trim()}
-                  className="px-5 py-2.5 bg-gov-navy hover:bg-gov-navy-light text-white font-bold text-xs transition-colors shrink-0 disabled:opacity-50 flex items-center gap-1"
-                >
-                  <span>Transmit</span>
-                  <Send className="w-3.5 h-3.5 text-amber-400" />
-                </button>
+                )}
               </div>
-            </form>
-          </div>
-        </div>
-      </div>
+            ))}
 
-      {/* 3. Citation Modal / Inspector */}
+            {isLoading && (
+              <div className="flex items-center gap-3 text-sm text-[#301257] font-medium py-3">
+                <RefreshCw className="w-4 h-4 animate-spin text-[#540ea3]" />
+                <span>Consulting Bureau of Indian Standards Intelligence Engine...</span>
+              </div>
+            )}
+
+            <div ref={messagesEndRef} />
+          </div>
+        )}
+      </main>
+
+      {/* ─────────────────────────────────────────────────────────────
+          PINNED BOTTOM INPUT BAR (when active)
+          Matches frame_37.0s.png exactly
+          ───────────────────────────────────────────────────────────── */}
+      {hasMessages && (
+        <div className="fixed bottom-6 left-0 right-0 z-30 px-4">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSendMessage();
+            }}
+            className="max-w-3xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200/80 p-2.5 pl-6 flex items-center justify-between gap-3 focus-within:ring-2 focus-within:ring-[#540ea3]/40 transition-all"
+          >
+            <input
+              type="text"
+              value={inputQuery}
+              onChange={(e) => setInputQuery(e.target.value)}
+              placeholder="Ask BISync AI"
+              disabled={isLoading}
+              className="w-full bg-transparent text-neutral-900 placeholder:text-neutral-500 font-normal text-sm sm:text-base focus:outline-none"
+            />
+            <button
+              type="submit"
+              disabled={isLoading || !inputQuery.trim()}
+              className="bg-[#23004b] hover:bg-[#380277] text-white p-2.5 rounded-xl shadow-md transition-all hover:scale-105 active:scale-95 disabled:opacity-50 shrink-0"
+            >
+              <ArrowUp className="w-5 h-5 text-white" />
+            </button>
+          </form>
+        </div>
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
+          CITATION DETAIL MODAL
+          ───────────────────────────────────────────────────────────── */}
       {selectedCitation && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded border border-gov-border max-w-xl w-full p-5 space-y-4 shadow-xl">
-            <div className="flex items-start justify-between border-b border-gov-border pb-2.5">
+        <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl max-w-xl w-full p-6 space-y-4 shadow-2xl border border-purple-100">
+            <div className="flex items-start justify-between border-b border-neutral-100 pb-3">
               <div>
-                <span className="font-mono font-bold text-xs text-gov-saffron">
+                <span className="font-mono font-bold text-xs text-[#540ea3]">
                   {selectedCitation.standardCode} • {selectedCitation.clauseNumber}
                 </span>
-                <h3 className="font-bold text-sm text-gov-navy font-serif mt-0.5">
+                <h3 className="font-bold text-base text-neutral-900 font-sans mt-0.5">
                   {selectedCitation.clauseTitle}
                 </h3>
               </div>
               <button
                 onClick={() => setSelectedCitation(null)}
-                className="p-1 text-slate-400 hover:text-gov-navy"
+                className="p-1 text-neutral-400 hover:text-neutral-900 transition-colors"
               >
-                <X className="w-4 h-4" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="bg-gov-paper p-3 rounded border border-gov-border font-mono text-xs text-gov-slate leading-relaxed">
+            <div className="bg-[#f8f6fc] p-4 rounded-2xl text-xs sm:text-sm text-neutral-700 leading-relaxed font-mono">
               {selectedCitation.snippet}
             </div>
 
-            <div className="flex items-center justify-between pt-2 border-t border-gov-border">
+            <div className="flex items-center justify-between pt-2">
               <a
                 href={selectedCitation.officialBisUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="text-xs font-bold text-blue-700 hover:underline flex items-center gap-1"
+                className="text-xs font-bold text-[#540ea3] hover:underline flex items-center gap-1"
               >
                 <span>Verify on e-BIS Official Portal</span>
-                <ExternalLink className="w-3 h-3" />
+                <ExternalLink className="w-3.5 h-3.5" />
               </a>
 
               <button
                 onClick={() => setSelectedCitation(null)}
-                className="px-3 py-1 bg-gov-navy text-white text-xs font-bold rounded"
+                className="px-4 py-2 bg-[#23004b] text-white text-xs font-bold rounded-full hover:bg-[#380277] transition-colors"
               >
                 Close
               </button>
@@ -433,7 +421,13 @@ function ChatContent() {
 
 export default function ChatPage() {
   return (
-    <Suspense fallback={<div className="p-8 text-center text-xs text-gov-slate font-mono">Initializing Regulatory Console...</div>}>
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#f8f6fc] p-12 text-center text-neutral-600 text-sm font-sans">
+          Initializing BiSync AI...
+        </div>
+      }
+    >
       <ChatContent />
     </Suspense>
   );
