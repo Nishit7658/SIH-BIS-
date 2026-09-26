@@ -20,8 +20,11 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # Environment variables
-.env*.local
 .env
+.env.*
+.env*.local
+*.env
+!.env.example
 
 # System & IDE files
 .DS_Store
