@@ -17,7 +17,8 @@ import {
   X,
   VolumeX,
   Building2,
-  CheckCircle2
+  CheckCircle2,
+  ArrowRight
 } from "lucide-react";
 
 export function Navbar() {
@@ -176,25 +177,20 @@ export function Navbar() {
           </div>
         </Link>
 
-        {/* Search Fast Shortcut */}
-        <div className="hidden md:flex items-center gap-2">
+        {/* Official Statutory Quick Action Buttons */}
+        <div className="hidden md:flex items-center gap-2.5">
           <Link
-            href="/chat?q=What%20are%20the%20mandatory%20standards%20for%20packaging"
-            className="text-xs px-2.5 py-1.5 bg-gov-paper border border-gov-border rounded hover:border-gov-slate text-gov-slate font-medium transition-colors"
+            href="/chat"
+            className="text-xs px-3.5 py-2 bg-gov-navy hover:bg-slate-900 text-white font-bold rounded flex items-center gap-1.5 transition-colors shadow-sm"
           >
-            Packaging QCO
+            <span>Consult AI Expert</span>
+            <ArrowRight className="w-3.5 h-3.5 text-gov-saffron" />
           </Link>
           <Link
-            href="/chat?q=Factory%20setup%20blueprint%20for%20stainless%20steel%20vacuum%20flasks"
-            className="text-xs px-2.5 py-1.5 bg-gov-paper border border-gov-border rounded hover:border-gov-slate text-gov-slate font-medium transition-colors"
+            href="/verify"
+            className="text-xs px-3 py-2 bg-white border border-gov-border hover:border-gov-slate text-gov-navy font-semibold rounded transition-colors"
           >
-            Steel Bottles (IS 17526)
-          </Link>
-          <Link
-            href="/chat?q=IS%201293%20plug%20pin%20tolerances"
-            className="text-xs px-2.5 py-1.5 bg-gov-paper border border-gov-border rounded hover:border-gov-slate text-gov-slate font-medium transition-colors"
-          >
-            Plugs (IS 1293)
+            Verify License (CM/L)
           </Link>
         </div>
 
