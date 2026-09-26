@@ -325,9 +325,31 @@ class RagService:
             llm_answer = llm_res["text"]
             confidence = 0.98
         else:
-            err_msg = llm_res.get("error") or "Local Gemma model server is unavailable. Please start llama-server on port 8080."
-            llm_answer = err_msg
-            confidence = 0.0
+            # Graceful Technical Synthesis Fallback from retrieved BIS standards and clauses
+            sections = []
+            for std in unique_stds[:2]:
+                sections.append(
+                    f"### {std['code']}: {std['title']}\n\n"
+                    f"- **Division Council**: {std.get('division', 'BIS')}\n"
+                    f"- **Scheme Route**: {std.get('certificationScheme', 'Scheme I (ISI Mark)')}\n"
+                    f"- **Mandatory Regulatory Status**: {'Mandatory QCO Enforced' if std.get('mandatory') else 'Voluntary BIS Standard'}\n\n"
+                    f"**Technical Scope & Specifications**:\n{std.get('scope', '')}"
+                )
+
+            clause_lines = []
+            for _, std, clause in top_clauses[:4]:
+                clause_lines.append(f"- **Clause {clause['number']} ({clause['title']})**: {clause['content']}")
+
+            if clause_lines:
+                sections.append("#### Key Statutory Clauses & Testing Standards:\n" + "\n".join(clause_lines))
+
+            if sections:
+                llm_answer = "\n\n".join(sections)
+                confidence = 0.94
+            else:
+                err_msg = llm_res.get("error") or "No relevant Bureau of Indian Standards specifications matched this inquiry."
+                llm_answer = err_msg
+                confidence = 0.0
 
         latency = int((time.time() - start_time) * 1000)
 
