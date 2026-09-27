@@ -17,7 +17,7 @@ export async function callExternalLlm(options: LlmGenerationOptions): Promise<st
   // 1. Google Gemini API Route (Cloud / Vercel Production Mode)
   if (geminiKey && geminiKey.trim()) {
     try {
-      const geminiModel = process.env.GEMINI_MODEL || "gemini-1.5-flash";
+      const geminiModel = process.env.GEMINI_MODEL || "gemini-3.8-flash";
       const url = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent?key=${geminiKey.trim()}`;
 
       const payload = {
