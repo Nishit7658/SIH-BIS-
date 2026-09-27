@@ -2,94 +2,297 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { ArrowUpRight, Search, CheckCircle2 } from "lucide-react";
-
-// Signature overlapping dual circles icon from video prototype
-function DualCircles({
-  primaryColor = "#e06319",
-  secondaryColor = "#cbd5e1",
-}: {
-  primaryColor?: string;
-  secondaryColor?: string;
-}) {
-  return (
-    <div className="relative w-28 h-16 select-none">
-      <div
-        className="w-14 h-14 rounded-full absolute left-0 top-0 shadow-md transition-transform group-hover:scale-105"
-        style={{ backgroundColor: primaryColor }}
-      />
-      <div
-        className="w-14 h-14 rounded-full absolute left-7 top-0 opacity-70 transition-transform group-hover:scale-105"
-        style={{ backgroundColor: secondaryColor, mixBlendMode: "multiply" }}
-      />
-    </div>
-  );
-}
+import {
+  Search,
+  ArrowRight,
+  ShieldCheck,
+  FileCheck2,
+  BookOpenCheck,
+  Building2,
+  Sparkles,
+  ExternalLink,
+  Layers,
+  Lock,
+  Cpu,
+  CheckCircle2,
+  ArrowUpRight
+} from "lucide-react";
 
 export default function HomePage() {
   const router = useRouter();
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
+  const [heroQuery, setHeroQuery] = useState("");
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleHeroSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (newsletterEmail.trim()) {
-      setSubscribed(true);
-      setTimeout(() => setSubscribed(false), 4000);
-      setNewsletterEmail("");
+    if (heroQuery.trim()) {
+      router.push(`/chat?q=${encodeURIComponent(heroQuery.trim())}`);
+    } else {
+      router.push("/chat");
     }
   };
 
-  return (
-    <main className="min-h-screen bg-white text-neutral-900 selection:bg-purple-200">
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 1: HERO SECTION
-          Matches frame_10.0s.png exactly
-          ───────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-8 pb-16">
-        {/* Hero Triangular Spectral Light Beam (full uncropped image bleeding naturally off the edge) */}
-        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[55%] pointer-events-none select-none z-0 flex justify-end items-center">
-          <div className="relative w-full h-full">
-            <Image
-              src="/assets/hero-beam.png"
-              alt="BISync Spectral Triangle Light Beam"
-              fill
-              priority
-              className="object-contain object-right"
-            />
-          </div>
-        </div>
+  const sampleQuickQueries = [
+    { label: "IS 1293 (Plugs & Sockets)", q: "What are the earthing pin dimensions and testing tolerances for plugs under IS 1293?" },
+    { label: "IS 1786 (TMT Steel Bars)", q: "What are the chemical composition limits for carbon and sulphur in Fe 500D under IS 1786?" },
+    { label: "IS 694 (PVC Cables)", q: "What is the insulation resistance requirement for PVC insulated cables under IS 694?" },
+    { label: "IS 14534 (Plastic Recycling)", q: "What are the identification marking codes for plastic recycling under IS 14534?" }
+  ];
 
-        {/* Hero Content Container */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 w-full">
-          <div className="max-w-2xl space-y-8">
-            {/* Headline with Serif Italic accents */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-neutral-900 leading-[1.08] font-sans">
-              Standards made <span className="font-serif italic font-normal">simpler.</span>
+  const statutorySectors = [
+    {
+      division: "Electrotechnical (ETD)",
+      title: "Electrical Accessories & Appliances",
+      qcoReference: "Electrical Accessories QCO, 2023",
+      standards: [
+        { code: "IS 1293:2019", name: "Plugs and Socket-Outlets (up to 250V / 16A)", scheme: "Scheme I (ISI Mark)" },
+        { code: "IS 302-1:2008", name: "Safety of Household Electrical Appliances", scheme: "Scheme I (ISI Mark)" },
+        { code: "IS 694:2010", name: "PVC Insulated Copper Cables (up to 1100V)", scheme: "Scheme I (ISI Mark)" }
+      ]
+    },
+    {
+      division: "Civil & Structural (CED)",
+      title: "Construction Materials & Structural Steel",
+      qcoReference: "Steel & Steel Products QCO, 2024",
+      standards: [
+        { code: "IS 1786:2008", name: "High Strength Deformed Steel Bars (Fe 500D / 550D)", scheme: "Scheme I (ISI Mark)" },
+        { code: "IS 456:2000", name: "Plain and Reinforced Concrete - Code of Practice", scheme: "Technical Code" },
+        { code: "IS 269:2015", name: "53 Grade Ordinary Portland Cement Specifications", scheme: "Scheme I (ISI Mark)" }
+      ]
+    },
+    {
+      division: "Chemical & Polymer (PCD)",
+      title: "Polymeric, Packaging & Consumer Safety",
+      qcoReference: "Plastic Products Conformity QCO, 2023",
+      standards: [
+        { code: "IS 14534:1998", name: "Guidelines for Recycling of Plastics & Marking Codes", scheme: "Statutory Rule" },
+        { code: "IS 17526:2021", name: "Stainless Steel Vacuum Flasks & Insulated Containers", scheme: "Scheme I (ISI Mark)" },
+        { code: "IS 10146:1982", name: "Polyethylene for Safe Use in Contact with Foodstuffs", scheme: "Food Safety Mandate" }
+      ]
+    }
+  ];
+
+  return (
+    <main className="min-h-screen bg-[#F8FAFC] text-slate-900 selection:bg-blue-100">
+      {/* ─────────────────────────────────────────────────────────────
+          SECTION 1: GOVTECH HERO & DIRECT INTELLIGENCE INPUT
+          ───────────────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden pt-12 pb-20 border-b border-slate-200/80 bg-gradient-to-b from-white via-slate-50/60 to-[#F8FAFC]">
+        {/* Subtle engineering blueprint grid background */}
+        <div
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(#0A192F 1px, transparent 1px)",
+            backgroundSize: "24px 24px"
+          }}
+        />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 w-full text-center space-y-8">
+          {/* Institutional GovTech Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50/80 border border-blue-200 text-blue-950 text-xs font-semibold shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+            <span>Official Bureau of Indian Standards Intelligence Initiative • BIS Act 2016 Grounded</span>
+          </div>
+
+          {/* Master Headline */}
+          <div className="max-w-4xl mx-auto space-y-4">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#0A192F] leading-[1.1] font-sans">
+              Authoritative Standards Intelligence.
               <br />
-              Compliance made <span className="font-serif italic font-normal">smarter.</span>
+              <span className="text-blue-700">Instant Regulatory Compliance.</span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-neutral-700 text-lg sm:text-xl font-normal leading-relaxed max-w-xl">
-              AI-powered assistance for Indian Standards, BIS Services, and product compliance.
+            <p className="text-slate-600 text-base sm:text-lg lg:text-xl font-normal max-w-3xl mx-auto leading-relaxed">
+              AI-powered engineering copilot for Indian Standards (IS), mandatory Quality Control Orders (QCO), Scheme of Testing &amp; Inspection (STI), and real-time license verification.
             </p>
+          </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link
-                href="/chat"
-                className="bg-[#5D00B7] hover:bg-[#6A00C4] text-white font-medium px-8 py-3.5 rounded-full text-base shadow-xl shadow-purple-950/20 transition-all hover:scale-105 active:scale-95"
+          {/* Interactive Direct Search Bar */}
+          <div className="max-w-3xl mx-auto pt-2">
+            <form
+              onSubmit={handleHeroSearch}
+              className="bg-white rounded-full p-2 pl-6 border border-slate-300 shadow-xl shadow-slate-900/5 flex items-center justify-between gap-3 focus-within:ring-2 focus-within:ring-blue-600/40 focus-within:border-blue-600 transition-all"
+            >
+              <Search className="w-5 h-5 text-slate-400 shrink-0" />
+              <input
+                type="text"
+                value={heroQuery}
+                onChange={(e) => setHeroQuery(e.target.value)}
+                placeholder="Ask about a standard (e.g. IS 1293 earthing pin tolerances, IS 1786 steel grades)…"
+                className="w-full bg-transparent text-slate-900 placeholder:text-slate-400 text-sm sm:text-base focus:outline-none"
+              />
+              <button
+                type="submit"
+                className="bg-[#0A192F] hover:bg-blue-900 text-white font-bold px-6 sm:px-8 py-3 rounded-full text-xs sm:text-sm shrink-0 transition-all flex items-center gap-2 shadow-md hover:scale-[1.02] active:scale-[0.98]"
               >
-                Start for free
+                <span>Consult Copilot</span>
+                <ArrowRight className="w-4 h-4 text-amber-400" />
+              </button>
+            </form>
+
+            {/* Quick Sample Queries */}
+            <div className="flex flex-wrap items-center justify-center gap-2 pt-4 text-xs">
+              <span className="text-slate-500 font-semibold">Quick Inquiries:</span>
+              {sampleQuickQueries.map((sq, i) => (
+                <button
+                  key={i}
+                  onClick={() => router.push(`/chat?q=${encodeURIComponent(sq.q)}`)}
+                  className="px-3 py-1 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 font-medium transition-all shadow-2xs hover:text-blue-700"
+                >
+                  {sq.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Action Hub Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <Link
+              href="/chat"
+              className="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-3.5 rounded-full text-sm shadow-lg shadow-blue-950/20 transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+            >
+              <span>Launch Standards Copilot</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/compliance"
+              className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold px-8 py-3.5 rounded-full text-sm shadow-xs transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+            >
+              <FileCheck2 className="w-4 h-4 text-blue-700" />
+              <span>Pre-Audit Checklist</span>
+            </Link>
+            <Link
+              href="/verify"
+              className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold px-8 py-3.5 rounded-full text-sm shadow-xs transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
+            >
+              <ShieldCheck className="w-4 h-4 text-amber-600" />
+              <span>Verify CM/L License</span>
+            </Link>
+          </div>
+
+          {/* Real-Time Trust Metrics Bar */}
+          <div className="pt-10 border-t border-slate-200/80 max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/70 shadow-xs">
+              <span className="text-2xl sm:text-3xl font-black text-[#0A192F] font-mono">25,000+</span>
+              <p className="text-xs text-slate-500 font-medium mt-0.5">Indian Standards Cataloged</p>
+            </div>
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/70 shadow-xs">
+              <span className="text-2xl sm:text-3xl font-black text-emerald-700 font-mono">100%</span>
+              <p className="text-xs text-slate-500 font-medium mt-0.5">Clause-Citing Zero Hallucination</p>
+            </div>
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/70 shadow-xs">
+              <span className="text-2xl sm:text-3xl font-black text-blue-700 font-mono">14+</span>
+              <p className="text-xs text-slate-500 font-medium mt-0.5">Technical Division Councils</p>
+            </div>
+            <div className="bg-white p-4 rounded-2xl border border-slate-200/70 shadow-xs">
+              <span className="text-2xl sm:text-3xl font-black text-amber-700 font-mono">DPDP 2023</span>
+              <p className="text-xs text-slate-500 font-medium mt-0.5">Sovereign Data Protection</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          SECTION 2: FOUR MISSION-CRITICAL STATUTORY CAPABILITIES
+          ───────────────────────────────────────────────────────────── */}
+      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
+          <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3.5 py-1 rounded-full border border-blue-200">
+            Platform Capabilities
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0A192F] tracking-tight">
+            Engineered for Industrial Manufacturers, Engineers &amp; Exporters
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Everything required to navigate, verify, and comply with mandatory Bureau of Indian Standards specifications.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Card 1 */}
+          <div className="bg-white border border-slate-200/80 rounded-3xl p-8 shadow-xs hover:shadow-md hover:border-blue-400 transition-all flex flex-col justify-between group">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center border border-blue-100 group-hover:scale-105 transition-transform">
+                <BookOpenCheck className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                AI Technical Standards Copilot
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Query complex Indian Standards in natural language. Our sovereign RAG engine extracts exact statutory clauses, chemical tolerances, and mechanical test specifications directly from official gazetted standards.
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-xs font-semibold text-slate-500">Zero-Hallucination Retrieval</span>
+              <Link href="/chat" className="text-sm font-bold text-blue-700 hover:text-blue-900 inline-flex items-center gap-1">
+                <span>Open Copilot</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
-                href="/explore"
-                className="bg-white hover:bg-neutral-50 text-[#5D00B7] border-2 border-[#5D00B7] font-medium px-8 py-3 rounded-full text-base transition-all hover:scale-105 active:scale-95 shadow-sm"
-              >
-                Log In
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-white border border-slate-200/80 rounded-3xl p-8 shadow-xs hover:shadow-md hover:border-blue-400 transition-all flex flex-col justify-between group">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100 group-hover:scale-105 transition-transform">
+                <FileCheck2 className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                Pre-Audit STI Compliance Matrix
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Assess plant readiness against the mandatory Scheme of Testing &amp; Inspection (STI). Run interactive self-evaluations for raw material testing, routine lot checks, and in-house laboratory calibration before official BIS factory audits.
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-xs font-semibold text-slate-500">Scheme I Pre-Audit Tool</span>
+              <Link href="/compliance" className="text-sm font-bold text-blue-700 hover:text-blue-900 inline-flex items-center gap-1">
+                <span>Start Pre-Audit</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-white border border-slate-200/80 rounded-3xl p-8 shadow-xs hover:shadow-md hover:border-blue-400 transition-all flex flex-col justify-between group">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-100 group-hover:scale-105 transition-transform">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                Real-Time CM/L &amp; CRS License Verifier
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Direct inquiry into the Bureau of Indian Standards Certificate of Manufacturing License (CM/L) and Compulsory Registration Scheme (CRS) database. Instantly verify license status, factory address, and validity to eliminate counterfeit products.
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-xs font-semibold text-slate-500">Authenticity Verification</span>
+              <Link href="/verify" className="text-sm font-bold text-blue-700 hover:text-blue-900 inline-flex items-center gap-1">
+                <span>Verify Registry</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="bg-white border border-slate-200/80 rounded-3xl p-8 shadow-xs hover:shadow-md hover:border-blue-400 transition-all flex flex-col justify-between group">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-700 flex items-center justify-center border border-purple-100 group-hover:scale-105 transition-transform">
+                <Building2 className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                National Standards &amp; Lab Directory
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Search, filter, and inspect over 25,000 gazetted specifications across all 14 BIS division councils. Map mandatory testing requirements directly to Central &amp; Regional BIS laboratories and accredited NABL test houses.
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-xs font-semibold text-slate-500">Technical Document Catalog</span>
+              <Link href="/explore" className="text-sm font-bold text-blue-700 hover:text-blue-900 inline-flex items-center gap-1">
+                <span>Browse Directory</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -97,177 +300,159 @@ export default function HomePage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 2: FEATURE GRID & 3D SPHERES
-          Matches frame_13.5s.png exactly
+          SECTION 3: MANDATORY QUALITY CONTROL ORDERS (QCO) GAZETTE WATCH
           ───────────────────────────────────────────────────────────── */}
-      <section className="relative py-28 overflow-hidden bg-white">
-        {/* Soft, heavily-blurred purple circular decorative blobs */}
-        <div className="absolute -left-20 top-20 w-96 h-96 bg-[#300060]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute right-0 bottom-10 w-96 h-96 bg-[#5D00B7]/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="py-20 bg-white border-y border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 space-y-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-3.5 py-1 rounded-full border border-amber-200">
+                Statutory Regulatory Watch
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0A192F] tracking-tight">
+                Mandatory Quality Control Orders (QCO) by Sector
+              </h2>
+              <p className="text-slate-600 text-sm max-w-2xl">
+                Non-compliance with these gazetted standards is a punishable statutory violation under Section 29 of the Bureau of Indian Standards Act, 2016.
+              </p>
+            </div>
 
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column: Heading & 3D Purple Sphere */}
-            <div className="lg:col-span-6 relative">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 leading-[1.12] font-sans">
-                Everything you
+            <Link
+              href="/explore"
+              className="text-sm font-bold text-blue-700 hover:text-blue-900 inline-flex items-center gap-1.5 shrink-0"
+            >
+              <span>View All 25,000+ Standards</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {statutorySectors.map((sec, idx) => (
+              <div
+                key={idx}
+                className="bg-[#F8FAFC] border border-slate-200/90 rounded-3xl p-6 sm:p-7 space-y-5 shadow-xs flex flex-col justify-between"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-mono font-bold text-blue-800 bg-blue-100/80 px-2.5 py-1 rounded-full">
+                      {sec.division}
+                    </span>
+                    <span className="text-[11px] font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded-full">
+                      QCO Enforced
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900">{sec.title}</h3>
+                    <p className="text-xs text-slate-500 font-mono mt-0.5">Gazette Ref: {sec.qcoReference}</p>
+                  </div>
+
+                  <div className="space-y-2.5 pt-2 border-t border-slate-200/80">
+                    {sec.standards.map((std, sIdx) => (
+                      <div key={sIdx} className="bg-white p-3.5 rounded-2xl border border-slate-200/70 shadow-2xs">
+                        <div className="flex items-center justify-between text-xs mb-1">
+                          <span className="font-mono font-bold text-[#0A192F]">{std.code}</span>
+                          <span className="text-[10px] text-slate-500">{std.scheme}</span>
+                        </div>
+                        <p className="text-xs text-slate-700 line-clamp-2 leading-snug">{std.name}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-slate-200/80">
+                  <Link
+                    href={`/explore?category=${sec.division.split(" ")[0]}`}
+                    className="w-full py-2.5 px-4 bg-white hover:bg-slate-100 border border-slate-300 rounded-full text-xs font-bold text-slate-800 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                  >
+                    <span>Inspect Sector Standards</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-blue-700" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          SECTION 4: DUAL-ENGINE ARCHITECTURE & SOVEREIGN PRIVACY
+          ───────────────────────────────────────────────────────────── */}
+      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="bg-[#0A192F] text-white rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden">
+          {/* Subtle tech background glow */}
+          <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-blue-600/10 blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <span className="text-xs font-bold tracking-wider uppercase text-amber-400 bg-amber-400/10 px-3.5 py-1 rounded-full border border-amber-400/20 inline-block">
+                National Data Sovereignty
+              </span>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+                Dual-Engine Architecture:
                 <br />
-                need to navigate
-                <br />
-                Indian Standards.
+                <span className="text-blue-400">Cloud Scalability &amp; Air-Gapped Security</span>
               </h2>
 
-              {/* 3D Purple Sphere with soft ambient glow */}
-              <div className="relative mt-12 sm:mt-16 w-64 sm:w-80 h-64 sm:h-80 select-none pointer-events-none">
-                <div className="absolute inset-0 bg-[#5D00B7]/20 rounded-full blur-3xl transform scale-110" />
-                <Image
-                  src="/assets/purple-sphere.png"
-                  alt="3D Purple Sphere"
-                  width={380}
-                  height={380}
-                  className="relative z-10 drop-shadow-2xl object-contain animate-float"
-                />
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+                Engineered with enterprise security by design. When deployed to public portals, it scales dynamically via Google Gemini. For sensitive defense, nuclear, or critical infrastructure divisions, the exact same system operates 100% offline using local Gemma models with zero data telemetry.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-xs">
+                <div className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl border border-white/10">
+                  <Cpu className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white block font-bold">Cloud Production Mode</strong>
+                    <span className="text-slate-400">High-concurrency citizen access hosted securely on Vercel.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl border border-white/10">
+                  <Lock className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white block font-bold">Air-Gapped Sovereign Mode</strong>
+                    <span className="text-slate-400">Offline llama-server execution with local data storage.</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Right Column: 2x2 Staggered Feature Cards */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {/* Column A (Cards 1 & 2) */}
-              <div className="space-y-6">
-                {/* Card 1: Ask BISync AI (Active Card filled #300060 with orange icon) */}
+            <div className="lg:col-span-5 bg-slate-900/90 border border-slate-700/80 rounded-2xl p-6 space-y-4 shadow-xl">
+              <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span>Statutory Compliance Assured</span>
+              </h3>
+
+              <div className="space-y-2.5 text-xs text-slate-300">
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>DPDP Act 2023 compliant data minimization</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Deterministic citation mapping to official e-BIS portal</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Strict anti-hallucination guardrails with abstention logic</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Pre-configured for Manakonline STI automated audits</span>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-800">
                 <Link
                   href="/chat"
-                  className="group block bg-[#300060] text-white p-8 rounded-[2rem] shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between"
+                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-5 rounded-full text-xs transition-colors flex items-center justify-center gap-2 shadow-md"
                 >
-                  <DualCircles primaryColor="#F17B32" secondaryColor="#ded8eb" />
-                  <div className="space-y-1">
-                    <span className="text-xs uppercase tracking-wider text-purple-200 font-medium">Copilot</span>
-                    <h3 className="text-2xl font-bold tracking-tight text-white group-hover:translate-x-1 transition-transform">
-                      Ask BISync AI
-                    </h3>
-                  </div>
-                </Link>
-
-                {/* Card 2: Find my Standard (Neutral #F4F4F4 Card) */}
-                <Link
-                  href="/explore"
-                  className="group block bg-[#F4F4F4] hover:bg-neutral-200 text-neutral-900 p-8 rounded-[2rem] shadow-sm hover:shadow-md hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between border border-neutral-200/60"
-                >
-                  <DualCircles primaryColor="#300060" secondaryColor="#cbd5e1" />
-                  <div className="space-y-1">
-                    <span className="text-xs uppercase tracking-wider text-purple-700 font-medium">Directory</span>
-                    <h3 className="text-2xl font-bold tracking-tight text-neutral-900 group-hover:translate-x-1 transition-transform">
-                      Find my Standard
-                    </h3>
-                  </div>
-                </Link>
-              </div>
-
-              {/* Column B (Cards 3 & 4 with top stagger offset matching Figma) */}
-              <div className="space-y-6 sm:mt-10">
-                {/* Card 3: Compliance Checker (Neutral #F4F4F4 Card) */}
-                <Link
-                  href="/compliance"
-                  className="group block bg-[#F4F4F4] hover:bg-neutral-200 text-neutral-900 p-8 rounded-[2rem] shadow-sm hover:shadow-md hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between border border-neutral-200/60"
-                >
-                  <DualCircles primaryColor="#300060" secondaryColor="#cbd5e1" />
-                  <div className="space-y-1">
-                    <span className="text-xs uppercase tracking-wider text-purple-700 font-medium">Assessment</span>
-                    <h3 className="text-2xl font-bold tracking-tight text-neutral-900 group-hover:translate-x-1 transition-transform">
-                      Compliance Checker
-                    </h3>
-                  </div>
-                </Link>
-
-                {/* Card 4: BIS Services (Neutral #F4F4F4 Card) */}
-                <Link
-                  href="/compliance"
-                  className="group block bg-[#F4F4F4] hover:bg-neutral-200 text-neutral-900 p-8 rounded-[2rem] shadow-sm hover:shadow-md hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between border border-neutral-200/60"
-                >
-                  <DualCircles primaryColor="#F17B32" secondaryColor="#cbd5e1" />
-                  <div className="space-y-1">
-                    <span className="text-xs uppercase tracking-wider text-purple-700 font-medium">e-BIS Portals</span>
-                    <h3 className="text-2xl font-bold tracking-tight text-neutral-900 group-hover:translate-x-1 transition-transform">
-                      BIS Services
-                    </h3>
-                  </div>
+                  <span>Experience the Copilot Demo</span>
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 3: "Find the right standard for your product."
-          Matches frame_18.2s.png - frame_19.5s.png with full composite
-          ───────────────────────────────────────────────────────────── */}
-      <section className="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
-        <Link
-          href="/explore"
-          className="group block relative rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-purple-900/20 hover:scale-[1.005]"
-        >
-          <div className="relative w-full aspect-[2511/2768] min-h-[550px] sm:min-h-[700px] lg:min-h-[850px]">
-            <Image
-              src="/assets/find-standards-banner.png"
-              alt="Find the right standard for your product - Vacuum Flask, 9W LED Bulb, CNC MCB"
-              fill
-              priority
-              className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
-            />
-            {/* Hover overlay hint */}
-            <div className="absolute top-8 right-8 z-20">
-              <span className="bg-white/90 backdrop-blur-md text-[#5D00B7] font-bold text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-lg inline-flex items-center gap-2 group-hover:bg-[#5D00B7] group-hover:text-white transition-all">
-                <span>Browse Product Catalog</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </span>
-            </div>
-          </div>
-        </Link>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 4: NEWSLETTER / BLOG INBOX
-          Matches frame_19.5s.png exactly
-          ───────────────────────────────────────────────────────────── */}
-      <section className="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div className="bg-[#5D00B7] rounded-[2.5rem] p-10 sm:p-16 lg:p-20 text-white shadow-2xl relative overflow-hidden">
-          {/* Subtle background glow */}
-          <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 max-w-4xl space-y-12">
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.18] font-sans">
-              Get the latest BISYNC news and
-              <br />
-              blog straight to your inbox
-            </h2>
-
-            <form onSubmit={handleSubscribe} className="max-w-3xl">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-6 border-b border-white/50 pb-4 focus-within:border-white transition-colors">
-                <input
-                  type="email"
-                  required
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="bg-transparent text-white placeholder-white/70 text-lg sm:text-xl font-normal w-full focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="bg-white hover:bg-neutral-100 text-neutral-950 font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 text-base transition-all hover:scale-105 active:scale-95 shrink-0 shadow-lg"
-                >
-                  <span>Subscribe</span>
-                  <ArrowUpRight className="w-5 h-5 text-neutral-900" />
-                </button>
-              </div>
-
-              {subscribed && (
-                <div className="mt-4 flex items-center gap-2 text-purple-200 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-300" />
-                  <span>Thank you for subscribing! You will receive official BIS Gazette &amp; standard updates.</span>
-                </div>
-              )}
-            </form>
           </div>
         </div>
       </section>
