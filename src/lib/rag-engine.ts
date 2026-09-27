@@ -3,6 +3,7 @@ import { recommendStandardsForBusiness, BusinessRecommendationResult } from "./r
 import { getLaboratories, BisLaboratory } from "./laboratories-data";
 import { getSchemes, getSchemeById, BisScheme } from "./schemes-data";
 import { callExternalLlm } from "./llm-provider";
+import { getRichStandardChunk } from "./rich-standards";
 
 export interface Citation {
   standardCode: string;
@@ -380,43 +381,99 @@ Ensure every section is thoroughly explained with concrete numbers, machine spec
   const uniqueStandards = Array.from(new Set(topMatches.map(m => m.standard)));
   const confidence = Math.min(0.99, 0.75 + (primaryMatch.score * 0.02));
 
-  // Prepare retrieved BIS context for LLM
-  const contextBlock = topMatches.map((m, idx) => 
-    `[${idx + 1}] Standard: ${m.standard.code} (${m.standard.title})\nClause: ${m.clause.number} - ${m.clause.title}\nContent: "${m.clause.content}"\n${m.clause.testRequirement ? `Test Requirement: ${m.clause.testRequirement}` : ""}\nScheme: ${m.standard.scheme}\nQCO: ${m.standard.qcoReference || "Voluntary"}`
+  // 1. Build comprehensive rich standards context blocks with full engineering tables
+  const richDossiers = uniqueStandards.slice(0, 2).map(std => getRichStandardChunk(std));
+
+  // 2. Add clause-specific deep matches
+  const specificClauseDetails = topMatches.map((m, idx) => 
+    `[Clause Ref ${idx + 1}] Standard: ${m.standard.code} (${m.standard.title})\n` +
+    `- Clause Number: ${m.clause.number} - ${m.clause.title}\n` +
+    `- Technical Content: "${m.clause.content}"\n` +
+    `${m.clause.testRequirement ? `- Mandatory Test Method / Limit: ${m.clause.testRequirement}\n` : ""}` +
+    `${m.clause.testMethod ? `- Reference Test Standard: ${m.clause.testMethod}\n` : ""}` +
+    `- Statutory Scheme: ${m.standard.certificationScheme}\n` +
+    `- Regulatory Mandate: ${m.standard.mandatory ? `Mandatory QCO (${m.standard.qcoOrder || "Gazetted Order"})` : "Voluntary BIS Standard"}`
   ).join("\n\n");
 
-  const systemPrompt = `You are the official BIS (Bureau of Indian Standards) Conversational Assistant.
-RULES:
-1. Answer ONLY using the information provided in the CONTEXT section. Never invent a standard number or clause.
-2. Whenever you state a requirement, cite the standard number and clause.
-3. Keep answers clear, factual, and strictly grounded.`;
+  const combinedContext = [
+    "=== OFFICIAL BUREAU OF INDIAN STANDARDS TECHNICAL SPECIFICATIONS & TABLES ===",
+    ...richDossiers,
+    "=== RELEVANT CLAUSES & TESTING THRESHOLDS ===",
+    specificClauseDetails
+  ].join("\n\n");
 
-  // Attempt external LLM generation (Gemini, OpenAI, or Groq if user provided key from other project)
+  const systemPrompt = `You are the official Bureau of Indian Standards (BIS) Smart Digital Expert and Senior Regulatory Consultant.
+Your mission is to provide an authoritative, exhaustive, and detailed technical engineering memorandum answering the user's inquiry strictly based on official Indian Standards (IS).
+
+MANDATORY RESPONSE STRUCTURE:
+1. **Executive Statutory Summary**: State the governing Indian Standard(s), current edition, Division Council, and whether it is under a Mandatory Quality Control Order (QCO) issued by the Ministry (DPIIT/MeitY/MoC) or Voluntary.
+2. **Technical Specifications & Acceptance Criteria**: Detail the numerical requirements, dimensions, chemical compositions, physical/mechanical properties, and tolerances. Render complete Markdown tables where applicable.
+3. **Mandatory Testing Procedures & Acceptance Limits**: Explain the specific laboratory tests (e.g. Temperature Rise, Glow-wire 850°C, Tensile/Proof Stress, Bend/Rebend, Migration limits) and their exact pass/fail criteria.
+4. **Scheme of Testing and Inspection (STI) & Quality Control**: Detail the factory batch sampling frequency, in-house laboratory calibration, and inspection routine required for BIS licensing.
+5. **Marking, Certification Scheme & Manakonline Compliance**: Detail the Standard Mark (ISI mark or CRS registration), product embossing/labeling rules, and licensing roadmap under Scheme I / Form V.
+
+RULES:
+- Be thorough, specific, and detailed—never output a shallow one-paragraph or two-bullet summary.
+- Always include concrete values, units (MPa, mm, °C, K, Ohm/km, % by mass), and exact clause references.
+- Ground all facts strictly in the provided BIS context.`;
+
+  // Attempt external LLM generation (Gemini)
   const externalLlmResponse = await callExternalLlm({
     systemPrompt,
-    context: contextBlock,
+    context: combinedContext,
     userQuery: rawQuery,
-    temperature: 0.2
+    temperature: 0.1
   });
 
   let answer = "";
   if (externalLlmResponse) {
-    answer = `${externalLlmResponse}\n\n> **Official BIS Reference**: You can verify the official document listing on the [BIS Standards Portal](${OFFICIAL_BIS_PORTAL_BASE}).`;
+    answer = `${externalLlmResponse}\n\n> **Official BIS Verification**: Verify current gazette notifications and licensing standards on the [e-BIS Standards Portal](${OFFICIAL_BIS_PORTAL_BASE}).`;
   } else {
-    // Local deterministic grounded generator (runs with 0 external API keys)
-    answer = `According to **${primaryMatch.standard.code}** (*${primaryMatch.standard.title}*), `;
-    answer += `under **${primaryMatch.clause.number} (${primaryMatch.clause.title})**:\n\n`;
-    answer += `> "${primaryMatch.clause.content}"\n\n`;
+    // Rich, detailed deterministic grounded fallback dossier
+    const sections: string[] = [];
+    
+    uniqueStandards.slice(0, 2).forEach(std => {
+      sections.push(
+        `### Standard Specification: ${std.code} — ${std.title}\n\n` +
+        `- **Division Council**: ${std.division} (${std.department || "Bureau of Indian Standards"})\n` +
+        `- **Statutory Status**: ${std.mandatory ? `**Mandatory Quality Control Order (QCO)** (${std.qcoOrder || "Legally Enforced"})` : "Voluntary BIS Standard"}\n` +
+        `- **Conformity Scheme**: **${std.certificationScheme}**\n\n` +
+        `**Scope & Regulatory Intent**:\n${std.scope}`
+      );
+    });
 
-    if (primaryMatch.clause.testRequirement) {
-      answer += `**Mandatory Testing Specification**: ${primaryMatch.clause.testRequirement}\n\n`;
+    // Clause Analysis
+    const clauseLines = topMatches.map(m => 
+      `#### Clause ${m.clause.number}: ${m.clause.title}\n` +
+      `- **Prescribed Requirement**: ${m.clause.content}\n` +
+      (m.clause.testRequirement ? `- **Mandatory Testing Parameter**: ${m.clause.testRequirement}\n` : "") +
+      (m.clause.testMethod ? `- **Test Standard / Methodology**: ${m.clause.testMethod}\n` : "")
+    );
+    sections.push("### Critical Technical Clauses & Acceptance Criteria:\n\n" + clauseLines.join("\n\n"));
+
+    // If pre-curated table exists
+    const richSnippet = getRichStandardChunk(primaryMatch.standard);
+    if (richSnippet.includes("| --- |")) {
+      const tablePart = richSnippet.split("\n\n").find(part => part.includes("| --- |"));
+      if (tablePart) {
+        sections.push("### Technical Parameter & Specification Table:\n\n" + tablePart);
+      }
     }
 
-    if (primaryMatch.standard.isMandatory) {
-      answer += `*Regulatory Mandate*: Compliance is mandatory under **${primaryMatch.standard.qcoReference || "BIS Quality Control Order"}**. Certification scheme: **${primaryMatch.standard.scheme}**.\n\n`;
+    if (primaryMatch.standard.blueprint) {
+      const bp = primaryMatch.standard.blueprint;
+      let bpSection = "### Scheme of Testing and Inspection (STI) & Quality Control Setup:\n\n";
+      if (bp.rawMaterials && bp.rawMaterials.length > 0) {
+        bpSection += "**Raw Material Inward Acceptance**:\n" + bp.rawMaterials.map(rm => `- **${rm.material}**: ${rm.specification} (*Inward Check*: ${rm.inwardTest})`).join("\n") + "\n\n";
+      }
+      if (bp.inHouseLaboratoryEquipment && bp.inHouseLaboratoryEquipment.length > 0) {
+        bpSection += "**Mandatory In-House QC Lab Instruments**:\n" + bp.inHouseLaboratoryEquipment.map(lab => `- **${lab.equipmentName}**: Tests clause *${lab.clauseTested}* (${lab.calibrationRequirement})`).join("\n") + "\n\n";
+      }
+      sections.push(bpSection);
     }
 
-    answer += `> **Official BIS Reference**: You can verify the official document listing on the [BIS Standards Portal](${OFFICIAL_BIS_PORTAL_BASE}).`;
+    sections.push(`> **Official BIS Verification**: Full standard gazette texts and laboratory test schedules can be cross-verified on the official [BIS Manakonline Portal](${OFFICIAL_BIS_PORTAL_BASE}).`);
+    answer = sections.join("\n\n---\n\n");
   }
 
   const result: RagResult = {
