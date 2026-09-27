@@ -63,69 +63,69 @@ export default function StandardDetailPage() {
       />
 
       {/* 1. Breadcrumb Navigation */}
-      <div className="flex items-center justify-between text-xs text-gov-slate no-print">
-        <Link href="/explore" className="hover:text-gov-navy font-semibold flex items-center gap-1">
-          <ArrowLeft className="w-3.5 h-3.5" />
+      <div className="flex items-center justify-between text-xs text-neutral-600 no-print">
+        <Link href="/explore" className="hover:text-[#300060] font-semibold flex items-center gap-1.5 transition-colors">
+          <ArrowLeft className="w-4 h-4 text-[#300060]" />
           <span>Back to Technical Standards Registry</span>
         </Link>
 
         <div className="flex items-center gap-2">
           <button
             onClick={() => window.print()}
-            className="px-2.5 py-1 bg-white hover:bg-gov-paper border border-gov-border rounded text-gov-navy font-semibold flex items-center gap-1 transition-colors"
+            className="px-3.5 py-1.5 bg-white hover:bg-neutral-100 border border-neutral-300 rounded-full text-neutral-800 font-semibold flex items-center gap-1.5 transition-all shadow-xs"
           >
-            <Printer className="w-3 h-3 text-gov-slate" />
+            <Printer className="w-3.5 h-3.5 text-neutral-600" />
             <span>Print Specification</span>
           </button>
           <button
             onClick={() => toggleSaveStandard(standard.id)}
-            className="px-2.5 py-1 bg-white hover:bg-gov-paper border border-gov-border rounded text-gov-navy font-semibold flex items-center gap-1 transition-colors"
+            className="px-3.5 py-1.5 bg-white hover:bg-neutral-100 border border-neutral-300 rounded-full text-neutral-800 font-semibold flex items-center gap-1.5 transition-all shadow-xs"
           >
-            {isSaved ? <BookmarkCheck className="w-3 h-3 text-amber-600" /> : <Bookmark className="w-3 h-3 text-gov-slate" />}
+            {isSaved ? <BookmarkCheck className="w-3.5 h-3.5 text-[#5D00B7]" /> : <Bookmark className="w-3.5 h-3.5 text-neutral-500" />}
             <span>{isSaved ? "Saved" : "Save Standard"}</span>
           </button>
         </div>
       </div>
 
       {/* 2. Official Standard Header Document Banner */}
-      <div className="bg-white border border-gov-border rounded p-6 space-y-4 shadow-subtle">
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-gov-border pb-4">
-          <div className="space-y-1.5 max-w-4xl">
+      <div className="bg-[#F4F4F4] border border-neutral-200/70 rounded-3xl p-6 sm:p-8 space-y-5 shadow-xs relative z-10">
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-5 border-b border-neutral-200/80 pb-5">
+          <div className="space-y-2 max-w-4xl">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="font-mono text-sm font-bold bg-gov-navy text-white px-2.5 py-0.5 rounded-sm">
+              <span className="font-mono text-sm font-bold bg-[#300060] text-white px-3.5 py-1 rounded-full shadow-xs">
                 {standard.code}
               </span>
-              <span className="text-xs text-gov-slate font-medium">
+              <span className="text-xs text-neutral-600 font-medium">
                 Reaffirmed {standard.year} • Division Council: {standard.division}
               </span>
             </div>
 
-            <h1 className="text-xl sm:text-2xl font-black text-gov-navy font-serif leading-snug">
+            <h1 className="text-2xl sm:text-3xl font-bold text-neutral-900 font-sans tracking-tight leading-snug">
               {standard.title}
             </h1>
 
-            <p className="text-xs text-gov-slate leading-relaxed pt-1">
+            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-1">
               {standard.scope}
             </p>
           </div>
 
-          <div className="bg-gov-paper border border-gov-border p-3.5 rounded text-xs space-y-1.5 shrink-0 min-w-[220px]">
+          <div className="bg-white border border-neutral-200/80 p-5 rounded-2xl text-xs space-y-2 shrink-0 min-w-[240px] shadow-xs">
             <div>
-              <strong className="text-gov-slate text-[10px] uppercase block">Conformity Scheme:</strong>
-              <span className="font-bold text-gov-navy">{standard.certificationScheme}</span>
+              <strong className="text-neutral-500 text-[10px] uppercase font-bold tracking-wider block">Conformity Scheme:</strong>
+              <span className="font-bold text-[#300060]">{standard.certificationScheme}</span>
             </div>
             <div>
-              <strong className="text-gov-slate text-[10px] uppercase block">Statutory Mandate:</strong>
+              <strong className="text-neutral-500 text-[10px] uppercase font-bold tracking-wider block">Statutory Mandate:</strong>
               {standard.mandatory ? (
-                <span className="font-bold text-amber-800 bg-amber-50 border border-amber-300 px-1.5 py-0.2 rounded-sm inline-block mt-0.5">
+                <span className="font-bold text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-full inline-block mt-0.5 text-[11px]">
                   Mandatory QCO Enforced
                 </span>
               ) : (
-                <span className="text-slate-500 font-medium">Voluntary Standard</span>
+                <span className="text-neutral-500 font-medium">Voluntary Standard</span>
               )}
             </div>
             {standard.qcoOrder && (
-              <div className="pt-1 border-t border-gov-border text-[11px] text-gov-slate">
+              <div className="pt-2 border-t border-neutral-200 text-[11px] text-neutral-600">
                 <strong>Gazette:</strong> {standard.qcoOrder}
               </div>
             )}
@@ -133,13 +133,13 @@ export default function StandardDetailPage() {
         </div>
 
         {/* 3. Document Tab Navigation Bar */}
-        <div className="flex items-center gap-1 border-b border-gov-border no-print overflow-x-auto">
+        <div className="flex flex-wrap items-center gap-2 border-b border-neutral-200/80 pb-3 no-print">
           <button
             onClick={() => setActiveTab("clauses")}
-            className={`px-3.5 py-2 text-xs font-bold border-b-2 transition-colors whitespace-nowrap ${
+            className={`px-4 py-2 text-xs font-bold rounded-full transition-all whitespace-nowrap ${
               activeTab === "clauses"
-                ? "border-gov-navy text-gov-navy"
-                : "border-transparent text-gov-slate hover:text-gov-navy"
+                ? "bg-[#300060] text-white shadow-xs"
+                : "bg-white hover:bg-neutral-100 text-neutral-700 border border-neutral-300"
             }`}
           >
             Technical Clauses & Tables ({standard.clauses.length})
@@ -148,23 +148,23 @@ export default function StandardDetailPage() {
           {standard.blueprint && (
             <button
               onClick={() => setActiveTab("blueprint")}
-              className={`px-3.5 py-2 text-xs font-bold border-b-2 transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+              className={`px-4 py-2 text-xs font-bold rounded-full transition-all whitespace-nowrap flex items-center gap-1.5 ${
                 activeTab === "blueprint"
-                  ? "border-gov-navy text-gov-navy"
-                  : "border-transparent text-gov-slate hover:text-gov-navy"
+                  ? "bg-[#300060] text-white shadow-xs"
+                  : "bg-white hover:bg-neutral-100 text-neutral-700 border border-neutral-300"
               }`}
             >
-              <Building2 className="w-3.5 h-3.5 text-gov-saffron" />
+              <Building2 className="w-3.5 h-3.5 text-[#F16104]" />
               <span>Factory & Business Setup Guide</span>
             </button>
           )}
 
           <button
             onClick={() => setActiveTab("scope")}
-            className={`px-3.5 py-2 text-xs font-bold border-b-2 transition-colors whitespace-nowrap ${
+            className={`px-4 py-2 text-xs font-bold rounded-full transition-all whitespace-nowrap ${
               activeTab === "scope"
-                ? "border-gov-navy text-gov-navy"
-                : "border-transparent text-gov-slate hover:text-gov-navy"
+                ? "bg-[#300060] text-white shadow-xs"
+                : "bg-white hover:bg-neutral-100 text-neutral-700 border border-neutral-300"
             }`}
           >
             Scope & Normative References
@@ -174,7 +174,7 @@ export default function StandardDetailPage() {
             href="https://www.services.bis.gov.in/php/BIS_2.0/bisconnect/knowyourstandards/"
             target="_blank"
             rel="noreferrer"
-            className="ml-auto px-3 py-1.5 text-xs font-semibold text-blue-700 hover:underline flex items-center gap-1 whitespace-nowrap"
+            className="sm:ml-auto px-4 py-2 text-xs font-bold text-[#5D00B7] hover:underline flex items-center gap-1 whitespace-nowrap"
           >
             <span>Official e-BIS Portal</span>
             <ExternalLink className="w-3 h-3" />
@@ -185,71 +185,75 @@ export default function StandardDetailPage() {
       {/* TAB 1: FULL CLAUSES & DATA TABLES */}
       {activeTab === "clauses" && (
         <div className="space-y-4">
-          <div className="bg-white border border-gov-border rounded p-3.5 flex items-center justify-between gap-3 shadow-subtle no-print">
-            <span className="text-xs font-bold text-gov-navy">
+          <div className="bg-[#F4F4F4] border border-neutral-200/70 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs no-print">
+            <span className="text-xs font-bold text-[#300060]">
               Showing {filteredClauses.length} technical clauses with test requirements
             </span>
-            <input
-              type="text"
-              value={clauseSearch}
-              onChange={(e) => setClauseSearch(e.target.value)}
-              placeholder="Search clause by title, number, or keyword..."
-              className="px-3 py-1.5 text-xs border border-gov-border rounded bg-gov-paper focus:bg-white focus:outline-none focus:border-gov-navy w-64"
-            />
+            <div className="relative">
+              <input
+                type="text"
+                value={clauseSearch}
+                onChange={(e) => setClauseSearch(e.target.value)}
+                placeholder="Search clause by title, number, or keyword…"
+                className="px-4 py-2 text-xs border border-neutral-300 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-[#5D00B7]/40 w-full sm:w-72 shadow-xs"
+              />
+            </div>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {filteredClauses.map((clause) => (
               <div
                 key={clause.id}
-                className="bg-white border border-gov-border rounded p-5 space-y-3 shadow-subtle"
+                className="bg-white border border-neutral-200/70 rounded-3xl p-6 space-y-4 shadow-xs hover:border-[#5D00B7]/30 transition-all"
               >
-                <div className="flex items-start justify-between gap-2 border-b border-gov-border pb-2.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-neutral-200/80 pb-3">
                   <div>
-                    <span className="font-mono font-bold text-xs text-gov-saffron">
-                      {clause.number}
+                    <span className="font-mono font-bold text-xs bg-purple-100/70 text-[#300060] px-3 py-1 rounded-full inline-block">
+                      Clause {clause.number}
                     </span>
-                    <h3 className="text-sm font-bold text-gov-navy font-serif mt-0.5">
+                    <h3 className="text-base font-bold text-neutral-900 font-sans mt-1.5">
                       {clause.title}
                     </h3>
                   </div>
                   {(clause.testRequirement || clause.testMethod) && (
-                    <span className="text-[10px] font-bold text-gov-slate bg-gov-paper px-2 py-0.5 rounded border border-gov-border">
+                    <span className="text-[11px] font-bold text-[#300060] bg-[#F4F4F4] px-3 py-1 rounded-full border border-neutral-200/80 self-start sm:self-center">
                       Method: {clause.testRequirement || clause.testMethod}
                     </span>
                   )}
                 </div>
 
-                <div className="text-xs text-gov-text leading-relaxed font-sans">
+                <div className="text-xs sm:text-sm text-neutral-700 leading-relaxed font-sans">
                   {clause.content}
                 </div>
 
                 {/* Specification Table Rendering */}
                 {clause.tableData && (
-                  <div className="pt-2 border-t border-gov-border overflow-x-auto">
-                    <strong className="text-[10px] font-bold text-gov-slate uppercase tracking-wide block mb-1.5">
+                  <div className="pt-3 border-t border-neutral-200 overflow-x-auto">
+                    <strong className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider block mb-2">
                       Technical Parameter Table:
                     </strong>
-                    <table className="w-full text-left table-dense border border-gov-border">
-                      <thead>
-                        <tr>
-                          {clause.tableData.headers.map((h, i) => (
-                            <th key={i}>{h}</th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {clause.tableData.rows.map((row, rIdx) => (
-                          <tr key={rIdx}>
-                            {row.map((cell, cIdx) => (
-                              <td key={cIdx} className={cIdx === 0 ? "font-bold text-gov-navy" : "text-gov-text"}>
-                                {cell}
-                              </td>
+                    <div className="rounded-2xl border border-neutral-200 overflow-hidden">
+                      <table className="w-full text-left text-xs">
+                        <thead className="bg-[#F4F4F4] text-neutral-700 font-bold uppercase tracking-wider border-b border-neutral-200">
+                          <tr>
+                            {clause.tableData.headers.map((h, i) => (
+                              <th key={i} className="px-4 py-3">{h}</th>
                             ))}
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody className="divide-y divide-neutral-200/70">
+                          {clause.tableData.rows.map((row, rIdx) => (
+                            <tr key={rIdx} className="hover:bg-neutral-50 transition-colors">
+                              {row.map((cell, cIdx) => (
+                                <td key={cIdx} className={`px-4 py-2.5 ${cIdx === 0 ? "font-bold text-[#300060]" : "text-neutral-700"}`}>
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 )}
               </div>

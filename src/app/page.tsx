@@ -81,13 +81,13 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 href="/chat"
-                className="bg-[#540ea3] hover:bg-[#6814c4] text-white font-medium px-8 py-3.5 rounded-full text-base shadow-xl shadow-purple-950/20 transition-all hover:scale-105 active:scale-95"
+                className="bg-[#5D00B7] hover:bg-[#6A00C4] text-white font-medium px-8 py-3.5 rounded-full text-base shadow-xl shadow-purple-950/20 transition-all hover:scale-105 active:scale-95"
               >
                 Start for free
               </Link>
               <Link
                 href="/explore"
-                className="bg-white hover:bg-neutral-50 text-[#540ea3] border-2 border-[#540ea3] font-medium px-8 py-3 rounded-full text-base transition-all hover:scale-105 active:scale-95 shadow-sm"
+                className="bg-white hover:bg-neutral-50 text-[#5D00B7] border-2 border-[#5D00B7] font-medium px-8 py-3 rounded-full text-base transition-all hover:scale-105 active:scale-95 shadow-sm"
               >
                 Log In
               </Link>
@@ -101,7 +101,11 @@ export default function HomePage() {
           Matches frame_13.5s.png exactly
           ───────────────────────────────────────────────────────────── */}
       <section className="relative py-28 overflow-hidden bg-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12">
+        {/* Soft, heavily-blurred purple circular decorative blobs */}
+        <div className="absolute -left-20 top-20 w-96 h-96 bg-[#300060]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute right-0 bottom-10 w-96 h-96 bg-[#5D00B7]/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Column: Heading & 3D Purple Sphere */}
             <div className="lg:col-span-6 relative">
@@ -115,7 +119,7 @@ export default function HomePage() {
 
               {/* 3D Purple Sphere with soft ambient glow */}
               <div className="relative mt-12 sm:mt-16 w-64 sm:w-80 h-64 sm:h-80 select-none pointer-events-none">
-                <div className="absolute inset-0 bg-purple-600/30 rounded-full blur-3xl transform scale-110" />
+                <div className="absolute inset-0 bg-[#5D00B7]/20 rounded-full blur-3xl transform scale-110" />
                 <Image
                   src="/assets/purple-sphere.png"
                   alt="3D Purple Sphere"
@@ -130,12 +134,12 @@ export default function HomePage() {
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Column A (Cards 1 & 2) */}
               <div className="space-y-6">
-                {/* Card 1: Ask BISync AI */}
+                {/* Card 1: Ask BISync AI (Active Card filled #300060 with orange icon) */}
                 <Link
                   href="/chat"
-                  className="group block bg-[#540ea3] text-white p-8 rounded-[2rem] shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between"
+                  className="group block bg-[#300060] text-white p-8 rounded-[2rem] shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between"
                 >
-                  <DualCircles primaryColor="#e06319" secondaryColor="#ded8eb" />
+                  <DualCircles primaryColor="#F17B32" secondaryColor="#ded8eb" />
                   <div className="space-y-1">
                     <span className="text-xs uppercase tracking-wider text-purple-200 font-medium">Copilot</span>
                     <h3 className="text-2xl font-bold tracking-tight text-white group-hover:translate-x-1 transition-transform">
@@ -144,12 +148,12 @@ export default function HomePage() {
                   </div>
                 </Link>
 
-                {/* Card 2: Find my Standard */}
+                {/* Card 2: Find my Standard (Neutral #F4F4F4 Card) */}
                 <Link
                   href="/explore"
-                  className="group block bg-[#efebf5] hover:bg-[#ded8eb] text-neutral-900 p-8 rounded-[2rem] shadow-sm hover:shadow-md hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between"
+                  className="group block bg-[#F4F4F4] hover:bg-neutral-200 text-neutral-900 p-8 rounded-[2rem] shadow-sm hover:shadow-md hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between border border-neutral-200/60"
                 >
-                  <DualCircles primaryColor="#2b0059" secondaryColor="#cbd5e1" />
+                  <DualCircles primaryColor="#300060" secondaryColor="#cbd5e1" />
                   <div className="space-y-1">
                     <span className="text-xs uppercase tracking-wider text-purple-700 font-medium">Directory</span>
                     <h3 className="text-2xl font-bold tracking-tight text-neutral-900 group-hover:translate-x-1 transition-transform">
@@ -161,12 +165,12 @@ export default function HomePage() {
 
               {/* Column B (Cards 3 & 4 with top stagger offset matching Figma) */}
               <div className="space-y-6 sm:mt-10">
-                {/* Card 3: Compliance Checker */}
+                {/* Card 3: Compliance Checker (Neutral #F4F4F4 Card) */}
                 <Link
                   href="/compliance"
-                  className="group block bg-[#efebf5] hover:bg-[#ded8eb] text-neutral-900 p-8 rounded-[2rem] shadow-sm hover:shadow-md hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between"
+                  className="group block bg-[#F4F4F4] hover:bg-neutral-200 text-neutral-900 p-8 rounded-[2rem] shadow-sm hover:shadow-md hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between border border-neutral-200/60"
                 >
-                  <DualCircles primaryColor="#2b0059" secondaryColor="#cbd5e1" />
+                  <DualCircles primaryColor="#300060" secondaryColor="#cbd5e1" />
                   <div className="space-y-1">
                     <span className="text-xs uppercase tracking-wider text-purple-700 font-medium">Assessment</span>
                     <h3 className="text-2xl font-bold tracking-tight text-neutral-900 group-hover:translate-x-1 transition-transform">
@@ -175,12 +179,12 @@ export default function HomePage() {
                   </div>
                 </Link>
 
-                {/* Card 4: BIS Services */}
+                {/* Card 4: BIS Services (Neutral #F4F4F4 Card) */}
                 <Link
                   href="/compliance"
-                  className="group block bg-[#efebf5] hover:bg-[#ded8eb] text-neutral-900 p-8 rounded-[2rem] shadow-sm hover:shadow-md hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between"
+                  className="group block bg-[#F4F4F4] hover:bg-neutral-200 text-neutral-900 p-8 rounded-[2rem] shadow-sm hover:shadow-md hover:scale-[1.03] transition-all cursor-pointer h-72 flex flex-col justify-between border border-neutral-200/60"
                 >
-                  <DualCircles primaryColor="#e06319" secondaryColor="#cbd5e1" />
+                  <DualCircles primaryColor="#F17B32" secondaryColor="#cbd5e1" />
                   <div className="space-y-1">
                     <span className="text-xs uppercase tracking-wider text-purple-700 font-medium">e-BIS Portals</span>
                     <h3 className="text-2xl font-bold tracking-tight text-neutral-900 group-hover:translate-x-1 transition-transform">
@@ -213,7 +217,7 @@ export default function HomePage() {
             />
             {/* Hover overlay hint */}
             <div className="absolute top-8 right-8 z-20">
-              <span className="bg-white/90 backdrop-blur-md text-[#540ea3] font-bold text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-lg inline-flex items-center gap-2 group-hover:bg-[#540ea3] group-hover:text-white transition-all">
+              <span className="bg-white/90 backdrop-blur-md text-[#5D00B7] font-bold text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-lg inline-flex items-center gap-2 group-hover:bg-[#5D00B7] group-hover:text-white transition-all">
                 <span>Browse Product Catalog</span>
                 <ArrowUpRight className="w-4 h-4" />
               </span>
@@ -227,7 +231,7 @@ export default function HomePage() {
           Matches frame_19.5s.png exactly
           ───────────────────────────────────────────────────────────── */}
       <section className="py-12 px-4 sm:px-8 max-w-7xl mx-auto">
-        <div className="bg-[#540ea3] rounded-[2.5rem] p-10 sm:p-16 lg:p-20 text-white shadow-2xl relative overflow-hidden">
+        <div className="bg-[#5D00B7] rounded-[2.5rem] p-10 sm:p-16 lg:p-20 text-white shadow-2xl relative overflow-hidden">
           {/* Subtle background glow */}
           <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl pointer-events-none" />
 

@@ -55,6 +55,21 @@ const config: Config = {
           "text-secondary": "#475569",
           "text-muted": "#64748B",
         },
+        // BISYNC Design System Palette (from Figma prototype)
+        bisync: {
+          indigo: "#300060",
+          purple: "#5D00B7",
+          "purple-start": "#6A00C4",
+          "purple-end": "#300060",
+          orange: "#F16104",
+          "orange-icon": "#F17B32",
+          black: "#000000",
+          neutral: "#F4F4F4",
+          lavender: "#C4B6CE",
+          "lavender-light": "#D1B8E3",
+          magenta: "#B14FE0",
+          "magenta-light": "#CA83E6",
+        },
       },
       fontFamily: {
         serif: ["Charter", "Georgia", "Cambria", "Times New Roman", "serif"],

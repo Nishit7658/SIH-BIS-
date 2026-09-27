@@ -49,69 +49,73 @@ export default function SavedPage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-      {/* 1. Header */}
-      <div className="bg-white border border-gov-border rounded p-6 space-y-3 shadow-subtle">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gov-border pb-3">
-          <div>
-            <span className="font-mono text-xs font-bold bg-gov-navy text-white px-2 py-0.5 rounded-sm">
-              USER WORKSPACE & DPDP HUB
-            </span>
-            <h1 className="text-xl font-bold text-gov-navy font-serif mt-1">
-              Bookmarked Standards & Compliance Reports
-            </h1>
+    <div className="min-h-screen bg-[#FBFBFC] py-8 px-4 sm:px-8 lg:px-12 transition-all">
+      <div className="max-w-6xl mx-auto space-y-6">
+        {/* Soft decorative background blob */}
+        <div className="absolute top-20 right-10 w-96 h-96 bg-[#5D00B7]/5 rounded-full blur-3xl pointer-events-none" />
+
+        {/* 1. Header */}
+        <div className="bg-[#F4F4F4] border border-neutral-200/70 rounded-3xl p-6 sm:p-8 space-y-5 shadow-xs relative z-10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-200/80 pb-5">
+            <div>
+              <span className="font-mono text-xs font-bold bg-[#300060] text-white px-3 py-1 rounded-full shadow-xs">
+                USER WORKSPACE & DPDP HUB
+              </span>
+              <h1 className="text-xl sm:text-2xl font-bold text-[#300060] font-sans tracking-tight mt-2">
+                Bookmarked Standards & Compliance Reports
+              </h1>
+            </div>
+
+            <button
+              onClick={handleExportData}
+              className="px-4 py-2 bg-white hover:bg-neutral-100 border border-neutral-300 rounded-full text-xs font-bold text-neutral-800 flex items-center gap-1.5 shadow-xs transition-all self-start sm:self-auto"
+            >
+              <Download className="w-3.5 h-3.5 text-neutral-600" />
+              <span>Export Workspace (JSON)</span>
+            </button>
           </div>
+          <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+            Manage saved standards, pre-audit inspection reports, and configure personal data retention compliant with India&apos;s Digital Personal Data Protection (DPDP) Act, 2023.
+          </p>
 
-          <button
-            onClick={handleExportData}
-            className="px-3 py-1.5 bg-gov-paper hover:bg-slate-200 border border-gov-border rounded text-xs font-bold text-gov-navy flex items-center gap-1.5 self-start"
-          >
-            <Download className="w-3.5 h-3.5 text-gov-slate" />
-            <span>Export Workspace (JSON)</span>
-          </button>
+          {/* Tab switch */}
+          <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-neutral-200/80 text-xs font-bold">
+            <button
+              onClick={() => setActiveTab("standards")}
+              className={`px-4 py-2 rounded-full transition-all shadow-xs ${
+                activeTab === "standards"
+                  ? "bg-[#300060] text-white"
+                  : "bg-white text-neutral-700 border border-neutral-300 hover:bg-neutral-100"
+              }`}
+            >
+              Saved Standards ({bookmarkedList.length})
+            </button>
+            <button
+              onClick={() => setActiveTab("reports")}
+              className={`px-4 py-2 rounded-full transition-all shadow-xs ${
+                activeTab === "reports"
+                  ? "bg-[#300060] text-white"
+                  : "bg-white text-neutral-700 border border-neutral-300 hover:bg-neutral-100"
+              }`}
+            >
+              Compliance Reports ({savedReports.length})
+            </button>
+            <button
+              onClick={() => setActiveTab("privacy")}
+              className={`px-4 py-2 rounded-full transition-all shadow-xs ${
+                activeTab === "privacy"
+                  ? "bg-[#300060] text-white"
+                  : "bg-white text-neutral-700 border border-neutral-300 hover:bg-neutral-100"
+              }`}
+            >
+              DPDP Privacy Controls
+            </button>
+          </div>
         </div>
-        <p className="text-xs text-gov-slate leading-relaxed">
-          Manage saved standards, pre-audit inspection reports, and configure personal data retention compliant with India's Digital Personal Data Protection (DPDP) Act, 2023.
-        </p>
 
-        {/* Tab switch */}
-        <div className="flex items-center gap-2 pt-2 border-t border-gov-border text-xs font-bold">
-          <button
-            onClick={() => setActiveTab("standards")}
-            className={`px-3 py-1.5 rounded border transition-colors ${
-              activeTab === "standards"
-                ? "bg-gov-navy text-white border-gov-navy"
-                : "bg-gov-paper text-gov-slate border-gov-border hover:text-gov-navy"
-            }`}
-          >
-            Saved Standards ({bookmarkedList.length})
-          </button>
-          <button
-            onClick={() => setActiveTab("reports")}
-            className={`px-3 py-1.5 rounded border transition-colors ${
-              activeTab === "reports"
-                ? "bg-gov-navy text-white border-gov-navy"
-                : "bg-gov-paper text-gov-slate border-gov-border hover:text-gov-navy"
-            }`}
-          >
-            Compliance Reports ({savedReports.length})
-          </button>
-          <button
-            onClick={() => setActiveTab("privacy")}
-            className={`px-3 py-1.5 rounded border transition-colors ${
-              activeTab === "privacy"
-                ? "bg-gov-navy text-white border-gov-navy"
-                : "bg-gov-paper text-gov-slate border-gov-border hover:text-gov-navy"
-            }`}
-          >
-            DPDP Privacy Controls
-          </button>
-        </div>
-      </div>
-
-      {/* TAB 1: SAVED STANDARDS */}
-      {activeTab === "standards" && (
-        <div className="border border-gov-border rounded overflow-hidden bg-white shadow-subtle">
+        {/* TAB 1: SAVED STANDARDS */}
+        {activeTab === "standards" && (
+          <div className="border border-neutral-200/70 rounded-3xl overflow-hidden bg-white shadow-xs">
           {bookmarkedList.length > 0 ? (
             <table className="w-full text-left table-dense">
               <thead>
@@ -267,6 +271,7 @@ export default function SavedPage() {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

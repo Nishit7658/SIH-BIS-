@@ -35,7 +35,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-4 z-50 px-4 sm:px-8 max-w-7xl mx-auto w-full transition-all duration-300">
-      <div className="bg-[#180033] text-white rounded-full px-6 sm:px-8 py-3.5 flex items-center justify-between shadow-2xl shadow-purple-950/40 border border-purple-900/30 backdrop-blur-md">
+      <div className="bg-[#300060] text-white rounded-full px-6 sm:px-8 py-3.5 flex items-center justify-between shadow-2xl shadow-purple-950/40 border border-purple-900/30 backdrop-blur-md">
         {/* Brand Left */}
         <Link href="/" className="flex items-center gap-3 shrink-0 group">
           <img
@@ -62,7 +62,7 @@ export function Navbar() {
                 href={item.href}
                 className={`text-sm tracking-wide transition-colors ${
                   isActive
-                    ? "text-[#f59e0b] font-semibold"
+                    ? "text-[#F16104] font-semibold"
                     : "text-white/80 hover:text-white font-medium"
                 }`}
               >
@@ -87,7 +87,7 @@ export function Navbar() {
             </button>
 
             {langDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-36 bg-[#1f0242] border border-purple-800/60 rounded-2xl shadow-xl py-1 z-50 text-xs">
+              <div className="absolute right-0 mt-2 w-36 bg-[#300060] border border-purple-800/60 rounded-2xl shadow-xl py-1 z-50 text-xs">
                 {languages.map((l) => (
                   <button
                     key={l.code}
@@ -96,7 +96,7 @@ export function Navbar() {
                       setLangDropdownOpen(false);
                     }}
                     className={`w-full text-left px-4 py-2 hover:bg-purple-900/60 transition-colors ${
-                      language === l.code ? "text-[#f59e0b] font-bold" : "text-white/90"
+                      language === l.code ? "text-[#F16104] font-bold" : "text-white/90"
                     }`}
                   >
                     {l.label}
@@ -109,9 +109,9 @@ export function Navbar() {
           {/* BiSync AI White CTA Pill */}
           <Link
             href="/chat"
-            className="bg-white hover:bg-slate-100 text-[#180033] rounded-full px-6 py-2 text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
+            className="bg-white hover:bg-slate-100 text-[#300060] rounded-full px-6 py-2 text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all"
           >
-            BiSync AI
+            BISync AI
           </Link>
         </div>
 
@@ -119,7 +119,7 @@ export function Navbar() {
         <div className="flex md:hidden items-center gap-2">
           <Link
             href="/chat"
-            className="bg-white text-[#180033] rounded-full px-3.5 py-1.5 text-xs font-bold"
+            className="bg-white text-[#300060] rounded-full px-3.5 py-1.5 text-xs font-bold"
           >
             AI
           </Link>
@@ -135,14 +135,14 @@ export function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="md:hidden mt-2 bg-[#180033] border border-purple-900/40 rounded-3xl p-5 shadow-2xl space-y-4">
+        <div className="md:hidden mt-2 bg-[#300060] border border-purple-900/40 rounded-3xl p-5 shadow-2xl space-y-4">
           <div className="flex flex-col space-y-3">
             {navLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm font-medium text-white/90 hover:text-[#f59e0b] py-1 px-2"
+                className="text-sm font-medium text-white/90 hover:text-[#F16104] py-1 px-2"
               >
                 {item.label}
               </Link>
@@ -157,7 +157,7 @@ export function Navbar() {
                   key={l.code}
                   onClick={() => setLanguage(l.code)}
                   className={`text-xs px-2.5 py-1 rounded-full ${
-                    language === l.code ? "bg-[#f59e0b] text-black font-bold" : "bg-purple-950 text-white"
+                    language === l.code ? "bg-[#F16104] text-white font-bold" : "bg-purple-950 text-white"
                   }`}
                 >
                   {l.label}

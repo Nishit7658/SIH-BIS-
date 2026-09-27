@@ -75,14 +75,17 @@ function ExploreCatalogContent() {
   }, [search, selectedCategory]);
 
   return (
-    <div className="min-h-screen bg-[#f7f5fa] py-8 px-4 sm:px-8 lg:px-12 transition-all">
+    <div className="min-h-screen bg-[#FBFBFC] py-8 px-4 sm:px-8 lg:px-12 transition-all">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* ─────────────────────────────────────────────────────────────
             TOP BANNER: "Indian Standards Catalog"
-            Matches frame_28.5s.png exactly
+            Lavender gradient banner (#C4B6CE → #D1B8E3)
             ───────────────────────────────────────────────────────────── */}
-        <div className="rounded-3xl bg-[#ded8eb] p-8 sm:p-12 shadow-sm">
-          <h1 className="text-3xl sm:text-5xl font-bold text-[#301257] tracking-tight font-sans">
+        <div
+          className="rounded-3xl p-8 sm:p-12 shadow-sm border border-purple-200/40"
+          style={{ background: "linear-gradient(135deg, #C4B6CE 0%, #D1B8E3 100%)" }}
+        >
+          <h1 className="text-3xl sm:text-5xl font-bold text-[#300060] tracking-tight font-sans">
             Indian Standards Catalog
           </h1>
           <p className="text-neutral-700 text-sm sm:text-base mt-3 max-w-3xl leading-relaxed">
@@ -92,25 +95,24 @@ function ExploreCatalogContent() {
 
         {/* ─────────────────────────────────────────────────────────────
             FILTER BAR: Rounded Search + Category Pills
-            Matches frame_28.5s.png exactly
             ───────────────────────────────────────────────────────────── */}
-        <div className="rounded-3xl bg-[#ded8eb] p-6 sm:p-8 space-y-5 shadow-sm">
-          {/* Rounded Search Bar */}
+        <div className="rounded-3xl bg-[#F4F4F4] p-6 sm:p-8 space-y-5 shadow-xs border border-neutral-200/60">
+          {/* Rounded Gray Search Bar */}
           <div className="relative">
             <Search className="w-5 h-5 text-neutral-500 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search by IS code, product name, or keyword..."
-              className="w-full pl-12 pr-4 py-3.5 bg-[#cbc5d6] text-neutral-900 placeholder:text-neutral-600 rounded-full font-normal text-sm focus:outline-none focus:ring-2 focus:ring-[#4a127d]/40 transition-all"
+              placeholder="Search by IS code, product name, or keyword…"
+              className="w-full pl-12 pr-4 py-3.5 bg-white text-neutral-900 placeholder:text-neutral-500 rounded-full font-normal text-sm border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-[#5D00B7]/40 transition-all shadow-xs"
             />
           </div>
 
-          {/* Bottom Row: Count + Category Pills */}
+          {/* Bottom Row: Count + Category Filter Pills */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1">
-            <div className="text-xs font-semibold text-neutral-800 shrink-0">
-              Showing <span className="text-[#301257] font-bold">{filteredStandards.length}</span> standard(s)
+            <div className="text-xs font-semibold text-neutral-700 shrink-0">
+              Showing <span className="text-[#300060] font-bold">{filteredStandards.length}</span> standard(s)
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
@@ -122,8 +124,8 @@ function ExploreCatalogContent() {
                     onClick={() => setSelectedCategory(cat)}
                     className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
                       isActive
-                        ? "bg-[#4a127d] text-white font-semibold shadow-sm scale-105"
-                        : "bg-[#ded9e2] hover:bg-[#cbc5d6] text-[#301257]"
+                        ? "bg-[#300060] text-white font-semibold shadow-sm"
+                        : "bg-white hover:bg-neutral-100 text-neutral-700 border border-neutral-300"
                     }`}
                   >
                     {cat}
@@ -135,8 +137,7 @@ function ExploreCatalogContent() {
         </div>
 
         {/* ─────────────────────────────────────────────────────────────
-            3-COLUMN STANDARDS CARD GRID
-            Matches frame_28.5s.png exactly
+            3-COLUMN STANDARDS CARD GRID: #F4F4F4 rounded cards
             ───────────────────────────────────────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
           {filteredStandards.map((std) => {
@@ -145,19 +146,19 @@ function ExploreCatalogContent() {
             return (
               <div
                 key={std.id}
-                className="group rounded-3xl bg-[#ded8eb] p-6 hover:bg-[#d8d1e6] hover:shadow-lg transition-all duration-200 flex flex-col justify-between"
+                className="group rounded-3xl bg-[#F4F4F4] p-6 hover:bg-neutral-200/80 hover:shadow-md transition-all duration-200 flex flex-col justify-between border border-neutral-200/70"
               >
                 <div>
-                  {/* Top Badge: IS Code */}
+                  {/* Top Badge: IS Code Purple Pill Tag */}
                   <div className="flex items-center justify-between mb-3">
-                    <span className="inline-block bg-[#cbc5d6] text-[#301257] font-semibold text-xs px-3 py-1 rounded-full">
+                    <span className="inline-block bg-[#300060] text-white font-semibold text-xs px-3 py-1 rounded-full shadow-xs">
                       {std.code}
                     </span>
 
                     <button
                       onClick={() => toggleSaveStandard(std.id)}
                       className={`p-1.5 rounded-full transition-colors ${
-                        isSaved ? "text-purple-900 bg-purple-200/80" : "text-neutral-500 hover:text-purple-900"
+                        isSaved ? "text-[#5D00B7] bg-purple-100" : "text-neutral-400 hover:text-[#5D00B7]"
                       }`}
                       title={isSaved ? "Remove Bookmark" : "Save Standard"}
                     >
@@ -167,29 +168,29 @@ function ExploreCatalogContent() {
 
                   {/* Standard Title */}
                   <Link href={`/standard/${std.id}`}>
-                    <h3 className="text-neutral-900 font-bold text-base line-clamp-2 leading-snug group-hover:text-[#4a127d] transition-colors">
+                    <h3 className="text-neutral-900 font-bold text-base line-clamp-2 leading-snug group-hover:text-[#5D00B7] transition-colors">
                       {std.title}
                     </h3>
                   </Link>
 
-                  {/* Standard Scope / Clauses Excerpt */}
-                  <p className="text-neutral-700 text-xs leading-relaxed line-clamp-4 mt-2.5">
+                  {/* Standard Scope / Clauses Excerpt (Gray Body Text) */}
+                  <p className="text-neutral-600 text-xs leading-relaxed line-clamp-4 mt-2.5">
                     {std.scope}
                   </p>
                 </div>
 
                 {/* Card Footer */}
-                <div className="pt-4 mt-4 border-t border-purple-300/40 flex items-center justify-between text-xs">
-                  <span className="text-[11px] text-purple-900 font-semibold">
+                <div className="pt-4 mt-4 border-t border-neutral-200 flex items-center justify-between text-xs">
+                  <span className="text-[11px] text-[#5D00B7] font-semibold">
                     {std.certificationScheme}
                   </span>
 
                   <Link
                     href={`/standard/${std.id}`}
-                    className="font-bold text-[#301257] hover:text-[#540ea3] flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                    className="font-bold text-[#300060] hover:text-[#5D00B7] flex items-center gap-1 group-hover:translate-x-1 transition-transform"
                   >
                     <span>View Clauses</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#e06319]" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#F16104]" />
                   </Link>
                 </div>
               </div>
@@ -197,7 +198,7 @@ function ExploreCatalogContent() {
           })}
 
           {filteredStandards.length === 0 && (
-            <div className="col-span-full py-16 text-center text-neutral-600 bg-[#ded8eb] rounded-3xl p-8">
+            <div className="col-span-full py-16 text-center text-neutral-600 bg-[#F4F4F4] rounded-3xl p-8 border border-neutral-200">
               <p className="text-base font-semibold text-neutral-800">No standards found matching your criteria.</p>
               <p className="text-xs text-neutral-600 mt-1">Try searching with a different keyword or select the &quot;All&quot; category.</p>
               <button
@@ -205,7 +206,7 @@ function ExploreCatalogContent() {
                   setSearch("");
                   setSelectedCategory("All");
                 }}
-                className="mt-4 px-5 py-2 bg-[#4a127d] text-white rounded-full text-xs font-semibold hover:bg-[#5810a5] transition-colors"
+                className="mt-4 px-5 py-2 bg-[#300060] text-white rounded-full text-xs font-semibold hover:bg-[#5D00B7] transition-colors"
               >
                 Reset Filters
               </button>

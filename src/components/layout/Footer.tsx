@@ -55,7 +55,7 @@ export function Footer() {
           <div className="flex sm:justify-end">
             <Link
               href="/chat"
-              className="bg-[#5810a5] hover:bg-[#6b1cb0] text-white font-medium px-8 py-3.5 rounded-full inline-flex items-center gap-2.5 text-base shadow-lg shadow-purple-950/60 transition-all hover:scale-105 active:scale-95"
+              className="bg-[#5D00B7] hover:bg-[#6A00C4] text-white font-medium px-8 py-3.5 rounded-full inline-flex items-center gap-2.5 text-base shadow-lg shadow-purple-950/60 transition-all hover:scale-105 active:scale-95"
             >
               <span>Let&apos;s Chat</span>
               <ArrowUpRight className="w-5 h-5" />
